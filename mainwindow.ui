@@ -1,57 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <author>Alireza Savand</author>
+ <class>yoDownet</class>
+ <widget class="QMainWindow" name="yoDownet">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>692</width>
+    <height>406</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="defaultTab">
+       <attribute name="title">
+        <string>Default</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QTableView" name="contentTableView"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>692</width>
      <height>20</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menu_File">
+   <widget class="QMenu" name="fileMenu">
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <addaction name="actionExit"/>
+    <addaction name="importUrlsAction"/>
+    <addaction name="exportUrlsAction"/>
+    <addaction name="exitAction"/>
    </widget>
-   <widget class="QMenu" name="menuEdit">
+   <widget class="QMenu" name="editMenu">
     <property name="title">
      <string>&amp;Edit</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menuTools">
+   <widget class="QMenu" name="settingMenu">
     <property name="title">
-     <string>&amp;Tools</string>
+     <string>&amp;Settings</string>
     </property>
-    <addaction name="actionOptions"/>
+    <addaction name="showMenuBarAction"/>
+    <addaction name="showToolBarAction"/>
+    <addaction name="showStatusBarAction"/>
+    <addaction name="separator"/>
+    <addaction name="optionsAction"/>
    </widget>
-   <widget class="QMenu" name="menu_Help">
+   <widget class="QMenu" name="helpMenu">
     <property name="title">
      <string>&amp;Help</string>
     </property>
-    <addaction name="actionReportBug"/>
-    <addaction name="actionAboutQt"/>
-    <addaction name="actionAboutyoDownet"/>
+    <addaction name="reportBugAction"/>
+    <addaction name="aboutQtAction"/>
+    <addaction name="aboutyoDownetAction"/>
    </widget>
-   <addaction name="menu_File"/>
-   <addaction name="menuEdit"/>
-   <addaction name="menuTools"/>
-   <addaction name="menu_Help"/>
+   <addaction name="fileMenu"/>
+   <addaction name="editMenu"/>
+   <addaction name="settingMenu"/>
+   <addaction name="helpMenu"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -62,7 +89,7 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionExit">
+  <action name="exitAction">
    <property name="text">
     <string>E&amp;xit</string>
    </property>
@@ -70,28 +97,94 @@
     <string>Ctrl+Q</string>
    </property>
   </action>
-  <action name="actionAboutQt">
+  <action name="aboutQtAction">
    <property name="text">
     <string>About &amp;Qt</string>
    </property>
   </action>
-  <action name="actionAboutyoDownet">
+  <action name="aboutyoDownetAction">
    <property name="text">
     <string>About yo&amp;Downet</string>
    </property>
   </action>
-  <action name="actionReportBug">
+  <action name="reportBugAction">
    <property name="text">
     <string>Report Bug...</string>
    </property>
   </action>
-  <action name="actionOptions">
+  <action name="optionsAction">
    <property name="text">
     <string>&amp;Options</string>
+   </property>
+  </action>
+  <action name="showMenuBarAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show &amp;Menubar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="showToolBarAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show &amp;Toolbar</string>
+   </property>
+  </action>
+  <action name="importUrlsAction">
+   <property name="text">
+    <string>Import Urls</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="exportUrlsAction">
+   <property name="text">
+    <string>Export Urls</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="showStatusBarAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show StatusBar</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>exitAction</sender>
+   <signal>triggered()</signal>
+   <receiver>yoDownet</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>345</x>
+     <y>202</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

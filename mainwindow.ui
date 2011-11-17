@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <author>Alireza Savand</author>
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>yoDownet</class>
+ <widget class="QMainWindow" name="yoDownet">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -173,7 +173,7 @@
   <connection>
    <sender>exitAction</sender>
    <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
+   <receiver>yoDownet</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">

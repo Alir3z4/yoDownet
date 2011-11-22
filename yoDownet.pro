@@ -18,5 +18,5 @@ HEADERS  += mainwindow.h
 FORMS    += mainwindow.ui
 
 OTHER_FILES += \
-    sql/yodownet-mysql-model.mwb \
-    sql/yodownet_mysql_db_creator_001
+    sql/yodownet_mysql_db_creator_001.sql \
+    sql/yodownet_mysql_model.mwb

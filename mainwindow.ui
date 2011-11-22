@@ -12,7 +12,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>yoDownet</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout_2">
@@ -114,7 +114,7 @@
   </action>
   <action name="optionsAction">
    <property name="text">
-    <string>&amp;Options</string>
+    <string>&amp;Preferences</string>
    </property>
   </action>
   <action name="showMenuBarAction">

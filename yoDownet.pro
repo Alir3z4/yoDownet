@@ -11,11 +11,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    preferencesdialog.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    preferencesdialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    preferencesdialog.ui
 
 OTHER_FILES += \
     sql/yodownet_mysql_model.mwb \

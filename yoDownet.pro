@@ -12,13 +12,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    preferencesdialog.cpp
+    preferencesdialog.cpp \
+    prefdownloaderswidget.cpp
 
 HEADERS  += mainwindow.h \
-    preferencesdialog.h
+    preferencesdialog.h \
+    prefdownloaderswidget.h
 
 FORMS    += mainwindow.ui \
-    preferencesdialog.ui
+    preferencesdialog.ui \
+    prefdownloaderswidget.ui
 
 OTHER_FILES += \
     sql/yodownet_mysql_model.mwb \

@@ -15,18 +15,21 @@ SOURCES += main.cpp\
     preferencesdialog.cpp \
     prefdownloaderswidget.cpp \
     prefdatabasewidget.cpp \
-    yoUtils/yomessage.cpp
+    yoUtils/yomessage.cpp \
+    importurls.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
     prefdownloaderswidget.h \
     prefdatabasewidget.h \
-    yoUtils/yomessage.h
+    yoUtils/yomessage.h \
+    importurls.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \
     prefdownloaderswidget.ui \
-    prefdatabasewidget.ui
+    prefdatabasewidget.ui \
+    importurls.ui
 
 OTHER_FILES += \
     sql/yodownet_mysql_model.mwb \

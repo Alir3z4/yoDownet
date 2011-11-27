@@ -65,7 +65,7 @@
     <addaction name="showToolBarAction"/>
     <addaction name="showStatusBarAction"/>
     <addaction name="separator"/>
-    <addaction name="optionsAction"/>
+    <addaction name="preferencesAction"/>
    </widget>
    <widget class="QMenu" name="helpMenu">
     <property name="title">
@@ -112,7 +112,7 @@
     <string>Report Bug...</string>
    </property>
   </action>
-  <action name="optionsAction">
+  <action name="preferencesAction">
    <property name="text">
     <string>&amp;Preferences</string>
    </property>

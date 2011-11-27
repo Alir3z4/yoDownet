@@ -14,12 +14,14 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     preferencesdialog.cpp \
     prefdownloaderswidget.cpp \
-    prefdatabasewidget.cpp
+    prefdatabasewidget.cpp \
+    yoUtils/yomessage.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
     prefdownloaderswidget.h \
-    prefdatabasewidget.h
+    prefdatabasewidget.h \
+    yoUtils/yomessage.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \

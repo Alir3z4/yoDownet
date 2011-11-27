@@ -18,6 +18,8 @@ public:
 private slots:
     void on_preferencesAction_triggered();
 
+    void on_aboutQtAction_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

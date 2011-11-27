@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "preferencesdialog.h"
+#include "yoUtils/yomessage.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,4 +21,9 @@ void MainWindow::on_preferencesAction_triggered()
     if(prefDialog.exec() == QDialog::Accepted) {
         // Doing some
     }
+}
+
+void MainWindow::on_aboutQtAction_triggered()
+{
+    yoMessage::aboutQt(this, tr("yoDownet : About Qt"));
 }

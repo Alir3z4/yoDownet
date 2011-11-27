@@ -20,6 +20,8 @@ private slots:
 
     void on_aboutQtAction_triggered();
 
+    void on_importUrlsAction_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

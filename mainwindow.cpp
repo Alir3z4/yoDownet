@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "preferencesdialog.h"
 #include "yoUtils/yomessage.h"
+#include "importurls.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -26,4 +27,12 @@ void MainWindow::on_preferencesAction_triggered()
 void MainWindow::on_aboutQtAction_triggered()
 {
     yoMessage::aboutQt(this, tr("yoDownet : About Qt"));
+}
+
+void MainWindow::on_importUrlsAction_triggered()
+{
+    ImportUrls impUrls;
+    if(impUrls.exec() == QDialog::Accepted){
+        //TODO: add batch urls to yoDownet
+    }
 }

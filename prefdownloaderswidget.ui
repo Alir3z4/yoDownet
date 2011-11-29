@@ -11,7 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Downloaders configuration</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="download"/>
   </property>
   <layout class="QGridLayout" name="PrefDownloadersWidgetGridLayout">
    <item row="0" column="1">

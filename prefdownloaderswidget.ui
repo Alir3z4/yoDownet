@@ -19,118 +19,21 @@
      <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="argsTab">
+     <widget class="QWidget" name="axelTab">
       <attribute name="title">
-       <string>Args</string>
+       <string>axel</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_6">
+      <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
-        <widget class="QLabel" name="downloaderNameLabel">
+        <widget class="QLabel" name="descriptionLabel">
          <property name="text">
-          <string>Downloader</string>
+          <string>axel argumants configuration.
+These argumants appends to each url.</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QComboBox" name="downloaderComboBox"/>
-       </item>
-       <item row="1" column="0" colspan="2">
-        <layout class="QHBoxLayout" name="argTableButtonsHLayout">
-         <item>
-          <widget class="QTableView" name="argTable"/>
-         </item>
-         <item>
-          <widget class="QGroupBox" name="argButtonsGroupBox">
-           <property name="title">
-            <string/>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_5">
-            <item row="0" column="0">
-             <widget class="QPushButton" name="addArgButton">
-              <property name="text">
-               <string>Add</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QPushButton" name="editArgButton">
-              <property name="text">
-               <string>Edit</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QPushButton" name="deleteArgButton">
-              <property name="text">
-               <string>Delete</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="downloadersTab">
-      <attribute name="title">
-       <string>Downloaders</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0">
-        <spacer name="DownloaderVSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>10</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
        <item row="1" column="0">
-        <layout class="QHBoxLayout" name="downloaderTableButtonsHLayout">
-         <item>
-          <widget class="QTableView" name="downloadersTable"/>
-         </item>
-         <item>
-          <widget class="QGroupBox" name="downloaderButtonsGroupBox">
-           <property name="title">
-            <string/>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_2">
-            <item row="0" column="0">
-             <widget class="QPushButton" name="addDownloaderButton">
-              <property name="text">
-               <string>Add</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QPushButton" name="editDownloaderButton">
-              <property name="text">
-               <string>Edit</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QPushButton" name="deleteDownloaderButton">
-              <property name="text">
-               <string>Delete</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-           <zorder>editDownloaderButton</zorder>
-           <zorder>addDownloaderButton</zorder>
-           <zorder>deleteDownloaderButton</zorder>
-           <zorder>downloadersTable</zorder>
-          </widget>
-         </item>
-        </layout>
+        <widget class="QTableView" name="argTable"/>
        </item>
       </layout>
      </widget>

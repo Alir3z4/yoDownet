@@ -32,5 +32,4 @@ FORMS    += mainwindow.ui \
     importurls.ui
 
 OTHER_FILES += \
-    sql/yodownet_mysql_model.mwb \
     sql/yodownet_mysql_db_000.sql

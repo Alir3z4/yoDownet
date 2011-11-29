@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Downloaders configuration</string>
+   <string>Downloader</string>
   </property>
   <property name="windowIcon">
    <iconset theme="download"/>

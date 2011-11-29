@@ -17,6 +17,10 @@ public:
     
 private:
     Ui::PreferencesDialog *ui;
+
+    QPushButton *okButton;
+    QPushButton *cancelButton;
+    QPushButton *applyButton;
 };
 
 #endif // PREFERENCESDIALOG_H

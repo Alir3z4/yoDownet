@@ -6,6 +6,11 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) :
     ui(new Ui::PreferencesDialog)
 {
     ui->setupUi(this);
+
+    // Setup buttons
+    okButton = ui->buttonBox->button(QDialogButtonBox::Ok);
+    cancelButton = ui->buttonBox->button(QDialogButtonBox::Cancel);
+    applyButton = ui->buttonBox->button(QDialogButtonBox::Apply);
 }
 
 PreferencesDialog::~PreferencesDialog()

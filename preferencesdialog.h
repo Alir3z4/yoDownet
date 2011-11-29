@@ -21,6 +21,8 @@ private:
     QPushButton *okButton;
     QPushButton *cancelButton;
     QPushButton *applyButton;
+
+    void addSection(QWidget *w);
 };
 
 #endif // PREFERENCESDIALOG_H

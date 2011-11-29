@@ -17,3 +17,10 @@ PreferencesDialog::~PreferencesDialog()
 {
     delete ui;
 }
+
+void PreferencesDialog::addSection(QWidget *w)
+{
+    QListWidgetItem *i = new QListWidgetItem(w->windowIcon(), w->windowTitle());
+    ui->sectionListWidget->addItem(i);
+    ui->pages->addWidget(w);
+}

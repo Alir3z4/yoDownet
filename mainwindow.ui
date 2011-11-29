@@ -113,6 +113,9 @@
    </property>
   </action>
   <action name="preferencesAction">
+   <property name="icon">
+    <iconset theme="configure"/>
+   </property>
    <property name="text">
     <string>&amp;Preferences</string>
    </property>

@@ -11,6 +11,13 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) :
     okButton = ui->buttonBox->button(QDialogButtonBox::Ok);
     cancelButton = ui->buttonBox->button(QDialogButtonBox::Cancel);
     applyButton = ui->buttonBox->button(QDialogButtonBox::Apply);
+
+    // Setup widgets
+    prefDler = new PrefDownloadersWidget;
+    addSection(prefDler);
+
+    prefDb = new PrefDataBaseWidget;
+    addSection(prefDb);
 }
 
 PreferencesDialog::~PreferencesDialog()

@@ -2,6 +2,8 @@
 #define PREFERENCESDIALOG_H
 
 #include <QDialog>
+#include "prefdownloaderswidget.h"
+#include "prefdatabasewidget.h"
 
 namespace Ui {
 class PreferencesDialog;
@@ -21,6 +23,9 @@ private:
     QPushButton *okButton;
     QPushButton *cancelButton;
     QPushButton *applyButton;
+
+    PrefDownloadersWidget *prefDler;
+    PrefDataBaseWidget *prefDb;
 
     void addSection(QWidget *w);
 };

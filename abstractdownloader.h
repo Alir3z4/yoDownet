@@ -10,7 +10,7 @@ public:
     explicit AbstractDownloader(QObject *parent = 0);
 
     // Best place to keep inline functions
-    // So first of all a function for set file destination Path [fileDestPath]
+    // Set file destination Path [fileDestPath]
     inline virtual void setFileDestPath(QString &argDestPath) { fileDestPath = argDestPath; }
 
 protected:

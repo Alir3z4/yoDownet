@@ -31,7 +31,7 @@
         <widget class="QLabel" name="descriptionLabel">
          <property name="text">
           <string>axel argumants configuration.
-These argumants appends to each url.</string>
+All argumants will appends to each url.</string>
          </property>
         </widget>
        </item>

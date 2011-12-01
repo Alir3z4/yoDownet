@@ -16,14 +16,16 @@ SOURCES += main.cpp\
     prefdownloaderswidget.cpp \
     prefdatabasewidget.cpp \
     yoUtils/yomessage.cpp \
-    importurls.cpp
+    importurls.cpp \
+    abstractdownloader.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
     prefdownloaderswidget.h \
     prefdatabasewidget.h \
     yoUtils/yomessage.h \
-    importurls.h
+    importurls.h \
+    abstractdownloader.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \

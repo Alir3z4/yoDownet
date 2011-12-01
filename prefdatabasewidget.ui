@@ -36,7 +36,14 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
       <item row="2" column="1">
-       <widget class="QLineEdit" name="passwordEdit"/>
+       <widget class="QLineEdit" name="passwordEdit">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="usernameLabel">
@@ -69,10 +76,18 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="usernameEdit"/>
+       <widget class="QLineEdit" name="usernameEdit">
+        <property name="text">
+         <string>root</string>
+        </property>
+       </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="serverEdit"/>
+       <widget class="QLineEdit" name="serverEdit">
+        <property name="text">
+         <string>localhost</string>
+        </property>
+       </widget>
       </item>
       <item row="0" column="3">
        <widget class="QSpinBox" name="portSpinBox">
@@ -105,7 +120,11 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QLineEdit" name="databaseEdit"/>
+       <widget class="QLineEdit" name="databaseEdit">
+        <property name="text">
+         <string>yodownet</string>
+        </property>
+       </widget>
       </item>
       <item row="4" column="0" colspan="4">
        <widget class="QFrame" name="frame">

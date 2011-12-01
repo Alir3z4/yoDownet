@@ -14,7 +14,9 @@
    <string>Downloader</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="download"/>
+   <iconset theme="download">
+    <normaloff/>
+   </iconset>
   </property>
   <layout class="QGridLayout" name="PrefDownloadersWidgetGridLayout">
    <item row="0" column="1">

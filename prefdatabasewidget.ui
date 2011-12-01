@@ -14,7 +14,9 @@
    <string>DataBase</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="server-database"/>
+   <iconset theme="server-database">
+    <normaloff/>
+   </iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">

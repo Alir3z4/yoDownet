@@ -10,3 +10,9 @@ QString AbstractDownloader::downloaderName() const
 {
     return m_downloaderName;
 }
+
+// Return url
+QString AbstractDownloader::url() const
+{
+    return m_url;
+}

@@ -17,7 +17,7 @@ public:
 
     // Getter functions goes here
     // Return downloader name
-    QString downloaderName() const { return dlerName; }
+    QString downloaderName() const;
 
 protected:
     // Holding Url, this one shoulda huged tightly

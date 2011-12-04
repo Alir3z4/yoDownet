@@ -16,3 +16,9 @@ QString AbstractDownloader::url() const
 {
     return m_url;
 }
+
+// Return correct file name
+QString AbstractDownloader::fileName() const
+{
+    return m_fileName;
+}

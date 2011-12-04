@@ -22,3 +22,9 @@ QString AbstractDownloader::fileName() const
 {
     return m_fileName;
 }
+
+// Return full file destination path
+QString AbstractDownloader::fileDestPath() const
+{
+    return m_fileDestPath;
+}

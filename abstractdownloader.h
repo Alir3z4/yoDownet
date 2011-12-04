@@ -15,6 +15,10 @@ public:
     // Set file destination Path [fileDestPath]
     inline virtual void setFileDestPath(QString &argDestPath) { fileDestPath = argDestPath; }
 
+    // Getter functions goes here
+    // Return downloader name
+    QString downloaderName() const { return dlerName; }
+
 protected:
     // Holding Url, this one shoulda huged tightly
     // Because the main business is url:x
@@ -26,6 +30,9 @@ protected:
     // Okay then, don't be shy my file
     // Just wanna know your size
     int fileSize;
+
+    // So finally downloader name
+    QString dlerName;
 };
 
 #endif // ABSTRACTDOWNLOADER_H

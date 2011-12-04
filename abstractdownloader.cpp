@@ -28,3 +28,9 @@ QString AbstractDownloader::fileDestPath() const
 {
     return m_fileDestPath;
 }
+
+// Return file size
+int AbstractDownloader::fileSize() const
+{
+    return m_fileSize;
+}

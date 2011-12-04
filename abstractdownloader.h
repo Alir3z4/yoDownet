@@ -11,9 +11,9 @@ public:
 
     // Best place to keep inline functions
     // Set file size
-    inline void setFileSize(int &argSize) { fileSize =  argSize; }
+    inline void setFileSize(int &argSize) { m_fileSize =  argSize; }
     // Set file destination Path [fileDestPath]
-    inline virtual void setFileDestPath(QString &argDestPath) { fileDestPath = argDestPath; }
+    inline virtual void setFileDestPath(QString &argDestPath) { m_fileDestPath = argDestPath; }
 
     // Getter functions goes here
     // Return downloader name
@@ -22,17 +22,17 @@ public:
 protected:
     // Holding Url, this one shoulda huged tightly
     // Because the main business is url:x
-    QString url;
+    QString m_url;
     // Then shoulda wink File name
-    QString fileName;
+    QString m_fileName;
     // Excusme, Where do you wanna go?
-    QString fileDestPath;
+    QString m_fileDestPath;
     // Okay then, don't be shy my file
     // Just wanna know your size
-    int fileSize;
+    int m_fileSize;
 
     // So finally downloader name
-    QString dlerName;
+    QString m_downloaderName;
 };
 
 #endif // ABSTRACTDOWNLOADER_H

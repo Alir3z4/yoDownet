@@ -16,10 +16,15 @@ public:
     inline virtual void setFileDestPath(QString &argDestPath) { m_fileDestPath = argDestPath; }
 
     // Getter functions goes here
-    // Return downloader name
     QString downloaderName() const;
+    QString url() const;
+    QString fileName() const;
+    QString fileDestPath() const;
+    int fileSize() const;
 
 protected:
+    // Yummy! downloader name
+    QString m_downloaderName;
     // Holding Url, this one shoulda huged tightly
     // Because the main business is url:x
     QString m_url;
@@ -30,9 +35,6 @@ protected:
     // Okay then, don't be shy my file
     // Just wanna know your size
     int m_fileSize;
-
-    // So finally downloader name
-    QString m_downloaderName;
 };
 
 #endif // ABSTRACTDOWNLOADER_H

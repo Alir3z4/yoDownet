@@ -1,0 +1,10 @@
+#ifndef ARIA2C_H
+#define ARIA2C_H
+
+class Aria2c
+{
+public:
+    Aria2c();
+};
+
+#endif // ARIA2C_H

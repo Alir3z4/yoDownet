@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     yoUtils/yomessage.cpp \
     importurls.cpp \
     abstractdownloader.cpp \
-    addurldialog.cpp
+    addurldialog.cpp \
+    yoDownloaders/aria2c.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -27,7 +28,8 @@ HEADERS  += mainwindow.h \
     yoUtils/yomessage.h \
     importurls.h \
     abstractdownloader.h \
-    addurldialog.h
+    addurldialog.h \
+    yoDownloaders/aria2c.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \

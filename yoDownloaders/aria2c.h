@@ -20,6 +20,8 @@ public:
 
     string shutdown();
     string forceShutdown();
+    // make some noise :d
+    string _nonParam(string methodName);
 };
 
 #endif // ARIA2C_H

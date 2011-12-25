@@ -181,3 +181,18 @@ string Aria2c::forceShutdown()
     return _nonParam("aria2.forceShutdown");
 }
 
+string Aria2c::_nonParam(string methodName)
+{
+    xmlrpc_c::value result;
+    xmlrpc_c::paramList params; // Just initial, not used :D
+
+    xmlrpc_c::rpcPtr rpc(methodName, params);
+    rpc->call(&_client, &_carriageParm);
+
+    if(rpc->isSuccessful())
+        result = rpc->getResult();
+    else
+        throw rpc->getFault();
+
+    return xmlrpc_c::value_string(result);
+}

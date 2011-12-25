@@ -1,16 +1,26 @@
 #ifndef ARIA2C_H
 #define ARIA2C_H
 
+#include <vector>
+#include <string>
+#include <map>
+#include <xmlrpc-c/client_simple.hpp>
+
+using namespace std;
 class Aria2c
 {
 public:
-    Aria2c();
-    string addUri(vector<string> uris);
+    Aria2c(string &url);
+
+    // Operations
     string addUri(vector<string> &uris);
     string addUri(vector<string> &uris, map<string, string> &options);
 
+    // Aria2c actions
+    // Remove
     string remove(string &gid);
     string forceRemove(string &gid);
+    // Pause
     string pause(string &gid);
     string forcePause(string &gid);
     string unPause(string &gid);
@@ -18,7 +28,9 @@ public:
     string forcePauseAll();
     string unpauseAll();
 
+    // Shutdown :|
     string shutdown();
+    // Shut da fuck up, will ya!
     string forceShutdown();
 
 private:

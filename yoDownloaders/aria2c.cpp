@@ -1,6 +1,7 @@
 #include "aria2c.h"
 
-Aria2c::Aria2c()
+Aria2c::Aria2c(string &url)
+    :_client(&_transport), _carriageParm(url)
 {
 }
 
@@ -8,6 +9,7 @@ string Aria2c::addUri(vector<string> &uris)
 {
     string const methodName = "aria2.addUri";
     xmlrpc_c::value result;
+    xmlrpc_c::paramList params;
     vector<xmlrpc_c::value> v_uris;
 
     for (int i = 0, j = uris.size(); i < j; i++)
@@ -15,7 +17,6 @@ string Aria2c::addUri(vector<string> &uris)
 
     xmlrpc_c::value_array a_uris(v_uris);
 
-    xmlrpc_c::paramList params;
     params.add(a_uris);
 
     xmlrpc_c::rpcPtr rpc(methodName, params);
@@ -27,6 +28,7 @@ string Aria2c::addUri(vector<string> &uris)
 
     return xmlrpc_c::value_string(result);
 }
+
 string Aria2c::addUri(vector<string> &uris, map<string, string> &options)
 {
     string const methodName = "aria2.addUri";
@@ -80,6 +82,7 @@ string Aria2c::remove(string &gid)
 
     return xmlrpc_c::value_string(result);
 }
+
 string Aria2c::forceRemove(string &gid)
 {
     string const methodName = "aria2.forceRemove";

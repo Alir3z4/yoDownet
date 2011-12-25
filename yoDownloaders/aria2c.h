@@ -16,6 +16,8 @@ public:
     string unPause(string &gid);
     string pauseAll();
     string forcePauseAll();
+    string unpauseAll();
+
 };
 
 #endif // ARIA2C_H

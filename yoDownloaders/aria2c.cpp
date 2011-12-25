@@ -161,3 +161,8 @@ string Aria2c::pauseAll()
     return _nonParam("aria2.pauseAll");
 }
 
+string Aria2c::forcePauseAll()
+{
+    return _nonParam("aria2.forcePauseAll");
+}
+

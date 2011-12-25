@@ -5,6 +5,7 @@ class Aria2c
 {
 public:
     Aria2c();
+    string addUri(vector<string> uris);
 };
 
 #endif // ARIA2C_H

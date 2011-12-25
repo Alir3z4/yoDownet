@@ -8,6 +8,8 @@ QT       += core gui
 
 TARGET = yoDownet
 TEMPLATE = app
+LIBS += -lxmlrpc++ \
+    -lxmlrpc_client++
 
 
 SOURCES += main.cpp\

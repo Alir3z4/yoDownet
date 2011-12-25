@@ -7,6 +7,7 @@ public:
     Aria2c();
     string addUri(vector<string> uris);
     string addUri(vector<string> &uris);
+    string remove(string &gid);
 };
 
 #endif // ARIA2C_H

@@ -27,3 +27,21 @@ string Aria2c::addUri(vector<string> uris)
 
     return xmlrpc_c::value_string(result);
 }
+string Aria2c::remove(string &gid)
+{
+    string const methodName = "aria2.remove";
+    xmlrpc_c::value result;
+    xmlrpc_c::paramList params;
+
+    params.add(xmlrpc_c::value_string(gid));
+
+    xmlrpc_c::rpcPtr rpc(methodName, params);
+    rpc->call(&_client, &_carriageParm);
+
+    if(rpc->isSuccessful())
+        result = rpc->getResult();
+    else
+        throw rpc->getFault();
+
+    return xmlrpc_c::value_string(result);
+}

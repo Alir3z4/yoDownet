@@ -18,6 +18,7 @@ public:
     string forcePauseAll();
     string unpauseAll();
 
+    string shutdown();
 };
 
 #endif // ARIA2C_H

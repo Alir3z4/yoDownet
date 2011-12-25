@@ -176,3 +176,8 @@ string Aria2c::shutdown()
     return _nonParam("aria2.shutdown");
 }
 
+string Aria2c::forceShutdown()
+{
+    return _nonParam("aria2.forceShutdown");
+}
+

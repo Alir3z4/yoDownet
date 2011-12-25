@@ -11,6 +11,7 @@ public:
 
     string remove(string &gid);
     string forceRemove(string &gid);
+    string pause(string &gid);
 };
 
 #endif // ARIA2C_H

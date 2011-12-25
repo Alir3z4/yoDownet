@@ -4,7 +4,7 @@ Aria2c::Aria2c()
 {
 }
 
-string Aria2c::addUri(vector<string> uris)
+string Aria2c::addUri(vector<string> &uris)
 {
     string const methodName = "aria2.addUri";
     xmlrpc_c::value result;

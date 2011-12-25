@@ -7,6 +7,8 @@ public:
     Aria2c();
     string addUri(vector<string> uris);
     string addUri(vector<string> &uris);
+    string addUri(vector<string> &uris, map<string, string> &options);
+
     string remove(string &gid);
 };
 

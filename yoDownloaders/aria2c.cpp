@@ -156,3 +156,8 @@ string Aria2c::unPause(string &gid)
     return xmlrpc_c::value_string(result);
 }
 
+string Aria2c::pauseAll()
+{
+    return _nonParam("aria2.pauseAll");
+}
+

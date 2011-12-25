@@ -10,6 +10,7 @@ public:
     string addUri(vector<string> &uris, map<string, string> &options);
 
     string remove(string &gid);
+    string forceRemove(string &gid);
 };
 
 #endif // ARIA2C_H

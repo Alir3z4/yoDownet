@@ -19,7 +19,6 @@ SOURCES += main.cpp\
     prefdatabasewidget.cpp \
     yoUtils/yomessage.cpp \
     importurls.cpp \
-    abstractdownloader.cpp \
     addurldialog.cpp \
     yoDownloaders/aria2c.cpp \
     filebrowz.cpp
@@ -30,7 +29,6 @@ HEADERS  += mainwindow.h \
     prefdatabasewidget.h \
     yoUtils/yomessage.h \
     importurls.h \
-    abstractdownloader.h \
     addurldialog.h \
     yoDownloaders/aria2c.h \
     filebrowz.h

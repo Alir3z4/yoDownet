@@ -85,109 +85,56 @@ string Aria2c::remove(string &gid)
 
 string Aria2c::forceRemove(string &gid)
 {
-    string const methodName = "aria2.forceRemove";
-    xmlrpc_c::value result;
-    xmlrpc_c::paramList params;
-
-    params.add(xmlrpc_c::value_string(gid));
-
-    xmlrpc_c::rpcPtr rpc(methodName, params);
-    rpc->call(&_client, &_carriageParm);
-
-    if(rpc->isSuccessful())
-        result = rpc->getResult();
-    else
-        throw rpc->getFault();
-
-    return xmlrpc_c::value_string(result);
+    return _forDoneSake("aria2.forceRemove", gid);
 }
 
 string Aria2c::pause(string &gid)
 {
-    string const methodName = "aria2.pause";
-    xmlrpc_c::value result;
-    xmlrpc_c::paramList params;
-
-    params.add(xmlrpc_c::value_string(gid));
-
-    xmlrpc_c::rpcPtr rpc(methodName, params);
-    rpc->call(&_client, &_carriageParm);
-
-    if(rpc->isSuccessful())
-        result = rpc->getResult();
-    else
-        throw rpc->getFault();
-
-    return xmlrpc_c::value_string(result);
+    return _forDoneSake("aria2.pause", gid);
 }
 
 string Aria2c::forcePause(string &gid)
 {
-    string const methodName = "aria2.forcePause";
-    xmlrpc_c::value result;
-    xmlrpc_c::paramList params;
-
-    params.add(xmlrpc_c::value_string(gid));
-
-    xmlrpc_c::rpcPtr rpc(methodName, params);
-    rpc->call(&_client, &_carriageParm);
-
-    if(rpc->isSuccessful())
-        result = rpc->getResult();
-    else
-        throw rpc->getFault();
-
-    return xmlrpc_c::value_string(result);
+    return _forDoneSake("aria2.forcePause", gid);
 }
 
 string Aria2c::unPause(string &gid)
 {
-    string const methodName = "aria2.unpause";
-    xmlrpc_c::value result;
-    xmlrpc_c::paramList params;
-
-    params.add(xmlrpc_c::value_string(gid));
-
-    xmlrpc_c::rpcPtr rpc(methodName, params);
-    rpc->call(&_client, &_carriageParm);
-
-    if(rpc->isSuccessful())
-        result = rpc->getResult();
-    else
-        throw rpc->getFault();
-
-    return xmlrpc_c::value_string(result);
+     return _forDoneSake("aria2.unpause", gid);
 }
 
 string Aria2c::pauseAll()
 {
-    return _forDoneSake("aria2.pauseAll");
+    return _forDoneSake("aria2.pauseAll", string());
 }
 
 string Aria2c::forcePauseAll()
 {
-    return _forDoneSake("aria2.forcePauseAll");
+    return _forDoneSake("aria2.forcePauseAll", string());
 }
 
 string Aria2c::unpauseAll()
 {
-    return _forDoneSake("aria2.unPauseAll");
+    return _forDoneSake("aria2.unPauseAll", string());
 }
 
 string Aria2c::shutdown()
 {
-    return _forDoneSake("aria2.shutdown");
+    return _forDoneSake("aria2.shutdown", string());
 }
 
 string Aria2c::forceShutdown()
 {
-    return _forDoneSake("aria2.forceShutdown");
+    return _forDoneSake("aria2.forceShutdown", string());
 }
 
-string Aria2c::_forDoneSake(string methodName)
+string Aria2c::_forDoneSake(string methodName, const string &gid)
 {
     xmlrpc_c::value result;
     xmlrpc_c::paramList params; // Just initial, not used :D
+
+    if(gid != "")
+        params.add(xmlrpc_c::value_string(gid));
 
     xmlrpc_c::rpcPtr rpc(methodName, params);
     rpc->call(&_client, &_carriageParm);

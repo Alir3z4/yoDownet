@@ -42,7 +42,7 @@ private:
     xmlrpc_c::carriageParm_curl0 _carriageParm;
 
     // make some noise :d
-    string _forDoneSake(string methodName);
+    string _forDoneSake(string methodName, const string &gid);
 };
 
 #endif // ARIA2C_H

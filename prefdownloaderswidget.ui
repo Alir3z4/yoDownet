@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>390</width>
-    <height>248</height>
+    <width>388</width>
+    <height>246</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,28 +19,15 @@
    </iconset>
   </property>
   <layout class="QGridLayout" name="PrefDownloadersWidgetGridLayout">
-   <item row="0" column="1">
-    <widget class="QTabWidget" name="tabWidget">
+   <item row="0" column="0">
+    <widget class="QTabWidget" name="downloaderTabWidget">
      <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="aria2Tab">
+     <widget class="QWidget" name="saveToTab">
       <attribute name="title">
-       <string>aria2</string>
+       <string>Save To</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="0" column="0">
-        <widget class="QLabel" name="descriptionLabel">
-         <property name="text">
-          <string>axel argumants configuration.
-All argumants will appends to each url.</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QTableView" name="argTable"/>
-       </item>
-      </layout>
      </widget>
     </widget>
    </item>

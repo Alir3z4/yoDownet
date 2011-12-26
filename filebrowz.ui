@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ChooserDialog</class>
- <widget class="QWidget" name="ChooserDialog">
+ <class>FileBrowz</class>
+ <widget class="QWidget" name="FileBrowz">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="ChooserDialogGridLayout">
+  <layout class="QGridLayout" name="FileBrowzGridLayout">
    <item row="0" column="0">
     <widget class="QLineEdit" name="pathEdit"/>
    </item>

@@ -22,7 +22,7 @@ SOURCES += main.cpp\
     abstractdownloader.cpp \
     addurldialog.cpp \
     yoDownloaders/aria2c.cpp \
-    chooserdialog.cpp
+    filebrowz.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -33,7 +33,7 @@ HEADERS  += mainwindow.h \
     abstractdownloader.h \
     addurldialog.h \
     yoDownloaders/aria2c.h \
-    chooserdialog.h
+    filebrowz.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \
@@ -41,7 +41,7 @@ FORMS    += mainwindow.ui \
     prefdatabasewidget.ui \
     importurls.ui \
     addurldialog.ui \
-    chooserdialog.ui
+    filebrowz.ui
 
 OTHER_FILES += \
     sql/yodownet_mysql_db_000.sql

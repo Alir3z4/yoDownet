@@ -161,30 +161,30 @@ string Aria2c::unPause(string &gid)
 
 string Aria2c::pauseAll()
 {
-    return _nonParam("aria2.pauseAll");
+    return _forDoneSake("aria2.pauseAll");
 }
 
 string Aria2c::forcePauseAll()
 {
-    return _nonParam("aria2.forcePauseAll");
+    return _forDoneSake("aria2.forcePauseAll");
 }
 
 string Aria2c::unpauseAll()
 {
-    return _nonParam("aria2.unPauseAll");
+    return _forDoneSake("aria2.unPauseAll");
 }
 
 string Aria2c::shutdown()
 {
-    return _nonParam("aria2.shutdown");
+    return _forDoneSake("aria2.shutdown");
 }
 
 string Aria2c::forceShutdown()
 {
-    return _nonParam("aria2.forceShutdown");
+    return _forDoneSake("aria2.forceShutdown");
 }
 
-string Aria2c::_nonParam(string methodName)
+string Aria2c::_forDoneSake(string methodName)
 {
     xmlrpc_c::value result;
     xmlrpc_c::paramList params; // Just initial, not used :D

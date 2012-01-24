@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     importurls.cpp \
     addurldialog.cpp \
     yoDownloaders/aria2c.cpp \
-    filebrowz.cpp
+    filebrowz.cpp \
+    yoUtils/yodatabase.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -31,7 +32,8 @@ HEADERS  += mainwindow.h \
     importurls.h \
     addurldialog.h \
     yoDownloaders/aria2c.h \
-    filebrowz.h
+    filebrowz.h \
+    yoUtils/yodatabase.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \
@@ -42,4 +44,4 @@ FORMS    += mainwindow.ui \
     filebrowz.ui
 
 OTHER_FILES += \
-    sql/yodownet_mysql_db_000.sql
+    sql/yodownet_sqlite_db_000.sql

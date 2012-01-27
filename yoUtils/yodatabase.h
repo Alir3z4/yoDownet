@@ -5,9 +5,20 @@
 #include <QtSql/QSqlError>
 #include "yoUtils/yomessage.h"
 
+class QSqlQuery;
+
 class yoDataBase
 {
 public:
+    enum URIs {
+        id,
+        uri,
+        aria2_gid,
+        save_path,
+        created_at,
+        updated_at
+    };
+
     QSqlError initDb();
     bool removeDB(QSqlDatabase &db);
 

@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "yoUtils/yomessage.h"
+#include "yoUtils/yodatabase.h"
 
 namespace Ui {
     class MainWindow;
@@ -24,6 +26,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    yoMessage msg;
+    yoDataBase db;
 };
 
 #endif // MAINWINDOW_H

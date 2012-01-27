@@ -2,17 +2,17 @@
 #define YODATABASE_H
 
 #include <QtSql/QSqlDatabase>
-
-class QSqlDatabase;
+#include <QtSql/QSqlError>
+#include "yoUtils/yomessage.h"
 
 class yoDataBase
 {
 public:
     QSqlError initDb();
-    bool removeDB();
+    bool removeDB(QSqlDatabase &db);
 
 private:
-    QSqlDatabase db;
+    yoMessage msg;
 };
 
 #endif // YODATABASE_H

@@ -26,7 +26,7 @@ void MainWindow::on_preferencesAction_triggered()
 
 void MainWindow::on_aboutQtAction_triggered()
 {
-    yoMessage::aboutQt(this, tr("yoDownet : About Qt"));
+    msg.aboutQt(this, tr("yoDownet : About Qt"));
 }
 
 void MainWindow::on_importUrlsAction_triggered()

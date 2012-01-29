@@ -5,33 +5,35 @@
 #include <string>
 #include <map>
 #include <xmlrpc-c/client_simple.hpp>
+#include <QVector>
+#include <QMap>
+#include <QString>
 
-using namespace std;
 class Aria2c
 {
 public:
-    Aria2c(string &url);
+    Aria2c(std::string url);
 
     // Operations
-    string addUri(vector<string> &uris);
-    string addUri(vector<string> &uris, map<string, string> &options);
+    const QString addUri(const QVector<QString> &q_uris);
+    const QString addUri(const QVector<QString> &q_uris, const QMap<QString, QString> &q_options);
 
     // Aria2c actions
     // Remove
-    string remove(string &gid);
-    string forceRemove(string &gid);
+    const QString remove(const QString q_gid);
+    const QString forceRemove(const QString gid);
     // Pause
-    string pause(string &gid);
-    string forcePause(string &gid);
-    string unPause(string &gid);
-    string pauseAll();
-    string forcePauseAll();
-    string unpauseAll();
+    const QString pause(const QString gid);
+    const QString forcePause(const QString gid);
+    const QString unPause(const QString gid);
+    const QString pauseAll();
+    const QString forcePauseAll();
+    const QString unpauseAll();
 
     // Shutdown :|
-    string shutdown();
+    const QString shutdown();
     // Shut da fuck up, will ya!
-    string forceShutdown();
+    const QString forceShutdown();
 
 private:
     // TODO: throw exception
@@ -42,7 +44,16 @@ private:
     xmlrpc_c::carriageParm_curl0 _carriageParm;
 
     // make some noise :d
-    string _forDoneSake(string methodName, const string &gid);
+    const QString _forDoneSake(const QString q_methodName, const QString q_gid);
+
+    // fuck the disaster with this QVector<QString> => std::vector<string>
+    // actually i opened an topic for it on [ qtcentre.org/threads/47074 ], but i can't w8 till this fellas
+    // got what my point is
+    // if i be success in it in future i'll take it away
+    // but i think it's better to keep conversion between qvector->vector here in this aria2c class :|
+    // who knows ?
+    const std::vector<std::string> fromQVector(const QVector<QString> &q_vect);
+    const std::map<std::string, std::string> fromQMap(const QMap<QString, QString> &q_map);
 };
 
 #endif // ARIA2C_H

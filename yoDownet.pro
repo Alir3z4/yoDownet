@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     addurldialog.cpp \
     yoDownloaders/aria2c.cpp \
     filebrowz.cpp \
-    yoUtils/yodatabase.cpp
+    yoUtils/yodatabase.cpp \
+    downloader.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -33,7 +34,8 @@ HEADERS  += mainwindow.h \
     addurldialog.h \
     yoDownloaders/aria2c.h \
     filebrowz.h \
-    yoUtils/yodatabase.h
+    yoUtils/yodatabase.h \
+    downloader.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \

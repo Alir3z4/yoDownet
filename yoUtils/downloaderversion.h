@@ -9,9 +9,15 @@ class DownloaderVersion : public QObject
 public:
     explicit DownloaderVersion(QObject *parent = 0);
     
-signals:
-    
-public slots:
+    void setFaultCode(const int &faultCode);
+    void setFaultString(const QString &faultString);
+
+    int faultCode() const;
+    QString faultString() const;
+
+private:
+    int _faultCode;
+    QString _faultString;
     
 };
 

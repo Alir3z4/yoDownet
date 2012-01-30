@@ -9,9 +9,15 @@ class ChangedUris : public QObject
 public:
     explicit ChangedUris(QObject *parent = 0);
     
-signals:
-    
-public slots:
+    void setDeleted(const int &deleted);
+    void setAdded(const int &added);
+
+    int deleted() const;
+    int added() const;
+
+private:
+    int _deleted;
+    int _added;
     
 };
 

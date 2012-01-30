@@ -8,10 +8,19 @@ class BitTorrent : public QObject
     Q_OBJECT
 public:
     explicit BitTorrent(QObject *parent = 0);
+
+    void setComment(const QString &comment);
+    void setCreationDate(const int &creationDate);
+    void setMode(const QString &mode);
+
+    QString comment() const;
+    int creationDate() const;
+    QString mode() const;
     
-signals:
-    
-public slots:
+private:
+    QString _comment;
+    int _creationDate;
+    QString _mode;
     
 };
 

@@ -20,7 +20,7 @@ public:
     };
 
     QSqlError initDb();
-    bool removeDB(QSqlDatabase &db);
+    bool removeDB(const QSqlDatabase &db);
 
 private:
     yoMessage msg;

@@ -33,7 +33,7 @@ QSqlError yoDataBase::initDb()
     return QSqlError();
 }
 
-bool yoDataBase::removeDB(QSqlDatabase &removeDb)
+bool yoDataBase::removeDB(const QSqlDatabase &removeDb)
 {
     removeDb.removeDatabase(removeDb.connectionName());
     return true;

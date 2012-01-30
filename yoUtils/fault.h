@@ -8,10 +8,16 @@ class Fault : public QObject
     Q_OBJECT
 public:
     explicit Fault(QObject *parent = 0);
-    
-signals:
-    
-public slots:
+
+    void setFaultCode(const int &faultCode);
+    void setFaultString(const QString &faultString);
+
+    int faultCode() const;
+    QString faultString() const;
+
+private:
+    int _faultCode;
+    QString _faultString;
     
 };
 

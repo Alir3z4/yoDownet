@@ -5,22 +5,23 @@ DownloaderVersion::DownloaderVersion(QObject *parent) :
 {
 }
 
-void DownloaderVersion::setFaultCode(const int &faultCode)
+void DownloaderVersion::setVersion(const QString &version)
 {
-    _faultCode = faultCode;
+    _version = version;
 }
 
-void DownloaderVersion::setFaultString(const QString &faultString)
+void DownloaderVersion::setEnabledFeatures(const QVector<QString> &enabledFeatures)
 {
-   _faultString = faultString;
+    _enabledFeatures = enabledFeatures;
 }
 
-int DownloaderVersion::faultCode() const
+QString DownloaderVersion::version() const
 {
-    return _faultCode;
+    return _version;
 }
 
-QString DownloaderVersion::faultString() const
+QVector<QString> DownloaderVersion::enabledFeatures() const
 {
-    return _faultString;
+    return _enabledFeatures;
 }
+

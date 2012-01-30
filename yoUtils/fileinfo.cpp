@@ -25,7 +25,7 @@ void FileInfo::setSelected(const QString &selected)
     _selected = selected;
 }
 
-void FileInfo::setUris(const QVector<UriStatus> &uris)
+void FileInfo::setUris(const QVector<UriStatus*> &uris)
 {
     _uris = uris;
 }
@@ -50,7 +50,7 @@ QString FileInfo::selected() const
     return _selected;
 }
 
-QVector<UriStatus> FileInfo::uris() const
+QVector<UriStatus *> FileInfo::uris() const
 {
     return _uris;
 }

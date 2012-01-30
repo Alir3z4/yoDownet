@@ -16,20 +16,20 @@ public:
     void setPath(const QString &path);
     void setLength(const QString &length);
     void setSelected(const QString &selected);
-    void setUris(const QVector<UriStatus> &uris);
+    void setUris(const QVector<UriStatus*> &uris);
 
     QString index() const;
     QString path() const;
     QString length() const;
     QString selected() const;
-    QVector<UriStatus> uris() const;
+    QVector<UriStatus*> uris() const;
 
 private:
     QString _index;
     QString _path;
     QString _length;
     QString _selected;
-    QVector<UriStatus> _uris;
+    QVector<UriStatus*> _uris;
 };
 
 #endif // FILEINFO_H

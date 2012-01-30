@@ -25,7 +25,7 @@ public:
     void setErrorCode(const QString &errorCode);
     void setFollowedBy(const QString &followedBy);
     void setBelongsTo(const QString &belongsTo);
-    void setFiles(const QVector<FileInfo> &files);
+    void setFiles(const QVector<FileInfo *> &files);
 
     QString gid() const;
     QString status() const;
@@ -42,7 +42,7 @@ public:
     QString errorCode() const;
     QString followedBy() const;
     QString belongsTo() const;
-    QVector<FileInfo> files() const;
+    QVector<FileInfo*> files() const;
 
 private:
     QString _gid;
@@ -60,7 +60,7 @@ private:
     QString _errorCode;
     QString _followedBy;
     QString _belongsTo;
-    QVector<FileInfo> _files;
+    QVector<FileInfo*> _files;
 };
 
 

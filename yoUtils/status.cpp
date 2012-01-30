@@ -80,7 +80,7 @@ void Status::setBelongsTo(const QString &belongsTo)
     _belongsTo = belongsTo;
 }
 
-void Status::setFiles(const QVector<FileInfo> &files)
+void Status::setFiles(const QVector<FileInfo *> &files)
 {
     _files = files;
 }
@@ -160,7 +160,7 @@ QString Status::belongsTo() const
     return _belongsTo;
 }
 
-QVector<FileInfo> Status::files() const
+QVector<FileInfo *> Status::files() const
 {
     return _files;
 }

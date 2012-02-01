@@ -19,7 +19,6 @@ SOURCES += main.cpp\
     prefdatabasewidget.cpp \
     yoUtils/yomessage.cpp \
     importurls.cpp \
-    addurldialog.cpp \
     yoDownloaders/aria2c.cpp \
     filebrowz.cpp \
     yoUtils/yodatabase.cpp \
@@ -32,7 +31,8 @@ SOURCES += main.cpp\
     yoUtils/downloaderversion.cpp \
     yoUtils/peer.cpp \
     yoUtils/fault.cpp \
-    yoUtils/changeduris.cpp
+    yoUtils/changeduris.cpp \
+    uridialog.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -40,7 +40,6 @@ HEADERS  += mainwindow.h \
     prefdatabasewidget.h \
     yoUtils/yomessage.h \
     importurls.h \
-    addurldialog.h \
     yoDownloaders/aria2c.h \
     filebrowz.h \
     yoUtils/yodatabase.h \
@@ -53,15 +52,16 @@ HEADERS  += mainwindow.h \
     yoUtils/downloaderversion.h \
     yoUtils/peer.h \
     yoUtils/fault.h \
-    yoUtils/changeduris.h
+    yoUtils/changeduris.h \
+    uridialog.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \
     prefdownloaderswidget.ui \
     prefdatabasewidget.ui \
     importurls.ui \
-    addurldialog.ui \
-    filebrowz.ui
+    filebrowz.ui \
+    uridialog.ui
 
 OTHER_FILES += \
     sql/yodownet_sqlite_db_000.sql

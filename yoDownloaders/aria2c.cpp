@@ -186,6 +186,19 @@ const QString Aria2c::_forDoneSake(const QString q_methodName, const QString q_g
 {
     std::string methodName = q_methodName.toStdString();
     std::string gid = q_gid.toStdString();
+void Aria2c::throwException(const xmlrpc_c::rpcPtr &rpc)
+{
+    xmlrpc_c::fault tempFault;
+    tempFault = rpc->getFault();
+
+    Fault *fault = NULL;
+
+    fault->setFaultCode(tempFault.getCode());
+    fault->setFaultString(QString::fromStdString(tempFault.getDescription()));
+
+    throw fault;
+}
+
     xmlrpc_c::value result;
     xmlrpc_c::paramList params; // Just initial, not used :D
 

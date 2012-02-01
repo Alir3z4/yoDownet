@@ -38,8 +38,7 @@ public:
     const QString forceShutdown();
 
 private:
-    // TODO: throw exception
-    // void _throwException(xmlrpc_c::rpcPtr rpc);
+    void throwException(const xmlrpc_c::rpcPtr &rpc);
 
     xmlrpc_c::clientXmlTransport_curl _transport;
     xmlrpc_c::client_xml _client;

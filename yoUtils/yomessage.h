@@ -11,6 +11,7 @@ public:
     //explicit yoMessage(QObject *parent = 0);
     void dbError(const QString dbErrorText, const QString action);
     void userError(const QString detailsText);
+    void notify(const QString &notif);
     int ask(const QString argQuestionTitle, const QString argQuestionBody);
 
 };

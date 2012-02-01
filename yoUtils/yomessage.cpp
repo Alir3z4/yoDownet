@@ -13,6 +13,12 @@ void yoMessage::userError(const QString detailsText)
     critical(0, tr("yoDownet : Watch out"), QString("%1").arg(detailsText), Ok);
 }
 
+void yoMessage::notify(const QString &notif)
+{
+    information(0, tr("yoDownet : Just for information sake ;)"),
+                notif, Ok);
+}
+
 int yoMessage::ask(const QString argQuestionTitle, const QString argQuestionBody)
 {
     StandardButton ask;

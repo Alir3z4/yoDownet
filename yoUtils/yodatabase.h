@@ -23,6 +23,9 @@ public:
     const QSqlError initDb();
     bool removeDB(const QSqlDatabase &db);
 
+    // Actions
+    bool addUri(const QString &uriAria2Gid, const QString &uriUri, const QString &uriSavePath, const QString &uriStatus);
+
 private:
     yoMessage msg;
 };

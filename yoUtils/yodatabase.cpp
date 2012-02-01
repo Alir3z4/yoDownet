@@ -19,7 +19,6 @@ const QSqlError yoDataBase::initDb()
     if (!db.open())
         return db.lastError();
 
-    // TODO: input the db create script and put it in the QString adn executed with QSqlQuery
     // This is gonna be fun :D
     QFile dbInitFile("../yoDownet/sql/yodownet_sqlite_db_000.sql");
     dbInitFile.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -36,5 +35,21 @@ const QSqlError yoDataBase::initDb()
 bool yoDataBase::removeDB(const QSqlDatabase &removeDb)
 {
     removeDb.removeDatabase(removeDb.connectionName());
+    return true;
+}
+
+bool yoDataBase::addUri(const QString &uriAria2Gid, const QString &uriUri, const QString &uriSavePath, const QString &uriStatus)
+{
+    QSqlQuery addQuery;
+    addQuery.prepare("INSERT INTO uris(aria2_gid, uri, save_path, status) VALUES(:aria2_gid, :uri, :save_path, :status)");
+    addQuery.bindValue(":aria2_gid", uriAria2Gid);
+    addQuery.bindValue(":uri", uriUri);
+    addQuery.bindValue(":save_path", uriSavePath);
+    addQuery.bindValue(":status", uriStatus);
+    if(!addQuery.exec()){
+        msg.dbError(addQuery.lastError().text(), "Adding new download");
+        return false;
+    }
+
     return true;
 }

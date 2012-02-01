@@ -12,14 +12,15 @@ class yoDataBase
 public:
     enum URIs {
         id,
-        uri,
         aria2_gid,
+        uri,
         save_path,
+        status,
         created_at,
         updated_at
     };
 
-    QSqlError initDb();
+    const QSqlError initDb();
     bool removeDB(const QSqlDatabase &db);
 
 private:

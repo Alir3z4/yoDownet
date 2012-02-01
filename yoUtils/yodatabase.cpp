@@ -8,7 +8,7 @@ class QObject;
 class QString;
 
 // TODO: initialize database and return error if somthing goes wrong :|
-QSqlError yoDataBase::initDb()
+const QSqlError yoDataBase::initDb()
 {
     if (!QSqlDatabase::drivers().contains("QSQLITE"))
         msg.dbError(QObject::tr("Unable to load database"), QObject::tr("yoDownet needs the SQLITE driver"));

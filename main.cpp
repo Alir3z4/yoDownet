@@ -4,7 +4,9 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QApplication::setApplicationName("yoDownet");
+    QCoreApplication::setApplicationName("yoDownet");
+    QCoreApplication::setOrganizationName("Alir3z4");
+    QCoreApplication::setOrganizationDomain("yodownet.sourceforge.net");
     MainWindow w;
     w.show();
 

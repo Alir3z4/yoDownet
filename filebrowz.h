@@ -20,16 +20,18 @@ public:
     explicit FileBrowz(QWidget *parent = 0);
     ~FileBrowz();
 
-    inline QString caption() const { return _caption; }
-    inline QString filter() const { return _filter; }
-    inline BrowzType browzType() const { return _type; }
-    inline QFileDialog::Options options() const { return _options; }
+    const QString caption();
+    const QString filter();
+    const QString browzPath();
+    BrowzType browzType() const;
+    const QFileDialog::Options options();
 
 public slots:
-    inline void setCaption(const QString &caption) { _caption = caption; }
-    inline void setFilter(const QString &filter) { _filter = filter; }
-    inline void setBrowzType(BrowzType type) { _type = type; }
-    inline void setOptions(QFileDialog::Options options) { _options = options; }
+    void setCaption(const QString &caption);
+    void setFilter(const QString &filter);
+    void setBrowzType(BrowzType type);
+    void setOptions(QFileDialog::Options options);
+    void setBrowzPath(const QString &browztPath);
     
 private slots:
     void on_browzButton_clicked();

@@ -22,6 +22,12 @@
      <property name="text">
       <string>Browz...</string>
      </property>
+     <property name="icon">
+      <iconset theme="system-file-manager-symbolic"/>
+     </property>
+     <property name="toolButtonStyle">
+      <enum>Qt::ToolButtonFollowStyle</enum>
+     </property>
     </widget>
    </item>
   </layout>

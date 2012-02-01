@@ -4,12 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql xml network
 
 TARGET = yoDownet
 TEMPLATE = app
-LIBS += -lxmlrpc++ \
-    -lxmlrpc_client++
+LIBS += -lmaia
 
 
 SOURCES += main.cpp\

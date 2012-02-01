@@ -14,6 +14,8 @@ class PrefDownloadersWidget : public QWidget
 public:
     explicit PrefDownloadersWidget(QWidget *parent = 0);
     ~PrefDownloadersWidget();
+
+    const QString savePath();
     
 private:
     Ui::PrefDownloadersWidget *ui;

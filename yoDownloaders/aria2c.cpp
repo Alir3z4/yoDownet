@@ -124,6 +124,54 @@ const QString Aria2c::unpauseAll()
     return _forDoneSake("aria2.unPauseAll", QString());
 }
 
+const DownloaderVersion* Aria2c::getVersion()
+{
+    std::string const methodName = "aria2.getVersion";
+    xmlrpc_c::value result;
+
+    xmlrpc_c::paramList params;
+    xmlrpc_c::rpcPtr rpc(methodName, params);
+
+    rpc->call(&_client, &_carriageParm);
+
+    if(rpc->isSuccessful())
+        result = rpc->getResult();
+    else
+        throwException(rpc);
+
+    xmlrpc_c::value_struct structResult(result);
+    std::map<std::string, xmlrpc_c::value> mapResult(static_cast< std::map<std::string, xmlrpc_c::value> >(structResult));
+
+    DownloaderVersion *version = NULL;
+
+    std::map<std::string, xmlrpc_c::value>::iterator itProp;
+
+    itProp = mapResult.find("version");
+    if(itProp != mapResult.end())
+        version->setVersion(QString::fromStdString(xmlrpc_c::value_string(itProp->second)));
+
+    itProp = mapResult.find("enabledFeatures");
+    if(itProp != mapResult.end()){
+        // Just watch gonna happen with this little bastard
+        // It's little bit tricky-freaky, so here is the thing
+        // That thing e retreive back from 'getVersion' is an 'array'
+        // So basicaly we cast it to a 'vector'
+        // ref: http://aria2.sourceforge.net/aria2c.1.html#aria2_rpc_aria2_getVersion
+        std::vector<xmlrpc_c::value> vEnabledFeatures(xmlrpc_c::value_array(itProp->second).vectorValueValue());
+        // So we cast it to a vector already, now what?
+        // Okay, it's time to create an mothe'fucker 'iterator' for that son of bitch 'vector'
+        std::vector<xmlrpc_c::value>::iterator itEnabledFeatures = vEnabledFeatures.begin();
+
+        // Now for each fuck'n 'enabledFeature'
+        QVector<QString> tempVector;
+        for (; itEnabledFeatures != vEnabledFeatures.end(); itEnabledFeatures++) {
+            tempVector.push_back(QString::fromStdString(xmlrpc_c::value_string(*itEnabledFeatures)));
+        }
+        version->setEnabledFeatures(tempVector);
+    }
+    return version;
+}
+
 const QString Aria2c::shutdown()
 {
     return _forDoneSake("aria2.shutdown", QString());

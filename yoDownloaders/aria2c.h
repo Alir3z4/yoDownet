@@ -30,6 +30,8 @@ public:
     const QString forcePauseAll();
     const QString unpauseAll();
 
+    // This tricky guy, version :~]
+    const DownloaderVersion* getVersion();
     // Shutdown :|
     const QString shutdown();
     // Shut da fuck up, will ya!

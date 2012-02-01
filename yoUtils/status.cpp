@@ -40,6 +40,11 @@ void Status::setDownloadSpeed(const QString &downloadSpeed)
     _downloadSpeed = downloadSpeed;
 }
 
+void Status::setUploadSpeed(const QString &uploadSpeed)
+{
+    _uploadSpeed = uploadSpeed;
+}
+
 void Status::setInfoHash(const QString &infoHash)
 {
     _infoHash = infoHash;
@@ -78,6 +83,11 @@ void Status::setFollowedBy(const QString &followedBy)
 void Status::setBelongsTo(const QString &belongsTo)
 {
     _belongsTo = belongsTo;
+}
+
+void Status::setDir(const QString &dir)
+{
+    _dir = dir;
 }
 
 void Status::setFiles(const QVector<FileInfo *> &files)
@@ -120,6 +130,11 @@ QString Status::downloadSpeed() const
     return _downloadSpeed;
 }
 
+QString Status::uploadSpeed() const
+{
+    return _uploadSpeed;
+}
+
 QString Status::infoHash() const
 {
     return _infoHash;
@@ -158,6 +173,11 @@ QString Status::followedBy() const
 QString Status::belongsTo() const
 {
     return _belongsTo;
+}
+
+QString Status::dir() const
+{
+    return _dir;
 }
 
 QVector<FileInfo *> Status::files() const

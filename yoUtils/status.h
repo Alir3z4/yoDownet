@@ -17,6 +17,7 @@ public:
     void setUploadLength(const QString &uploadLength);
     void setBitField(const QString &bitField);
     void setDownloadSpeed(const QString &downloadSpeed);
+    void setUploadSpeed(const QString &uploadSpeed);
     void setInfoHash(const QString &infoHash);
     void setNumSeeders(const QString &numSeeders);
     void setPieceLength(const QString &pieceLength);
@@ -25,6 +26,7 @@ public:
     void setErrorCode(const QString &errorCode);
     void setFollowedBy(const QString &followedBy);
     void setBelongsTo(const QString &belongsTo);
+    void setDir(const QString &dir);
     void setFiles(const QVector<FileInfo *> &files);
 
     QString gid() const;
@@ -34,6 +36,7 @@ public:
     QString uploadLength() const;
     QString bitField() const;
     QString downloadSpeed() const;
+    QString uploadSpeed() const;
     QString infoHash() const;
     QString numSeeders() const;
     QString pieceLength() const;
@@ -42,6 +45,7 @@ public:
     QString errorCode() const;
     QString followedBy() const;
     QString belongsTo() const;
+    QString dir() const;
     QVector<FileInfo*> files() const;
 
 private:
@@ -52,6 +56,7 @@ private:
     QString _uploadLength;
     QString _bitField;
     QString _downloadSpeed;
+    QString _uploadSpeed;
     QString _infoHash;
     QString _numSeeders;
     QString _pieceLength;
@@ -60,6 +65,7 @@ private:
     QString _errorCode;
     QString _followedBy;
     QString _belongsTo;
+    QString _dir;
     QVector<FileInfo*> _files;
 };
 

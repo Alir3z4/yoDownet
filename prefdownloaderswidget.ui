@@ -30,17 +30,17 @@
       </attribute>
       <layout class="QGridLayout" name="SaveToTabGridLayout">
        <item row="0" column="0">
-        <widget class="QLabel" name="savePathLabel">
+        <widget class="QLabel" name="saveDirLabel">
          <property name="text">
           <string>Save &amp;Path:</string>
          </property>
          <property name="buddy">
-          <cstring>savePathEdit</cstring>
+          <cstring>saveDirEdit</cstring>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="FileBrowz" name="savePathEdit"/>
+        <widget class="FileBrowz" name="saveDirEdit"/>
        </item>
       </layout>
      </widget>

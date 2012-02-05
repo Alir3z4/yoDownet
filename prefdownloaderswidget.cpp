@@ -7,9 +7,8 @@ PrefDownloadersWidget::PrefDownloadersWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // TODO: get set last selected save to directory path from saved setting [INI files] with QSettings
-    ui->savePathEdit->setCaption(tr("Select a directory to save downloaded files"));
-    ui->savePathEdit->setBrowzType(FileBrowz::GetDirectory);
+    ui->saveDirEdit->setCaption(tr("Select a directory to save downloaded files"));
+    ui->saveDirEdit->setBrowzType(FileBrowz::GetDirectory);
 }
 
 PrefDownloadersWidget::~PrefDownloadersWidget()
@@ -17,7 +16,12 @@ PrefDownloadersWidget::~PrefDownloadersWidget()
     delete ui;
 }
 
-const QString PrefDownloadersWidget::savePath()
+QString PrefDownloadersWidget::saveDir()const
 {
-    return ui->savePathEdit->browzPath();
+    return ui->saveDirEdit->browzPath();
+}
+
+void PrefDownloadersWidget::setSaveDir(const QString &saveDir)
+{
+    ui->saveDirEdit->setPath(saveDir);
 }

@@ -15,7 +15,11 @@ public:
     explicit PrefDownloadersWidget(QWidget *parent = 0);
     ~PrefDownloadersWidget();
 
-    const QString savePath();
+    QString saveDir()const;
+
+public slots:
+    void setSaveDir(const QString &saveDir);
+
     
 private:
     Ui::PrefDownloadersWidget *ui;

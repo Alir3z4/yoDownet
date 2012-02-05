@@ -90,7 +90,7 @@ void Status::setDir(const QString &dir)
     _dir = dir;
 }
 
-void Status::setFiles(const QVector<FileInfo *> &files)
+void Status::setFiles(const QList<FileInfo *> &files)
 {
     _files = files;
 }
@@ -180,7 +180,7 @@ QString Status::dir() const
     return _dir;
 }
 
-QVector<FileInfo *> Status::files() const
+QList<FileInfo *> Status::files() const
 {
     return _files;
 }

@@ -10,7 +10,7 @@ void DownloaderVersion::setVersion(const QString &version)
     _version = version;
 }
 
-void DownloaderVersion::setEnabledFeatures(const QVector<QString> &enabledFeatures)
+void DownloaderVersion::setEnabledFeatures(const QStringList &enabledFeatures)
 {
     _enabledFeatures = enabledFeatures;
 }
@@ -20,7 +20,7 @@ QString DownloaderVersion::version() const
     return _version;
 }
 
-QVector<QString> DownloaderVersion::enabledFeatures() const
+QStringList DownloaderVersion::enabledFeatures() const
 {
     return _enabledFeatures;
 }

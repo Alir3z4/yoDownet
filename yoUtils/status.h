@@ -27,7 +27,7 @@ public:
     void setFollowedBy(const QString &followedBy);
     void setBelongsTo(const QString &belongsTo);
     void setDir(const QString &dir);
-    void setFiles(const QVector<FileInfo *> &files);
+    void setFiles(const QList<FileInfo *> &files);
 
     QString gid() const;
     QString status() const;
@@ -46,7 +46,7 @@ public:
     QString followedBy() const;
     QString belongsTo() const;
     QString dir() const;
-    QVector<FileInfo*> files() const;
+    QList<FileInfo*> files() const;
 
 private:
     QString _gid;
@@ -66,7 +66,7 @@ private:
     QString _followedBy;
     QString _belongsTo;
     QString _dir;
-    QVector<FileInfo*> _files;
+    QList<FileInfo*> _files;
 };
 
 

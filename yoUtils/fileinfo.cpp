@@ -20,12 +20,17 @@ void FileInfo::setLength(const QString &length)
     _length = length;
 }
 
+void FileInfo::setCompletedLength(const QString &completedLength)
+{
+    _completedLength = completedLength;
+}
+
 void FileInfo::setSelected(const QString &selected)
 {
     _selected = selected;
 }
 
-void FileInfo::setUris(const QVector<UriStatus*> &uris)
+void FileInfo::setUris(const QList<UriStatus *> &uris)
 {
     _uris = uris;
 }
@@ -45,12 +50,17 @@ QString FileInfo::length() const
     return _length;
 }
 
+QString FileInfo::completedLength() const
+{
+    return _completedLength;
+}
+
 QString FileInfo::selected() const
 {
     return _selected;
 }
 
-QVector<UriStatus *> FileInfo::uris() const
+QList<UriStatus *> FileInfo::uris() const
 {
     return _uris;
 }

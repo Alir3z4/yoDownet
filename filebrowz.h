@@ -32,12 +32,13 @@ public slots:
     void setBrowzType(BrowzType type);
     void setOptions(QFileDialog::Options options);
     void setBrowzPath(const QString &browztPath);
+    void setPath(const QString &path);
     
 private slots:
     void on_browzButton_clicked();
 
 signals:
-    void fileChanged(QString file);
+    void fileChanged(const QString &newFile);
 
 private:
     Ui::FileBrowz *ui;

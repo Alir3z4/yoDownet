@@ -70,6 +70,12 @@ void FileBrowz::setBrowzPath(const QString &browztPath)
     ui->pathEdit->setText(browztPath);
 }
 
+void FileBrowz::setPath(const QString &path)
+{
+    // TODO: is writable or what ?
+    ui->pathEdit->setText((path.isEmpty()) ? QDir::homePath() : path);
+}
+
 void FileBrowz::on_browzButton_clicked()
 {
     QString result;

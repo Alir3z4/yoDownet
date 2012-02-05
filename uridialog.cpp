@@ -13,11 +13,9 @@ UriDialog::~UriDialog()
     delete ui;
 }
 
-const QVector<QString> UriDialog::uris()
+const QString UriDialog::uri()
 {
-    QVector<QString> uris;
-    uris.push_back(ui->uriEdit->text());
-    return uris;
+    return ui->uriEdit->text();
 }
 
 void UriDialog::on_uriEdit_textChanged()

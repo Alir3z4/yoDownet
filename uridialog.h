@@ -2,6 +2,7 @@
 #define URIDIALOG_H
 
 #include <QDialog>
+#include <QVariantList>
 
 namespace Ui {
 class UriDialog;
@@ -15,7 +16,7 @@ public:
     explicit UriDialog(QWidget *parent = 0);
     ~UriDialog();
 
-    const QVector<QString> uris();
+    const QString uri();
     
 private slots:
     void on_uriEdit_textChanged();

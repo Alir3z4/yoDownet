@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "prefdownloaderswidget.h"
 #include "prefdatabasewidget.h"
+#include <QPushButton>
 
 namespace Ui {
 class PreferencesDialog;
@@ -17,6 +18,11 @@ public:
     explicit PreferencesDialog(QWidget *parent = 0);
     ~PreferencesDialog();
     
+private slots:
+    void on_buttonBox_accepted();
+    void saveSettings();
+    void closeEvent(QCloseEvent *);
+
 private:
     Ui::PreferencesDialog *ui;
 
@@ -28,6 +34,9 @@ private:
     PrefDataBaseWidget *prefDb;
 
     void addSection(QWidget *w);
+
+    // Load settings
+    void loadSettings();
 };
 
 #endif // PREFERENCESDIALOG_H

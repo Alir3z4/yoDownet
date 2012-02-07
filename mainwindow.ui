@@ -102,20 +102,32 @@
        <property name="text">
         <string>id</string>
        </property>
+       <property name="toolTip">
+        <string notr="true"/>
+       </property>
+       <property name="whatsThis">
+        <string notr="true"/>
+       </property>
       </column>
       <column>
        <property name="text">
         <string notr="true">aria2_gid</string>
        </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>File name</string>
+       <property name="toolTip">
+        <string notr="true"/>
+       </property>
+       <property name="whatsThis">
+        <string notr="true"/>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>Save path</string>
+        <string>File Name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Save Path</string>
        </property>
       </column>
       <column>
@@ -140,12 +152,23 @@
       </column>
       <column>
        <property name="text">
-        <string>Remaining time</string>
+        <string>Remaining Time</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>DL speed</string>
+        <string>DL Speed</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>flag</string>
+       </property>
+       <property name="toolTip">
+        <string notr="true"/>
+       </property>
+       <property name="whatsThis">
+        <string notr="true"/>
        </property>
       </column>
      </widget>

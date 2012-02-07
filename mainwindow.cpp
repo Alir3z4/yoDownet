@@ -11,6 +11,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     // read/load settings
     loadSettings();
+    // Hide `id`, `aria2_gid', 'flags' columns
+    ui->urisTable->setColumnHidden(0, true);
+    ui->urisTable->setColumnHidden(1, true);
+    ui->urisTable->setColumnHidden(10, true);
 }
 
 MainWindow::~MainWindow()

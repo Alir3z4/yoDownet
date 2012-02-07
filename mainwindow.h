@@ -23,6 +23,9 @@ private slots:
     void on_aboutQtAction_triggered();
 
     void on_importUrlsAction_triggered();
+    void saveSettings();
+    void loadSettings();
+    void closeEvent(QCloseEvent *);
 
 private:
     Ui::MainWindow *ui;

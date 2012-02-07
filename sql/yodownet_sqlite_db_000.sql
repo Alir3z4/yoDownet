@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS "uris" (
 "uri" TEXT,
 "save_path" TEXT,
 "status" VARCHAR(25),
+"progress" INTEGER,
 "created_at" TIMESTAMP NOT NULL  DEFAULT CURRENT_TIMESTAMP,
 "updated_at" TIMESTAMP
 );

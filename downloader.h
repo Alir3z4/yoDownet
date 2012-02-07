@@ -2,48 +2,32 @@
 #define DOWNLOADER_H
 
 #include <QObject>
-#include <QString>
-#include <QVector>
-#include <QMap>
 #include "yoDownloaders/aria2c.h"
 #include "yoUtils/yodatabase.h"
 
-class Downloader : public QObject
+class Downloader : public Aria2c
 {
     Q_OBJECT
+
 public:
-    explicit Downloader(QObject *parent = 0);
+    explicit Downloader();
     ~Downloader();
 
-    // Aria2 connection
-    bool ariaAlreadyRunning();
-    void startAria(const QStringList &flags);
+public slots:
+    void askForStartAria();
+    void askForRefreshStatus(const QString &gid);
 
-    // Operations :|
-    bool addUri(const QVector<QString> &uris);
-    bool addUri(const QVector<QString> &uris, QMap<QString, QString> &options);
+signals:
+    void uriUpdatedOnDb(const Status *status);
+    void uriAddedToDb(const QString &gid);
+    void statusAsked(const Status *status);
 
-    const QString remove(const QString gid);
-    const QString forceRemove(const QString gid);
-
-    const QString pause(const QString gid);
-    const QString forcePause(const QString gid);
-    const QString unPause(const QString gid);
-
-    const Status* tellStatus(const QString gid);
-
-    const QString shutdown();
-    const QString forceShutdown();
+private slots:
+    void askForStatus(const QVariant &gid);
+    void addUriToDb(const Status *status);
+    void updateUriToDb(const Status *status);
 
 private:
-    Aria2c aria2;
-    bool _iStartedAria;
-    yoDataBase db;
-    yoMessage *msg;
-
-    void setIStartedAria(bool didI);
-    bool isIStartedAria2();
-
 
 };
 

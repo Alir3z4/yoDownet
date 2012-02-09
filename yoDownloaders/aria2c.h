@@ -58,15 +58,16 @@ private slots:
     // Fault
     void faultResponse(int faultCode, const QString &faultString);
 
-    // Budies
-    void startAria();
-    void setAriaStarted(bool isIt);
-    bool isAriaStarted() const;
-
     // To overloading :|
     void stopResponse(QVariant &gid);
     void refreshStatusResponse(QVariant &tell);
     const Status *swallowingStatus(QVariant &tell);
+
+protected slots:
+    // Budies
+    void startAria();
+    void setAriaStarted(bool isIt);
+    bool isAriaStarted() const;
 
 signals:
     void uriAdded(const QVariant &gid);

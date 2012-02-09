@@ -17,9 +17,20 @@ public:
         save_path,
         status,
         progress,
+        remaining_time,
+        flag,
         created_at,
         updated_at
     };
+
+    enum WhatNow {
+        Add,
+        Resume,
+        ReDownload,
+        Delete,
+        Notn
+    };
+
     const QSqlError initDb();
     bool removeDB(const QSqlDatabase &db);
     bool addUri(const QString &uriAria2Gid, const QString &uriUri,
@@ -32,7 +43,7 @@ public:
 private:
     int _lastInsertedId;
     void setLastInsertedId(const int &id);
-    bool isUriExist(const QString &uriUri);
+    WhatNow CheckPlease(const QString &uriUri);
     
 };
 

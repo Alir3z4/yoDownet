@@ -43,7 +43,7 @@ bool yoDataBase::removeDB(const QSqlDatabase &removeDb)
 
 bool yoDataBase::addUri(const QString &uriAria2Gid, const QString &uriUri, const QString &uriSavePath, const QString &uriStatus, const int uriProgress)
 {
-    if(!isUriExist(uriUri)){
+    if(CheckPlease(uriUri) == Add){
         QSqlQuery addQuery;
         addQuery.prepare("INSERT INTO uris(aria2_gid, uri, save_path, status, progress)"
                          " VALUES(:aria2_gid, :uri, :save_path, :status, :progress)");
@@ -93,7 +93,7 @@ bool yoDataBase::deleteUri(const QString &uriUri)
         return true;
 }
 
-bool yoDataBase::isUriExist(const QString &uriUri)
+yoDataBase::WhatNow yoDataBase::CheckPlease(const QString &uriUri)
 {
     QSqlQuery isExist;
     isExist.prepare("SELECT id, uri FROM uris WHERE uri=:uri LIMIT 1");
@@ -101,43 +101,41 @@ bool yoDataBase::isUriExist(const QString &uriUri)
     if(!isExist.exec()){
         yoMessage msg;
         msg.dbError(isExist.lastError().text(), QObject::tr("Checking is entered download exist"));
-        qDebug() << "false ?";
-        return false;
     }
     if(isExist.isActive()){
         while (isExist.next()) {
             if(isExist.value(1).toString() == uriUri){
-                qDebug() << "exist";
                 QMessageBox msgBox;
                 QPushButton *resumeButton = msgBox.addButton(QObject::tr("Resume"), QMessageBox::ActionRole);
-                QPushButton *reDownloadButton = msgBox.addButton(QObject::tr("ReDownload"), QMessageBox::ActionRole);
+                //QPushButton *reDownloadButton = msgBox.addButton(QObject::tr("ReDownload"), QMessageBox::ActionRole);
                 QPushButton *doNotn = msgBox.addButton(QObject::tr("Do Not'n"), QMessageBox::RejectRole);
                 msgBox.setIcon(QMessageBox::Question);
-                msgBox.setWindowTitle(QObject::tr("You already have it"));
+                msgBox.setWindowTitle(QObject::tr("yoDownet : You already have it"));
                 msgBox.setText(QObject::tr("The entered download is already exist in the database, It's time to get decision."));
                 msgBox.exec();
 
                 if(msgBox.clickedButton() == resumeButton){
                     // TODO: resume the download
-                }else if(msgBox.clickedButton() == reDownloadButton){
+                    return Resume;
+                }/*else if(msgBox.clickedButton() == reDownloadButton){
                     if(deleteUri(uriUri))
-                        return false;
+                        return Delete;
                     else
                         return true;
-                }else if(msgBox.clickedButton() == doNotn){
-                    // TODO: do not doing anything actually
-                    // or simply close the windows :|
+                }*/else if(msgBox.clickedButton() == doNotn){
+                    return Notn;
                 }
             }
         }
     }
-    return false;
+    return Add;
 }
 
 void yoDataBase::setLastInsertedId(const int &id)
 {
     _lastInsertedId = id;
 }
+
 
 int yoDataBase::lastInsertedID() const
 {

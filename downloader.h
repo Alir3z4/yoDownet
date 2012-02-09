@@ -14,12 +14,14 @@ public:
     ~Downloader();
 
 public slots:
+    void resume(const QString &uri);
     void askForStartAria();
     void askForRefreshStatus(const QString &gid);
 
 signals:
     void uriUpdatedOnDb(const Status *status);
     void uriAddedToDb(const QString &gid);
+    void uriAddedToDb(const QVariantMap &uri);
     void statusAsked(const Status *status);
 
 private slots:

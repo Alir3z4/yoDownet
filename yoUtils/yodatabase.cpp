@@ -6,6 +6,8 @@
 #include <QSqlRecord>
 #include <QSqlResult>
 #include <QPushButton>
+#include <QDir>
+#include <QDesktopServices>
 #include <QDebug>
 
 // TODO: initialize database and return error if somthing goes wrong :|
@@ -17,13 +19,15 @@ const QSqlError yoDataBase::initDb()
     }
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("./yodownet.sqlite");
-
+    QString dbFile = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
+    QDir dataDir;
+    if(dataDir.mkpath(dbFile))
+            db.setDatabaseName(dataDir.toNativeSeparators(dbFile + "/yoDownet.sqlite"));
     if (!db.open())
         return db.lastError();
 
     // This is gonna be fun :D
-    QFile dbInitFile("../yoDownet/sql/yodownet_sqlite_db_000.sql");
+    QFile dbInitFile(QDir::toNativeSeparators("../yoDownet/sql/yodownet_sqlite_db.sql"));
     dbInitFile.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream in(&dbInitFile);
     QString dbInitSqlScript = in.readAll();

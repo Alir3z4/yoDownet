@@ -67,4 +67,5 @@ FORMS    += mainwindow.ui \
 OTHER_FILES += \
     COPYING \
     LicenseTemplate \
-    sql/yodownet_sqlite_db.sql
+    sql/yodownet_sqlite_db.sql \
+    installers/archlinux/PKGBUILD

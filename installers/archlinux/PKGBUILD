@@ -1,0 +1,48 @@
+#!/bin/bash
+# Maintainer: Alireza Savand < alireza.savand with love gmail :|>
+
+pkgname=yoDownet-git
+pkgver=20120209
+pkgrel=1
+pkgdesc="yoDownet, The Previous Generation Graphical Download Manager, Implemented on Qt"
+arch=(any)
+url="http://sourceforge.net/projects/yodownet"
+license=("GPLv3")
+makedepends=('git' 'libmaia' 'qt' 'make')
+depends=('qt' 'libmaia')
+provides=("yodownet")
+conflicts=("yodownet")
+
+_gitroot="git://git.code.sf.net/p/yodownet/git"
+_gitname=yodownet
+
+build() {
+	cd "$srcdir"
+	msg "fun begins with git server... ;)"
+	
+	if [ -d $_gitname ] ; then
+		cd $_gitname && git pull origin
+		msg "the local files are updated."
+	else
+		msg "so let's have some fun with cloning the git repo!"
+		git clone $_gitroot $_gitname
+		msg "wasn't fun? cloning done!"
+	fi
+	
+	msg "so git checkout done or maybe server timeout :|"
+	msg "anyway, hold tight."
+	msg "starting to make, hmmm such a lovely time :|"
+
+	rm -rf "$srcdir/$_gitname-build"
+	git clone "$srcdir/$_gitname" "$srcdir/$_gitname-build"
+	cd "$srcdir/$_gitname-build"
+
+	msg "actually compiling, just started right now :D"
+	qmake -config release || return 1
+	make || return 1
+}
+
+package() {
+	cd "$srcdir/$_gitname-build"
+	install -Dm700 ${srcdir}/${_gitname}-build/yoDownet ${pkgdir}/usr/bin/yoDownet
+}

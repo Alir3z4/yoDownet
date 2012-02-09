@@ -31,7 +31,8 @@ SOURCES += main.cpp\
     yoUtils/peer.cpp \
     yoUtils/fault.cpp \
     yoUtils/changeduris.cpp \
-    uridialog.cpp
+    uridialog.cpp \
+    yoUtils/yosettings.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -52,7 +53,8 @@ HEADERS  += mainwindow.h \
     yoUtils/peer.h \
     yoUtils/fault.h \
     yoUtils/changeduris.h \
-    uridialog.h
+    uridialog.h \
+    yoUtils/yosettings.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \
@@ -63,4 +65,6 @@ FORMS    += mainwindow.ui \
     uridialog.ui
 
 OTHER_FILES += \
-    sql/yodownet_sqlite_db_000.sql
+    COPYING \
+    LicenseTemplate \
+    sql/yodownet_sqlite_db.sql

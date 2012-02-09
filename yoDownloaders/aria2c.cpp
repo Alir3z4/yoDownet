@@ -33,7 +33,7 @@ const DownloaderVersion *Aria2c::DlVersion()
 void Aria2c::addUri(const QVariant &uri, QVariantMap &options)
 {
     QVariantList params;
-    params.push_back(uri);;
+    params.push_back(uri);
     params.push_back(options);
     _client->call("aria2.addUri", params, this, SLOT(addUriResponse(QVariant&)), this, SLOT(faultResponse(int,QString)));
 }
@@ -205,8 +205,6 @@ void Aria2c::shutdownResponse(QVariant &msg)
 {
     qWarning("shutdownResponse");
     emit aria2Shuteddown(msg.toString());
-    _process->close();
-    qWarning("_process->close()");
 }
 
 void Aria2c::forceShutdownResponse(QVariant &msg)
@@ -216,6 +214,8 @@ void Aria2c::forceShutdownResponse(QVariant &msg)
 
 void Aria2c::startAria()
 {
+//    if(_isAriaStarted)
+//        shutdown();
     QStringList args;
     args << "--enable-rpc" << "--max-connection-per-server" << "4" << "--min-split-size" << "1M";
     _process->start("aria2c", args);
@@ -243,23 +243,21 @@ void Aria2c::refreshStatus(const QVariant &gid, const QVariantList &keys)
 
 const Status *Aria2c::swallowingStatus(QVariant &tell)
 {
-    qDebug() << tell;
     Status *status = new Status(this);
     QVariantMap tellMap = tell.toMap();
 
     status->setGid(tellMap.value("gid").toString());
     status->setStatus(tellMap.value("status").toString());
-    status->setTotalLength(tellMap.value("totalLength").toString());
-    status->setCompletedLength(tellMap.value("completedLength").toString());
-    bool ok;
-    status->setBitField(QString::number(tellMap.value("bitField").toByteArray().toUInt(&ok, 16)));
-    status->setDownloadSpeed(tellMap.value("downloadSpeed").toString());
-    status->setUploadSpeed(tellMap.value("uploadSpeed").toString());
+    status->setTotalLength(tellMap.value("totalLength").toInt());
+    status->setCompletedLength(tellMap.value("completedLength").toInt());
+    //status->setBitField(tellMap.value("bitField").toString());
+    status->setDownloadSpeed(tellMap.value("downloadSpeed").toInt());
+    status->setUploadSpeed(tellMap.value("uploadSpeed").toInt());
     status->setInfoHash(tellMap.value("infoHash").toString());
-    status->setPieceLength(tellMap.value("pieceLength").toString());
-    status->setNumPieces(tellMap.value("numPieces").toString());
-    status->setConnections(tellMap.value("connections").toString());
-    status->setErrorCode(tellMap.value("errorCode").toString());
+    status->setPieceLength(tellMap.value("pieceLength").toInt());
+    status->setNumPieces(tellMap.value("numPieces").toInt());
+    status->setConnections(tellMap.value("connections").toInt());
+    status->setErrorCode(tellMap.value("errorCode").toInt());
     status->setFollowedBy(tellMap.value("followedBy").toString());
     status->setBelongsTo(tellMap.value("belongsTo").toString());
     status->setDir(tellMap.value("dir").toString());

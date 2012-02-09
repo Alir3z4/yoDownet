@@ -10,59 +10,66 @@ class Status : public QObject
 public:
     explicit Status(QObject *parent = 0);
 
-    void setGid(const QString &gid);
-    void setStatus(const QString &status);
-    void setTotalLength(const QString &totalLength);
-    void setCompletedLength(const QString &completedLength);
-    void setUploadLength(const QString &uploadLength);
-    void setBitField(const QString &bitField);
-    void setDownloadSpeed(const QString &downloadSpeed);
-    void setUploadSpeed(const QString &uploadSpeed);
-    void setInfoHash(const QString &infoHash);
-    void setNumSeeders(const QString &numSeeders);
-    void setPieceLength(const QString &pieceLength);
-    void setNumPieces(const QString &numPieces);
-    void setConnections(const QString &connections);
-    void setErrorCode(const QString &errorCode);
-    void setFollowedBy(const QString &followedBy);
-    void setBelongsTo(const QString &belongsTo);
-    void setDir(const QString &dir);
-    void setFiles(const QList<FileInfo *> &files);
-
     QString gid() const;
     QString status() const;
-    QString totalLength() const;
-    QString completedLength() const;
-    QString uploadLength() const;
-    QString bitField() const;
-    QString downloadSpeed() const;
-    QString uploadSpeed() const;
+    int totalLength() const;
+    int completedLength() const;
+    int uploadLength() const;
+    //QString bitField() const;
+    int downloadSpeed() const;
+    int uploadSpeed() const;
     QString infoHash() const;
-    QString numSeeders() const;
-    QString pieceLength() const;
-    QString numPieces() const;
-    QString connections() const;
-    QString errorCode() const;
+    int numSeeders() const;
+    int pieceLength() const;
+    int numPieces() const;
+    int connections() const;
+    int errorCode() const;
     QString followedBy() const;
     QString belongsTo() const;
     QString dir() const;
     QList<FileInfo*> files() const;
 
+    // Overloaded :D
+    QString remainingTime() const;
+    QString downloadRate() const;
+    int progress() const;
+
+public slots:
+    void setGid(const QString &gid);
+    void setStatus(const QString &status);
+    void setTotalLength(const int totalLength);
+    void setCompletedLength(const int completedLength);
+    void setUploadLength(const int uploadLength);
+    //void setBitField(const QString &bitField);
+    void setDownloadSpeed(const int downloadSpeed);
+    void setUploadSpeed(const int uploadSpeed);
+    void setInfoHash(const QString &infoHash);
+    void setNumSeeders(const int numSeeders);
+    void setPieceLength(const int pieceLength);
+    void setNumPieces(const int numPieces);
+    void setConnections(const int connections);
+    void setErrorCode(const int errorCode);
+    void setFollowedBy(const QString &followedBy);
+    void setBelongsTo(const QString &belongsTo);
+    void setDir(const QString &dir);
+    void setFiles(const QList<FileInfo *> &files);
+
+
 private:
     QString _gid;
     QString _status;
-    QString _totalLength;
-    QString _completedLength;
-    QString _uploadLength;
-    QString _bitField;
-    QString _downloadSpeed;
-    QString _uploadSpeed;
+    int _totalLength;
+    int _completedLength;
+    int _uploadLength;
+    //QString _bitField;
+    int _downloadSpeed;
+    int _uploadSpeed;
     QString _infoHash;
-    QString _numSeeders;
-    QString _pieceLength;
-    QString _numPieces;
-    QString _connections;
-    QString _errorCode;
+    int _numSeeders;
+    int _pieceLength;
+    int _numPieces;
+    int _connections;
+    int _errorCode;
     QString _followedBy;
     QString _belongsTo;
     QString _dir;

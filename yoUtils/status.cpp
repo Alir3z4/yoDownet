@@ -1,4 +1,5 @@
 #include "status.h"
+#include <QtCore/QTime>
 
 Status::Status(QObject *parent) :
     QObject(parent)
@@ -15,32 +16,31 @@ void Status::setStatus(const QString &status)
     _status = status;
 }
 
-void Status::setTotalLength(const QString &totalLength)
+void Status::setTotalLength(const int totalLength)
 {
     _totalLength = totalLength;
 }
 
-void Status::setCompletedLength(const QString &completedLength)
+void Status::setCompletedLength(const int completedLength)
 {
     _completedLength = completedLength;
 }
 
-void Status::setUploadLength(const QString &uploadLength)
+void Status::setUploadLength(const int uploadLength)
 {
     _uploadLength = uploadLength;
 }
+//void Status::setBitField(const QString &bitField)
+//{
+//    _bitField = bitField;
+//}
 
-void Status::setBitField(const QString &bitField)
-{
-    _bitField = bitField;
-}
-
-void Status::setDownloadSpeed(const QString &downloadSpeed)
+void Status::setDownloadSpeed(const int downloadSpeed)
 {
     _downloadSpeed = downloadSpeed;
 }
 
-void Status::setUploadSpeed(const QString &uploadSpeed)
+void Status::setUploadSpeed(const int uploadSpeed)
 {
     _uploadSpeed = uploadSpeed;
 }
@@ -50,27 +50,27 @@ void Status::setInfoHash(const QString &infoHash)
     _infoHash = infoHash;
 }
 
-void Status::setNumSeeders(const QString &numSeeders)
+void Status::setNumSeeders(const int numSeeders)
 {
     _numSeeders = numSeeders;
 }
 
-void Status::setPieceLength(const QString &pieceLength)
+void Status::setPieceLength(const int pieceLength)
 {
     _pieceLength = pieceLength;
 }
 
-void Status::setNumPieces(const QString &numPieces)
+void Status::setNumPieces(const int numPieces)
 {
     _numPieces = numPieces;
 }
 
-void Status::setConnections(const QString &connections)
+void Status::setConnections(const int connections)
 {
     _connections = connections;
 }
 
-void Status::setErrorCode(const QString &errorCode)
+void Status::setErrorCode(const int errorCode)
 {
     _errorCode = errorCode;
 }
@@ -105,32 +105,39 @@ QString Status::status() const
     return _status;
 }
 
-QString Status::totalLength() const
+int Status::totalLength() const
 {
     return _totalLength;
 }
 
-QString Status::completedLength() const
+int Status::completedLength() const
 {
     return _completedLength;
 }
 
-QString Status::uploadLength() const
+int Status::uploadLength() const
 {
     return _uploadLength;
 }
 
-QString Status::bitField() const
+int Status::progress() const
 {
-    return _bitField;
+    if(totalLength() > 0)
+        return completedLength()*100/totalLength();
+    else
+        return 0;
 }
+//QString Status::bitField() const
+//{
+//    return _bitField;
+//}
 
-QString Status::downloadSpeed() const
+int Status::downloadSpeed() const
 {
     return _downloadSpeed;
 }
 
-QString Status::uploadSpeed() const
+int Status::uploadSpeed() const
 {
     return _uploadSpeed;
 }
@@ -140,27 +147,27 @@ QString Status::infoHash() const
     return _infoHash;
 }
 
-QString Status::numSeeders() const
+int Status::numSeeders() const
 {
     return _numSeeders;
 }
 
-QString Status::pieceLength() const
+int Status::pieceLength() const
 {
     return _pieceLength;
 }
 
-QString Status::numPieces() const
+int Status::numPieces() const
 {
     return _numPieces;
 }
 
-QString Status::connections() const
+int Status::connections() const
 {
     return _connections;
 }
 
-QString Status::errorCode() const
+int Status::errorCode() const
 {
     return _errorCode;
 }
@@ -183,4 +190,29 @@ QString Status::dir() const
 QList<FileInfo *> Status::files() const
 {
     return _files;
+}
+
+QString Status::remainingTime() const
+{
+    if(downloadSpeed() > 0){
+        int speed = downloadSpeed();
+        int remLength = totalLength() - completedLength();
+        int remSecond = remLength/speed;
+        int hour = remSecond/3600;
+        remSecond = remSecond%3600;
+        int minute = remSecond/60;
+        remSecond = remSecond%60;
+        return QTime(hour, minute, remSecond).toString();
+    }
+
+    return QString("n/a");
+
+}
+
+QString Status::downloadRate() const
+{
+    if(downloadSpeed() > 0){
+        return QString("%1Kb/s").arg((double)downloadSpeed()/1024.0);
+    }
+    return QString(tr("n/a"));
 }

@@ -47,13 +47,23 @@ const QSqlError yoDataBase::initDb()
         return db.lastError();
 
     // This is gonna be fun :D
-    QFile dbInitFile(QDir::toNativeSeparators("../yoDownet/sql/yodownet_sqlite_db.sql"));
-    dbInitFile.open(QIODevice::ReadOnly | QIODevice::Text);
-    QTextStream in(&dbInitFile);
-    QString dbInitSqlScript = in.readAll();
+//    QFile dbInitFile(QDir::toNativeSeparators("../yoDownet/sql/yodownet_sqlite_db.sql"));
+//    dbInitFile.open(QIODevice::ReadOnly | QIODevice::Text);
+//    QTextStream in(&dbInitFile);
+    QString sqliteCreator = "CREATE TABLE IF NOT EXISTS \"uris\" ("
+            "\"id\" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL ,"
+            "\"aria2_gid\" INTEGER NOT NULL ,"
+            "\"uri\" TEXT,"
+            "\"save_path\" TEXT,"
+            "\"status\" VARCHAR(25),"
+            "\"progress\" INTEGER,"
+            "\"remaining_time\" VARCHAR(75) DEFAULT \"n/a\","
+            "\"flag\" VARCHAR(15) DEFAULT \"init\","
+            "\"created_at\" TIMESTAMP NOT NULL  DEFAULT CURRENT_TIMESTAMP,"
+            "\"updated_at\" TIMESTAMP);";
 
     QSqlQuery initDbQuery;
-    if(!initDbQuery.exec(dbInitSqlScript))
+    if(!initDbQuery.exec(sqliteCreator))
         return initDbQuery.lastError();
 
     return QSqlError();

@@ -64,8 +64,14 @@ FORMS    += mainwindow.ui \
     filebrowz.ui \
     uridialog.ui
 
+TRANSLATIONS += translations/yoDownet_fa.ts
+
 OTHER_FILES += \
     COPYING \
     LicenseTemplate \
     sql/yodownet_sqlite_db.sql \
-    installers/archlinux/PKGBUILD
+    installers/archlinux/PKGBUILD \
+    images/yoDownet_64.svg
+
+RESOURCES += \
+    icons.qrc

@@ -1,6 +1,6 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
-Categories=Qt;Internet;Download;
+Categories=Qt;Internet;Download;Network;
 Comment=yoDownet, The Previous Generation Graphical Download Manager, Implemented on Qt
 Icon=yoDownet_64.svg
 Exec=yoDownet

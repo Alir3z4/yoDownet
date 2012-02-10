@@ -20,6 +20,7 @@
 
 #include "aria2c.h"
 #include <QVariant>
+#include "yoUtils/yosettings.h"
 
 Aria2c::Aria2c(QObject *parent) :
     QObject(parent), _client(new MaiaXmlRpcClient(QUrl("http://localhost:6800/rpc"), parent)),
@@ -238,6 +239,14 @@ void Aria2c::startAria()
 //        shutdown();
     QStringList args;
     args << "--enable-rpc" << "--max-connection-per-server" << "4" << "--min-split-size" << "1M";
+
+    yoSettings _settings;
+    QVariantMap options = _settings.aria2Options(yoSettings::StartOptions);
+    QVariantMap::Iterator i = options.begin();
+    while (i != options.end()) {
+        args << "--" + i.key() << i.value().toString();
+        ++i;
+    }
     _process->start("aria2c", args);
     emit ariaStarted(true);
 }

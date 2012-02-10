@@ -70,6 +70,9 @@ void PreferencesDialog::saveSettings()
     // Save PrefDownloadersWidget
     settings.beginGroup("PrefDownloadersWidget");
     settings.setValue("saveDir", prefDler->saveDir());
+    settings.setValue("log", prefDler->logFile());
+    settings.setValue("max-concurrent-downloads", prefDler->maxDownloads());
+    settings.setValue("continue", prefDler->isContinue());
     settings.endGroup();
 
     settings.endGroup();
@@ -102,6 +105,9 @@ void PreferencesDialog::loadSettings()
     // Load PrefDownloadersWidget
     settings.beginGroup("PrefDownloadersWidget");
     prefDler->setSaveDir(settings.value("saveDir").toString());
+    prefDler->setLogFile(settings.value("log", "").toString());
+    prefDler->setMaxDownloads(settings.value("max-concurrent-downloads", 5).toInt());
+    prefDler->setContinue(settings.value("continue", "true").toBool());
     settings.endGroup();
 
     settings.endGroup();

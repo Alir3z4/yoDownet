@@ -33,6 +33,21 @@ QString yoSettings::saveDir() const
     return _saveDir;
 }
 
+QString yoSettings::logFile() const
+{
+    return _logFile;
+}
+
+int yoSettings::maxDownloads() const
+{
+    return _maxdownloads;
+}
+
+QString yoSettings::isContinue() const
+{
+    return _continue;
+}
+
 void yoSettings::load()
 {
     QSettings settings;
@@ -40,6 +55,9 @@ void yoSettings::load()
 
     settings.beginGroup("PrefDownloadersWidget");
     setSaveDir(settings.value("saveDir").toString());
+    setLogFile(settings.value("log", "").toString());
+    setMaxDownloads(settings.value("max-concurrent-downloads", 5).toInt());
+    setContinue(settings.value("continue", "true").toString());
     settings.endGroup();
 
     settings.endGroup();
@@ -50,11 +68,31 @@ void yoSettings::setSaveDir(const QString &saveDir)
     _saveDir = saveDir;
 }
 
-QVariantMap yoSettings::aria2Options() const
+void yoSettings::setLogFile(const QString &logFile)
 {
-    QVariantMap options;
-    options["dir"] = saveDir();
-    options["continue"] = "true";
+    _logFile= logFile;
+}
 
-    return options;
+void yoSettings::setMaxDownloads(const int maxDownloads)
+{
+    _maxdownloads = maxDownloads;
+}
+
+void yoSettings::setContinue(const QString &isContinue)
+{
+    _continue = isContinue;
+}
+
+QVariantMap yoSettings::aria2Options(const Aria2ModeOption &mode) const
+{
+    QVariantMap addOptions, startOptions;
+    addOptions["dir"] = saveDir();
+    addOptions["continue"] = isContinue();
+    startOptions["log"] = logFile();
+    startOptions["max-concurrent-downloads"] = maxDownloads();
+
+    if(mode == AddUriOptions)
+        return addOptions;
+    else
+        return startOptions;
 }

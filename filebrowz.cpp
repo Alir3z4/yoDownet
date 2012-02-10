@@ -87,13 +87,13 @@ void FileBrowz::setOptions(QFileDialog::Options options)
 
 void FileBrowz::setBrowzPath(const QString &browztPath)
 {
-    ui->pathEdit->setText(browztPath);
+    // TODO: is writable or what ?
+    ui->pathEdit->setText((browztPath.isEmpty()) ? QDir::homePath() : browztPath);
 }
 
 void FileBrowz::setPath(const QString &path)
 {
-    // TODO: is writable or what ?
-    ui->pathEdit->setText((path.isEmpty()) ? QDir::homePath() : path);
+    ui->pathEdit->setText(path);
 }
 
 void FileBrowz::on_browzButton_clicked()

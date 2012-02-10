@@ -98,7 +98,7 @@ void MainWindow::on_actionAdd_triggered()
 {
   UriDialog addDialog;
     if(addDialog.exec() == QDialog::Accepted) {
-        QVariantMap options = _settings->aria2Options();
+        QVariantMap options = _settings->aria2Options(yoSettings::AddUriOptions);
         QVariantList uris;
         uris.push_back(addDialog.uri());
         downloader->addUri(uris, options);

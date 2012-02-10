@@ -36,9 +36,15 @@ public:
     ~PrefDownloadersWidget();
 
     QString saveDir()const;
+    QString logFile() const;
+    int maxDownloads() const;
+    bool isContinue() const;
 
 public slots:
     void setSaveDir(const QString &saveDir);
+    void setLogFile(const QString &logFile);
+    void setMaxDownloads(const int maxDownloads);
+    void setContinue(bool isContinue);
 
     
 private:

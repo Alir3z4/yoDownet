@@ -29,6 +29,10 @@ PrefDownloadersWidget::PrefDownloadersWidget(QWidget *parent) :
 
     ui->saveDirEdit->setCaption(tr("Select a directory to save downloaded files"));
     ui->saveDirEdit->setBrowzType(FileBrowz::GetDirectory);
+
+    ui->logFileEdit->setCaption(tr("Select a file to write log file into it"));
+    ui->logFileEdit->setBrowzType(FileBrowz::GetFileName);
+    ui->logFileEdit->setBrowzPath(QString());
 }
 
 PrefDownloadersWidget::~PrefDownloadersWidget()
@@ -41,7 +45,37 @@ QString PrefDownloadersWidget::saveDir()const
     return ui->saveDirEdit->browzPath();
 }
 
+QString PrefDownloadersWidget::logFile() const
+{
+    return ui->logFileEdit->browzPath();
+}
+
+int PrefDownloadersWidget::maxDownloads() const
+{
+    return ui->maxDownloadSpinBox->text().toInt();
+}
+
+bool PrefDownloadersWidget::isContinue() const
+{
+    return ui->continueCheckBox->isChecked();
+}
+
 void PrefDownloadersWidget::setSaveDir(const QString &saveDir)
 {
-    ui->saveDirEdit->setPath(saveDir);
+    ui->saveDirEdit->setBrowzPath(saveDir);
+}
+
+void PrefDownloadersWidget::setLogFile(const QString &logFile)
+{
+    ui->logFileEdit->setPath(logFile);
+}
+
+void PrefDownloadersWidget::setMaxDownloads(const int maxDownloads)
+{
+    ui->maxDownloadSpinBox->setValue(maxDownloads);
+}
+
+void PrefDownloadersWidget::setContinue(bool isContinue)
+{
+    ui->continueCheckBox->setChecked(isContinue);
 }

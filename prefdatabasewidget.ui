@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>PrefDataBaseWidget</class>
  <widget class="QWidget" name="PrefDataBaseWidget">
+  <property name="enabled">
+   <bool>false</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -18,7 +21,7 @@
     <normaloff/>
    </iconset>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="PrefDataBaseWidgetGridLayout">
    <item row="0" column="0">
     <widget class="QCheckBox" name="checkBox">
      <property name="text">
@@ -146,6 +149,9 @@
            <property name="acceptDrops">
             <bool>false</bool>
            </property>
+           <property name="toolTip">
+            <string/>
+           </property>
            <property name="text">
             <string>yoDownet expects the above database and user account to already exist This user also requires full access to the database. You MUST restart yoDownet after changing these settings
 If your database is not already set up you can use the following SQL commands (after replacing the password with the correct one):</string>
@@ -175,6 +181,12 @@ If your database is not already set up you can use the following SQL commands (a
          </item>
          <item row="1" column="0">
           <widget class="QTextBrowser" name="dbCreatorText">
+           <property name="toolTip">
+            <string notr="true"/>
+           </property>
+           <property name="statusTip">
+            <string notr="true"/>
+           </property>
            <property name="html">
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>384</width>
+    <width>397</width>
     <height>242</height>
    </rect>
   </property>
@@ -19,28 +19,118 @@
    </iconset>
   </property>
   <layout class="QGridLayout" name="PrefDownloadersWidgetGridLayout">
-   <item row="0" column="0">
+   <item row="0" column="1">
     <widget class="QTabWidget" name="downloaderTabWidget">
      <property name="currentIndex">
       <number>0</number>
      </property>
      <widget class="QWidget" name="downloadsTab">
       <attribute name="title">
-       <string>&amp;Downloads</string>
+       <string>&amp;Basic </string>
       </attribute>
-      <layout class="QGridLayout" name="SaveToTabGridLayout">
+      <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
-        <widget class="QLabel" name="saveDirLabel">
-         <property name="text">
-          <string>Save &amp;Path:</string>
-         </property>
-         <property name="buddy">
-          <cstring>saveDirEdit</cstring>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="hLayout">
+         <item>
+          <layout class="QVBoxLayout" name="lefLabelsVLayout">
+           <item>
+            <widget class="QLabel" name="saveDirLabel">
+             <property name="toolTip">
+              <string>The directory to store the downloaded file.</string>
+             </property>
+             <property name="text">
+              <string>Save &amp;Path:</string>
+             </property>
+             <property name="buddy">
+              <cstring>saveDirEdit</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="logFileLabel">
+             <property name="toolTip">
+              <string>The file name of the log file.</string>
+             </property>
+             <property name="whatsThis">
+              <string>The file name of the log file. log is written to stdout. If empty  specified, log is not written to file.</string>
+             </property>
+             <property name="text">
+              <string>&amp;Log File:</string>
+             </property>
+             <property name="buddy">
+              <cstring>logFileEdit</cstring>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="maxDownloadsLabel">
+             <property name="toolTip">
+              <string>Set maximum number of parallel downloads, Default: 5</string>
+             </property>
+             <property name="whatsThis">
+              <string>Set maximum number of parallel downloads for every static (HTTP/FTP) URI, torrent and metalink. Default: 5</string>
+             </property>
+             <property name="text">
+              <string>&amp;Max Parallel Downloads:</string>
+             </property>
+             <property name="buddy">
+              <cstring>maxDownloadSpinBox</cstring>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="rightBoxesVLayout">
+           <item>
+            <widget class="FileBrowz" name="saveDirEdit"/>
+           </item>
+           <item>
+            <widget class="FileBrowz" name="logFileEdit"/>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="checkBoxhLayout">
+             <item>
+              <widget class="QSpinBox" name="maxDownloadSpinBox">
+               <property name="value">
+                <number>5</number>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="continueCheckBox">
+               <property name="toolTip">
+                <string>Continue downloading a partially downloaded file</string>
+               </property>
+               <property name="whatsThis">
+                <string>Continue downloading a partially downloaded file. Use this option to resume a download started by a web browser or another program which downloads files sequentially from the beginning. Currently this option is only applicable to HTTP(S)/FTP downloads.</string>
+               </property>
+               <property name="text">
+                <string>&amp;Resume Downloads</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </item>
-       <item row="0" column="1">
-        <widget class="FileBrowz" name="saveDirEdit"/>
+       <item row="1" column="0">
+        <spacer name="bottomVSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>

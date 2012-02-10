@@ -30,17 +30,31 @@ class yoSettings : public QObject
 public:
     explicit yoSettings(QObject *parent = 0);
 
+    enum Aria2ModeOption{
+        AddUriOptions,
+        StartOptions
+    };
+
     QString saveDir() const;
-    QVariantMap aria2Options() const;
+    QString logFile() const;
+    int maxDownloads() const;
+    QString isContinue() const;
+    QVariantMap aria2Options(const Aria2ModeOption &mode) const;
     
 public slots:
     void load();
     
 private slots:
     void setSaveDir(const QString &saveDir);
+    void setLogFile(const QString &logFile);
+    void setMaxDownloads(const int maxDownloads);
+    void setContinue(const QString &isContinue);
 
 private:
     QString _saveDir;
+    QString _logFile;
+    int _maxdownloads;
+    QString _continue;
     
 };
 

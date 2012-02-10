@@ -1,8 +1,8 @@
 #!/bin/bash
 # Maintainer: Alireza Savand < alireza.savand with love gmail :|>
 
-pkgname=yoDownet-git
-pkgver=20120209
+pkgname=yodownet-git
+pkgver=20120210
 pkgrel=1
 pkgdesc="yoDownet, The Previous Generation Graphical Download Manager, Implemented on Qt"
 arch=(any)
@@ -44,5 +44,8 @@ build() {
 
 package() {
 	cd "$srcdir/$_gitname-build"
-	install -Dm700 ${srcdir}/${_gitname}-build/yoDownet ${pkgdir}/usr/bin/yoDownet
+	install -Dm775 ${srcdir}/${_gitname}-build/yoDownet ${pkgdir}/usr/bin/yoDownet || return 1
+	msg "Installing *.desktop stuff :)"
+	install -Dm644 ${srcdir}/${_gitname}-build/installers/yoDownet.desktop ${pkgdir}/usr/share/applications/yoDownet.desktop || return 1
+	install -Dm644 ${srcdir}/${_gitname}-build/images/yoDownet_64.svg ${pkgdir}/usr/share/pixmaps/yoDownet_64.svg || return 1
 }

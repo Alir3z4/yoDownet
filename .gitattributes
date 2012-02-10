@@ -1,0 +1,3 @@
+*.png diff=exif
+.gitignore export-ignore
+.gitattributes export-ignore

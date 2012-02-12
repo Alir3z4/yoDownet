@@ -4,11 +4,10 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql xml network
+QT       += core gui sql network
 
 TARGET = yoDownet
 TEMPLATE = app
-LIBS += -lmaia
 
 
 SOURCES += main.cpp\

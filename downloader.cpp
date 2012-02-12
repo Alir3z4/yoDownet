@@ -26,6 +26,7 @@ Downloader::Downloader()
     connect(this, SIGNAL(uriAdded(QVariant)), this, SLOT(askForStatus(QVariant)));
     connect(this, SIGNAL(statusTold(const Status*)), this, SLOT(addUriToDb(const Status*)));
     connect(this, SIGNAL(uriAddedToDb(QString)), this, SLOT(askForRefreshStatus(QString)));
+    connect(this, SIGNAL(uriUnPaused(QString)), this, SLOT(askForRefreshStatus(QString)));
     connect(this, SIGNAL(statusRefreshed(const Status*)), this, SLOT(updateUriToDb(const Status*)));
 
     startAria();
@@ -39,8 +40,9 @@ Downloader::~Downloader()
 
 void Downloader::resume(const QString &uri)
 {
-    QVariantMap options;
-    addUri(QVariant(uri), options);
+    QVariantList uris;
+    uris.push_back(uri);
+    addUri(uris, QVariantMap());
 }
 
 void Downloader::askForStartAria()
@@ -54,11 +56,13 @@ void Downloader::askForStatus(const QVariant &gid)
 
 void Downloader::askForRefreshStatus(const QString &gid)
 {
+    qWarning("status refreshed");
     refreshStatus(QVariant(gid), QVariantList());
 }
 
 void Downloader::addUriToDb(const Status *status)
 {
+    qDebug() << status->remainingTime();
     yoDataBase db;
     QVariantMap uriMap;
     uriMap["gid"] = status->gid();

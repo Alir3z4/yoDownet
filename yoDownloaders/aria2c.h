@@ -38,7 +38,7 @@ public:
     const DownloaderVersion *DlVersion();
 
 public slots:
-    void addUri(const QVariant &uri, QVariantMap &options);
+    void addUri(const QVariant &uri, const QVariantMap &options);
     void remove(const QVariant &gid);
     void forceRemove(const QVariant &gid);
     void pause(const QVariant &gid);

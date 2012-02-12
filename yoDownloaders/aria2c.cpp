@@ -51,7 +51,7 @@ const DownloaderVersion *Aria2c::DlVersion()
     return _version;
 }
 
-void Aria2c::addUri(const QVariant &uri, QVariantMap &options)
+void Aria2c::addUri(const QVariant &uri,const QVariantMap &options)
 {
     QVariantList params;
     params.push_back(uri);

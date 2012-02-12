@@ -50,9 +50,9 @@ MainWindow::MainWindow(QWidget *parent) :
     initUrisTable();
 
     // Hide `id`, `aria2_gid', 'flags' columns
-    ui->urisTable->setColumnHidden(0, true);
-    ui->urisTable->setColumnHidden(1, true);
-    ui->urisTable->setColumnHidden(yoDataBase::flag, true);
+//    ui->urisTable->setColumnHidden(0, true);
+//    ui->urisTable->setColumnHidden(1, true);
+//    ui->urisTable->setColumnHidden(yoDataBase::flag, true);
 
     // So connect the signals :|
     // YuHaHaHaHa
@@ -232,6 +232,16 @@ void MainWindow::initUrisTable()
 
 void MainWindow::addNewDlToUrisTable(const QVariantMap &uri)
 {
+    for (int i = 0; i < ui->urisTable->rowCount(); ++i) {
+        if(ui->urisTable->item(i, yoDataBase::uri)->text() == uri["uri"].toString()){
+            ui->urisTable->item(i, yoDataBase::uri)->setText(uri["uri"].toString());
+            ui->urisTable->item(i, yoDataBase::aria2_gid)->setText(uri["gid"].toString());
+            downloader->askForRefreshStatus(uri["gid"].toString());
+            ui->urisTable->item(i, yoDataBase::flag)->setText("askedToRefresh");
+            return;
+        }
+    }
+
      qWarning("added");
      int currentRow = ui->urisTable->rowCount();
      ui->urisTable->setRowCount(currentRow + 1);
@@ -446,9 +456,7 @@ void MainWindow::on_actionPause_triggered()
     const QString uri = currentColumn(yoDataBase::uri);
     const QString gid = currentColumn(yoDataBase::aria2_gid);
 
-    if(!ui->urisTable->selectedItems().isEmpty())
-        ui->urisTable->removeRow(ui->urisTable->selectedItems().first()->row());
-    else
+    if(ui->urisTable->selectedItems().isEmpty())
         return;
     if(gid != "0")
         downloader->pause(QVariant(gid));
@@ -460,12 +468,15 @@ void MainWindow::on_actionResume_triggered()
     const QString uri = currentColumn(yoDataBase::uri);
     const QString gid = currentColumn(yoDataBase::aria2_gid);
 
-    if(!ui->urisTable->selectedItems().isEmpty())
-        ui->urisTable->removeRow(ui->urisTable->selectedItems().first()->row());
-    else
+    if(ui->urisTable->selectedItems().isEmpty())
         return;
+
     if(gid != "0")
-        downloader->unpause(QVariant(gid));
+        downloader->askForRefreshStatus(gid);
+    else if(gid == "0"){
+        downloader->resume(uri);
+    }
+
     emit downloadUnPaused(uri);
 }
 

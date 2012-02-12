@@ -75,26 +75,29 @@ bool yoDataBase::removeDB(const QSqlDatabase &removeDb)
     return true;
 }
 
-bool yoDataBase::addUri(const QString &uriAria2Gid, const QString &uriUri, const QString &uriSavePath, const QString &uriStatus, const int uriProgress)
+bool yoDataBase::addUri(const QString &uriAria2Gid, const QString &uriUri, const QString &uriSavePath, const QString &uriStatus, const int uriProgress, WhatNow what)
 {
-    if(CheckPlease(uriUri) == Add){
-        QSqlQuery addQuery;
-        addQuery.prepare("INSERT INTO uris(aria2_gid, uri, save_path, status, progress)"
-                         " VALUES(:aria2_gid, :uri, :save_path, :status, :progress)");
-        addQuery.bindValue(":aria2_gid", uriAria2Gid);
-        addQuery.bindValue(":uri", uriUri);
-        addQuery.bindValue(":save_path", uriSavePath);
-        addQuery.bindValue(":status", uriStatus);
-        addQuery.bindValue(":progress", uriProgress);
-        if(!addQuery.exec()){
-            yoMessage msg;
-            msg.dbError(addQuery.lastError().text(), QObject::tr("Adding new download"));
-            return false;
+    if(what == Add){
+        if(CheckPlease(uriUri) == Add){
+            QSqlQuery addQuery;
+            addQuery.prepare("INSERT INTO uris(aria2_gid, uri, save_path, status, progress)"
+                             " VALUES(:aria2_gid, :uri, :save_path, :status, :progress)");
+            addQuery.bindValue(":aria2_gid", uriAria2Gid);
+            addQuery.bindValue(":uri", uriUri);
+            addQuery.bindValue(":save_path", uriSavePath);
+            addQuery.bindValue(":status", uriStatus);
+            addQuery.bindValue(":progress", uriProgress);
+            if(!addQuery.exec()){
+                yoMessage msg;
+                msg.dbError(addQuery.lastError().text(), QObject::tr("Adding new download"));
+                return false;
+            }
+            setLastInsertedId(addQuery.lastInsertId().toInt());
         }
-        setLastInsertedId(addQuery.lastInsertId().toInt());
+        return true;
+    }else if(what == Resume){
+        return true;
     }
-
-    return true;
 }
 
 bool yoDataBase::updateUri(const QString &uriAria2Gid, const QString &uriUri, const QString &uriSavePath, const QString &uriStatus, const int uriProgress)

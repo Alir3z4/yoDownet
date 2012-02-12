@@ -54,7 +54,7 @@ public:
     const QSqlError initDb();
     bool removeDB(const QSqlDatabase &db);
     bool addUri(const QString &uriAria2Gid, const QString &uriUri,
-                const QString &uriSavePath, const QString &uriStatus, const int uriProgress = 0);
+                const QString &uriSavePath, const QString &uriStatus, const int uriProgress = 0, enum WhatNow what = Add);
     bool updateUri(const QString &uriAria2Gid, const QString &uriUri,
                    const QString &uriSavePath, const QString &uriStatus, const int uriProgress);
     bool deleteUri(const QString &uriUri);

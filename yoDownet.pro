@@ -18,21 +18,9 @@ SOURCES += main.cpp\
     prefdatabasewidget.cpp \
     yoUtils/yomessage.cpp \
     importurls.cpp \
-    yoDownloaders/aria2c.cpp \
     filebrowz.cpp \
     yoUtils/yodatabase.cpp \
-    downloader.cpp \
-    yoUtils/fileinfo.cpp \
-    yoUtils/status.cpp \
-    yoUtils/options.cpp \
-    yoUtils/bittorrent.cpp \
-    yoUtils/uristatus.cpp \
-    yoUtils/downloaderversion.cpp \
-    yoUtils/peer.cpp \
-    yoUtils/fault.cpp \
-    yoUtils/changeduris.cpp \
-    uridialog.cpp \
-    yoUtils/yosettings.cpp
+    uridialog.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -40,21 +28,9 @@ HEADERS  += mainwindow.h \
     prefdatabasewidget.h \
     yoUtils/yomessage.h \
     importurls.h \
-    yoDownloaders/aria2c.h \
     filebrowz.h \
     yoUtils/yodatabase.h \
-    downloader.h \
-    yoUtils/fileinfo.h \
-    yoUtils/status.h \
-    yoUtils/options.h \
-    yoUtils/bittorrent.h \
-    yoUtils/uristatus.h \
-    yoUtils/downloaderversion.h \
-    yoUtils/peer.h \
-    yoUtils/fault.h \
-    yoUtils/changeduris.h \
-    uridialog.h \
-    yoUtils/yosettings.h
+    uridialog.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \

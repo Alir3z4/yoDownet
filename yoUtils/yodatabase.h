@@ -32,7 +32,6 @@ class yoDataBase
 public:
     enum URIs {
         id,
-        aria2_gid,
         uri,
         save_path,
         status,
@@ -43,27 +42,16 @@ public:
         updated_at
     };
 
-    enum WhatNow {
-        Add,
-        Resume,
-        ReDownload,
-        Delete,
-        Notn
-    };
-
     const QSqlError initDb();
     bool removeDB(const QSqlDatabase &db);
-    bool addUri(const QString &uriAria2Gid, const QString &uriUri,
-                const QString &uriSavePath, const QString &uriStatus, const int uriProgress = 0, enum WhatNow what = Add);
-    bool updateUri(const QString &uriAria2Gid, const QString &uriUri,
-                   const QString &uriSavePath, const QString &uriStatus, const int uriProgress);
+    bool addUri(const QString &argUri, const QString &savePath, const QString &argStatus, const int argProgress = 0);
+    bool updateUri(const QString &argUri, const QString &savePath,const QString &argStatus, const int argProgress);
     bool deleteUri(const QString &uriUri);
     int lastInsertedID() const;
 
 private:
     int _lastInsertedId;
     void setLastInsertedId(const int &id);
-    WhatNow CheckPlease(const QString &uriUri);
     
 };
 

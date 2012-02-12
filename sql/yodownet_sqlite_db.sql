@@ -1,7 +1,7 @@
 
 -- yodownet_sqlite_db.sql is part of yoDownet
 
--- Copyright 2012 Alireza Savand <alireza.savand@gmail.com>
+-- Copyright 2011, 2012 Alireza Savand <alireza.savand@gmail.com>
 
 -- yoDownet is free software; you can redistribute it and/or modify
 -- it under the terms of the GNU General Public License as published by
@@ -18,7 +18,6 @@
 
 CREATE TABLE IF NOT EXISTS "uris" (
 "id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL ,
-"aria2_gid" INTEGER NOT NULL ,
 "uri" TEXT,
 "save_path" TEXT,
 "status" VARCHAR(25),

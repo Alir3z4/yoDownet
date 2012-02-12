@@ -23,7 +23,6 @@
 #include <QtSql/QSqlQuery>
 #include <QDateTime>
 #include <QSettings>
-#include "yoDownloaders/aria2c.h"
 #include "preferencesdialog.h"
 #include "uridialog.h"
 
@@ -35,10 +34,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    downloader = new Downloader;
-    downloader->askForStartAria();
-
-    _settings = new yoSettings(this);
 
     // read/load settings
     loadSettings();
@@ -49,28 +44,14 @@ MainWindow::MainWindow(QWidget *parent) :
     // Initialize UrisTable :|
     initUrisTable();
 
-    // Hide `id`, `aria2_gid', 'flags' columns
-//    ui->urisTable->setColumnHidden(0, true);
-//    ui->urisTable->setColumnHidden(1, true);
-//    ui->urisTable->setColumnHidden(yoDataBase::flag, true);
-
-    // So connect the signals :|
-    // YuHaHaHaHa
-    connect(this, SIGNAL(rowRemoved(QString)), this, SLOT(downloadRemoved(QString)));
-    connect(this, SIGNAL(rowStopped(QString)), this, SLOT(downloadStopped(QString)));
-    connect(this, SIGNAL(rowUnPaused(QString)), this, SLOT(downloadUnPaused(QString)));
-    connect(this, SIGNAL(rowPaused(QString)), this, SLOT(downloadPaused(QString)));
-    QTimer *updateTableTimer = new QTimer(this);
-    connect(updateTableTimer, SIGNAL(timeout()), this, SLOT(askForUpdateUrisTable()));
-    connect(downloader, SIGNAL(uriAddedToDb(QVariantMap)), this, SLOT(addNewDlToUrisTable(QVariantMap)));
-    connect(downloader, SIGNAL(statusRefreshed(const Status*)), this, SLOT(updateUrisTable(const Status*)));
-    updateTableTimer->start(100);
+    // Hide `id`, 'flags' columns
+    ui->urisTable->setColumnHidden(0, true);
+    ui->urisTable->setColumnHidden(yoDataBase::flag, true);
 
 }
 
 MainWindow::~MainWindow()
 {
-    delete downloader;
     delete ui;
 }
 
@@ -98,10 +79,6 @@ void MainWindow::on_actionAdd_triggered()
 {
   UriDialog addDialog;
     if(addDialog.exec() == QDialog::Accepted) {
-        QVariantMap options = _settings->aria2Options(yoSettings::AddUriOptions);
-        QVariantList uris;
-        uris.push_back(addDialog.uri());
-        downloader->addUri(uris, options);
     }
 
 }
@@ -109,35 +86,6 @@ void MainWindow::on_actionAdd_triggered()
 void MainWindow::closeEvent(QCloseEvent * )
 {
     saveSettings();
-}
-
-void MainWindow::askForUpdateUrisTable()
-{
-    for (int i = 0; i < ui->urisTable->rowCount(); ++i){
-        if(ui->urisTable->item(i, yoDataBase::status)->text() == "active"){
-            QString gid = ui->urisTable->item(i, yoDataBase::aria2_gid)->text();
-            if(gid.operator !=("0")){
-                downloader->askForRefreshStatus(gid);
-                ui->urisTable->item(i, yoDataBase::flag)->setText("askedToRefresh");
-            }
-        }
-    }
-}
-
-void MainWindow::updateUrisTable(const Status *status)
-{
-    for (int i = 0; i < ui->urisTable->rowCount(); ++i) {
-        if(ui->urisTable->item(i, yoDataBase::aria2_gid)->text() == status->gid() &&
-                ui->urisTable->item(i, yoDataBase::flag)->text() == "askedToRefresh"){
-            ui->urisTable->item(i, yoDataBase::progress)->setText(QString::number(status->progress()) + "%");
-            ui->urisTable->item(i, yoDataBase::remaining_time)->setText(status->remainingTime());
-            ui->urisTable->item(i, yoDataBase::remaining_time)->setTextAlignment(Qt::AlignCenter);
-            ui->urisTable->item(i, yoDataBase::status)->setText(status->status());
-            ui->urisTable->item(i, 10)->setText(status->downloadRate());
-            ui->urisTable->item(i, 10)->setTextAlignment(Qt::AlignCenter);
-            ui->urisTable->item(i, yoDataBase::flag)->setText("statusRefreshed");
-        }
-    }
 }
 
 void MainWindow::initUrisTable()
@@ -163,11 +111,6 @@ void MainWindow::initUrisTable()
             QTableWidgetItem *idItem =  new QTableWidgetItem(popQuery.value(yoDataBase::id).toString());
             ui->urisTable->setItem(currentRow, yoDataBase::id, idItem);
             // ![id]
-
-            // [aria2_gid]
-            QTableWidgetItem *aria2_gidItem = new QTableWidgetItem("0");
-            ui->urisTable->setItem(currentRow, yoDataBase::aria2_gid, aria2_gidItem);
-            // ![aria2_gid]
 
             // [uri] => File name
             QTableWidgetItem *uriItem = new QTableWidgetItem(popQuery.value(yoDataBase::uri).toString());
@@ -220,11 +163,11 @@ void MainWindow::initUrisTable()
             ui->urisTable->setItem(currentRow, yoDataBase::updated_at, updated_atItem);
             // ![updated_at]
 
-            // [dlSpeed-10]
+            // [dlSpeed-9]
             QTableWidgetItem *dlSpeedItem = new QTableWidgetItem(tr("n/a"));
             dlSpeedItem->setTextAlignment(Qt::AlignCenter);
             ui->urisTable->setItem(currentRow, 10 , dlSpeedItem);
-            // ![dlSpeed-10]
+            // ![dlSpeed-9]
 
         }
     }
@@ -235,25 +178,17 @@ void MainWindow::addNewDlToUrisTable(const QVariantMap &uri)
     for (int i = 0; i < ui->urisTable->rowCount(); ++i) {
         if(ui->urisTable->item(i, yoDataBase::uri)->text() == uri["uri"].toString()){
             ui->urisTable->item(i, yoDataBase::uri)->setText(uri["uri"].toString());
-            ui->urisTable->item(i, yoDataBase::aria2_gid)->setText(uri["gid"].toString());
-            downloader->askForRefreshStatus(uri["gid"].toString());
             ui->urisTable->item(i, yoDataBase::flag)->setText("askedToRefresh");
             return;
         }
     }
 
-     qWarning("added");
      int currentRow = ui->urisTable->rowCount();
      ui->urisTable->setRowCount(currentRow + 1);
     // [id]
     QTableWidgetItem *idItem =  new QTableWidgetItem(uri["id"].toString());
     ui->urisTable->setItem(currentRow, yoDataBase::id, idItem);
     // ![id]
-
-    // [aria2_gid]
-    QTableWidgetItem *aria2_gidItem = new QTableWidgetItem(uri["gid"].toString());
-    ui->urisTable->setItem(currentRow, yoDataBase::aria2_gid, aria2_gidItem);
-    // ![aria2_gid]
 
     // [uri] => File name
     QTableWidgetItem *uriItem = new QTableWidgetItem(uri["uri"].toString());
@@ -302,33 +237,10 @@ void MainWindow::addNewDlToUrisTable(const QVariantMap &uri)
     ui->urisTable->setItem(currentRow, yoDataBase::updated_at, updated_atItem);
     // ![updated_at]
 
-    // [dlSpeed-10]
+    // [dlSpeed-9]
     QTableWidgetItem *dlSpeedItem = new QTableWidgetItem(tr("n/a"));
-    ui->urisTable->setItem(currentRow, 10 , dlSpeedItem);
-    // ![dlSpeed-10]
-}
-
-void MainWindow::downloadPaused(const QString &uri)
-{
-    qDebug() << QString(tr("Download with #URI=>'%1' paused.").arg(uri));
-}
-
-void MainWindow::downloadUnPaused(const QString &uri)
-{
-    qDebug() << QString(tr("Download with #URI=>'%1' unpaused and will resumed.").arg(uri));
-}
-
-void MainWindow::downloadRemoved(const QString &uri)
-{
-    if(db->deleteUri(uri))
-        qDebug() << QString(tr("Download with #URI=>'%1' removed.").arg(uri));
-    else
-        qDebug() << QString(tr("What da ? something's not right!"));
-}
-
-void MainWindow::downloadStopped(const QString &uri)
-{
-    qDebug() << QString(tr("Download with #URI=>'%1' stopped.").arg(uri));
+    ui->urisTable->setItem(currentRow, 9 , dlSpeedItem);
+    // ![dlSpeed-9]
 }
 
 void MainWindow::createActionsOnMainWindow()
@@ -421,81 +333,4 @@ void MainWindow::loadSettings()
     settings.endGroup();
 
     settings.endGroup();
-}
-
-void MainWindow::on_actionRemove_triggered()
-{
-    const QString uri = currentColumn(yoDataBase::uri);
-    const QString gid = currentColumn(yoDataBase::aria2_gid);
-
-    if(!ui->urisTable->selectedItems().isEmpty())
-        ui->urisTable->removeRow(ui->urisTable->selectedItems().first()->row());
-    else
-        return;
-    if(gid != "0")
-        downloader->remove(QVariant(gid));
-    emit downloadRemoved(uri);
-}
-
-void MainWindow::on_actionStop_triggered()
-{
-    const QString uri = currentColumn(yoDataBase::uri);
-    const QString gid = currentColumn(yoDataBase::aria2_gid);
-
-    if(!ui->urisTable->selectedItems().isEmpty())
-        ui->urisTable->removeRow(ui->urisTable->selectedItems().first()->row());
-    else
-        return;
-    if(gid != "0")
-        downloader->stop(QVariant(gid));
-    emit downloadStopped(uri);
-}
-
-void MainWindow::on_actionPause_triggered()
-{
-    const QString uri = currentColumn(yoDataBase::uri);
-    const QString gid = currentColumn(yoDataBase::aria2_gid);
-
-    if(ui->urisTable->selectedItems().isEmpty())
-        return;
-    if(gid != "0")
-        downloader->pause(QVariant(gid));
-    emit downloadPaused(uri);
-}
-
-void MainWindow::on_actionResume_triggered()
-{
-    const QString uri = currentColumn(yoDataBase::uri);
-    const QString gid = currentColumn(yoDataBase::aria2_gid);
-
-    if(ui->urisTable->selectedItems().isEmpty())
-        return;
-
-    if(gid != "0")
-        downloader->askForRefreshStatus(gid);
-    else if(gid == "0"){
-        downloader->resume(uri);
-    }
-
-    emit downloadUnPaused(uri);
-}
-
-void MainWindow::on_actionResumeAll_triggered()
-{
-
-    for (int i = 0; i < ui->urisTable->rowCount(); ++i){
-        QString status = ui->urisTable->item(i, yoDataBase::status)->text();
-        QString uri = ui->urisTable->item(i, yoDataBase::uri)->text();
-        if(status == "paused"){
-            QString gid = ui->urisTable->item(i, yoDataBase::aria2_gid)->text();
-            if(gid != "0"){
-                downloader->unpause(gid);
-            }else if(gid == "0"){
-                downloader->resume(uri);
-                emit downloadUnPaused(uri);
-            }
-        }
-    }
-
-    downloader->unpauseAll();
 }

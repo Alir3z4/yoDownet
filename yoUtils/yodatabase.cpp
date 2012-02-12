@@ -42,17 +42,16 @@ const QSqlError yoDataBase::initDb()
     QString dbFile = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
     QDir dataDir;
     if(dataDir.mkpath(dbFile))
-            db.setDatabaseName(dataDir.toNativeSeparators(dbFile + "/yoDownet.sqlite"));
+        db.setDatabaseName(dataDir.toNativeSeparators(dbFile + "/yoDownet.sqlite"));
     if (!db.open())
         return db.lastError();
 
     // This is gonna be fun :D
-//    QFile dbInitFile(QDir::toNativeSeparators("../yoDownet/sql/yodownet_sqlite_db.sql"));
-//    dbInitFile.open(QIODevice::ReadOnly | QIODevice::Text);
-//    QTextStream in(&dbInitFile);
+    //    QFile dbInitFile(QDir::toNativeSeparators("../yoDownet/sql/yodownet_sqlite_db.sql"));
+    //    dbInitFile.open(QIODevice::ReadOnly | QIODevice::Text);
+    //    QTextStream in(&dbInitFile);
     QString sqliteCreator = "CREATE TABLE IF NOT EXISTS \"uris\" ("
             "\"id\" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL ,"
-            "\"aria2_gid\" INTEGER NOT NULL ,"
             "\"uri\" TEXT,"
             "\"save_path\" TEXT,"
             "\"status\" VARCHAR(25),"
@@ -75,40 +74,32 @@ bool yoDataBase::removeDB(const QSqlDatabase &removeDb)
     return true;
 }
 
-bool yoDataBase::addUri(const QString &uriAria2Gid, const QString &uriUri, const QString &uriSavePath, const QString &uriStatus, const int uriProgress, WhatNow what)
+bool yoDataBase::addUri(const QString &argUri, const QString &savePath, const QString &argStatus, const int argProgress)
 {
-    if(what == Add){
-        if(CheckPlease(uriUri) == Add){
-            QSqlQuery addQuery;
-            addQuery.prepare("INSERT INTO uris(aria2_gid, uri, save_path, status, progress)"
-                             " VALUES(:aria2_gid, :uri, :save_path, :status, :progress)");
-            addQuery.bindValue(":aria2_gid", uriAria2Gid);
-            addQuery.bindValue(":uri", uriUri);
-            addQuery.bindValue(":save_path", uriSavePath);
-            addQuery.bindValue(":status", uriStatus);
-            addQuery.bindValue(":progress", uriProgress);
-            if(!addQuery.exec()){
-                yoMessage msg;
-                msg.dbError(addQuery.lastError().text(), QObject::tr("Adding new download"));
-                return false;
-            }
-            setLastInsertedId(addQuery.lastInsertId().toInt());
-        }
-        return true;
-    }else if(what == Resume){
-        return true;
+    QSqlQuery addQuery;
+    addQuery.prepare("INSERT INTO uris uri, save_path, status, progress)"
+                     " VALUES(:uri, :save_path, :status, :progress)");
+    addQuery.bindValue(":uri", argUri);
+    addQuery.bindValue(":save_path", savePath);
+    addQuery.bindValue(":status", argStatus);
+    addQuery.bindValue(":progress", argProgress);
+    if(!addQuery.exec()){
+        yoMessage msg;
+        msg.dbError(addQuery.lastError().text(), QObject::tr("Adding new download"));
+        return false;
     }
+    setLastInsertedId(addQuery.lastInsertId().toInt());
+    return true;
 }
 
-bool yoDataBase::updateUri(const QString &uriAria2Gid, const QString &uriUri, const QString &uriSavePath, const QString &uriStatus, const int uriProgress)
+bool yoDataBase::updateUri(const QString &argUri, const QString &savePath, const QString &status, const int progress)
 {
     QSqlQuery updateQuery;
-    updateQuery.prepare("UPDATE uris SET save_path=:save_path, status=:status, progress=:progress WHERE aria2_gid=:aria2_gid AND uri=:uri");
-    updateQuery.bindValue(":uri", uriUri);
-    updateQuery.bindValue(":save_path", uriSavePath);
-    updateQuery.bindValue(":status", uriStatus);
-    updateQuery.bindValue(":aria2_gid", uriAria2Gid);
-    updateQuery.bindValue(":progress", uriProgress);
+    updateQuery.prepare("UPDATE uris SET save_path=:save_path, status=:status, progress=:progress WHERE uri=:uri");
+    updateQuery.bindValue(":uri", argUri);
+    updateQuery.bindValue(":save_path", savePath);
+    updateQuery.bindValue(":status", status);
+    updateQuery.bindValue(":progress", progress);
     if(!updateQuery.exec()){
         yoMessage msg;
         msg.dbError(updateQuery.lastError().text(), QObject::tr("Updating existing download"));
@@ -128,44 +119,6 @@ bool yoDataBase::deleteUri(const QString &uriUri)
         return false;
     }else
         return true;
-}
-
-yoDataBase::WhatNow yoDataBase::CheckPlease(const QString &uriUri)
-{
-    QSqlQuery isExist;
-    isExist.prepare("SELECT id, uri FROM uris WHERE uri=:uri LIMIT 1");
-    isExist.bindValue(":uri", uriUri);
-    if(!isExist.exec()){
-        yoMessage msg;
-        msg.dbError(isExist.lastError().text(), QObject::tr("Checking is entered download exist"));
-    }
-    if(isExist.isActive()){
-        while (isExist.next()) {
-            if(isExist.value(1).toString() == uriUri){
-                QMessageBox msgBox;
-                QPushButton *resumeButton = msgBox.addButton(QObject::tr("Resume"), QMessageBox::ActionRole);
-                //QPushButton *reDownloadButton = msgBox.addButton(QObject::tr("ReDownload"), QMessageBox::ActionRole);
-                QPushButton *doNotn = msgBox.addButton(QObject::tr("Do Not'n"), QMessageBox::RejectRole);
-                msgBox.setIcon(QMessageBox::Question);
-                msgBox.setWindowTitle(QObject::tr("yoDownet : You already have it"));
-                msgBox.setText(QObject::tr("The entered download is already exist in the database, It's time to get decision."));
-                msgBox.exec();
-
-                if(msgBox.clickedButton() == resumeButton){
-                    // TODO: resume the download
-                    return Resume;
-                }/*else if(msgBox.clickedButton() == reDownloadButton){
-                    if(deleteUri(uriUri))
-                        return Delete;
-                    else
-                        return true;
-                }*/else if(msgBox.clickedButton() == doNotn){
-                    return Notn;
-                }
-            }
-        }
-    }
-    return Add;
 }
 
 void yoDataBase::setLastInsertedId(const int &id)

@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>664</width>
-    <height>404</height>
+    <width>662</width>
+    <height>402</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -109,17 +109,6 @@
       </column>
       <column>
        <property name="text">
-        <string notr="true">aria2_gid</string>
-       </property>
-       <property name="toolTip">
-        <string notr="true"/>
-       </property>
-       <property name="whatsThis">
-        <string notr="true"/>
-       </property>
-      </column>
-      <column>
-       <property name="text">
         <string>URI</string>
        </property>
       </column>
@@ -178,8 +167,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>664</width>
-     <height>20</height>
+     <width>662</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu">

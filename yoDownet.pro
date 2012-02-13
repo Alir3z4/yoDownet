@@ -20,7 +20,9 @@ SOURCES += main.cpp\
     filebrowz.cpp \
     yoUtils/yodatabase.cpp \
     uridialog.cpp \
-    yodownet.cpp
+    yodownet.cpp \
+    yoUtils/fileinfo.cpp \
+    yoUtils/status.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -31,7 +33,9 @@ HEADERS  += mainwindow.h \
     filebrowz.h \
     yoUtils/yodatabase.h \
     uridialog.h \
-    yodownet.h
+    yodownet.h \
+    yoUtils/fileinfo.h \
+    yoUtils/status.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \

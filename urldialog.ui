@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>UriDialog</class>
- <widget class="QDialog" name="UriDialog">
+ <class>urlDialog</class>
+ <widget class="QDialog" name="urlDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -33,9 +33,9 @@
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
   </property>
-  <layout class="QGridLayout" name="UriDialogGridLayout">
+  <layout class="QGridLayout" name="urlDialogGridLayout">
    <item row="0" column="0">
-    <widget class="QLineEdit" name="uriEdit"/>
+    <widget class="QLineEdit" name="urlEdit"/>
    </item>
    <item row="1" column="0">
     <widget class="QDialogButtonBox" name="buttonBox">
@@ -60,7 +60,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>UriDialog</receiver>
+   <receiver>urlDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -76,7 +76,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>UriDialog</receiver>
+   <receiver>urlDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

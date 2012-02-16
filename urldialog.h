@@ -1,5 +1,5 @@
 /****************************************************************************************
-** uridialog.cpp is part of yoDownet
+** urldialog.h is part of yoDownet
 **
 ** Copyright 2011, 2012 Alireza Savand <alireza.savand@gmail.com>
 **
@@ -18,36 +18,33 @@
 **
 ****************************************************************************************/
 
-#include "uridialog.h"
-#include "ui_uridialog.h"
+#ifndef urlDIALOG_H
+#define urlDIALOG_H
 
-UriDialog::UriDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::UriDialog)
-{
-    ui->setupUi(this);
+#include <QDialog>
+#include <QVariantList>
+
+namespace Ui {
+class urlDialog;
 }
 
-UriDialog::~UriDialog()
+class urlDialog : public QDialog
 {
-    delete ui;
-}
+    Q_OBJECT
+    
+public:
+    explicit urlDialog(QWidget *parent = 0);
+    ~urlDialog();
 
-const QString UriDialog::uri()
-{
-    return ui->uriEdit->text();
-}
+    const QString url();
+    
+private slots:
+    void on_urlEdit_textChanged();
 
-void UriDialog::on_uriEdit_textChanged()
-{
-    if(!ui->uriEdit->text().isEmpty())
-        ui->buttonBox->setEnabled(true);
-    else
-        ui->buttonBox->setDisabled(true);
-}
+    void on_urlEdit_returnPressed();
 
-void UriDialog::on_uriEdit_returnPressed()
-{
-    if(ui->buttonBox->isEnabled())
-        accepted();
-}
+private:
+    Ui::urlDialog *ui;
+};
+
+#endif // urlDIALOG_H

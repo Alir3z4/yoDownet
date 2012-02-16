@@ -22,6 +22,14 @@
 #define YODOWNET_H
 
 #include <QObject>
+#include <QFile>
+#include <QFileInfo>
+#include <QDir>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QUrl>
+#include "yoUtils/status.h"
 
 class yoDownet : public QObject
 {
@@ -30,11 +38,25 @@ public:
     explicit yoDownet(QObject *parent = 0);
     
 signals:
-    
     void downloadInitialed(const Status *status);
+    void downlaodResumed(const Status *status);
+    void downloadFinished(const Status *status);
+    void downloadUpdated(const Status *status);
+
 public slots:
-    
     void theDownload(const QString &urlLink);
+
+private slots:
+    void replyMetaDataChanged();
+    void startRequest(const QUrl &url);
+    void httpReadyRead();
+    void httpFinished();
+
+private:
+    QNetworkAccessManager manager;
+    QNetworkReply *reply;
+    QFile *file;
+    Status *status;
 };
 
 #endif // YODOWNET_H

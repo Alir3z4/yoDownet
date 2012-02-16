@@ -25,6 +25,7 @@
 #include <QTableWidgetItem>
 #include "yoUtils/yomessage.h"
 #include "yoUtils/yodatabase.h"
+#include "yodownet.h"
 
 namespace Ui {
     class MainWindow;
@@ -51,14 +52,18 @@ private slots:
     void saveSettings();
     void loadSettings();
     void closeEvent(QCloseEvent *);
-    void initUrisTable();
-    void addNewDlToUrisTable(const QVariantMap &uri);
+    void initurlsTable();
+    void addNewDlToUrlsTable(const Status *status);
+    void updateUrlsTable(const Status *status);
     //
 
+
+    void on_actionResume_triggered();
 
 private:
     Ui::MainWindow *ui;
     yoMessage msg;
+//    yoDownet *downloader;
     yoDataBase *db;
 
 };

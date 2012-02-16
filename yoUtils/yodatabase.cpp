@@ -19,24 +19,25 @@
 ****************************************************************************************/
 
 #include "yodatabase.h"
-#include <QStringList>
-#include <QFileInfo>
-#include <QTextStream>
 #include <QSqlQuery>
-#include <QSqlRecord>
-#include <QSqlResult>
 #include <QPushButton>
 #include <QDir>
 #include <QDesktopServices>
 #include <QDebug>
 
-// TODO: initialize database and return error if somthing goes wrong :|
+yoDataBase::yoDataBase(QObject *parent, yoDownet *dler) :
+    QObject(parent), msg(new yoMessage), downloader(dler)
+{
+    connect(this, SIGNAL(databaseFailed(QString,QString)), msg, SLOT(dbError(QString,QString)));
+    connect(downloader, SIGNAL(downloadInitialed(const Status*)), this, SLOT(addUrl(const Status*)));
+    connect(downloader, SIGNAL(downlaodResumed(const Status*)), this, SLOT(updateUrl(const Status*)));
+    connect(downloader, SIGNAL(downloadFinished(const Status*)), this, SLOT(updateUrl(const Status*)));
+}
+
 const QSqlError yoDataBase::initDb()
 {
-    if (!QSqlDatabase::drivers().contains("QSQLITE")){
-        yoMessage msg;
-        msg.dbError(QObject::tr("Unable to load database"), QObject::tr("yoDownet needs the SQLITE driver"));
-    }
+    if (!QSqlDatabase::drivers().contains("QSQLITE"))
+        emit databaseFailed(tr("Unable to load database"), tr("yoDownet needs the SQLITE driver"));
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     QString dbFile = QDesktopServices::storageLocation(QDesktopServices::DataLocation);
@@ -122,26 +123,13 @@ void yoDataBase::updateUrl(const Status *status)
     }
 }
 
-bool yoDataBase::deleteUri(const QString &uriUri)
+void yoDataBase::deleteUrl(const QString &urlUrl)
 {
     QSqlQuery deleteQuery;
-    deleteQuery.prepare("DELETE FROM uris WHERE uri=:uri");
-    deleteQuery.bindValue(":uri", uriUri);
+    deleteQuery.prepare("DELETE FROM urls WHERE url=:url");
+    deleteQuery.bindValue(":url", urlUrl);
     if(!deleteQuery.exec()){
-        yoMessage msg;
-        msg.dbError(deleteQuery.lastError().text(), QObject::tr("Deleting the download from database"));
-        return false;
-    }else
-        return true;
-}
-
-void yoDataBase::setLastInsertedId(const int &id)
-{
-    _lastInsertedId = id;
-}
-
-
-int yoDataBase::lastInsertedID() const
-{
-    return _lastInsertedId;
+        emit databaseFailed(deleteQuery.lastError().text(), tr("Deleting the download from database"));
+        return;
+    }
 }

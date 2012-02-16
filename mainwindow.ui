@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>662</width>
-    <height>402</height>
+    <width>660</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="MainWindowGridLayout">
     <item row="0" column="0">
-     <widget class="QTableWidget" name="urisTable">
+     <widget class="QTableWidget" name="urlsTable">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -109,7 +109,7 @@
       </column>
       <column>
        <property name="text">
-        <string>URI</string>
+        <string>URL</string>
        </property>
       </column>
       <column>
@@ -167,7 +167,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>662</width>
+     <width>660</width>
      <height>21</height>
     </rect>
    </property>

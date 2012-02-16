@@ -21,18 +21,22 @@
 #ifndef YODATABASE_H
 #define YODATABASE_H
 
+#include <QObject>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QString>
 #include "yoUtils/yomessage.h"
+#include "yodownet.h"
 
-class yoDataBase
+class yoDataBase : public QObject
 {
-
+    Q_OBJECT
 public:
-    enum URIs {
+    explicit yoDataBase(QObject *parent = 0, yoDownet *dler = 0);
+
+    enum Urls {
         id,
-        uri,
+        url,
         save_path,
         status,
         progress,
@@ -44,19 +48,23 @@ public:
 
     const QSqlError initDb();
     bool removeDB(const QSqlDatabase &db);
-    bool addUri(const QString &argUri, const QString &savePath, const QString &argStatus, const int argProgress = 0);
-    bool updateUri(const QString &argUri, const QString &savePath,const QString &argStatus, const int argProgress);
-    bool deleteUri(const QString &uriUri);
-    int lastInsertedID() const;
+    bool isExist(const QString &urlUrl);
+    void deleteUrl(const QString &urlUrl);
 
     // [inlines]
     inline int lastInsertedID() const { return _lastInsertedId; }
 
+signals:
+    void databaseFailed(const QString &errorMsg, const QString &action);
+
+private slots:
     void addUrl(const Status *status);
     void updateUrl(const Status *status);
+
 private:
     int _lastInsertedId;
-    void setLastInsertedId(const int &id);
+    yoMessage *msg;
+    yoDownet *downloader;
 
     // [inlines]
     inline void setLastInsertedId(const int lastId) { _lastInsertedId = lastId; }

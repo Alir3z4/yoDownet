@@ -19,10 +19,10 @@ SOURCES += main.cpp\
     importurls.cpp \
     filebrowz.cpp \
     yoUtils/yodatabase.cpp \
-    uridialog.cpp \
     yodownet.cpp \
     yoUtils/fileinfo.cpp \
-    yoUtils/status.cpp
+    yoUtils/status.cpp \
+    urldialog.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -32,10 +32,10 @@ HEADERS  += mainwindow.h \
     importurls.h \
     filebrowz.h \
     yoUtils/yodatabase.h \
-    uridialog.h \
     yodownet.h \
     yoUtils/fileinfo.h \
-    yoUtils/status.h
+    yoUtils/status.h \
+    urldialog.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \
@@ -43,7 +43,7 @@ FORMS    += mainwindow.ui \
     prefdatabasewidget.ui \
     importurls.ui \
     filebrowz.ui \
-    uridialog.ui
+    urldialog.ui
 
 TRANSLATIONS += translations/yoDownet_fa.ts
 

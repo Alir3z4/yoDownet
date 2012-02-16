@@ -19,15 +19,29 @@
 ****************************************************************************************/
 
 #include "status.h"
-
+#include "cmath"
 Status::Status(QObject *parent) :
     QObject(parent)
 {
 }
 
-void Status::setDownloadRate()
+QString Status::remainingTime() const
 {
-    return;
+    double timeRemaining = ((double)(_bytesTotal - _bytesReceived)) / _downloadRate;
+    if(timeRemaining == 0){
+        timeRemaining = 1;
+    }
+
+    QString timeRemainingString = tr("seconds");
+    if(timeRemaining > 60){
+        timeRemaining = timeRemaining / 60;
+        timeRemainingString = tr("minutes");
+    }
+    timeRemaining = std::floor(timeRemaining);
+    return tr("%1 %2 remaining")
+            .arg(timeRemaining)
+            .arg(timeRemainingString);
+}
 
 QString Status::downloadRate() const
 {
@@ -50,13 +64,51 @@ QString Status::downloadRate() const
 
 }
 
+QString Status::downloadModeString() const
+{
+    switch(_dlMode){
+    case NewDownload:
+        return tr("New Download");
+        break;
+    case ResumeDownload:
+        return tr("Resume Download");
+        break;
+    }
 }
 
-void Status::updateFileSize(qint64 bytesReceived, qint64 bytesTotal)
+QString Status::downloadStatusString() const
 {
-    _fileInfo->setLength(bytesTotal);
-    _fileInfo->setCompletedLength(bytesReceived);
+    switch(_dlStatus){
+    case Idle:
+        return tr("Idle");
+        break;
+    case Starting:
+        return tr("Starting");
+        break;
+    case Downloading:
+        return tr("Downloading");
+        break;
+    case Finished:
+        return tr("Finished");
+        break;
+    case Failed:
+        return tr("Failed");
+        break;
+    }
+}
 
-    setProgress((double)bytesReceived*100/bytesTotal);
+void Status::updateFileStatus(qint64 bytesReceived, qint64 bytesTotal)
+{
+    if(!_bytesTotal)
+        _bytesTotal = bytesTotal;
+    _bytesReceived = bytesReceived;
+    _progress = _bytesReceived*100/_bytesTotal;
+    _downloadRate = _bytesReceived * 1000.0 / _startTime->elapsed();
+}
+
+void Status::startTime()
+{
+    _startTime = new QTime();
+    _startTime->start();
 }
 

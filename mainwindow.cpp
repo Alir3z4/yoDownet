@@ -24,7 +24,9 @@
 #include <QDateTime>
 #include <QSettings>
 #include "preferencesdialog.h"
-#include "uridialog.h"
+#include "urldialog.h"
+#include <QDebug>
+#include <QThread>
 
 class QDateTime;
 
@@ -34,19 +36,18 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
     // read/load settings
     loadSettings();
 
     // Add actions from manuBar to MainWindow
     createActionsOnMainWindow();
 
-    // Initialize UrisTable :|
-    initUrisTable();
-
     // Hide `id`, 'flags' columns
-    ui->urisTable->setColumnHidden(0, true);
-    ui->urisTable->setColumnHidden(yoDataBase::flag, true);
+    ui->urlsTable->setColumnHidden(0, true);
+    ui->urlsTable->setColumnHidden(yoDataBase::flag, true);
+
+    // Initialize urlsTable :|
+    initurlsTable();
 
 }
 
@@ -57,8 +58,8 @@ MainWindow::~MainWindow()
 
 QString MainWindow::currentColumn(const int column) const
 {
-    if(!ui->urisTable->selectedItems().isEmpty())
-        return ui->urisTable->item(ui->urisTable->selectedItems().first()->row(), column)->text();
+    if(!ui->urlsTable->selectedItems().isEmpty())
+        return ui->urlsTable->item(ui->urlsTable->selectedItems().first()->row(), column)->text();
     return QString();
 }
 
@@ -98,159 +99,166 @@ void MainWindow::closeEvent(QCloseEvent * )
     saveSettings();
 }
 
-void MainWindow::initUrisTable()
+void MainWindow::initurlsTable()
 {
     // initialize the database
     QSqlError sqlError = db->initDb();
     if (sqlError.type() != QSqlError::NoError)
         msg.dbError(sqlError.text(), tr("Unable to initialize Database"));
 
-    // Populate database on urisTable
+    // Populate database on urlsTable
     QSqlQuery popQuery;
-    // Let's check there isn't any problem to gathering uris from database
-    if (!popQuery.exec("SELECT * FROM uris"))
+    // Let's check there isn't any problem to gathering urls from database
+    if (!popQuery.exec("SELECT * FROM urls"))
         // seems yes, hell let's user know
         // User face :~/
-        msg.dbError(popQuery.lastError().text(), tr("Populating 'uris' table"));
+        msg.dbError(popQuery.lastError().text(), tr("Populating 'urls' table"));
     else {
-        // Add newItem to urisTable;
+        // Add newItem to urlsTable;
         while (popQuery.next()) {
-            int currentRow = ui->urisTable->rowCount();
-            ui->urisTable->setRowCount(currentRow + 1);
+            int currentRow = ui->urlsTable->rowCount();
+            ui->urlsTable->setRowCount(currentRow + 1);
             // [id]
             QTableWidgetItem *idItem =  new QTableWidgetItem(popQuery.value(yoDataBase::id).toString());
-            ui->urisTable->setItem(currentRow, yoDataBase::id, idItem);
+            ui->urlsTable->setItem(currentRow, yoDataBase::id, idItem);
             // ![id]
 
-            // [uri] => File name
-            QTableWidgetItem *uriItem = new QTableWidgetItem(popQuery.value(yoDataBase::uri).toString());
-            uriItem->setTextAlignment(Qt::AlignCenter);
-            ui->urisTable->setItem(currentRow, yoDataBase::uri, uriItem);
-            // ![uri]
+            // [url] => File name
+            QTableWidgetItem *urlItem = new QTableWidgetItem(popQuery.value(yoDataBase::url).toString());
+            urlItem->setTextAlignment(Qt::AlignCenter);
+            ui->urlsTable->setItem(currentRow, yoDataBase::url, urlItem);
+            // ![url]
 
             // [save_path]
             QTableWidgetItem *save_pathItem = new QTableWidgetItem(popQuery.value(yoDataBase::save_path).toString());
             save_pathItem->setTextAlignment(Qt::AlignCenter);
-            ui->urisTable->setItem(currentRow, yoDataBase::save_path, save_pathItem);
+            ui->urlsTable->setItem(currentRow, yoDataBase::save_path, save_pathItem);
             // ![save_path]
 
             // [status]
             QTableWidgetItem *statusItem = new QTableWidgetItem(popQuery.value(yoDataBase::status).toString());
             statusItem->setTextAlignment(Qt::AlignCenter);
-            ui->urisTable->setItem(currentRow, yoDataBase::status, statusItem);
+            ui->urlsTable->setItem(currentRow, yoDataBase::status, statusItem);
             // ![status]
 
             // [progress]
             QTableWidgetItem *progressItem = new QTableWidgetItem(popQuery.value(yoDataBase::progress).toString() + "%");
             progressItem->setTextAlignment(Qt::AlignCenter);
-            ui->urisTable->setItem(currentRow, yoDataBase::progress, progressItem);
+            ui->urlsTable->setItem(currentRow, yoDataBase::progress, progressItem);
             // ![progress]
 
             // [remaining_time]
             QTableWidgetItem *remaining_timeItem = new QTableWidgetItem(popQuery.value(yoDataBase::remaining_time).toString());
             remaining_timeItem->setTextAlignment(Qt::AlignCenter);
             remaining_timeItem->setFlags(Qt::ItemIsEditable);
-            ui->urisTable->setItem(currentRow, yoDataBase::remaining_time, remaining_timeItem);
+            ui->urlsTable->setItem(currentRow, yoDataBase::remaining_time, remaining_timeItem);
             // ![remaining_time]
 
             // [flag]
             QTableWidgetItem *flagItem = new QTableWidgetItem(popQuery.value(yoDataBase::flag).toString());
             flagItem->setFlags(Qt::ItemIsEditable);
-            ui->urisTable->setItem(currentRow, yoDataBase::flag, flagItem);
+            ui->urlsTable->setItem(currentRow, yoDataBase::flag, flagItem);
             // ![flag]
 
             // [created_at]
             QTableWidgetItem *created_atItem = new QTableWidgetItem(
                         popQuery.value(yoDataBase::created_at).toDateTime().toLocalTime().toString());
             created_atItem->setTextAlignment(Qt::AlignCenter);
-            ui->urisTable->setItem(currentRow, yoDataBase::created_at, created_atItem);
+            ui->urlsTable->setItem(currentRow, yoDataBase::created_at, created_atItem);
             // ![created_at]
 
             // [updated_at]
             QTableWidgetItem *updated_atItem = new QTableWidgetItem(
                         popQuery.value(yoDataBase::updated_at).toDateTime().toLocalTime().toString());
             updated_atItem->setTextAlignment(Qt::AlignCenter);
-            ui->urisTable->setItem(currentRow, yoDataBase::updated_at, updated_atItem);
+            ui->urlsTable->setItem(currentRow, yoDataBase::updated_at, updated_atItem);
             // ![updated_at]
 
             // [dlSpeed-9]
             QTableWidgetItem *dlSpeedItem = new QTableWidgetItem(tr("n/a"));
             dlSpeedItem->setTextAlignment(Qt::AlignCenter);
-            ui->urisTable->setItem(currentRow, 10 , dlSpeedItem);
+            ui->urlsTable->setItem(currentRow, 9 , dlSpeedItem);
             // ![dlSpeed-9]
 
         }
     }
 }
 
-void MainWindow::addNewDlToUrisTable(const QVariantMap &uri)
+void MainWindow::addNewDlToUrlsTable(const Status *status)
 {
-    for (int i = 0; i < ui->urisTable->rowCount(); ++i) {
-        if(ui->urisTable->item(i, yoDataBase::uri)->text() == uri["uri"].toString()){
-            ui->urisTable->item(i, yoDataBase::uri)->setText(uri["uri"].toString());
-            ui->urisTable->item(i, yoDataBase::flag)->setText("askedToRefresh");
-            return;
-        }
-    }
 
-     int currentRow = ui->urisTable->rowCount();
-     ui->urisTable->setRowCount(currentRow + 1);
+    int currentRow = ui->urlsTable->rowCount();
+    ui->urlsTable->setRowCount(currentRow + 1);
     // [id]
-    QTableWidgetItem *idItem =  new QTableWidgetItem(uri["id"].toString());
-    ui->urisTable->setItem(currentRow, yoDataBase::id, idItem);
+    QTableWidgetItem *idItem =  new QTableWidgetItem(QString::number(0));
+    ui->urlsTable->setItem(currentRow, yoDataBase::id, idItem);
     // ![id]
 
-    // [uri] => File name
-    QTableWidgetItem *uriItem = new QTableWidgetItem(uri["uri"].toString());
-    uriItem->setTextAlignment(Qt::AlignCenter);
-    ui->urisTable->setItem(currentRow, yoDataBase::uri, uriItem);
-    // ![uri]
+    // [url] => File name
+    QTableWidgetItem *urlItem = new QTableWidgetItem(status->url());
+    urlItem->setTextAlignment(Qt::AlignCenter);
+    ui->urlsTable->setItem(currentRow, yoDataBase::url, urlItem);
+    // ![url]
 
     // [save_path]
-    QTableWidgetItem *save_pathItem = new QTableWidgetItem(uri["dir"].toString());
+    QTableWidgetItem *save_pathItem = new QTableWidgetItem(status->path());
     save_pathItem->setTextAlignment(Qt::AlignCenter);
-    ui->urisTable->setItem(currentRow, yoDataBase::save_path, save_pathItem);
+    ui->urlsTable->setItem(currentRow, yoDataBase::save_path, save_pathItem);
     // ![save_path]
 
     // [status]
-    QTableWidgetItem *statusItem = new QTableWidgetItem(uri["status"].toString());
+    QTableWidgetItem *statusItem = new QTableWidgetItem(status->downloadStatusString());
     statusItem->setTextAlignment(Qt::AlignCenter);
-    ui->urisTable->setItem(currentRow, yoDataBase::status, statusItem);
+    ui->urlsTable->setItem(currentRow, yoDataBase::status, statusItem);
     // ![status]
 
     // [progress]
-    QTableWidgetItem *progressItem = new QTableWidgetItem(uri["progress"].toString());
+    QTableWidgetItem *progressItem = new QTableWidgetItem(status->progress());
     progressItem->setTextAlignment(Qt::AlignCenter);
-    ui->urisTable->setItem(currentRow, yoDataBase::progress, progressItem);
+    ui->urlsTable->setItem(currentRow, yoDataBase::progress, progressItem);
     // ![progress]
 
     // [flag]
     QTableWidgetItem *flagItem = new QTableWidgetItem("init");
-    ui->urisTable->setItem(currentRow, yoDataBase::flag, flagItem);
+    progressItem->setTextAlignment(Qt::AlignCenter);
+    ui->urlsTable->setItem(currentRow, yoDataBase::flag, flagItem);
     // ![flag]
 
     // [remaining_time]
     QTableWidgetItem *remaining_timeItem = new QTableWidgetItem(tr("n/a"));
-    ui->urisTable->setItem(currentRow, yoDataBase::remaining_time, remaining_timeItem);
+    remaining_timeItem->setTextAlignment(Qt::AlignCenter);
+    ui->urlsTable->setItem(currentRow, yoDataBase::remaining_time, remaining_timeItem);
     // ![remaining_time]
 
     // [created_at]
     QTableWidgetItem *created_atItem = new QTableWidgetItem(QDateTime::currentDateTime().toLocalTime().toString());
     created_atItem->setTextAlignment(Qt::AlignCenter);
-    ui->urisTable->setItem(currentRow, yoDataBase::created_at, created_atItem);
+    ui->urlsTable->setItem(currentRow, yoDataBase::created_at, created_atItem);
     // ![created_at]
 
     // [updated_at]
-    QTableWidgetItem *updated_atItem = new QTableWidgetItem(
-                uri["updated_at"].toDateTime().toLocalTime().toString());
-    updated_atItem->setTextAlignment(Qt::AlignCenter);
-    ui->urisTable->setItem(currentRow, yoDataBase::updated_at, updated_atItem);
+    QTableWidgetItem *updated_atItem = new QTableWidgetItem(" ");
+    ui->urlsTable->setItem(currentRow, yoDataBase::updated_at, updated_atItem);
     // ![updated_at]
 
     // [dlSpeed-9]
     QTableWidgetItem *dlSpeedItem = new QTableWidgetItem(tr("n/a"));
-    ui->urisTable->setItem(currentRow, 9 , dlSpeedItem);
+    dlSpeedItem->setTextAlignment(Qt::AlignCenter);
+    ui->urlsTable->setItem(currentRow, 9 , dlSpeedItem);
     // ![dlSpeed-9]
+}
+
+void MainWindow::updateUrlsTable(const Status *status)
+{
+    for (int i = 0; i < ui->urlsTable->rowCount(); ++i) {
+        if(ui->urlsTable->item(i, yoDataBase::url)->text() == status->url()){
+            ui->urlsTable->item(i, yoDataBase::status)->setText(status->downloadStatusString());
+            ui->urlsTable->item(i, yoDataBase::progress)->setText(QString("%1 %").arg(QString::number(status->progress())));
+            ui->urlsTable->item(i, yoDataBase::remaining_time)->setText(status->remainingTime());
+            ui->urlsTable->item(i, 9)->setText(status->downloadRate());
+
+        }
+    }
 }
 
 void MainWindow::createActionsOnMainWindow()
@@ -343,4 +351,11 @@ void MainWindow::loadSettings()
     settings.endGroup();
 
     settings.endGroup();
+}
+
+void MainWindow::on_actionResume_triggered()
+{
+    if(ui->urlsTable->selectedItems().isEmpty())
+        return;
+//    downloader->theDownload(currentColumn(yoDataBase::url));
 }

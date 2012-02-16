@@ -22,7 +22,7 @@
 #define STATUS_H
 
 #include <QObject>
-#include "yoUtils/fileinfo.h"
+#include <QTime>
 
 class Status : public QObject
 {
@@ -30,12 +30,24 @@ class Status : public QObject
 public:
     explicit Status(QObject *parent = 0);
 
-    // [inlines]
-    inline QString remainingTime() const { return _remainingTime; }
-    inline int downloadRate() const { return _downloadRate; }
-    inline QString status() const { return _status; }
-    inline double progress() const { return _progress; }
+    enum DownloadMode{
+        NewDownload,
+        ResumeDownload
+    };
+
+    enum DownloadStatus{
+        Idle,
+        Starting,
+        Downloading,
+        Finished,
+        Failed
+    };
+
+    QString remainingTime() const;
     QString downloadRate() const;
+    QString downloadModeString() const;
+    QString downloadStatusString() const;
+
     // [inlines]    
     inline void setUrl(const QString &url) { _url = url; }
     inline QString url() const { return _url; }
@@ -56,20 +68,22 @@ public:
 signals:
     
 public slots:
-    void setDownloadRate();
-    void updateFileSize(qint64 bytesReceived, qint64 bytesTotal);
-    inline void setStatus(const QString &status) { _status =  status; }
+    void startTime();
+    void updateFileStatus(qint64 bytesReceived, qint64 bytesTotal);
 
 private:
-    QString _status;
+    QString _url;
     QString _remainingTime;
+    QString _name;
+    QString _path;
+    qint64 _bytesTotal;
+    qint64 _bytesReceived;
     int _downloadRate;
-    double _progress;
-    FileInfo *_fileInfo;
+    int _progress;
+    QTime *_startTime;
+    DownloadMode _dlMode;
+    DownloadStatus _dlStatus;
 
-    // [inlines]
-
-    inline void setProgress(const double progress) { _progress = progress; }
     
 };
 

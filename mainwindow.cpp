@@ -87,6 +87,12 @@ void MainWindow::on_actionAdd_triggered()
 
 }
 
+void MainWindow::on_actionResume_triggered()
+{
+    if(ui->urlsTable->selectedItems().isEmpty())
+        return;
+    emit downloadRequested(currentColumn(yoDataBase::url));
+}
 void MainWindow::closeEvent(QCloseEvent * )
 {
     saveSettings();
@@ -358,11 +364,4 @@ void MainWindow::loadSettings()
     settings.endGroup();
 
     settings.endGroup();
-}
-
-void MainWindow::on_actionResume_triggered()
-{
-    if(ui->urlsTable->selectedItems().isEmpty())
-        return;
-//    downloader->theDownload(currentColumn(yoDataBase::url));
 }

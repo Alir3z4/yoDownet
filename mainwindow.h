@@ -48,6 +48,7 @@ private slots:
     void on_preferencesAction_triggered();
     void on_aboutQtAction_triggered();
     void on_actionAdd_triggered();
+    void on_actionResume_triggered();
     // Create actions on MainWindows
     void createActionsOnMainWindow();
     void saveSettings();
@@ -58,13 +59,9 @@ private slots:
     void updateUrlsTable(const Status *status);
     void initDownload(const QString &url);
 
-
-    void on_actionResume_triggered();
-
 private:
     Ui::MainWindow *ui;
     yoMessage msg;
-//    yoDownet *downloader;
     yoDataBase *db;
 
 };

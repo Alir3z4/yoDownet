@@ -49,9 +49,15 @@ public:
     bool deleteUri(const QString &uriUri);
     int lastInsertedID() const;
 
+    // [inlines]
+    inline int lastInsertedID() const { return _lastInsertedId; }
+
 private:
     int _lastInsertedId;
     void setLastInsertedId(const int &id);
+
+    // [inlines]
+    inline void setLastInsertedId(const int lastId) { _lastInsertedId = lastId; }
     
 };
 

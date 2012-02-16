@@ -35,6 +35,22 @@ public:
     inline int downloadRate() const { return _downloadRate; }
     inline QString status() const { return _status; }
     inline double progress() const { return _progress; }
+    // [inlines]    
+    inline void setUrl(const QString &url) { _url = url; }
+    inline QString url() const { return _url; }
+    inline void setName(const QString &name) { _name = name; }
+    inline QString name() const { return _name; }
+    inline void setPath(const QString &path) { _path = path; }
+    inline QString path() const { return _path; }
+    inline void setBytesTotal(const qint64 totalLength) { _bytesTotal = totalLength; }
+    inline qint64 bytesTotal() const { return _bytesTotal; }
+    inline void setBytesReceived(const qint64 completedLength) { _bytesReceived = completedLength; }
+    inline qint64 bytesReceived() const { return _bytesReceived; }
+    inline int progress() const { return _progress; }
+    inline void setDownloadMode(const DownloadMode dlMode) { _dlMode = dlMode; }
+    inline DownloadMode downloadMode() const { return _dlMode; }
+    inline void setDownloadStatus(const DownloadStatus dlStatus) { _dlStatus = dlStatus; }
+    inline DownloadStatus downloadStatus() const { return _dlStatus; }
     
 signals:
     

@@ -74,7 +74,7 @@
               <string>Set maximum number of parallel downloads, Default: 5</string>
              </property>
              <property name="whatsThis">
-              <string>Set maximum number of parallel downloads for every static (HTTP/FTP) URI, torrent and metalink. Default: 5</string>
+              <string>Set maximum number of parallel downloads for every static (HTTP/FTP) URL, Default: 5</string>
              </property>
              <property name="text">
               <string>&amp;Max Parallel Downloads:</string>

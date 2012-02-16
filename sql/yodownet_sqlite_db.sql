@@ -16,11 +16,11 @@
 -- You should have received a copy of the GNU General Public License
 -- along with this program; if not, see <http://www.gnu.org/licenses/>.
 
-CREATE TABLE IF NOT EXISTS "uris" (
+CREATE TABLE IF NOT EXISTS "urls" (
 "id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL ,
-"uri" TEXT,
+"url" TEXT,
 "save_path" TEXT,
-"status" VARCHAR(25),
+"status" INTEGER,
 "progress" INTEGER,
 "remaining_time" VARCHAR(75) DEFAULT "n/a",
 "flag" VARCHAR(15) DEFAULT "init",

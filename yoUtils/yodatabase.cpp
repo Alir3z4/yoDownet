@@ -46,15 +46,11 @@ const QSqlError yoDataBase::initDb()
     if (!db.open())
         return db.lastError();
 
-    // This is gonna be fun :D
-    //    QFile dbInitFile(QDir::toNativeSeparators("../yoDownet/sql/yodownet_sqlite_db.sql"));
-    //    dbInitFile.open(QIODevice::ReadOnly | QIODevice::Text);
-    //    QTextStream in(&dbInitFile);
-    QString sqliteCreator = "CREATE TABLE IF NOT EXISTS \"uris\" ("
+    QString sqliteCreator = "CREATE TABLE IF NOT EXISTS \"urls\" ("
             "\"id\" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL ,"
-            "\"uri\" TEXT,"
+            "\"url\" TEXT,"
             "\"save_path\" TEXT,"
-            "\"status\" VARCHAR(25),"
+            "\"status\" INTEGER,"
             "\"progress\" INTEGER,"
             "\"remaining_time\" VARCHAR(75) DEFAULT \"n/a\","
             "\"flag\" VARCHAR(15) DEFAULT \"init\","

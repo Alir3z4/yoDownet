@@ -42,6 +42,7 @@ public:
     QString currentColumn(const int column) const;
 
 signals:
+    void downloadRequested(const QString &url);
 
 private slots:
     void on_preferencesAction_triggered();
@@ -55,7 +56,7 @@ private slots:
     void initurlsTable();
     void addNewDlToUrlsTable(const Status *status);
     void updateUrlsTable(const Status *status);
-    //
+    void initDownload(const QString &url);
 
 
     void on_actionResume_triggered();

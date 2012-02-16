@@ -49,6 +49,8 @@ MainWindow::MainWindow(QWidget *parent) :
     // Initialize urlsTable :|
     initurlsTable();
 
+    // Connect the signals/slot
+    connect(this, SIGNAL(downloadRequested(QString)), this, SLOT(initDownload(QString)));
 }
 
 MainWindow::~MainWindow()
@@ -259,6 +261,20 @@ void MainWindow::updateUrlsTable(const Status *status)
 
         }
     }
+}
+
+void MainWindow::initDownload(const QString &url)
+{
+    QThread *thread = new QThread;
+    yoDownet *downloader = new yoDownet;
+    db = new yoDataBase(this, downloader);
+    downloader->moveToThread(thread);
+    downloader->theDownload(url);
+    // connect these guyz
+    connect(downloader, SIGNAL(downloadInitialed(const Status*)), this, SLOT(addNewDlToUrlsTable(const Status*)));
+    connect(downloader, SIGNAL(downlaodResumed(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
+    connect(downloader, SIGNAL(downloadUpdated(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
+    thread->start();
 }
 
 void MainWindow::createActionsOnMainWindow()

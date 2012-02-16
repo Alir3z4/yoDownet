@@ -29,21 +29,14 @@ class FileInfo : public QObject
 public:
     explicit FileInfo(QObject *parent = 0);
 
-    inline QString path() const { return _path; }
 
     // [inlines]
-    inline void setPath(const QString &path) { _path = path; }
-    inline int length() const { return _length; }
-    inline int completedLength() const { return _completedLength; }
-    inline void setCompletedLength(const int completedLength) { _completedLength = completedLength; }
-    inline void setLength(const int length) { _length = length; }
+
 
 public slots:
 
 private:
-    QString _path;
-    int _length;
-    int _completedLength;
+
 
     // [inlines]
 

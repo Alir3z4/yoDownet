@@ -77,8 +77,18 @@ void MainWindow::on_aboutQtAction_triggered()
 
 void MainWindow::on_actionAdd_triggered()
 {
-  UriDialog addDialog;
-    if(addDialog.exec() == QDialog::Accepted) {
+    urlDialog addUrlDialog;
+    if(addUrlDialog.exec() == QDialog::Accepted) {
+        QThread *thread = new QThread;
+        yoDownet *downloader = new yoDownet;
+        db = new yoDataBase(this, downloader);
+        downloader->moveToThread(thread);
+        downloader->theDownload(addUrlDialog.url());
+        // connect these guyz
+        connect(downloader, SIGNAL(downloadInitialed(const Status*)), this, SLOT(addNewDlToUrlsTable(const Status*)));
+        connect(downloader, SIGNAL(downlaodResumed(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
+        connect(downloader, SIGNAL(downloadUpdated(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
+        thread->start();
     }
 
 }

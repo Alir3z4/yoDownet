@@ -31,8 +31,10 @@ public:
     
 signals:
     
+    void downloadInitialed(const Status *status);
 public slots:
     
+    void theDownload(const QString &urlLink);
 };
 
 #endif // YODOWNET_H

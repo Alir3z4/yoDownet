@@ -23,4 +23,33 @@
 yoDownet::yoDownet(QObject *parent) :
     QObject(parent)
 {
+    connect(this, SIGNAL(downloadInitialed(const Status*)), status, SLOT(startTime()));
+void yoDownet::theDownload(const QString &urlLink)
+{
+    QUrl url(urlLink);
+    QFileInfo fInfo(url.path());
+    QString fileName = fInfo.fileName();
+    if(fileName.isEmpty())
+        fileName  = "yodownet";
+
+    file = new QFile(fileName);
+    status->setName(fileName);
+    status->setPath(QDir::currentPath());
+
+    bool isOpened;
+    if(QFile::exists(fileName)){
+        isOpened = file->open(QIODevice::Append);
+        status->setDownloadMode(Status::ResumeDownload);
+    }else{
+        isOpened = file->open(QIODevice::WriteOnly);
+        status->setDownloadMode(Status::NewDownload);
+    }
+    if(!isOpened){
+        delete file;
+        file = 0;
+        return;
+    }
+
+    startRequest(url);
+}
 }

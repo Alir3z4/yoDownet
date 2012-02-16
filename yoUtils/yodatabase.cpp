@@ -70,22 +70,42 @@ bool yoDataBase::removeDB(const QSqlDatabase &removeDb)
     return true;
 }
 
-bool yoDataBase::addUri(const QString &argUri, const QString &savePath, const QString &argStatus, const int argProgress)
+bool yoDataBase::isExist(const QString &urlUrl)
 {
-    QSqlQuery addQuery;
-    addQuery.prepare("INSERT INTO uris uri, save_path, status, progress)"
-                     " VALUES(:uri, :save_path, :status, :progress)");
-    addQuery.bindValue(":uri", argUri);
-    addQuery.bindValue(":save_path", savePath);
-    addQuery.bindValue(":status", argStatus);
-    addQuery.bindValue(":progress", argProgress);
-    if(!addQuery.exec()){
-        yoMessage msg;
-        msg.dbError(addQuery.lastError().text(), QObject::tr("Adding new download"));
-        return false;
+    QSqlQuery isExist;
+    isExist.prepare("SELECT id, url FROM urls WHERE url=:url LIMIT 1");
+    isExist.bindValue(":url", urlUrl);
+    if(!isExist.exec()){
+        emit databaseFailed(isExist.lastError().text(), tr("Checking is entered download exist"));
     }
-    setLastInsertedId(addQuery.lastInsertId().toInt());
-    return true;
+    if(isExist.isActive()){
+        while(isExist.next()){
+            if(isExist.value(1).toString() == urlUrl){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+void yoDataBase::addUrl(const Status *status)
+{
+    if(!isExist(status->url())){
+        QSqlQuery addQuery;
+        addQuery.prepare("INSERT INTO urls (url, save_path, status, progress)"
+                         " VALUES(:url, :save_path, :status, :progress)");
+        addQuery.bindValue(":url", status->url());
+        addQuery.bindValue(":save_path", status->path());
+        addQuery.bindValue(":status", status->downloadMode());
+        addQuery.bindValue(":progress", 0);
+        if(!addQuery.exec()){
+            emit databaseFailed(addQuery.lastError().text(), tr("Adding new download"));
+            return;
+        }
+        setLastInsertedId(addQuery.lastInsertId().toInt());
+    }else{
+        updateUrl(status);
+    }
 }
 
 bool yoDataBase::updateUri(const QString &argUri, const QString &savePath, const QString &status, const int progress)

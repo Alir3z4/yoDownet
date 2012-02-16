@@ -53,6 +53,7 @@ public:
     inline int lastInsertedID() const { return _lastInsertedId; }
 
     void addUrl(const Status *status);
+    void updateUrl(const Status *status);
 private:
     int _lastInsertedId;
     void setLastInsertedId(const int &id);

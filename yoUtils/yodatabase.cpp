@@ -108,20 +108,18 @@ void yoDataBase::addUrl(const Status *status)
     }
 }
 
-bool yoDataBase::updateUri(const QString &argUri, const QString &savePath, const QString &status, const int progress)
+void yoDataBase::updateUrl(const Status *status)
 {
     QSqlQuery updateQuery;
-    updateQuery.prepare("UPDATE uris SET save_path=:save_path, status=:status, progress=:progress WHERE uri=:uri");
-    updateQuery.bindValue(":uri", argUri);
-    updateQuery.bindValue(":save_path", savePath);
-    updateQuery.bindValue(":status", status);
-    updateQuery.bindValue(":progress", progress);
+    updateQuery.prepare("UPDATE urls SET save_path=:save_path, status=:status, progress=:progress WHERE url=:url");
+    updateQuery.bindValue(":url", status->url());
+    updateQuery.bindValue(":save_path", status->path());
+    updateQuery.bindValue(":status", status->downloadMode());
+    updateQuery.bindValue(":progress", status->progress());
     if(!updateQuery.exec()){
-        yoMessage msg;
-        msg.dbError(updateQuery.lastError().text(), QObject::tr("Updating existing download"));
-        return false;
+        emit databaseFailed(updateQuery.lastError().text(), tr("Updating existing download"));
+        return;
     }
-    return true;
 }
 
 bool yoDataBase::deleteUri(const QString &uriUri)

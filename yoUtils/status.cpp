@@ -28,6 +28,28 @@ Status::Status(QObject *parent) :
 void Status::setDownloadRate()
 {
     return;
+
+QString Status::downloadRate() const
+{
+
+    int speedInt = (int)_downloadRate;
+    if(speedInt < 0)
+        speedInt = 0;
+    
+    QString unit;
+    if(speedInt < 1024){
+        unit = tr("bytes/sec");
+    }else if(speedInt < 1024*1024){
+        speedInt /= 1024;
+        unit = tr("KB/sec");
+    }else{
+        speedInt /= 1024*1024;
+        unit = tr("MB/sec");
+    }
+    return QString(QLatin1String("%1 %2")).arg(speedInt).arg(unit);
+
+}
+
 }
 
 void Status::updateFileSize(qint64 bytesReceived, qint64 bytesTotal)

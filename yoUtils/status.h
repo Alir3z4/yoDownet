@@ -35,6 +35,7 @@ public:
     inline int downloadRate() const { return _downloadRate; }
     inline QString status() const { return _status; }
     inline double progress() const { return _progress; }
+    QString downloadRate() const;
     // [inlines]    
     inline void setUrl(const QString &url) { _url = url; }
     inline QString url() const { return _url; }

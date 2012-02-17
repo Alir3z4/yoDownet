@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     yodownet.cpp \
     yoUtils/fileinfo.cpp \
     yoUtils/status.cpp \
-    urldialog.cpp
+    urldialog.cpp \
+    urlmodel.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -35,7 +36,8 @@ HEADERS  += mainwindow.h \
     yodownet.h \
     yoUtils/fileinfo.h \
     yoUtils/status.h \
-    urldialog.h
+    urldialog.h \
+    urlmodel.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \

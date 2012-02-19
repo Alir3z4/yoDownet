@@ -62,6 +62,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     yoMessage msg;
+    QThread *thread;
     yoDataBase *db;
 
 };

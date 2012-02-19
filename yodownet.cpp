@@ -19,6 +19,7 @@
 ****************************************************************************************/
 
 #include "yodownet.h"
+#include "QSettings"
 
 yoDownet::yoDownet(QObject *parent) :
     QObject(parent), status(new Status(this))
@@ -35,9 +36,18 @@ void yoDownet::theDownload(const QString &urlLink)
     if(fileName.isEmpty())
         fileName  = "yodownet";
 
-    file = new QFile(fileName);
+    // FIXME: move these setting mess to separate class
+    QSettings settings;
+    settings.beginGroup("PreferencesDialog");
+    settings.beginGroup("PrefDownloadersWidget");
+    QString savePath = settings.value("saveDir").toString() + QDir::toNativeSeparators("/");
+    settings.endGroup();
+    settings.endGroup();
+    /*********************/
+
+    file = new QFile(savePath + fileName);
     status->setName(fileName);
-    status->setPath(QDir::currentPath());
+    status->setPath(savePath);
 
     bool isOpened;
     if(QFile::exists(fileName)){

@@ -56,6 +56,7 @@ MainWindow::~MainWindow()
 
 QString MainWindow::currentColumn(const int column) const
 {
+    return ui->urlView->model()->data(ui->urlView->model()->index(ui->urlView->currentIndex().row(), column)).toString();
 }
 
 void MainWindow::on_preferencesAction_triggered()

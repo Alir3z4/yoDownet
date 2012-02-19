@@ -45,12 +45,14 @@ void yoDownet::theDownload(const QString &urlLink)
     settings.endGroup();
     /*********************/
 
-    file = new QFile(savePath + fileName);
+    QString fileWithPath = savePath.append(fileName);
+
+    file = new QFile(fileWithPath);
     status->setName(fileName);
     status->setPath(savePath);
 
     bool isOpened;
-    if(QFile::exists(fileName)){
+    if(QFile::exists(fileWithPath)){
         isOpened = file->open(QIODevice::Append);
         status->setDownloadMode(Status::ResumeDownload);
     }else{

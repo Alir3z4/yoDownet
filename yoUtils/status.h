@@ -46,7 +46,6 @@ public:
     QString remainingTime() const;
     QString downloadRate() const;
     QString downloadModeString() const;
-    QString downloadStatusString() const;
 
     // [inlines]    
     inline void setUrl(const QString &url) { _url = url; }

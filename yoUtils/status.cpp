@@ -76,27 +76,6 @@ QString Status::downloadModeString() const
     }
 }
 
-QString Status::downloadStatusString() const
-{
-    switch(_dlStatus){
-    case Idle:
-        return tr("Idle");
-        break;
-    case Starting:
-        return tr("Starting");
-        break;
-    case Downloading:
-        return tr("Downloading");
-        break;
-    case Finished:
-        return tr("Finished");
-        break;
-    case Failed:
-        return tr("Failed");
-        break;
-    }
-}
-
 void Status::updateFileStatus(qint64 bytesReceived, qint64 bytesTotal)
 {
     if(!_bytesTotal)

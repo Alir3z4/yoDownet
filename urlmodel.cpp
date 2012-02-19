@@ -26,4 +26,25 @@ UrlModel::UrlModel(QObject *parent) :
         case speed:
             return tr("Speed");
             break;
+
+QString UrlModel::downloadStatus(const int mode) const
+{
+    switch(mode){
+    case 0:
+        return tr("Idle");
+        break;
+    case 1:
+        return tr("Starting");
+        break;
+    case 2:
+        return tr("Downloading");
+        break;
+    case 3:
+        return tr("Finished");
+        break;
+    case 4:
+        return tr("Failed");
+        break;
+    }
+    return tr("Unknown Status");
 }

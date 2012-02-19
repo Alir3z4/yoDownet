@@ -29,6 +29,9 @@ class UrlModel : public QSqlTableModel
 public:
     explicit UrlModel(QObject *parent = 0);
         speed,
+
+    QString downloadStatus(const int status) const;
+
     
 signals:
     

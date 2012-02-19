@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>650</width>
-    <height>390</height>
+    <width>648</width>
+    <height>388</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,7 +35,7 @@
        <bool>true</bool>
       </property>
       <property name="selectionMode">
-       <enum>QAbstractItemView::MultiSelection</enum>
+       <enum>QAbstractItemView::SingleSelection</enum>
       </property>
       <property name="selectionBehavior">
        <enum>QAbstractItemView::SelectRows</enum>
@@ -79,8 +79,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>650</width>
-     <height>20</height>
+     <width>648</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu">

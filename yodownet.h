@@ -40,8 +40,8 @@ public:
 signals:
     void downloadInitialed(const Status *status);
     void downlaodResumed(const Status *status);
-    void downloadFinished(const Status *status);
     void downloadUpdated(const Status *status);
+    void downloadFinished();
 
 public slots:
     void theDownload(const QString &urlLink);

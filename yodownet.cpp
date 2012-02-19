@@ -19,14 +19,12 @@
 ****************************************************************************************/
 
 #include "yodownet.h"
-#include <QDebug>
 
 yoDownet::yoDownet(QObject *parent) :
     QObject(parent), status(new Status(this))
 {
     connect(this, SIGNAL(downloadInitialed(const Status*)), status, SLOT(startTime()));
     connect(this, SIGNAL(downlaodResumed(const Status*)), status, SLOT(startTime()));
-//    connect()
 }
 
 void yoDownet::theDownload(const QString &urlLink)
@@ -73,10 +71,12 @@ void yoDownet::startRequest(const QUrl &url)
     // set the url
     status->setUrl(url.toString());
     status->setDownloadStatus(Status::Starting);
-    if(status->downloadMode() == Status::NewDownload)
+    if(status->downloadMode() == Status::NewDownload){
         emit downloadInitialed(status);
-    else if(status->downloadMode() == Status::ResumeDownload)
+    }
+    else if(status->downloadMode() == Status::ResumeDownload){
         emit downlaodResumed(status);
+    }
     // conncet signals
     connect(reply, SIGNAL(metaDataChanged()), this, SLOT(replyMetaDataChanged()));
     connect(reply, SIGNAL(readyRead()), this, SLOT(httpReadyRead()));
@@ -88,6 +88,8 @@ void yoDownet::httpReadyRead()
 {
     if(file){
         if(file->size() == status->bytesTotal()){
+            status->setDownloadStatus(Status::Downloading);
+            emit downloadUpdated(status);
             reply->close();
         }else if(file->size() < status->bytesTotal()){
             file->write(reply->readAll());
@@ -99,7 +101,6 @@ void yoDownet::httpReadyRead()
 
 void yoDownet::httpFinished()
 {
-    qWarning() << reply;
     file->flush();
     file->close();
     reply->deleteLater();
@@ -110,5 +111,5 @@ void yoDownet::httpFinished()
     status->setDownloadStatus(Status::Finished);
 
     emit downloadUpdated(status);
-    emit downloadFinished(status);
+    emit downloadFinished();
 }

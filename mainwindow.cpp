@@ -97,7 +97,14 @@ void MainWindow::addNewDlToUrlsTable(const Status *status)
 
 void MainWindow::updateUrlsTable(const Status *status)
 {
-
+    QAbstractItemModel *updateModel = ui->urlView->model();
+    for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
+        if(updateModel->data(updateModel->index(i, UrlModel::url)).toString() == status->url()){
+            updateModel->setData(updateModel->index(i, UrlModel::save_path), status->path());
+            updateModel->setData(updateModel->index(i, UrlModel::status), status->downloadStatus());
+            updateModel->setData(updateModel->index(i, UrlModel::progress), status->progress());
+            updateModel->setData(updateModel->index(i, UrlModel::remaining_time), status->remainingTime());
+            updateModel->setData(updateModel->index(i, UrlModel::speed), status->downloadRate());
         }
     }
 }

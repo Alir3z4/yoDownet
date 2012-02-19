@@ -32,13 +32,13 @@ QString Status::remainingTime() const
         timeRemaining = 1;
     }
 
-    QString timeRemainingString = tr("seconds");
+    QString timeRemainingString = tr("Sec");
     if(timeRemaining > 60){
         timeRemaining = timeRemaining / 60;
-        timeRemainingString = tr("minutes");
+        timeRemainingString = tr("Min");
     }
     timeRemaining = std::floor(timeRemaining);
-    return tr("%1 %2 remaining")
+    return QString("%1 %2")
             .arg(timeRemaining)
             .arg(timeRemainingString);
 }

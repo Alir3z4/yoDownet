@@ -76,10 +76,8 @@ void MainWindow::on_aboutQtAction_triggered()
 void MainWindow::on_actionAdd_triggered()
 {
     urlDialog addUrlDialog;
-    if(addUrlDialog.exec() == QDialog::Accepted) {
+    if(addUrlDialog.exec() == QDialog::Accepted)
         emit downloadRequested(addUrlDialog.url());
-    }
-
 }
 
 void MainWindow::on_actionResume_triggered()

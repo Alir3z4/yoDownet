@@ -26,6 +26,7 @@
 #include "yoUtils/yomessage.h"
 #include "yoUtils/yodatabase.h"
 #include "yodownet.h"
+#include <urlmodel.h>
 
 namespace Ui {
     class MainWindow;
@@ -58,6 +59,7 @@ private slots:
     void addNewDlToUrlsTable(const Status *status);
     void updateUrlsTable(const Status *status);
     void initDownload(const QString &url);
+
 
 private:
     Ui::MainWindow *ui;

@@ -64,6 +64,7 @@ private:
     yoMessage msg;
     QThread *thread;
     yoDataBase *db;
+    UrlModel *model;
 
 };
 

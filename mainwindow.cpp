@@ -31,7 +31,8 @@ class QDateTime;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    db(new yoDataBase(parent)), model(new UrlModel(parent))
 {
     ui->setupUi(this);
 

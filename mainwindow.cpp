@@ -83,7 +83,9 @@ void MainWindow::on_actionAdd_triggered()
 
 void MainWindow::on_actionResume_triggered()
 {
+    emit downloadRequested(currentColumn(UrlModel::url));
 }
+
 void MainWindow::closeEvent(QCloseEvent * )
 {
     saveSettings();

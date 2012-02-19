@@ -23,4 +23,7 @@
 UrlModel::UrlModel(QObject *parent) :
     QSqlTableModel(parent)
 {
+        case speed:
+            return tr("Speed");
+            break;
 }

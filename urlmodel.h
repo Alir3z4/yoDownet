@@ -28,6 +28,7 @@ class UrlModel : public QSqlTableModel
     Q_OBJECT
 public:
     explicit UrlModel(QObject *parent = 0);
+        speed,
     
 signals:
     

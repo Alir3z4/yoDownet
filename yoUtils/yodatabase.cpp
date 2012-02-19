@@ -54,7 +54,7 @@ const QSqlError yoDataBase::initDb()
             "\"status\" INTEGER,"
             "\"progress\" INTEGER,"
             "\"remaining_time\" VARCHAR(75) DEFAULT \"n/a\","
-            "\"flag\" VARCHAR(15) DEFAULT \"init\","
+            "\"speed\" VARCHAR(75),"
             "\"created_at\" TIMESTAMP NOT NULL  DEFAULT CURRENT_TIMESTAMP,"
             "\"updated_at\" TIMESTAMP);";
 

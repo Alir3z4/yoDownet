@@ -54,7 +54,7 @@ private slots:
     void saveSettings();
     void loadSettings();
     void closeEvent(QCloseEvent *);
-    void initurlsTable();
+    void initUrlsTable();
     void addNewDlToUrlsTable(const Status *status);
     void updateUrlsTable(const Status *status);
     void initDownload(const QString &url);

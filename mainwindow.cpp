@@ -43,7 +43,8 @@ MainWindow::MainWindow(QWidget *parent) :
     createActionsOnMainWindow();
 
     // Initialize urlsTable :|
-    initurlsTable();
+    initUrlsTable();
+
     thread = new QThread(this);
 
     // Connect the signals/slot
@@ -88,7 +89,10 @@ void MainWindow::closeEvent(QCloseEvent * )
     saveSettings();
 }
 
+void MainWindow::initUrlsTable()
 {
+    ui->urlView->setModel(model);
+    ui->urlView->hideColumn(model->fieldIndex("id"));
 }
 
 void MainWindow::addNewDlToUrlsTable(const Status *status)

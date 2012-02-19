@@ -93,6 +93,9 @@ void MainWindow::closeEvent(QCloseEvent * )
 
 void MainWindow::addNewDlToUrlsTable(const Status *status)
 {
+    ui->urlView->model()->insertRow(ui->urlView->model()->rowCount());
+    int row = ui->urlView->model()->rowCount()-1;
+    ui->urlView->model()->setData(ui->urlView->model()->index(row, UrlModel::url), status->url());
 }
 
 void MainWindow::updateUrlsTable(const Status *status)

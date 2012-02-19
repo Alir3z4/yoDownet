@@ -19,13 +19,67 @@
 ****************************************************************************************/
 
 #include "urlmodel.h"
+#include <QTimer>
 
 UrlModel::UrlModel(QObject *parent) :
     QSqlTableModel(parent)
 {
+    setEditStrategy(QSqlTableModel::OnManualSubmit);
+    setTable("urls");
+    select();
+
+    QTimer *submitTimer = new QTimer(this);
+    connect(submitTimer, SIGNAL(timeout()), this, SLOT(submitAll()));
+    submitTimer->start(25000);
+}
+
+QVariant UrlModel::data(const QModelIndex &idx, int role) const
+{
+    QVariant value = QSqlTableModel::data(idx, role);
+    if(role == Qt::TextAlignmentRole)
+        return Qt::AlignCenter;
+    if(value.isValid() && role == Qt::DisplayRole){
+        if(idx.column() == progress)
+            return value.toString().append("%");
+        else if(idx.column() == status)
+            return downloadStatus(value.toInt());
+    }
+    return value;
+}
+
+QVariant UrlModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+    QVariant value = QSqlTableModel::headerData(section, orientation, role);
+    if(value.isValid() && role == Qt::DisplayRole){
+        switch(section){
+        case url:
+            return tr("URL");
+            break;
+        case save_path:
+            return tr("Save Path");
+            break;
+        case status:
+            return tr("Status");
+            break;
+        case progress:
+            return tr("Progress");
+            break;
+        case remaining_time:
+            return tr("Remaining Time");
+            break;
         case speed:
             return tr("Speed");
             break;
+        case created_at:
+            return tr("Added");
+            break;
+        case updated_at:
+            return tr("Modified");
+            break;
+        }
+    }
+    return value;
+}
 
 QString UrlModel::downloadStatus(const int mode) const
 {

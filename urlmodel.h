@@ -28,14 +28,24 @@ class UrlModel : public QSqlTableModel
     Q_OBJECT
 public:
     explicit UrlModel(QObject *parent = 0);
+
+    enum Urls {
+        id,
+        url,
+        save_path,
+        status,
+        progress,
+        remaining_time,
         speed,
+        created_at,
+        updated_at
+    };
+
+    QVariant data(const QModelIndex &idx, int role) const;
+
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const;
 
     QString downloadStatus(const int status) const;
-
-    
-signals:
-    
-public slots:
     
 };
 

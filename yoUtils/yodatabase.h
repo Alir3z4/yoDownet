@@ -32,7 +32,7 @@ class yoDataBase : public QObject
 {
     Q_OBJECT
 public:
-    explicit yoDataBase(QObject *parent = 0, yoDownet *dler = 0);
+    explicit yoDataBase(QObject *parent = 0);
 
     enum Urls {
         id,
@@ -48,8 +48,6 @@ public:
 
     const QSqlError initDb();
     bool removeDB(const QSqlDatabase &db);
-    bool isExist(const QString &urlUrl);
-    void deleteUrl(const QString &urlUrl);
 
     // [inlines]
     inline int lastInsertedID() const { return _lastInsertedId; }
@@ -57,14 +55,8 @@ public:
 signals:
     void databaseFailed(const QString &errorMsg, const QString &action);
 
-private slots:
-    void addUrl(const Status *status);
-    void updateUrl(const Status *status);
-
 private:
     int _lastInsertedId;
-    yoMessage *msg;
-    yoDownet *downloader;
 
     // [inlines]
     inline void setLastInsertedId(const int lastId) { _lastInsertedId = lastId; }

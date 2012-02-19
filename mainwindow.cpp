@@ -20,7 +20,6 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QtSql/QSqlQuery>
 #include <QDateTime>
 #include <QSettings>
 #include "preferencesdialog.h"
@@ -42,10 +41,6 @@ MainWindow::MainWindow(QWidget *parent) :
     // Add actions from manuBar to MainWindow
     createActionsOnMainWindow();
 
-    // Hide `id`, 'flags' columns
-    ui->urlsTable->setColumnHidden(0, true);
-    ui->urlsTable->setColumnHidden(yoDataBase::flag, true);
-
     // Initialize urlsTable :|
     initurlsTable();
 
@@ -60,9 +55,6 @@ MainWindow::~MainWindow()
 
 QString MainWindow::currentColumn(const int column) const
 {
-    if(!ui->urlsTable->selectedItems().isEmpty())
-        return ui->urlsTable->item(ui->urlsTable->selectedItems().first()->row(), column)->text();
-    return QString();
 }
 
 void MainWindow::on_preferencesAction_triggered()
@@ -89,172 +81,21 @@ void MainWindow::on_actionAdd_triggered()
 
 void MainWindow::on_actionResume_triggered()
 {
-    if(ui->urlsTable->selectedItems().isEmpty())
-        return;
-    emit downloadRequested(currentColumn(yoDataBase::url));
 }
 void MainWindow::closeEvent(QCloseEvent * )
 {
     saveSettings();
 }
 
-void MainWindow::initurlsTable()
 {
-    // initialize the database
-    QSqlError sqlError = db->initDb();
-    if (sqlError.type() != QSqlError::NoError)
-        msg.dbError(sqlError.text(), tr("Unable to initialize Database"));
-
-    // Populate database on urlsTable
-    QSqlQuery popQuery;
-    // Let's check there isn't any problem to gathering urls from database
-    if (!popQuery.exec("SELECT * FROM urls"))
-        // seems yes, hell let's user know
-        // User face :~/
-        msg.dbError(popQuery.lastError().text(), tr("Populating 'urls' table"));
-    else {
-        // Add newItem to urlsTable;
-        while (popQuery.next()) {
-            int currentRow = ui->urlsTable->rowCount();
-            ui->urlsTable->setRowCount(currentRow + 1);
-            // [id]
-            QTableWidgetItem *idItem =  new QTableWidgetItem(popQuery.value(yoDataBase::id).toString());
-            ui->urlsTable->setItem(currentRow, yoDataBase::id, idItem);
-            // ![id]
-
-            // [url] => File name
-            QTableWidgetItem *urlItem = new QTableWidgetItem(popQuery.value(yoDataBase::url).toString());
-            urlItem->setTextAlignment(Qt::AlignCenter);
-            ui->urlsTable->setItem(currentRow, yoDataBase::url, urlItem);
-            // ![url]
-
-            // [save_path]
-            QTableWidgetItem *save_pathItem = new QTableWidgetItem(popQuery.value(yoDataBase::save_path).toString());
-            save_pathItem->setTextAlignment(Qt::AlignCenter);
-            ui->urlsTable->setItem(currentRow, yoDataBase::save_path, save_pathItem);
-            // ![save_path]
-
-            // [status]
-            QTableWidgetItem *statusItem = new QTableWidgetItem(popQuery.value(yoDataBase::status).toString());
-            statusItem->setTextAlignment(Qt::AlignCenter);
-            ui->urlsTable->setItem(currentRow, yoDataBase::status, statusItem);
-            // ![status]
-
-            // [progress]
-            QTableWidgetItem *progressItem = new QTableWidgetItem(popQuery.value(yoDataBase::progress).toString() + "%");
-            progressItem->setTextAlignment(Qt::AlignCenter);
-            ui->urlsTable->setItem(currentRow, yoDataBase::progress, progressItem);
-            // ![progress]
-
-            // [remaining_time]
-            QTableWidgetItem *remaining_timeItem = new QTableWidgetItem(popQuery.value(yoDataBase::remaining_time).toString());
-            remaining_timeItem->setTextAlignment(Qt::AlignCenter);
-            remaining_timeItem->setFlags(Qt::ItemIsEditable);
-            ui->urlsTable->setItem(currentRow, yoDataBase::remaining_time, remaining_timeItem);
-            // ![remaining_time]
-
-            // [flag]
-            QTableWidgetItem *flagItem = new QTableWidgetItem(popQuery.value(yoDataBase::flag).toString());
-            flagItem->setFlags(Qt::ItemIsEditable);
-            ui->urlsTable->setItem(currentRow, yoDataBase::flag, flagItem);
-            // ![flag]
-
-            // [created_at]
-            QTableWidgetItem *created_atItem = new QTableWidgetItem(
-                        popQuery.value(yoDataBase::created_at).toDateTime().toLocalTime().toString());
-            created_atItem->setTextAlignment(Qt::AlignCenter);
-            ui->urlsTable->setItem(currentRow, yoDataBase::created_at, created_atItem);
-            // ![created_at]
-
-            // [updated_at]
-            QTableWidgetItem *updated_atItem = new QTableWidgetItem(
-                        popQuery.value(yoDataBase::updated_at).toDateTime().toLocalTime().toString());
-            updated_atItem->setTextAlignment(Qt::AlignCenter);
-            ui->urlsTable->setItem(currentRow, yoDataBase::updated_at, updated_atItem);
-            // ![updated_at]
-
-            // [dlSpeed-9]
-            QTableWidgetItem *dlSpeedItem = new QTableWidgetItem(tr("n/a"));
-            dlSpeedItem->setTextAlignment(Qt::AlignCenter);
-            ui->urlsTable->setItem(currentRow, 9 , dlSpeedItem);
-            // ![dlSpeed-9]
-
-        }
-    }
 }
 
 void MainWindow::addNewDlToUrlsTable(const Status *status)
 {
-
-    int currentRow = ui->urlsTable->rowCount();
-    ui->urlsTable->setRowCount(currentRow + 1);
-    // [id]
-    QTableWidgetItem *idItem =  new QTableWidgetItem(QString::number(0));
-    ui->urlsTable->setItem(currentRow, yoDataBase::id, idItem);
-    // ![id]
-
-    // [url] => File name
-    QTableWidgetItem *urlItem = new QTableWidgetItem(status->url());
-    urlItem->setTextAlignment(Qt::AlignCenter);
-    ui->urlsTable->setItem(currentRow, yoDataBase::url, urlItem);
-    // ![url]
-
-    // [save_path]
-    QTableWidgetItem *save_pathItem = new QTableWidgetItem(status->path());
-    save_pathItem->setTextAlignment(Qt::AlignCenter);
-    ui->urlsTable->setItem(currentRow, yoDataBase::save_path, save_pathItem);
-    // ![save_path]
-
-    // [status]
-    QTableWidgetItem *statusItem = new QTableWidgetItem(status->downloadStatusString());
-    statusItem->setTextAlignment(Qt::AlignCenter);
-    ui->urlsTable->setItem(currentRow, yoDataBase::status, statusItem);
-    // ![status]
-
-    // [progress]
-    QTableWidgetItem *progressItem = new QTableWidgetItem(status->progress());
-    progressItem->setTextAlignment(Qt::AlignCenter);
-    ui->urlsTable->setItem(currentRow, yoDataBase::progress, progressItem);
-    // ![progress]
-
-    // [flag]
-    QTableWidgetItem *flagItem = new QTableWidgetItem("init");
-    progressItem->setTextAlignment(Qt::AlignCenter);
-    ui->urlsTable->setItem(currentRow, yoDataBase::flag, flagItem);
-    // ![flag]
-
-    // [remaining_time]
-    QTableWidgetItem *remaining_timeItem = new QTableWidgetItem(tr("n/a"));
-    remaining_timeItem->setTextAlignment(Qt::AlignCenter);
-    ui->urlsTable->setItem(currentRow, yoDataBase::remaining_time, remaining_timeItem);
-    // ![remaining_time]
-
-    // [created_at]
-    QTableWidgetItem *created_atItem = new QTableWidgetItem(QDateTime::currentDateTime().toLocalTime().toString());
-    created_atItem->setTextAlignment(Qt::AlignCenter);
-    ui->urlsTable->setItem(currentRow, yoDataBase::created_at, created_atItem);
-    // ![created_at]
-
-    // [updated_at]
-    QTableWidgetItem *updated_atItem = new QTableWidgetItem(" ");
-    ui->urlsTable->setItem(currentRow, yoDataBase::updated_at, updated_atItem);
-    // ![updated_at]
-
-    // [dlSpeed-9]
-    QTableWidgetItem *dlSpeedItem = new QTableWidgetItem(tr("n/a"));
-    dlSpeedItem->setTextAlignment(Qt::AlignCenter);
-    ui->urlsTable->setItem(currentRow, 9 , dlSpeedItem);
-    // ![dlSpeed-9]
 }
 
 void MainWindow::updateUrlsTable(const Status *status)
 {
-    for (int i = 0; i < ui->urlsTable->rowCount(); ++i) {
-        if(ui->urlsTable->item(i, yoDataBase::url)->text() == status->url()){
-            ui->urlsTable->item(i, yoDataBase::status)->setText(status->downloadStatusString());
-            ui->urlsTable->item(i, yoDataBase::progress)->setText(QString("%1 %").arg(QString::number(status->progress())));
-            ui->urlsTable->item(i, yoDataBase::remaining_time)->setText(status->remainingTime());
-            ui->urlsTable->item(i, 9)->setText(status->downloadRate());
 
         }
     }

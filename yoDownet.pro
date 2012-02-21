@@ -49,8 +49,6 @@ FORMS    += mainwindow.ui \
     prefdatabasewidget.ui \
     importurls.ui \
     filebrowz.ui \
-
-TRANSLATIONS += translations/yoDownet_fa.ts
     urldialog.ui \
     aboutdialog.ui \
     reportbugdialog.ui

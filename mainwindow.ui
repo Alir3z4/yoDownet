@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>648</width>
-    <height>388</height>
+    <width>646</width>
+    <height>386</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -70,6 +70,12 @@
       <attribute name="verticalHeaderVisible">
        <bool>false</bool>
       </attribute>
+      <attribute name="verticalHeaderCascadingSectionResizes">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>20</number>
+      </attribute>
      </widget>
     </item>
    </layout>
@@ -79,8 +85,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>648</width>
-     <height>21</height>
+     <width>646</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu">
@@ -183,6 +189,10 @@
    </property>
   </action>
   <action name="aboutyoDownetAction">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/images/yoDownet_64.svg</normaloff>:/icons/images/yoDownet_64.svg</iconset>
+   </property>
    <property name="text">
     <string>About yo&amp;Downet</string>
    </property>

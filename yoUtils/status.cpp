@@ -60,7 +60,7 @@ QString Status::downloadRate() const
         speedInt /= 1024*1024;
         unit = tr("MB/sec");
     }
-    return QString(QLatin1String("%1 %2")).arg(speedInt).arg(unit);
+    return QString("%1 %2").arg(speedInt).arg(unit);
 
 }
 

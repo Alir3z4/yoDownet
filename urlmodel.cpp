@@ -30,7 +30,7 @@ UrlModel::UrlModel(QObject *parent) :
 
     QTimer *submitTimer = new QTimer(this);
     connect(submitTimer, SIGNAL(timeout()), this, SLOT(submitAll()));
-    submitTimer->start(25000);
+    submitTimer->start(10000);
 }
 
 QVariant UrlModel::data(const QModelIndex &idx, int role) const

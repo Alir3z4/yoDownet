@@ -20,25 +20,20 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QDateTime>
 #include <QSettings>
 #include "preferencesdialog.h"
 #include "urldialog.h"
-#include <QDebug>
-
-class QDateTime;
+#include "aboutdialog.h"
+#include "reportbugdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    db(new yoDataBase(parent)), model(new UrlModel(parent))
+    db(new yoDataBase(parent)), model(new UrlModel(parent)), downloader(new yoDownet(parent))
 {
     ui->setupUi(this);
 
-    // read/load settings
     loadSettings();
-
-    // Add actions from manuBar to MainWindow
     createActionsOnMainWindow();
 
     // Initialize urlsTable :|
@@ -86,6 +81,18 @@ void MainWindow::on_actionResume_triggered()
     emit downloadRequested(currentColumn(UrlModel::url));
 }
 
+void MainWindow::on_reportBugAction_triggered()
+{
+    ReportBugDialog bugDialog;
+    bugDialog.exec();
+}
+
+void MainWindow::on_aboutyoDownetAction_triggered()
+{
+   AboutDialog about;
+   about.exec();
+}
+
 void MainWindow::closeEvent(QCloseEvent * )
 {
     saveSettings();
@@ -102,6 +109,8 @@ void MainWindow::addNewDlToUrlsTable(const Status *status)
     ui->urlView->model()->insertRow(ui->urlView->model()->rowCount());
     int row = ui->urlView->model()->rowCount()-1;
     ui->urlView->model()->setData(ui->urlView->model()->index(row, UrlModel::url), status->url());
+
+    model->submitAll();
 }
 
 void MainWindow::updateUrlsTable(const Status *status)
@@ -214,3 +223,4 @@ void MainWindow::loadSettings()
 
     settings.endGroup();
 }
+

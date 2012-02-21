@@ -50,6 +50,8 @@ private slots:
     void on_aboutQtAction_triggered();
     void on_actionAdd_triggered();
     void on_actionResume_triggered();
+    void on_reportBugAction_triggered();
+    void on_aboutyoDownetAction_triggered();
     // Create actions on MainWindows
     void createActionsOnMainWindow();
     void saveSettings();
@@ -59,7 +61,6 @@ private slots:
     void addNewDlToUrlsTable(const Status *status);
     void updateUrlsTable(const Status *status);
     void initDownload(const QString &url);
-
 
 private:
     Ui::MainWindow *ui;

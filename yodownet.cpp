@@ -22,12 +22,9 @@
 #include "QSettings"
 
 yoDownet::yoDownet(QObject *parent) :
-    QObject(parent), status(new Status(this))
-{
-    connect(this, SIGNAL(downloadInitialed(const Status*)), status, SLOT(startTime()));
-    connect(this, SIGNAL(downlaodResumed(const Status*)), status, SLOT(startTime()));
-}
-
+    QObject(parent), downloads(new QHash<QNetworkReply*, QFile*>),
+    statusHash( new QHash<QUrl, Status*>)
+{}
 void yoDownet::theDownload(const QString &urlLink)
 {
     QUrl url(urlLink);
@@ -47,78 +44,100 @@ void yoDownet::theDownload(const QString &urlLink)
 
     QString fileWithPath = savePath.append(fileName);
 
-    file = new QFile(fileWithPath);
-    status->setName(fileName);
-    status->setPath(savePath);
+    _file = new QFile(fileWithPath);
+    _status = new Status(this);
+    _status->setName(fileName);
+    _status->setPath(savePath);
 
     bool isOpened;
     if(QFile::exists(fileWithPath)){
-        isOpened = file->open(QIODevice::Append);
-        status->setDownloadMode(Status::ResumeDownload);
+        isOpened = _file->open(QIODevice::Append);
+        _status->setDownloadMode(Status::ResumeDownload);
     }else{
-        isOpened = file->open(QIODevice::WriteOnly);
-        status->setDownloadMode(Status::NewDownload);
+        isOpened = _file->open(QIODevice::WriteOnly);
+        _status->setDownloadMode(Status::NewDownload);
     }
     if(!isOpened){
-        delete file;
-        file = 0;
+        delete _file;
+        _file = 0;
         return;
     }
-
     startRequest(url);
 }
 
-void yoDownet::replyMetaDataChanged()
+void yoDownet::replyMetaDataChanged(QObject *currentReply)
 {
-    status->setBytesTotal(reply->header(QNetworkRequest::ContentLengthHeader).toULongLong());
+    auto i = downloads->find(qobject_cast<QNetworkReply*>(currentReply));
+    auto status = statusHash->find(i.key()->url()).value();
+    status->setBytesTotal(i.key()->header(QNetworkRequest::ContentLengthHeader).toULongLong());
 }
 
 void yoDownet::startRequest(const QUrl &url)
 {
     QNetworkRequest request(url);
-    request.setRawHeader("Range", QByteArray("bytes=SIZE-").replace("SIZE", QVariant(file->size()).toByteArray()));
+    request.setRawHeader("Range", QByteArray("bytes=SIZE-").replace("SIZE", QVariant(_file->size()).toByteArray()));
 
-    reply = manager.get(request);
+    _reply = manager.get(request);
 
-    // set the url
-    status->setUrl(url.toString());
-    status->setDownloadStatus(Status::Starting);
-    if(status->downloadMode() == Status::NewDownload){
-        emit downloadInitialed(status);
+    _status->setUrl(url.toString());
+    _status->setDownloadStatus(Status::Starting);
+
+    auto i = downloads->insert( _reply, _file);
+    auto statusIt = statusHash->insert(i.key()->url(), _status);
+
+    connect(this, SIGNAL(downloadInitialed(const Status*)), statusIt.value(), SLOT(startTime()));
+    connect(this, SIGNAL(downlaodResumed(const Status*)), statusIt.value(), SLOT(startTime()));
+
+    if(statusIt.value()->downloadMode() == Status::NewDownload){
+        emit downloadInitialed(statusIt.value());
     }
-    else if(status->downloadMode() == Status::ResumeDownload){
-        emit downlaodResumed(status);
+    else if(statusIt.value()->downloadMode() == Status::ResumeDownload){
+        emit downlaodResumed(statusIt.value());
     }
-    // conncet signals
-    connect(reply, SIGNAL(metaDataChanged()), this, SLOT(replyMetaDataChanged()));
-    connect(reply, SIGNAL(readyRead()), this, SLOT(httpReadyRead()));
-    connect(reply, SIGNAL(downloadProgress(qint64,qint64)), status, SLOT(updateFileStatus(qint64,qint64)));
-    connect(reply, SIGNAL(finished()), this, SLOT(httpFinished()));
+
+    readyReadSignalMapper = new QSignalMapper(this);
+    metaChangedSignalMapper = new QSignalMapper(this);
+    finishedSignalMapper = new QSignalMapper(this);
+
+    readyReadSignalMapper->setMapping(i.key(), i.key());
+    metaChangedSignalMapper->setMapping(i.key(), i.key());
+    finishedSignalMapper->setMapping(i.key(), i.key());
+
+    connect(i.key(), SIGNAL(readyRead()), readyReadSignalMapper, SLOT(map()));
+    connect(i.key(), SIGNAL(metaDataChanged()), metaChangedSignalMapper, SLOT(map()));
+    connect(i.key(), SIGNAL(finished()), finishedSignalMapper, SLOT(map()));
+    connect(i.key(), SIGNAL(downloadProgress(qint64,qint64)), statusIt.value(),  SLOT(updateFileStatus(qint64,qint64)));
+
+    connect(readyReadSignalMapper, SIGNAL(mapped(QObject*)), this, SLOT(httpReadyRead(QObject*)));
+    connect(metaChangedSignalMapper, SIGNAL(mapped(QObject*)), this, SLOT(replyMetaDataChanged(QObject*)));
+    connect(finishedSignalMapper, SIGNAL(mapped(QObject*)), this, SLOT(httpFinished(QObject*)));
 }
 
-void yoDownet::httpReadyRead()
+void yoDownet::httpReadyRead(QObject *currentReply)
 {
-    if(file){
-        if(file->size() == status->bytesTotal()){
-            status->setDownloadStatus(Status::Downloading);
-            emit downloadUpdated(status);
-            reply->close();
-        }else if(file->size() < status->bytesTotal()){
-            file->write(reply->readAll());
+    auto i = downloads->find(qobject_cast<QNetworkReply*>(currentReply));
+    auto status = statusHash->find(i.key()->url()).value();
+    if(i.value()){
+        if(i.value()->size() == status->bytesTotal()){
+            i.key()->close();
+        }else if(i.value()->size() < status->bytesTotal()){
+            i.value()->write(i.key()->readAll());
             status->setDownloadStatus(Status::Downloading);
             emit downloadUpdated(status);
         }
     }
 }
 
-void yoDownet::httpFinished()
+void yoDownet::httpFinished(QObject *currentReply)
 {
-    file->flush();
-    file->close();
-    reply->deleteLater();
-    reply = 0;
-    delete file;
-    file = 0;
+    auto i = downloads->find(qobject_cast<QNetworkReply*>(currentReply));
+    auto status = statusHash->find(i.key()->url()).value();
+
+    i.value()->flush();
+    i.value()->close();
+    i.value() = 0;
+    i.key()->deleteLater();
+    downloads->remove(i.key());
 
     status->setDownloadStatus(Status::Finished);
 

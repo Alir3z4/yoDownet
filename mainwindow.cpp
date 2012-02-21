@@ -25,7 +25,6 @@
 #include "preferencesdialog.h"
 #include "urldialog.h"
 #include <QDebug>
-#include <QThread>
 
 class QDateTime;
 
@@ -45,10 +44,11 @@ MainWindow::MainWindow(QWidget *parent) :
     // Initialize urlsTable :|
     initUrlsTable();
 
-    thread = new QThread(this);
-
     // Connect the signals/slot
     connect(this, SIGNAL(downloadRequested(QString)), this, SLOT(initDownload(QString)));
+    connect(downloader, SIGNAL(downloadInitialed(const Status*)), this, SLOT(addNewDlToUrlsTable(const Status*)));
+    connect(downloader, SIGNAL(downlaodResumed(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
+    connect(downloader, SIGNAL(downloadUpdated(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
 }
 
 MainWindow::~MainWindow()
@@ -120,20 +120,7 @@ void MainWindow::updateUrlsTable(const Status *status)
 
 void MainWindow::initDownload(const QString &url)
 {
-    yoDownet *downloader = new yoDownet;
-    if(thread)
-        thread = new QThread(this);
-    downloader->moveToThread(thread);
-
-    // connect these guyz
-    connect(downloader, SIGNAL(downloadInitialed(const Status*)), this, SLOT(addNewDlToUrlsTable(const Status*)));
-    connect(downloader, SIGNAL(downlaodResumed(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
-    connect(downloader, SIGNAL(downloadUpdated(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
-    // TODO: Somehow shoulda know when thread is finished
-    // Then it's logical to terminate it without any warning
-    connect(downloader, SIGNAL(downloadFinished()), thread, SLOT(terminate()));
     downloader->theDownload(url);
-    thread->start();
 }
 
 void MainWindow::createActionsOnMainWindow()

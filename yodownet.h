@@ -22,13 +22,15 @@
 #define YODOWNET_H
 
 #include <QObject>
-#include <QFile>
-#include <QFileInfo>
-#include <QDir>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
+#include <QSignalMapper>
 #include <QUrl>
+#include <QHash>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
 #include "yoUtils/status.h"
 
 class yoDownet : public QObject
@@ -38,25 +40,30 @@ public:
     explicit yoDownet(QObject *parent = 0);
     
 signals:
-    void downloadInitialed(const Status *status);
-    void downlaodResumed(const Status *status);
-    void downloadUpdated(const Status *status);
+    void downloadInitialed(const Status *_status);
+    void downlaodResumed(const Status *_status);
+    void downloadUpdated(const Status *_status);
     void downloadFinished();
 
 public slots:
     void theDownload(const QString &urlLink);
 
 private slots:
-    void replyMetaDataChanged();
+    void replyMetaDataChanged(QObject *currentReply);
     void startRequest(const QUrl &url);
-    void httpReadyRead();
-    void httpFinished();
+    void httpReadyRead(QObject *currentReply);
+    void httpFinished(QObject *currentReply);
 
 private:
     QNetworkAccessManager manager;
-    QNetworkReply *reply;
-    QFile *file;
-    Status *status;
+    QNetworkReply *_reply;
+    QFile *_file;
+    Status *_status;
+    QSignalMapper *readyReadSignalMapper;
+    QSignalMapper *metaChangedSignalMapper;
+    QSignalMapper *finishedSignalMapper;
+    QHash<QNetworkReply*, QFile*> *downloads;
+    QHash<QUrl, Status*> *statusHash;
 };
 
 #endif // YODOWNET_H

@@ -23,7 +23,9 @@ SOURCES += main.cpp\
     yoUtils/fileinfo.cpp \
     yoUtils/status.cpp \
     urldialog.cpp \
-    urlmodel.cpp
+    urlmodel.cpp \
+    aboutdialog.cpp \
+    reportbugdialog.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -37,7 +39,9 @@ HEADERS  += mainwindow.h \
     yoUtils/fileinfo.h \
     yoUtils/status.h \
     urldialog.h \
-    urlmodel.h
+    urlmodel.h \
+    aboutdialog.h \
+    reportbugdialog.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \
@@ -45,9 +49,11 @@ FORMS    += mainwindow.ui \
     prefdatabasewidget.ui \
     importurls.ui \
     filebrowz.ui \
-    urldialog.ui
 
 TRANSLATIONS += translations/yoDownet_fa.ts
+    urldialog.ui \
+    aboutdialog.ui \
+    reportbugdialog.ui
 
 OTHER_FILES += \
     COPYING \

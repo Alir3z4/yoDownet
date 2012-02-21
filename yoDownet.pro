@@ -9,6 +9,21 @@ QT       += core gui sql network
 TARGET = yoDownet
 TEMPLATE = app
 
+target.path = /usr/bin
+
+images.path = /usr/share/pixmaps
+images.files = images/*
+
+desktop.path = /usr/share/applications
+desktop.files = installers/yoDownet.desktop
+
+license.path = /usr/share/licenses/yodownet
+license.files = COPYING
+
+INSTALLS += target\
+    images \
+    desktop \
+    license
 
 QMAKE_CXXFLAGS += -std=c++0x
 

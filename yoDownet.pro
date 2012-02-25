@@ -75,7 +75,8 @@ OTHER_FILES += \
     LicenseTemplate \
     sql/yodownet_sqlite_db.sql \
     installers/archlinux/PKGBUILD \
-    images/yoDownet_64.svg
+    images/yoDownet_64.svg \
+    ChangeLog
 
 RESOURCES += \
     icons.qrc

@@ -73,10 +73,12 @@ FORMS    += mainwindow.ui \
 OTHER_FILES += \
     COPYING \
     LicenseTemplate \
-    sql/yodownet_sqlite_db.sql \
     installers/archlinux/PKGBUILD \
     images/yoDownet_64.svg \
+    ChangeLog \
+    sql/sqlite_0.sql \
     ChangeLog
 
 RESOURCES += \
-    icons.qrc
+    icons.qrc \
+    DatabaseMigrations.qrc

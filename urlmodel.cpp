@@ -19,13 +19,24 @@
 ****************************************************************************************/
 
 #include "urlmodel.h"
+#include <QSqlQuery>
 #include <QTimer>
 
 UrlModel::UrlModel(QObject *parent) :
     QSqlTableModel(parent)
 {
     setEditStrategy(QSqlTableModel::OnManualSubmit);
-    setTable("urls");
+    setQuery(QSqlQuery("select id,"
+                       "url,"
+                       "filename,"
+                       "save_path,"
+                       "status,"
+                       "progress,"
+                       "remaining_time,"
+                       "speed,"
+                       "created_at,"
+                       "updated_at"
+                       " FROM \"urls\";"));
     select();
 
     QTimer *submitTimer = new QTimer(this);
@@ -54,6 +65,9 @@ QVariant UrlModel::headerData(int section, Qt::Orientation orientation, int role
         switch(section){
         case url:
             return tr("URL");
+            break;
+        case filename:
+            return tr("File Name");
             break;
         case save_path:
             return tr("Save Path");

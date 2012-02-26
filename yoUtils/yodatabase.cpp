@@ -22,8 +22,9 @@
 #include <QSqlQuery>
 #include <QPushButton>
 #include <QDir>
+#include <QFile>
+#include <QTextStream>
 #include <QDesktopServices>
-#include <QDebug>
 
 yoDataBase::yoDataBase(QObject *parent) :
     QObject(parent)
@@ -50,21 +51,19 @@ const QSqlError yoDataBase::initDb()
     if (!db.open())
         return db.lastError();
 
-    QString sqliteCreator = "CREATE TABLE IF NOT EXISTS \"urls\" ("
-            "\"id\" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL ,"
-            "\"url\" TEXT,"
-            "\"save_path\" TEXT,"
-            "\"status\" INTEGER,"
-            "\"progress\" INTEGER,"
-            "\"remaining_time\" VARCHAR(75) DEFAULT \"n/a\","
-            "\"speed\" VARCHAR(75),"
-            "\"created_at\" TIMESTAMP NOT NULL  DEFAULT CURRENT_TIMESTAMP,"
-            "\"updated_at\" TIMESTAMP);";
-
+    QString sql;
+    int i=0;
     QSqlQuery initDbQuery;
-    if(!initDbQuery.exec(sqliteCreator))
-        return initDbQuery.lastError();
-
+    while(true){
+        QFile schemaFile(QString(":/sqlite/sqlite_%1").arg(i));
+        if(!schemaFile.exists()) break;
+        schemaFile.open(QIODevice::ReadOnly | QIODevice::Text);
+        QTextStream in(&schemaFile);
+        QStringList scriptList = in.readAll().split(";");
+        for(int j = 0; j < scriptList.size(); ++j)
+            initDbQuery.exec(scriptList.at(j));
+        ++i;
+    }
     return QSqlError();
 }
 

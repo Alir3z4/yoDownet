@@ -32,6 +32,7 @@ public:
     enum Urls {
         id,
         url,
+        filename,
         save_path,
         status,
         progress,

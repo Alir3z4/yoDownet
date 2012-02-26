@@ -77,7 +77,7 @@ OTHER_FILES += \
     images/yoDownet_64.svg \
     ChangeLog \
     sql/sqlite_0.sql \
-    ChangeLog
+    sql/sqlite_1.sql
 
 RESOURCES += \
     icons.qrc \

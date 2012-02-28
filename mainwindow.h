@@ -40,7 +40,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    QString currentColumn(const int column) const;
+    QStringList currentColumns(const int &column = UrlModel::url) const;
 
 signals:
     void downloadRequested(const QString &url);

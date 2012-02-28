@@ -50,9 +50,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-QString MainWindow::currentColumn(const int column) const
+QStringList MainWindow::currentColumns(const int &column) const
 {
-    return ui->urlView->model()->data(ui->urlView->model()->index(ui->urlView->currentIndex().row(), column)).toString();
+    QModelIndexList indexes = ui->urlView->selectionModel()->selectedRows(column);
+    QStringList selectedColumns;
+    for(int i = 0; i < indexes.count(); ++i){
+        QModelIndex index = indexes[i];
+        selectedColumns.push_back(index.data().toString());
+    }
+
+    return selectedColumns;
 }
 
 void MainWindow::on_preferencesAction_triggered()

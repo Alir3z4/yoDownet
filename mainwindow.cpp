@@ -40,7 +40,6 @@ MainWindow::MainWindow(QWidget *parent) :
     initUrlsTable();
 
     // Connect the signals/slot
-    connect(this, SIGNAL(downloadRequested(QString)), this, SLOT(initDownload(QString)));
     connect(downloader, SIGNAL(downloadInitialed(const Status*)), this, SLOT(addNewDlToUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downlaodResumed(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downloadUpdated(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
@@ -73,13 +72,9 @@ void MainWindow::on_actionAdd_triggered()
 {
     urlDialog addUrlDialog;
     if(addUrlDialog.exec() == QDialog::Accepted)
-        emit downloadRequested(addUrlDialog.url());
 }
 
 void MainWindow::on_actionResume_triggered()
-{
-    emit downloadRequested(currentColumn(UrlModel::url));
-}
 
 void MainWindow::on_reportBugAction_triggered()
 {
@@ -127,10 +122,6 @@ void MainWindow::updateUrlsTable(const Status *status)
     }
 }
 
-void MainWindow::initDownload(const QString &url)
-{
-    downloader->theDownload(url);
-}
 
 void MainWindow::createActionsOnMainWindow()
 {

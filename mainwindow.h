@@ -26,7 +26,7 @@
 #include "yoUtils/yomessage.h"
 #include "yoUtils/yodatabase.h"
 #include "yodownet.h"
-#include <urlmodel.h>
+#include "urlmodel.h"
 
 namespace Ui {
     class MainWindow;
@@ -52,7 +52,6 @@ private slots:
     void on_actionResume_triggered();
     void on_reportBugAction_triggered();
     void on_aboutyoDownetAction_triggered();
-    // Create actions on MainWindows
     void createActionsOnMainWindow();
     void saveSettings();
     void loadSettings();
@@ -60,7 +59,6 @@ private slots:
     void initUrlsTable();
     void addNewDlToUrlsTable(const Status *status);
     void updateUrlsTable(const Status *status);
-    void initDownload(const QString &url);
 
 private:
     Ui::MainWindow *ui;

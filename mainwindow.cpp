@@ -82,8 +82,6 @@ void MainWindow::on_actionAdd_triggered()
         downloader->addDownloads(QStringList(addUrlDialog.url()));
 }
 
-void MainWindow::on_actionResume_triggered()
-
 void MainWindow::on_reportBugAction_triggered()
 {
     ReportBugDialog bugDialog;

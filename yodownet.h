@@ -43,10 +43,14 @@ signals:
     void downloadInitialed(const Status *_status);
     void downlaodResumed(const Status *_status);
     void downloadUpdated(const Status *_status);
+    void downloadRemoved(const QString &url);
     void downloadFinished();
 
 public slots:
-    void theDownload(const QString &urlLink);
+    void addDownload(const QString &url);
+    void addDownloads(const QStringList &urls);
+    void removeDownload(const QString &url);
+    void removeDownloads(const QStringList &urls);
 
 private slots:
     void replyMetaDataChanged(QObject *currentReply);

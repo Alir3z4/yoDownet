@@ -25,10 +25,10 @@ yoDownet::yoDownet(QObject *parent) :
     QObject(parent), downloads(new QHash<QNetworkReply*, QFile*>),
     statusHash( new QHash<QUrl, Status*>)
 {}
-void yoDownet::theDownload(const QString &urlLink)
+void yoDownet::addDownload(const QString &url)
 {
-    QUrl url(urlLink);
-    QFileInfo fInfo(url.path());
+    QUrl tempUrl(url);
+    QFileInfo fInfo(tempUrl.path());
     QString fileName = fInfo.fileName();
     if(fileName.isEmpty())
         fileName  = "yodownet";
@@ -62,7 +62,35 @@ void yoDownet::theDownload(const QString &urlLink)
         _file = 0;
         return;
     }
-    startRequest(url);
+    startRequest(tempUrl);
+}
+
+void yoDownet::addDownloads(const QStringList &urls)
+{
+    if(urls.isEmpty())
+        return;
+    for(int i = 0; i < urls.size(); ++i)
+        addDownload(urls[i]);
+}
+
+void yoDownet::removeDownload(const QString &url)
+{
+    QHash<QNetworkReply*, QFile*>::iterator i = downloads->begin();
+    while(i != downloads->end()){
+        if(i.key()->url().toString() == url){
+            i.key()->close();
+            break;
+        }
+    }
+    emit downloadRemoved(url);
+}
+
+void yoDownet::removeDownloads(const QStringList &urls)
+{
+    if(urls.isEmpty())
+        return;
+    for(int i = 0; i < urls.size(); ++i)
+        removeDownload(urls[i]);
 }
 
 void yoDownet::replyMetaDataChanged(QObject *currentReply)

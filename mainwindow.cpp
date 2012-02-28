@@ -79,6 +79,7 @@ void MainWindow::on_actionAdd_triggered()
 {
     urlDialog addUrlDialog;
     if(addUrlDialog.exec() == QDialog::Accepted)
+        downloader->addDownloads(QStringList(addUrlDialog.url()));
 }
 
 void MainWindow::on_actionResume_triggered()

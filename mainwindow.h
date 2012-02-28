@@ -49,6 +49,7 @@ private slots:
     void on_preferencesAction_triggered();
     void on_aboutQtAction_triggered();
     void on_actionAdd_triggered();
+    void on_actionRemove_triggered();
     void on_reportBugAction_triggered();
     void on_aboutyoDownetAction_triggered();
     void createActionsOnMainWindow();
@@ -58,6 +59,8 @@ private slots:
     void initUrlsTable();
     void addNewDlToUrlsTable(const Status *status);
     void updateUrlsTable(const Status *status);
+
+    void onDownloadRemoved(const QString &url);
 
 private:
     Ui::MainWindow *ui;

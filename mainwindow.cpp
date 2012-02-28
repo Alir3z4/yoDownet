@@ -43,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(downloader, SIGNAL(downloadInitialed(const Status*)), this, SLOT(addNewDlToUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downlaodResumed(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downloadUpdated(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
+    connect(downloader, SIGNAL(downloadRemoved(QString)), this, SLOT(onDownloadRemoved(QString)));
 }
 
 MainWindow::~MainWindow()
@@ -80,6 +81,11 @@ void MainWindow::on_actionAdd_triggered()
     urlDialog addUrlDialog;
     if(addUrlDialog.exec() == QDialog::Accepted)
         downloader->addDownloads(QStringList(addUrlDialog.url()));
+}
+
+void MainWindow::on_actionRemove_triggered()
+{
+    downloader->removeDownloads(currentColumns());
 }
 
 void MainWindow::on_reportBugAction_triggered()
@@ -129,6 +135,17 @@ void MainWindow::updateUrlsTable(const Status *status)
     }
 }
 
+void MainWindow::onDownloadRemoved(const QString &url)
+{
+    QAbstractItemModel *removeModel = ui->urlView->model();
+    for(int i = 0; i < ui->urlView->model()->rowCount(); ++i){
+        if(removeModel->data(removeModel->index(i, UrlModel::url)).toString() == url){
+            if(model->removeRow(i))
+                model->submitAll();
+            return;
+        }
+    }
+}
 
 void MainWindow::createActionsOnMainWindow()
 {

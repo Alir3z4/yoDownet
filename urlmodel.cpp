@@ -26,17 +26,7 @@ UrlModel::UrlModel(QObject *parent) :
     QSqlTableModel(parent)
 {
     setEditStrategy(QSqlTableModel::OnManualSubmit);
-    setQuery(QSqlQuery("select id,"
-                       "url,"
-                       "filename,"
-                       "save_path,"
-                       "status,"
-                       "progress,"
-                       "remaining_time,"
-                       "speed,"
-                       "created_at,"
-                       "updated_at"
-                       " FROM \"urls\";"));
+    setTable("urls");
     select();
 
     QTimer *submitTimer = new QTimer(this);

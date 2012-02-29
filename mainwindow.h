@@ -42,9 +42,6 @@ public:
 
     QStringList currentColumns(const int &column = UrlModel::url) const;
 
-signals:
-    void downloadRequested(const QString &url);
-
 private slots:
     void on_preferencesAction_triggered();
     void on_aboutQtAction_triggered();

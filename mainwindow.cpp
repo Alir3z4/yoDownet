@@ -107,8 +107,11 @@ void MainWindow::closeEvent(QCloseEvent * )
 
 void MainWindow::initUrlsTable()
 {
+    // FIXME: Move me to the constructor
+    ui->urlView->horizontalHeader()->setMovable(true);
     ui->urlView->setModel(model);
     ui->urlView->hideColumn(model->fieldIndex("id"));
+
 }
 
 void MainWindow::addNewDlToUrlsTable(const Status *status)
@@ -167,6 +170,13 @@ void MainWindow::saveSettings()
     settings.setValue("isHidden", ui->menuBar->isHidden());
     settings.endGroup();
 
+    settings.beginGroup("urlView");
+    settings.beginGroup("horizontalHeader");
+    settings.setValue("state", ui->urlView->horizontalHeader()->saveState());
+    settings.setValue("geometry", ui->urlView->horizontalHeader()->saveGeometry());
+    settings.endGroup();
+    settings.endGroup();
+
     settings.beginGroup("statusBar");
     settings.setValue("isHidden", ui->statusBar->isHidden());
     settings.endGroup();
@@ -205,6 +215,13 @@ void MainWindow::loadSettings()
         showFullScreen();
     restoreState(settings.value("state", QByteArray()).toByteArray());
 
+    settings.beginGroup("urlView");
+    settings.beginGroup("horizontalHeader");
+    ui->urlView->horizontalHeader()->restoreState(settings.value("state").toByteArray());
+    ui->urlView->horizontalHeader()->restoreGeometry(settings.value("geometry").toByteArray());
+    settings.endGroup();
+    settings.endGroup();
+
     settings.beginGroup("menuBar");
     ui->menuBar->setHidden(settings.value("isHidden", false).toBool());
     settings.endGroup();
@@ -238,4 +255,3 @@ void MainWindow::loadSettings()
 
     settings.endGroup();
 }
-

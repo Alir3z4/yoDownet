@@ -20,10 +20,14 @@ desktop.files = installers/yoDownet.desktop
 license.path = /usr/share/licenses/yodownet
 license.files = COPYING
 
+doc.path = /usr/share/doc/yodownet
+doc.files = ChangeLog
+
 INSTALLS += target\
     images \
     desktop \
-    license
+    license \
+    doc
 
 QMAKE_CXXFLAGS += -std=c++0x
 

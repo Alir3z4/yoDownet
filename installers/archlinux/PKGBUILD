@@ -2,7 +2,7 @@
 # Maintainer: Alireza Savand < alireza.savand with love gmail :|>
 
 pkgname=yodownet
-pkgver=2012.02.22
+#pkgver= PUT VERSION HERE!
 pkgrel=1
 pkgdesc="yoDownet, The Previous Generation Graphical Download Manager, Implemented on Qt"
 arch=(any)
@@ -13,6 +13,7 @@ depends=('qt')
 provides=("yodownet")
 conflicts=("yodownet")
 source=("http://sourceforge.net/projects/$pkgname/files/sources/$pkgname-$pkgver.tar.gz")
+#md5sum= AND MD5SUM or SHA1SUM Here by => $ makepkg -g
 
 build() {
         cd "$srcdir"

@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------------------
--- sqlite_000.sql is part of yoDownet
+-- sqlite_0.sql is part of yoDownet
 -- Copyright 2011, 2012 Alireza Savand <alireza.savand@gmail.com>
 -- subject to terms and condition provided in COPYING
 ------------------------------------------------------------------------------------------

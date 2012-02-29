@@ -1,3 +1,11 @@
+2012-02-29  Alireza Savand  <alireza.savand@gmail.com>
+
+    * task-#3-addRemoveFun: Add remove functionality.
+    * task-#8-database-migration/schema: So db schema will change in the future, why not have schema/migration tool ;)
+    * task-#9-multiple-request-at-once: Okay, now user can execute multiple command/operation at once.
+    * task-#11-extending-downloads-table-headers: Making download's able more customizable but intialed.
+    * task-#12-add-changelog: Just done!
+
 2012-02-25  Alireza Savand  <alireza.savand@gmail.com>
 
     * bug-fixes-#2 yodownet.cpp

@@ -66,9 +66,6 @@ QVariant UrlModel::headerData(int section, Qt::Orientation orientation, int role
         case url:
             return tr("URL");
             break;
-        case filename:
-            return tr("File Name");
-            break;
         case save_path:
             return tr("Save Path");
             break;
@@ -89,6 +86,9 @@ QVariant UrlModel::headerData(int section, Qt::Orientation orientation, int role
             break;
         case updated_at:
             return tr("Modified");
+            break;
+        case filename:
+            return tr("File Name");
             break;
         }
     }

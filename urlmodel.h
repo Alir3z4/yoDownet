@@ -32,14 +32,14 @@ public:
     enum Urls {
         id,
         url,
-        filename,
         save_path,
         status,
         progress,
         remaining_time,
         speed,
         created_at,
-        updated_at
+        updated_at,
+        filename
     };
 
     QVariant data(const QModelIndex &idx, int role) const;

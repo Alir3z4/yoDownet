@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="FileBrowzGridLayout">
    <item row="0" column="0">
@@ -23,7 +23,9 @@
       <string>Browz...</string>
      </property>
      <property name="icon">
-      <iconset theme="system-file-manager-symbolic"/>
+      <iconset theme="system-file-manager-symbolic">
+       <normaloff/>
+      </iconset>
      </property>
      <property name="toolButtonStyle">
       <enum>Qt::ToolButtonFollowStyle</enum>

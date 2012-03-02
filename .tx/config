@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.net
+
+[yodownet.ts]
+file_filter = translations/yoDownet_<lang>.ts
+source_file = translations/yoDownet_en.ts
+source_lang = en
+

@@ -74,6 +74,8 @@ FORMS    += mainwindow.ui \
     aboutdialog.ui \
     reportbugdialog.ui
 
+TRANSLATIONS += translations/yodownet_en.ts
+
 OTHER_FILES += \
     COPYING \
     LicenseTemplate \

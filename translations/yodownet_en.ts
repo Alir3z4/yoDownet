@@ -268,11 +268,6 @@ http://sourceforge.net/projects/yodownet/
 If your database is not already set up you can use the following SQL commands (after replacing the password with the correct one):</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../prefdatabasewidget.ui" line="194"/>
-        <source>CREATE DATABASE yodownet; GRANT ALL PRIVILEGES ON yodownet.* TO &apos;root&apos; IDENTIFIED BY &apos;password&apos;; FLUSH PRIVILEGES;</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>PrefDownloadersWidget</name>

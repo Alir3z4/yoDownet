@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>597</width>
-    <height>378</height>
+    <width>595</width>
+    <height>376</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -191,7 +191,7 @@ If your database is not already set up you can use the following SQL commands (a
             <bool>true</bool>
            </property>
            <property name="plainText">
-            <string>CREATE DATABASE yodownet; GRANT ALL PRIVILEGES ON yodownet.* TO 'root' IDENTIFIED BY 'password'; FLUSH PRIVILEGES;</string>
+            <string notr="true">CREATE DATABASE yodownet; GRANT ALL PRIVILEGES ON yodownet.* TO 'root' IDENTIFIED BY 'password'; FLUSH PRIVILEGES;</string>
            </property>
           </widget>
          </item>

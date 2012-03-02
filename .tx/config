@@ -2,7 +2,7 @@
 host = https://www.transifex.net
 
 [yodownet.ts]
-file_filter = translations/yoDownet_<lang>.ts
-source_file = translations/yoDownet_en.ts
+file_filter = translations/yodownet_<lang>.ts
+source_file = translations/yodownet_en.ts
 source_lang = en
 

@@ -74,7 +74,8 @@ FORMS    += mainwindow.ui \
     aboutdialog.ui \
     reportbugdialog.ui
 
-TRANSLATIONS += translations/yodownet_en.ts
+TRANSLATIONS += translations/yodownet_en.ts \
+    translations/yodownet_et.ts
 
 OTHER_FILES += \
     COPYING \

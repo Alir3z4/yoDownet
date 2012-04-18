@@ -47,6 +47,8 @@ SOURCES += main.cpp\
     urlmodel.cpp \
     aboutdialog.cpp \
     reportbugdialog.cpp
+    prefinterfacewidget.cpp \
+    yoUtils/paths.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -63,6 +65,8 @@ HEADERS  += mainwindow.h \
     urlmodel.h \
     aboutdialog.h \
     reportbugdialog.h
+    prefinterfacewidget.h \
+    yoUtils/paths.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \

@@ -21,9 +21,16 @@
 #ifndef PATHS_H
 #define PATHS_H
 
+#define STRINGIFY2(x) #x
+#define STRINGIFY(x) STRINGIFY2(x)
+
+#include <QString>
+
+class Paths
 {
 public:
-    paths();
+
+    static QString translationPath();
 };
 
 #endif // PATHS_H

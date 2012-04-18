@@ -20,5 +20,7 @@
 
 #include "paths.h"
 
+QString Paths::translationPath()
 {
+    return STRINGIFY(TRANSLATION_PATH);
 }

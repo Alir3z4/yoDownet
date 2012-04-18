@@ -20,6 +20,5 @@
 
 #include "paths.h"
 
-paths::paths()
 {
 }

@@ -21,7 +21,6 @@
 #ifndef PATHS_H
 #define PATHS_H
 
-class paths
 {
 public:
     paths();

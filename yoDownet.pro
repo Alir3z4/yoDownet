@@ -52,6 +52,7 @@ SOURCES += main.cpp\
     utils/paths.cpp
     utils/paths.cpp \
     utils/languages.cpp
+    util/version.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -72,6 +73,7 @@ HEADERS  += mainwindow.h \
     utils/paths.h
     utils/paths.h \
     utils/languages.h
+    util/version.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \

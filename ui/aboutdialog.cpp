@@ -20,6 +20,7 @@
 
 #include "aboutdialog.h"
 #include "ui_aboutdialog.h"
+#include "util/version.h"
 
 AboutDialog::AboutDialog(QWidget *parent) :
     QDialog(parent),
@@ -27,7 +28,7 @@ AboutDialog::AboutDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->versionLabel->setText("Version %1");
+    ui->versionLabel->setText(tr("Version %1").arg(yoDownetVersion()));
     ui->qtVersionLabel->setText(tr("Based on Qt %1").arg(qVersion()));
 }
 

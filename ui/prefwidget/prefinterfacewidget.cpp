@@ -20,12 +20,18 @@
 
 #include "prefinterfacewidget.h"
 #include "ui_prefinterfacewidget.h"
+#include "util/languages.h"
+#include "util/paths.h"
+#include <QDir>
 
 PrefInterfaceWidget::PrefInterfaceWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::PrefInterfaceWidget)
 {
     ui->setupUi(this);
+
+    // Fill the language comboFuck :|
+    createLanguageComboBox();
 }
 
 PrefInterfaceWidget::~PrefInterfaceWidget()
@@ -33,7 +39,43 @@ PrefInterfaceWidget::~PrefInterfaceWidget()
     delete ui;
 }
 
+QString PrefInterfaceWidget::selectedLanguage() const
+{
+    QRegExp rx("\\((.*)\\)");
+    int pos = 0;
+    QString selectedLang;
+    while ((pos = rx.indexIn(ui->languageComboBox->currentText(), pos)) != -1) {
+        selectedLang = rx.cap(1);
+        pos += rx.matchedLength();
+    }
+    return selectedLang;
+}
+
+int PrefInterfaceWidget::languageComboBoxCurrentIndex() const
+{
+    return ui->languageComboBox->currentIndex();
+}
+
+void PrefInterfaceWidget::setLanguageComboBoxCurrentIndex(const int &currentIndex)
+{
+    ui->languageComboBox->setCurrentIndex(currentIndex);
+}
+
 void PrefInterfaceWidget::createLanguageComboBox()
 {
+    QMap<QString, QString> m = Languages::translations();
 
+    // Language ComboFuck
+    QDir translationDir = Paths::translationPath();
+    QStringList languages = translationDir.entryList(QStringList() << "*.qm");
+    QRegExp rxLang("yodownet_(.*)\\.qm");
+    ui->languageComboBox->clear();
+    for(int n=0; n < languages.count(); n++){
+        if(rxLang.indexIn(languages[n]) > -1){
+            QString l = rxLang.cap(1);
+            QString text = l;
+            if(m.contains(l)) text = m[l] + " ("+l+")";
+            ui->languageComboBox->addItem(text, l);
+        }
+    }
 }

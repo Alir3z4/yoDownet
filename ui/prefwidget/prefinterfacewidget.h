@@ -34,11 +34,17 @@ class PrefInterfaceWidget : public QWidget
 public:
     explicit PrefInterfaceWidget(QWidget *parent = 0);
     ~PrefInterfaceWidget();
-    
+
+    QString selectedLanguage() const;
+    int languageComboBoxCurrentIndex() const;
+    void setLanguageComboBoxCurrentIndex(const int &currentIndex);
+
 private:
     Ui::PrefInterfaceWidget *ui;
 
     void createLanguageComboBox();
+
+
 };
 
 #endif // PREFINTERFACEWIDGET_H

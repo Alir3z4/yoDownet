@@ -70,13 +70,17 @@ void PreferencesDialog::saveSettings()
     // Save PreferencesDialog settings
     settings.beginGroup("PreferencesDialog");
 
-
     // Save PrefDownloadersWidget
     settings.beginGroup("PrefDownloadersWidget");
     settings.setValue("saveDir", prefDler->saveDir());
     settings.setValue("log", prefDler->logFile());
     settings.setValue("max-concurrent-downloads", prefDler->maxDownloads());
     settings.setValue("continue", prefDler->isContinue());
+    settings.endGroup();
+
+    settings.beginGroup("PrefInterfaceWidget");
+    settings.setValue("selectedLanguage", prefInt->selectedLanguage());
+    settings.setValue("languageComboBoxCurrentIndex", prefInt->languageComboBoxCurrentIndex());
     settings.endGroup();
 
     settings.endGroup();
@@ -98,7 +102,7 @@ void PreferencesDialog::loadSettings()
 {
     QSettings settings;
 
-    // Save PreferencesDialog settings
+    // Load PreferencesDialog settings
     settings.beginGroup("PreferencesDialog");
     move(settings.value("pos", QPoint(62, 341)).toPoint());
     setGeometry(settings.value("geometry", QRect(64, 364, 643, 425)).toRect());
@@ -112,6 +116,11 @@ void PreferencesDialog::loadSettings()
     prefDler->setLogFile(settings.value("log", "").toString());
     prefDler->setMaxDownloads(settings.value("max-concurrent-downloads", 5).toInt());
     prefDler->setContinue(settings.value("continue", "true").toBool());
+    settings.endGroup();
+
+    settings.beginGroup("PrefInterfaceWidget");
+    prefInt->setLanguageComboBoxCurrentIndex(
+                settings.value("languageComboBoxCurrentIndex", 0).toInt());
     settings.endGroup();
 
     settings.endGroup();

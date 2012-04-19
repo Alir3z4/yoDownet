@@ -1,5 +1,5 @@
 /****************************************************************************************
-** languages.cpp is part of yoDownet
+** prefinterfacewidget.cpp is part of yoDownet
 **
 ** Copyright 2012 Alireza Savand <alireza.savand@gmail.com>
 **
@@ -18,9 +18,22 @@
 **
 ****************************************************************************************/
 
-#include "languages.h"
+#include "prefinterfacewidget.h"
+#include "ui_prefinterfacewidget.h"
 
-Languages::Languages(QObject *parent) :
-    QObject(parent)
+PrefInterfaceWidget::PrefInterfaceWidget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::PrefInterfaceWidget)
 {
+    ui->setupUi(this);
+}
+
+PrefInterfaceWidget::~PrefInterfaceWidget()
+{
+    delete ui;
+}
+
+void PrefInterfaceWidget::createLanguageComboBox()
+{
+
 }

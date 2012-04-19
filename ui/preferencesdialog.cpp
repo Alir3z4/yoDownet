@@ -40,6 +40,10 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) :
     prefDb = new PrefDataBaseWidget;
     addSection(prefDb);
 
+    prefInt = new PrefInterfaceWidget;
+
+    addSection(prefInt);
+
     // Connecting Signal/Slot
     connect(applyButton, SIGNAL(clicked()), this, SLOT(saveSettings()));
 

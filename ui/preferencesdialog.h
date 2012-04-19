@@ -1,5 +1,5 @@
 /****************************************************************************************
-** yodatabase.h is part of yoDownet
+** preferencesdialog.cpp is part of yoDownet
 **
 ** Copyright 2011, 2012 Alireza Savand <alireza.savand@gmail.com>
 **
@@ -18,50 +18,47 @@
 **
 ****************************************************************************************/
 
-#ifndef YODATABASE_H
-#define YODATABASE_H
+#ifndef PREFERENCESDIALOG_H
+#define PREFERENCESDIALOG_H
 
-#include <QObject>
-#include <QSqlDatabase>
-#include <QSqlError>
-#include <QString>
-#include "utils/yomessage.h"
-#include "yodownet.h"
+#include <QDialog>
+#include "prefwidget/prefdownloaderswidget.h"
+#include "prefwidget/prefdatabasewidget.h"
+#include "prefwidget/prefinterfacewidget.h"
+#include <QPushButton>
 
-class yoDataBase : public QObject
+namespace Ui {
+class PreferencesDialog;
+}
+
+class PreferencesDialog : public QDialog
 {
     Q_OBJECT
+    
 public:
-    explicit yoDataBase(QObject *parent = 0);
-
-    enum Urls {
-        id,
-        url,
-        save_path,
-        status,
-        progress,
-        remaining_time,
-        speed,
-        created_at,
-        updated_at,
-        filename
-    };
-
-    const QSqlError initDb();
-    bool removeDB(const QSqlDatabase &db);
-
-    // [inlines]
-    inline int lastInsertedID() const { return _lastInsertedId; }
-
-signals:
-    void databaseFailed(const QString &errorMsg, const QString &action);
+    explicit PreferencesDialog(QWidget *parent = 0);
+    ~PreferencesDialog();
+    
+private slots:
+    void on_buttonBox_accepted();
+    void saveSettings();
+    void closeEvent(QCloseEvent *);
 
 private:
-    int _lastInsertedId;
+    Ui::PreferencesDialog *ui;
 
-    // [inlines]
-    inline void setLastInsertedId(const int lastId) { _lastInsertedId = lastId; }
-    
+    QPushButton *okButton;
+    QPushButton *cancelButton;
+    QPushButton *applyButton;
+
+    PrefDownloadersWidget *prefDler;
+    PrefDataBaseWidget *prefDb;
+    PrefInterfaceWidget *prefInt;
+
+    void addSection(QWidget *w);
+
+    // Load settings
+    void loadSettings();
 };
 
-#endif // YODATABASE_H
+#endif // PREFERENCESDIALOG_H

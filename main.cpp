@@ -18,8 +18,8 @@
 **
 ****************************************************************************************/
 
-#include <QtGui/QApplication>
-#include "mainwindow.h"
+#include <QApplication>
+#include "ui/mainwindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -27,6 +27,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("yoDownet");
     QCoreApplication::setOrganizationName("Alir3z4");
     QCoreApplication::setOrganizationDomain("yodownet.sourceforge.net");
+
     MainWindow w;
     w.show();
 

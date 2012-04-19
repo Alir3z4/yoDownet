@@ -1,5 +1,5 @@
 /****************************************************************************************
-** preferencesdialog.cpp is part of yoDownet
+** yodatabase.h is part of yoDownet
 **
 ** Copyright 2011, 2012 Alireza Savand <alireza.savand@gmail.com>
 **
@@ -18,45 +18,50 @@
 **
 ****************************************************************************************/
 
-#ifndef PREFERENCESDIALOG_H
-#define PREFERENCESDIALOG_H
+#ifndef YODATABASE_H
+#define YODATABASE_H
 
-#include <QDialog>
-#include "prefdownloaderswidget.h"
-#include "prefdatabasewidget.h"
-#include <QPushButton>
+#include <QObject>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QString>
+#include "util/yomessage.h"
+#include "downloader/yodownet.h"
 
-namespace Ui {
-class PreferencesDialog;
-}
-
-class PreferencesDialog : public QDialog
+class yoDataBase : public QObject
 {
     Q_OBJECT
-    
 public:
-    explicit PreferencesDialog(QWidget *parent = 0);
-    ~PreferencesDialog();
-    
-private slots:
-    void on_buttonBox_accepted();
-    void saveSettings();
-    void closeEvent(QCloseEvent *);
+    explicit yoDataBase(QObject *parent = 0);
+
+    enum Urls {
+        id,
+        url,
+        save_path,
+        status,
+        progress,
+        remaining_time,
+        speed,
+        created_at,
+        updated_at,
+        filename
+    };
+
+    const QSqlError initDb();
+    bool removeDB(const QSqlDatabase &db);
+
+    // [inlines]
+    inline int lastInsertedID() const { return _lastInsertedId; }
+
+signals:
+    void databaseFailed(const QString &errorMsg, const QString &action);
 
 private:
-    Ui::PreferencesDialog *ui;
+    int _lastInsertedId;
 
-    QPushButton *okButton;
-    QPushButton *cancelButton;
-    QPushButton *applyButton;
-
-    PrefDownloadersWidget *prefDler;
-    PrefDataBaseWidget *prefDb;
-
-    void addSection(QWidget *w);
-
-    // Load settings
-    void loadSettings();
+    // [inlines]
+    inline void setLastInsertedId(const int lastId) { _lastInsertedId = lastId; }
+    
 };
 
-#endif // PREFERENCESDIALOG_H
+#endif // YODATABASE_H

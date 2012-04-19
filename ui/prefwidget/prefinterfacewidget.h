@@ -1,5 +1,5 @@
 /****************************************************************************************
-** languages.h is part of yoDownet
+** prefinterfacewidget.h is part of yoDownet
 **
 ** Copyright 2012 Alireza Savand <alireza.savand@gmail.com>
 **
@@ -18,21 +18,27 @@
 **
 ****************************************************************************************/
 
-#ifndef LANGUAGES_H
-#define LANGUAGES_H
+#ifndef PREFINTERFACEWIDGET_H
+#define PREFINTERFACEWIDGET_H
 
-#include <QObject>
+#include <QWidget>
 
-class Languages : public QObject
+namespace Ui {
+class PrefInterfaceWidget;
+}
+
+class PrefInterfaceWidget : public QWidget
 {
     Q_OBJECT
+    
 public:
-    explicit Languages(QObject *parent = 0);
+    explicit PrefInterfaceWidget(QWidget *parent = 0);
+    ~PrefInterfaceWidget();
     
-signals:
-    
-public slots:
-    
+private:
+    Ui::PrefInterfaceWidget *ui;
+
+    void createLanguageComboBox();
 };
 
-#endif // LANGUAGES_H
+#endif // PREFINTERFACEWIDGET_H

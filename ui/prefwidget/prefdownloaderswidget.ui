@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>405</width>
-    <height>240</height>
+    <height>236</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -158,7 +158,7 @@
   <customwidget>
    <class>FileBrowz</class>
    <extends>QLineEdit</extends>
-   <header>filebrowz.h</header>
+   <header>ui/widget/filebrowz.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -23,10 +23,10 @@
 
 #include <QMainWindow>
 #include <QTableWidgetItem>
-#include "utils/yomessage.h"
-#include "utils/yodatabase.h"
-#include "yodownet.h"
-#include "urlmodel.h"
+#include "util/yomessage.h"
+#include "util/yodatabase.h"
+#include "downloader/yodownet.h"
+#include "util/urlmodel.h"
 
 namespace Ui {
     class MainWindow;

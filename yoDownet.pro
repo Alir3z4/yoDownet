@@ -50,6 +50,8 @@ SOURCES += main.cpp\
     application.cpp \
     prefinterfacewidget.cpp \
     utils/paths.cpp
+    utils/paths.cpp \
+    utils/languages.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
@@ -68,6 +70,8 @@ HEADERS  += mainwindow.h \
     reportbugdialog.h
     prefinterfacewidget.h \
     utils/paths.h
+    utils/paths.h \
+    utils/languages.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \

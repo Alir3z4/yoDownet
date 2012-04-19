@@ -4,101 +4,106 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql network
+QT += core gui sql network
 
 TARGET = yoDownet
 TEMPLATE = app
 
+DEFINES += TRANSLATION_PATH=$${TRANSLATION_PATH}
+
+# Messages
+message(Translation path : $$TRANSLATION_PATH)
+
 target.path = /usr/bin
 
 images.path = /usr/share/pixmaps
-images.files = images/*
+images.files = resource/images/*
 
 desktop.path = /usr/share/applications
 desktop.files = installers/yoDownet.desktop
 
 license.path = /usr/share/licenses/yodownet
-license.files = COPYING
+license.files = doc/COPYING
 
 doc.path = /usr/share/doc/yodownet
-doc.files = ChangeLog
+doc.files = doc/ChangeLog
+
+translations.path = TRANSLATION_PATH
+translations.files = translations/*.qm
 
 INSTALLS += target\
     images \
     desktop \
     license \
-    doc
+    doc \
+    translations
 
 QMAKE_CXXFLAGS += -std=c++0x
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    preferencesdialog.cpp \
-    prefdownloaderswidget.cpp \
-    prefdatabasewidget.cpp \
-    utils/yomessage.cpp \
-    importurls.cpp \
-    filebrowz.cpp \
-    utils/yodatabase.cpp \
-    yodownet.cpp \
-    utils/fileinfo.cpp \
-    utils/status.cpp \
-    urldialog.cpp \
-    urlmodel.cpp \
-    aboutdialog.cpp \
-    reportbugdialog.cpp \
-    application.cpp \
-    prefinterfacewidget.cpp \
-    utils/paths.cpp
-    utils/paths.cpp \
-    utils/languages.cpp
+        ui/mainwindow.cpp \
+    ui/preferencesdialog.cpp \
+    ui/prefwidget/prefdownloaderswidget.cpp \
+    ui/prefwidget/prefdatabasewidget.cpp \
+    util/yomessage.cpp \
+    ui/importurls.cpp \
+    ui/widget/filebrowz.cpp \
+    util/yodatabase.cpp \
+    downloader/yodownet.cpp \
+    util/fileinfo.cpp \
+    util/status.cpp \
+    ui/urldialog.cpp \
+    util/urlmodel.cpp \
+    ui/aboutdialog.cpp \
+    ui/reportbugdialog.cpp \
+    ui/prefwidget/prefinterfacewidget.cpp \
+    util/paths.cpp \
     util/languages.cpp \
     util/version.cpp
 
-HEADERS  += mainwindow.h \
-    preferencesdialog.h \
-    prefdownloaderswidget.h \
-    prefdatabasewidget.h \
-    utils/yomessage.h \
-    importurls.h \
-    filebrowz.h \
-    utils/yodatabase.h \
-    yodownet.h \
-    utils/fileinfo.h \
-    utils/status.h \
-    urldialog.h \
-    urlmodel.h \
-    aboutdialog.h \
-    reportbugdialog.h
-    prefinterfacewidget.h \
-    utils/paths.h
-    utils/paths.h \
-    utils/languages.h
+HEADERS  += ui/mainwindow.h \
+    ui/preferencesdialog.h \
+    ui/prefwidget/prefdownloaderswidget.h \
+    ui/prefwidget/prefdatabasewidget.h \
+    util/yomessage.h \
+    ui/importurls.h \
+    ui/widget/filebrowz.h \
+    util/yodatabase.h \
+    downloader/yodownet.h \
+    util/fileinfo.h \
+    util/status.h \
+    ui/urldialog.h \
+    util/urlmodel.h \
+    ui/aboutdialog.h \
+    ui/reportbugdialog.h \
+    ui/prefwidget/prefinterfacewidget.h \
+    util/paths.h \
     util/languages.h \
     util/version.h
 
-FORMS    += mainwindow.ui \
-    preferencesdialog.ui \
-    prefdownloaderswidget.ui \
-    prefdatabasewidget.ui \
-    importurls.ui \
-    filebrowz.ui \
-    urldialog.ui \
-    aboutdialog.ui \
-    reportbugdialog.ui
+FORMS    += ui/mainwindow.ui \
+    ui/preferencesdialog.ui \
+    ui/prefwidget/prefdownloaderswidget.ui \
+    ui/prefwidget/prefdatabasewidget.ui \
+    ui/importurls.ui \
+    ui/widget/filebrowz.ui \
+    ui/urldialog.ui \
+    ui/aboutdialog.ui \
+    ui/reportbugdialog.ui \
+    ui/prefwidget/prefinterfacewidget.ui
 
 TRANSLATIONS += translations/yodownet_en.ts \
     translations/yodownet_et.ts
 
 OTHER_FILES += \
-    COPYING \
+    doc/COPYING \
     LicenseTemplate \
     installers/archlinux/PKGBUILD \
-    images/yoDownet_64.svg \
-    ChangeLog \
-    sql/sqlite_0.sql \
-    sql/sqlite_1.sql
+    resource/images/yoDownet_64.svg \
+    doc/ChangeLog \
+    resource/sql/sqlite_0.sql \
+    resource/sql/sqlite_1.sql
 
 RESOURCES += \
-    icons.qrc \
-    DatabaseMigrations.qrc
+    resource/icons.qrc \
+    resource/DatabaseMigrations.qrc

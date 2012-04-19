@@ -19,6 +19,9 @@
 ****************************************************************************************/
 
 #include <QApplication>
+#include <QSettings>
+#include <QTranslator>
+#include "util/paths.h"
 #include "ui/mainwindow.h"
 
 int main(int argc, char *argv[])
@@ -27,6 +30,18 @@ int main(int argc, char *argv[])
     QCoreApplication::setApplicationName("yoDownet");
     QCoreApplication::setOrganizationName("Alir3z4");
     QCoreApplication::setOrganizationDomain("yodownet.sourceforge.net");
+
+    // FIXME move this from here to some other file
+    QSettings settings;
+    settings.beginGroup("PreferencesDialog");
+    settings.beginGroup("PrefInterfaceWidget");
+    QString language = settings.value("selectedLanguage", "en").toString();
+    settings.endGroup();
+    settings.endGroup();
+
+    QTranslator translator;
+    translator.load(Paths::translationPath() + "yodownet_" + language);
+    a.installTranslator(&translator);
 
     MainWindow w;
     w.show();

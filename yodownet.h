@@ -31,7 +31,7 @@
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
-#include "yoUtils/status.h"
+#include "utils/status.h"
 
 class yoDownet : public QObject
 {

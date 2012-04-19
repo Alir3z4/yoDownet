@@ -23,8 +23,8 @@
 
 #include <QMainWindow>
 #include <QTableWidgetItem>
-#include "yoUtils/yomessage.h"
-#include "yoUtils/yodatabase.h"
+#include "utils/yomessage.h"
+#include "utils/yodatabase.h"
 #include "yodownet.h"
 #include "urlmodel.h"
 

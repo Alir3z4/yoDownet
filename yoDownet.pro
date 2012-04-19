@@ -36,37 +36,38 @@ SOURCES += main.cpp\
     preferencesdialog.cpp \
     prefdownloaderswidget.cpp \
     prefdatabasewidget.cpp \
-    yoUtils/yomessage.cpp \
+    utils/yomessage.cpp \
     importurls.cpp \
     filebrowz.cpp \
-    yoUtils/yodatabase.cpp \
+    utils/yodatabase.cpp \
     yodownet.cpp \
-    yoUtils/fileinfo.cpp \
-    yoUtils/status.cpp \
+    utils/fileinfo.cpp \
+    utils/status.cpp \
     urldialog.cpp \
     urlmodel.cpp \
     aboutdialog.cpp \
-    reportbugdialog.cpp
+    reportbugdialog.cpp \
+    application.cpp \
     prefinterfacewidget.cpp \
-    yoUtils/paths.cpp
+    utils/paths.cpp
 
 HEADERS  += mainwindow.h \
     preferencesdialog.h \
     prefdownloaderswidget.h \
     prefdatabasewidget.h \
-    yoUtils/yomessage.h \
+    utils/yomessage.h \
     importurls.h \
     filebrowz.h \
-    yoUtils/yodatabase.h \
+    utils/yodatabase.h \
     yodownet.h \
-    yoUtils/fileinfo.h \
-    yoUtils/status.h \
+    utils/fileinfo.h \
+    utils/status.h \
     urldialog.h \
     urlmodel.h \
     aboutdialog.h \
     reportbugdialog.h
     prefinterfacewidget.h \
-    yoUtils/paths.h
+    utils/paths.h
 
 FORMS    += mainwindow.ui \
     preferencesdialog.ui \

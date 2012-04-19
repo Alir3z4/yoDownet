@@ -74,6 +74,7 @@ QString Status::downloadModeString() const
         return tr("Resume Download");
         break;
     }
+    return QString();
 }
 
 void Status::updateFileStatus(qint64 bytesReceived, qint64 bytesTotal)

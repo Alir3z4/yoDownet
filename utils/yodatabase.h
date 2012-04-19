@@ -25,7 +25,7 @@
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QString>
-#include "yoUtils/yomessage.h"
+#include "utils/yomessage.h"
 #include "yodownet.h"
 
 class yoDataBase : public QObject

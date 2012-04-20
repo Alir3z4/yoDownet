@@ -11,6 +11,11 @@ TEMPLATE = app
 
 DEFINES += TRANSLATION_PATH=$${TRANSLATION_PATH}
 
+CONFIG(release, debug|release){
+    message(Release Build!)
+    TRANSLATION_PATH = /usr/share/yodownet/translations/
+}
+
 # Messages
 message(Translation path : $$TRANSLATION_PATH)
 
@@ -28,7 +33,7 @@ license.files = doc/COPYING
 doc.path = /usr/share/doc/yodownet
 doc.files = doc/ChangeLog
 
-translations.path = TRANSLATION_PATH
+translations.path = $$TRANSLATION_PATH
 translations.files = translations/*.qm
 
 INSTALLS += target\

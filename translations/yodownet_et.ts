@@ -32,11 +32,28 @@ http://sourceforge.net/projects/yodownet/
     </message>
     <message>
         <location filename="../ui/aboutdialog.ui" line="146"/>
+        <source>Translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/aboutdialog.ui" line="152"/>
+        <source>Oh And those people with translations.
+    Added in order to contribute ;)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
+        <location filename="../ui/aboutdialog.ui" line="169"/>
+        <source>Estonian:
+    Eraser (Rivo Zängov)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/aboutdialog.ui" line="178"/>
         <source>License</source>
         <translation>Litsents</translation>
     </message>
     <message>
-        <location filename="../ui/aboutdialog.ui" line="855"/>
+        <location filename="../ui/aboutdialog.ui" line="887"/>
         <source>&amp;Close</source>
         <translation>Sule</translation>
     </message>

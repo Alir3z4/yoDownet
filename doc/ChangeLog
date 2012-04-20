@@ -1,3 +1,10 @@
+2012-04-20 Alireza Savand <alireza.savand@gmail.com>
+
+    * task-#13-translation-by-transifex: make the project translatable and also multi-lingual.
+    * Re-Strcuture all of the project directory in [Java|Python]-Style.
+    * Add Trasnlation tab in the AbouDialog.
+    * Couple of utility class added for utility sake.
+
 2012-02-29  Alireza Savand  <alireza.savand@gmail.com>
 
     * task-#3-addRemoveFun: Add remove functionality.

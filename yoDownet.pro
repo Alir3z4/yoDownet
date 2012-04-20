@@ -11,11 +11,6 @@ TEMPLATE = app
 
 DEFINES += TRANSLATION_PATH=$${TRANSLATION_PATH}
 
-CONFIG(release, debug|release){
-    message(Release Build!)
-    TRANSLATION_PATH = /usr/share/yodownet/translations/
-}
-
 # Messages
 message(Translation path : $$TRANSLATION_PATH)
 

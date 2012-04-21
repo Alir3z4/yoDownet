@@ -84,6 +84,11 @@ void MainWindow::on_actionAdd_triggered()
         downloader->addDownloads(QStringList(addUrlDialog.url()));
 }
 
+void MainWindow::on_actionPause_triggered()
+{
+    downloader->pauseDownloads(currentColumns());
+}
+
 void MainWindow::on_actionRemove_triggered()
 {
     downloader->removeDownloads(currentColumns());

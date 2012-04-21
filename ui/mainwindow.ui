@@ -152,8 +152,8 @@
     <bool>false</bool>
    </attribute>
    <addaction name="actionAdd"/>
-   <addaction name="actionResume"/>
    <addaction name="actionPause"/>
+   <addaction name="actionResume"/>
    <addaction name="actionStop"/>
    <addaction name="actionRemove"/>
    <addaction name="separator"/>
@@ -280,7 +280,7 @@
   </action>
   <action name="actionPause">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="icon">
     <iconset theme="player_pause">
@@ -294,7 +294,7 @@
     <string>Ctrl+P</string>
    </property>
    <property name="visible">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
   </action>
   <action name="actionRemove">
@@ -311,6 +311,9 @@
    </property>
   </action>
   <action name="actionResume">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset theme="player_play">
      <normaloff/>
@@ -318,6 +321,9 @@
    </property>
    <property name="text">
     <string>&amp;Resume</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
    </property>
   </action>
   <action name="actionResumeAll">

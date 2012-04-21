@@ -103,6 +103,9 @@ QString UrlModel::downloadStatus(const int mode) const
     case 4:
         return tr("Failed");
         break;
+    case 5:
+        return tr("Paused");
+        break;
     }
     return tr("Unknown Status");
 }

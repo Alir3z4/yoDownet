@@ -56,6 +56,7 @@ private slots:
     void initUrlsTable();
     void addNewDlToUrlsTable(const Status *status);
     void updateUrlsTable(const Status *status);
+    void submitUrlViewChanges();
 
     void onDownloadRemoved(const QString &url);
 

@@ -41,6 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Connect the signals/slot
     connect(downloader, SIGNAL(downloadInitialed(const Status*)), this, SLOT(addNewDlToUrlsTable(const Status*)));
+    connect(downloader, SIGNAL(downloadPaused(const Status*)), this, SLOT(submitUrlViewChanges()));
     connect(downloader, SIGNAL(downlaodResumed(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downloadUpdated(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downloadRemoved(QString)), this, SLOT(onDownloadRemoved(QString)));
@@ -136,6 +137,10 @@ void MainWindow::updateUrlsTable(const Status *status)
             updateModel->setData(updateModel->index(i, UrlModel::speed), status->downloadRate());
         }
     }
+
+void MainWindow::submitUrlViewChanges()
+{
+    model->submitAll();
 }
 
 void MainWindow::onDownloadRemoved(const QString &url)

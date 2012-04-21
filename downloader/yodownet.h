@@ -38,7 +38,7 @@ class yoDownet : public QObject
     Q_OBJECT
 public:
     explicit yoDownet(QObject *parent = 0);
-    
+
 signals:
     void downloadInitialed(const Status *_status);
     void downlaodResumed(const Status *_status);
@@ -49,6 +49,8 @@ signals:
 public slots:
     void addDownload(const QString &url);
     void addDownloads(const QStringList &urls);
+    void pauseDownload(const QString &url);
+    void pauseDownloads(const QStringList &urls);
     void removeDownload(const QString &url);
     void removeDownloads(const QStringList &urls);
 

@@ -73,6 +73,29 @@ void yoDownet::addDownloads(const QStringList &urls)
         addDownload(urls[i]);
 }
 
+void yoDownet::pauseDownload(const QString &url)
+{
+    QHash<QNetworkReply*, QFile*>::iterator i = downloads->begin();
+    while(i != downloads->end()){
+        if(i.key()->url().toString() == url){
+            i.value()->write(i.key()->readAll());
+            Status *status = statusHash->find(i.key()->url()).value();
+            status->setDownloadStatus(Status::Paused);
+            emit downloadPaused(status);
+            i.key()->close();
+            break;
+        }
+    }
+}
+
+void yoDownet::pauseDownloads(const QStringList &urls)
+{
+    if(urls.isEmpty()) return;
+
+    for(int i = 0; i < urls.size(); ++i)
+        pauseDownload(urls[i]);
+}
+
 void yoDownet::removeDownload(const QString &url)
 {
     QHash<QNetworkReply*, QFile*>::iterator i = downloads->begin();
@@ -167,7 +190,8 @@ void yoDownet::httpFinished(QObject *currentReply)
     i.key()->deleteLater();
     downloads->remove(i.key());
 
-    status->setDownloadStatus(Status::Finished);
+    if(status->downloadStatus() != Status::Paused)
+        status->setDownloadStatus(Status::Finished);
 
     emit downloadUpdated(status);
     emit downloadFinished();

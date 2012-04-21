@@ -41,6 +41,7 @@ public:
 
 signals:
     void downloadInitialed(const Status *_status);
+    void downloadPaused(const Status *status);
     void downlaodResumed(const Status *_status);
     void downloadUpdated(const Status *_status);
     void downloadRemoved(const QString &url);

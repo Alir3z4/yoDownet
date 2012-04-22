@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
     initUrlsTable();
 
     // Connect the signals/slot
-    connect(downloader, SIGNAL(downloadInitialed(const Status*)), this, SLOT(addNewDlToUrlsTable(const Status*)));
+    connect(downloader, SIGNAL(downloadInitialed(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downloadPaused(const Status*)), this, SLOT(submitUrlViewChanges()));
     connect(downloader, SIGNAL(downlaodResumed(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downloadUpdated(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
@@ -122,6 +122,7 @@ void MainWindow::initUrlsTable()
 
 void MainWindow::updateUrlsTable(const Status *status)
 {
+    bool urlExist = false;
     QAbstractItemModel *updateModel = ui->urlView->model();
     for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
         if(updateModel->data(updateModel->index(i, UrlModel::url)).toString() == status->url()){
@@ -131,8 +132,17 @@ void MainWindow::updateUrlsTable(const Status *status)
             updateModel->setData(updateModel->index(i, UrlModel::progress), status->progress());
             updateModel->setData(updateModel->index(i, UrlModel::remaining_time), status->remainingTime());
             updateModel->setData(updateModel->index(i, UrlModel::speed), status->downloadRate());
+            urlExist = true;
         }
     }
+    if(!urlExist){
+        ui->urlView->model()->insertRow(ui->urlView->model()->rowCount());
+        int row = ui->urlView->model()->rowCount()-1;
+        ui->urlView->model()->setData(ui->urlView->model()->index(row, UrlModel::url), status->url());
+
+        submitUrlViewChanges();
+    }
+}
 
 void MainWindow::submitUrlViewChanges()
 {

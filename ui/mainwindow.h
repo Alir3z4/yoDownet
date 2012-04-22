@@ -59,7 +59,7 @@ private slots:
     void updateUrlsTable(const Status *status);
     void submitUrlViewChanges();
 
-    void onDownloadRemoved(const QString &url);
+    void onDownloadRemoved(const QString &fileName);
 
 private:
     Ui::MainWindow *ui;

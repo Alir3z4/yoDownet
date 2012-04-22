@@ -148,11 +148,11 @@ void MainWindow::submitUrlViewChanges()
     model->submitAll();
 }
 
-void MainWindow::onDownloadRemoved(const QString &url)
+void MainWindow::onDownloadRemoved(const QString &fileName)
 {
     QAbstractItemModel *removeModel = ui->urlView->model();
     for(int i = 0; i < ui->urlView->model()->rowCount(); ++i){
-        if(removeModel->data(removeModel->index(i, UrlModel::url)).toString() == url){
+        if(removeModel->data(removeModel->index(i, UrlModel::save_path)).toString() == fileName){
             if(model->removeRow(i))
                 model->submitAll();
             return;

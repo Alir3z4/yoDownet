@@ -69,8 +69,7 @@ void yoDownet::addDownload(const QString &url)
 
 void yoDownet::addDownloads(const QStringList &urls)
 {
-    if(urls.isEmpty())
-        return;
+    if(urls.isEmpty()) return;
     for(int i = 0; i < urls.size(); ++i)
         addDownload(urls[i]);
 }
@@ -196,8 +195,9 @@ void yoDownet::httpFinished(QObject *currentReply)
     if(status->downloadStatus() != Status::Paused)
         status->setDownloadStatus(Status::Finished);
 
+    // Oh let's emit this mother fucker!
     emit downloadUpdated(status);
-    emit downloadFinished();
+}
 
 void yoDownet::removeFile(QFile *file)
 {

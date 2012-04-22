@@ -91,7 +91,7 @@ void MainWindow::on_actionPause_triggered()
 
 void MainWindow::on_actionRemove_triggered()
 {
-    downloader->removeDownloads(currentColumns());
+    downloader->removeDownloads(currentColumns(UrlModel::save_path));
 }
 
 void MainWindow::on_reportBugAction_triggered()

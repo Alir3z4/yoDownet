@@ -19,7 +19,6 @@
 ****************************************************************************************/
 
 #include "urlmodel.h"
-#include <QSqlQuery>
 #include <QTimer>
 
 UrlModel::UrlModel(QObject *parent) :
@@ -53,6 +52,9 @@ QVariant UrlModel::headerData(int section, Qt::Orientation orientation, int role
     QVariant value = QSqlTableModel::headerData(section, orientation, role);
     if(value.isValid() && role == Qt::DisplayRole){
         switch(section){
+        case id:
+            return tr("ID");
+            break;
         case url:
             return tr("URL");
             break;

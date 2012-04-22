@@ -5,7 +5,7 @@
 ------------------------------------------------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS "urls" (
-"id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL ,
+"id" INTEGER PRIMARY KEY  AUTOINCREMENT,
 "url" TEXT,
 "save_path" TEXT,
 "status" INTEGER,

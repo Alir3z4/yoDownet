@@ -154,7 +154,7 @@ void MainWindow::onDownloadRemoved(const QString &fileName)
     for(int i = 0; i < ui->urlView->model()->rowCount(); ++i){
         if(removeModel->data(removeModel->index(i, UrlModel::save_path)).toString() == fileName){
             if(model->removeRow(i))
-                model->submitAll();
+                submitUrlViewChanges();
             return;
         }
     }

@@ -44,7 +44,7 @@ signals:
     void downloadPaused(const Status *status);
     void downlaodResumed(const Status *_status);
     void downloadUpdated(const Status *_status);
-    void downloadRemoved(const QString &url);
+    void downloadRemoved(const QString &fileName);
     void downloadFinished();
 
     void fileReadyToRemove(QFile *file);

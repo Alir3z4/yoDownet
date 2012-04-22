@@ -46,7 +46,6 @@ signals:
     void downloadUpdated(const Status *status);
     void downloadRemoved(const QString &fileName);
     void downloadFinished();
-
     void fileReadyToRemove(QFile *file);
 
 public slots:
@@ -62,7 +61,6 @@ private slots:
     void startRequest(const QUrl &url);
     void httpReadyRead(QObject *currentReply);
     void httpFinished(QObject *currentReply);
-
     void removeFile(QFile *file);
 
 private:

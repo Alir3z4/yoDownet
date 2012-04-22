@@ -93,7 +93,6 @@ void yoDownet::pauseDownload(const QString &url)
 void yoDownet::pauseDownloads(const QStringList &urls)
 {
     if(urls.isEmpty()) return;
-
     for(int i = 0; i < urls.size(); ++i)
         pauseDownload(urls[i]);
 }

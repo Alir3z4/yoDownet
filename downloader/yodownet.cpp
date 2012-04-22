@@ -123,8 +123,8 @@ void yoDownet::removeDownloads(const QStringList &files)
 
 void yoDownet::replyMetaDataChanged(QObject *currentReply)
 {
-    auto i = downloads->find(qobject_cast<QNetworkReply*>(currentReply));
-    auto status = statusHash->find(i.key()->url()).value();
+    QHash<QNetworkReply*, QFile*>::iterator i = downloads->find(qobject_cast<QNetworkReply*>(currentReply));
+    Status *status = statusHash->find(i.key()->url()).value();
     status->setBytesTotal(i.key()->header(QNetworkRequest::ContentLengthHeader).toULongLong());
 }
 
@@ -138,11 +138,10 @@ void yoDownet::startRequest(const QUrl &url)
     _status->setUrl(url.toString());
     _status->setDownloadStatus(Status::Starting);
 
-    auto i = downloads->insert( _reply, _file);
-    auto statusIt = statusHash->insert(i.key()->url(), _status);
-
     connect(this, SIGNAL(downloadInitialed(const Status*)), statusIt.value(), SLOT(startTime()));
     connect(this, SIGNAL(downlaodResumed(const Status*)), statusIt.value(), SLOT(startTime()));
+    QHash<QNetworkReply*, QFile*>::iterator i = downloads->insert( _reply, _file);
+    QHash<QUrl, Status*>::iterator statusIt = statusHash->insert(i.key()->url(), _status);
 
     if(statusIt.value()->downloadMode() == Status::NewDownload){
         emit downloadInitialed(statusIt.value());
@@ -171,8 +170,8 @@ void yoDownet::startRequest(const QUrl &url)
 
 void yoDownet::httpReadyRead(QObject *currentReply)
 {
-    auto i = downloads->find(qobject_cast<QNetworkReply*>(currentReply));
-    auto status = statusHash->find(i.key()->url()).value();
+    QHash<QNetworkReply*, QFile*>::iterator i = downloads->find(qobject_cast<QNetworkReply*>(currentReply));
+    Status *status = statusHash->find(i.key()->url()).value();
     if(i.value()){
         if(i.value()->size() == status->bytesTotal()){
             i.key()->close();
@@ -186,8 +185,8 @@ void yoDownet::httpReadyRead(QObject *currentReply)
 
 void yoDownet::httpFinished(QObject *currentReply)
 {
-    auto i = downloads->find(qobject_cast<QNetworkReply*>(currentReply));
-    auto status = statusHash->find(i.key()->url()).value();
+    QHash<QNetworkReply*, QFile*>::iterator i = downloads->find(qobject_cast<QNetworkReply*>(currentReply));
+    Status *status = statusHash->find(i.key()->url()).value();
 
     i.value()->flush();
     i.value()->close();

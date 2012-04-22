@@ -136,8 +136,6 @@ void yoDownet::startRequest(const QUrl &url)
     _status->setUrl(url.toString());
     _status->setDownloadStatus(Status::Starting);
 
-    connect(this, SIGNAL(downloadInitialed(const Status*)), statusIt.value(), SLOT(startTime()));
-    connect(this, SIGNAL(downlaodResumed(const Status*)), statusIt.value(), SLOT(startTime()));
     QHash<QNetworkReply*, QFile*>::iterator i = downloads->insert( _reply, _file);
     QHash<QUrl, Status*>::iterator statusIt = statusHash->insert(i.key()->url(), _status);
 

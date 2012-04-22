@@ -23,6 +23,7 @@
 Status::Status(QObject *parent) :
     QObject(parent)
 {
+    startTime();
 }
 
 QString Status::remainingTime() const

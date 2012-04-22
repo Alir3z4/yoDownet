@@ -109,9 +109,6 @@ void yoDownet::removeDownload(const QString &filePath)
             QNetworkReply *reply = downloads->key(file);
             emit pauseDownload(reply->url().toString());
             emit fileReadyToRemove(file);
-    while(i != downloads->end()){
-        if(i.key()->url().toString() == url){
-            i.key()->close();
             break;
         }
     }

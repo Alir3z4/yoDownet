@@ -47,6 +47,8 @@ signals:
     void downloadRemoved(const QString &url);
     void downloadFinished();
 
+    void fileReadyToRemove(QFile *file);
+
 public slots:
     void addDownload(const QString &url);
     void addDownloads(const QStringList &urls);
@@ -60,6 +62,8 @@ private slots:
     void startRequest(const QUrl &url);
     void httpReadyRead(QObject *currentReply);
     void httpFinished(QObject *currentReply);
+
+    void removeFile(QFile *file);
 
 private:
     QNetworkAccessManager manager;

@@ -24,7 +24,9 @@
 yoDownet::yoDownet(QObject *parent) :
     QObject(parent), downloads(new QHash<QNetworkReply*, QFile*>),
     statusHash( new QHash<QUrl, Status*>)
-{}
+{
+    connect(this, SIGNAL(fileReadyToRemove(QFile*)), this, SLOT(removeFile(QFile*)));
+}
 void yoDownet::addDownload(const QString &url)
 {
     QUrl tempUrl(url);
@@ -195,4 +197,12 @@ void yoDownet::httpFinished(QObject *currentReply)
 
     emit downloadUpdated(status);
     emit downloadFinished();
+
+void yoDownet::removeFile(QFile *file)
+{
+    const QString fileName = file->fileName();
+    if(!file->remove())
+        return;
+    file = 0;
+    emit downloadRemoved(fileName);
 }

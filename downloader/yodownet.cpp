@@ -98,24 +98,30 @@ void yoDownet::pauseDownloads(const QStringList &urls)
         pauseDownload(urls[i]);
 }
 
-void yoDownet::removeDownload(const QString &url)
+void yoDownet::removeDownload(const QString &filePath)
 {
-    QHash<QNetworkReply*, QFile*>::iterator i = downloads->begin();
+    if(downloads->isEmpty()){
+        emit fileReadyToRemove(new QFile(filePath));
+        return;
+    }
+    foreach(QFile *file, downloads->values()){
+        if(file->fileName() == filePath){
+            QNetworkReply *reply = downloads->key(file);
+            emit pauseDownload(reply->url().toString());
+            emit fileReadyToRemove(file);
     while(i != downloads->end()){
         if(i.key()->url().toString() == url){
             i.key()->close();
             break;
         }
     }
-    emit downloadRemoved(url);
 }
 
-void yoDownet::removeDownloads(const QStringList &urls)
+void yoDownet::removeDownloads(const QStringList &files)
 {
-    if(urls.isEmpty())
-        return;
-    for(int i = 0; i < urls.size(); ++i)
-        removeDownload(urls[i]);
+    if(files.isEmpty()) return;
+    for(int i = 0; i < files.size(); ++i)
+        removeDownload(files[i]);
 }
 
 void yoDownet::replyMetaDataChanged(QObject *currentReply)

@@ -54,8 +54,8 @@ public slots:
     void addDownloads(const QStringList &urls);
     void pauseDownload(const QString &url);
     void pauseDownloads(const QStringList &urls);
-    void removeDownload(const QString &url);
-    void removeDownloads(const QStringList &urls);
+    void removeDownload(const QString &filePath);
+    void removeDownloads(const QStringList &files);
 
 private slots:
     void replyMetaDataChanged(QObject *currentReply);

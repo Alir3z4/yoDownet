@@ -19,8 +19,22 @@
 ****************************************************************************************/
 
 #include "paths.h"
+#include <QSettings>
+#include <QDir>
 
 QString Paths::translationPath()
 {
     return STRINGIFY(TRANSLATION_PATH);
+}
+
+QString Paths::saveDir()
+{
+    QSettings settings;
+    settings.beginGroup("PreferencesDialog");
+    settings.beginGroup("PrefDownloadersWidget");
+    QString savePath = settings.value("saveDir", QDir::homePath()).toString() + QDir::toNativeSeparators("/");
+    settings.endGroup();
+    settings.endGroup();
+
+    return savePath;
 }

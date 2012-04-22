@@ -40,10 +40,10 @@ public:
     explicit yoDownet(QObject *parent = 0);
 
 signals:
-    void downloadInitialed(const Status *_status);
+    void downloadInitialed(const Status *status);
     void downloadPaused(const Status *status);
-    void downlaodResumed(const Status *_status);
-    void downloadUpdated(const Status *_status);
+    void downlaodResumed(const Status *status);
+    void downloadUpdated(const Status *status);
     void downloadRemoved(const QString &fileName);
     void downloadFinished();
 

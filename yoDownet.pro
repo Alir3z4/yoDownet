@@ -38,7 +38,7 @@ INSTALLS += target\
     doc \
     translations
 
-QMAKE_CXXFLAGS += -std=c++0x
+#QMAKE_CXXFLAGS += -std=c++0x
 
 SOURCES += main.cpp\
         ui/mainwindow.cpp \

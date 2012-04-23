@@ -40,7 +40,8 @@ public:
         Starting,
         Downloading,
         Finished,
-        Failed
+        Failed,
+        Paused
     };
 
     QString remainingTime() const;

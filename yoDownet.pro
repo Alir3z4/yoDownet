@@ -46,7 +46,6 @@ SOURCES += main.cpp\
     ui/prefwidget/prefdownloaderswidget.cpp \
     ui/prefwidget/prefdatabasewidget.cpp \
     util/yomessage.cpp \
-    ui/importurls.cpp \
     ui/widget/filebrowz.cpp \
     util/yodatabase.cpp \
     downloader/yodownet.cpp \
@@ -66,7 +65,6 @@ HEADERS  += ui/mainwindow.h \
     ui/prefwidget/prefdownloaderswidget.h \
     ui/prefwidget/prefdatabasewidget.h \
     util/yomessage.h \
-    ui/importurls.h \
     ui/widget/filebrowz.h \
     util/yodatabase.h \
     downloader/yodownet.h \
@@ -85,7 +83,6 @@ FORMS    += ui/mainwindow.ui \
     ui/preferencesdialog.ui \
     ui/prefwidget/prefdownloaderswidget.ui \
     ui/prefwidget/prefdatabasewidget.ui \
-    ui/importurls.ui \
     ui/widget/filebrowz.ui \
     ui/urldialog.ui \
     ui/aboutdialog.ui \

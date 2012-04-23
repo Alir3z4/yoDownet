@@ -21,12 +21,21 @@
 #include "aboutdialog.h"
 #include "ui_aboutdialog.h"
 #include "util/version.h"
+#include "util/paths.h"
+#include <QFile>
+#include <QTextStream>
 
 AboutDialog::AboutDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AboutDialog)
 {
     ui->setupUi(this);
+
+    QFile licenseFile(Paths::licensePath());
+    licenseFile.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in(&licenseFile);
+
+    ui->licenseTextEdit->setPlainText(in.readAll());
 
     ui->versionLabel->setText(tr("Version %1").arg(yoDownetVersion()));
     ui->qtVersionLabel->setText(tr("Based on Qt %1").arg(qVersion()));

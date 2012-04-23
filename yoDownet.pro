@@ -15,8 +15,17 @@ DEFINES +=SQLSCRIPT_PATH=$${SQLSCRIPT_PATH}
 
 # Messages
 message(Translation path : $$TRANSLATION_PATH)
+REQUIRED_MSG = is required :|
 
-target.path = /usr/bin
+isEmpty(TRANSLATION_PATH){
+    error(TRANSLATION_PATH $$REQUIRED_MSG)
+}
+isEmpty(LICENSE_PATH){
+    error(LICENSE_PATH $$REQUIRED_MSG)
+}
+isEmpty(SQLSCRIPT_PATH){
+    error(SQLSCRIPT_PATH $$REQUIRED_MSG)
+}
 
 images.path = /usr/share/pixmaps
 images.files = resource/images/*

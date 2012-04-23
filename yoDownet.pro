@@ -21,8 +21,20 @@ images.files = resource/images/*
 
 desktop.path = /usr/share/applications
 desktop.files = installers/yoDownet.desktop
+unix{
 
 license.path = /usr/share/licenses/yodownet
+    target.path = /usr/bin
+
+    images.path = /usr/share/pixmaps
+    images.files = resource/images/*
+
+    desktop.path = /usr/share/applications
+    desktop.files = installers/yoDownet.desktop
+
+    doc.path = /usr/share/doc/yodownet
+    doc.files = doc/ChangeLog
+}
 license.files = doc/COPYING
 
 doc.path = /usr/share/doc/yodownet

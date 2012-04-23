@@ -51,7 +51,6 @@ const QSqlError yoDataBase::initDb()
     if (!db.open())
         return db.lastError();
 
-    QString sql;
     int i=0;
     QSqlQuery initDbQuery;
     while(true){
@@ -59,9 +58,9 @@ const QSqlError yoDataBase::initDb()
         if(!schemaFile.exists()) break;
         schemaFile.open(QIODevice::ReadOnly | QIODevice::Text);
         QTextStream in(&schemaFile);
-        QStringList scriptList = in.readAll().split(";");
-        for(int j = 0; j < scriptList.size(); ++j)
-            initDbQuery.exec(scriptList.at(j));
+        while(!in.atEnd()){
+            initDbQuery.exec(in.readLine());
+        }
         ++i;
     }
     return QSqlError();

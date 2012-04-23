@@ -33,9 +33,15 @@ UrlDialog::~UrlDialog()
     delete ui;
 }
 
-const QString urlDialog::url()
+QStringList UrlDialog::urls() const
 {
-    return ui->urlEdit->text();
+    QStringList urlList;
+    QString urlText = ui->urlsTextEdit->document()->toPlainText();
+    QTextStream textStream(&urlText);
+    while(!textStream.atEnd()){
+        urlList << textStream.readLine();
+    }
+    return urlList;
 }
 
 void urlDialog::on_urlEdit_textChanged()

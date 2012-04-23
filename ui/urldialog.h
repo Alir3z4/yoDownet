@@ -31,13 +31,13 @@ class UrlDialog;
 class UrlDialog : public QDialog
 {
     Q_OBJECT
-    
-public:
-    explicit urlDialog(QWidget *parent = 0);
-    ~urlDialog();
 
-    const QString url();
-    
+public:
+    explicit UrlDialog(QWidget *parent = 0);
+    ~UrlDialog();
+
+    QStringList urls() const;
+
 private slots:
     void on_urlEdit_textChanged();
 

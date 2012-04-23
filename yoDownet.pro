@@ -102,7 +102,8 @@ OTHER_FILES += \
     resource/images/yoDownet_64.svg \
     doc/ChangeLog \
     resource/sql/sqlite_0.sql \
-    resource/sql/sqlite_1.sql
+    resource/sql/sqlite_1.sql \
+    resource/sql/sqlite_2.sql
 
 RESOURCES += \
     resource/icons.qrc \

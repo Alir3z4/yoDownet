@@ -9,7 +9,7 @@ QT += core gui sql network
 TARGET = yoDownet
 TEMPLATE = app
 
-DEFINES += TRANSLATION_PATH=$${TRANSLATION_PATH}
+DEFINES +=TRANSLATION_PATH=$${TRANSLATION_PATH}
 DEFINES +=LICENSE_PATH=$${LICENSE_PATH}
 DEFINES +=SQLSCRIPT_PATH=$${SQLSCRIPT_PATH}
 
@@ -25,17 +25,12 @@ isEmpty(SQLSCRIPT_PATH){
     error(SQLSCRIPT_PATH $$REQUIRED_MSG)
 }
 
-images.path = /usr/share/pixmaps
-images.files = resource/images/*
 for(define, DEFINES){
     message($$define)
 }
 
-desktop.path = /usr/share/applications
-desktop.files = installers/yoDownet.desktop
 unix{
 
-license.path = /usr/share/licenses/yodownet
     target.path = /usr/bin
 
     images.path = /usr/share/pixmaps
@@ -50,9 +45,6 @@ license.path = /usr/share/licenses/yodownet
 
 license.path = $$LICENSE_PATH
 license.files = doc/COPYING
-
-doc.path = /usr/share/doc/yodownet
-doc.files = doc/ChangeLog
 
 translations.path = $$TRANSLATION_PATH
 translations.files = translations/*.qm

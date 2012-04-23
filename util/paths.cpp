@@ -31,6 +31,12 @@ QString Paths::licensePath()
 {
     return STRINGIFY(LICENSE_PATH) + QString("/COPYING");
 }
+
+QString Paths::sqlScriptPath()
+{
+    return STRINGIFY(SQLSCRIPT_PATH);
+}
+
 QString Paths::saveDir()
 {
     QSettings settings;

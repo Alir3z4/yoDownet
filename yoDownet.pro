@@ -11,6 +11,7 @@ TEMPLATE = app
 
 DEFINES += TRANSLATION_PATH=$${TRANSLATION_PATH}
 DEFINES +=LICENSE_PATH=$${LICENSE_PATH}
+DEFINES +=SQLSCRIPT_PATH=$${SQLSCRIPT_PATH}
 
 # Messages
 message(Translation path : $$TRANSLATION_PATH)
@@ -46,12 +47,16 @@ doc.files = doc/ChangeLog
 translations.path = $$TRANSLATION_PATH
 translations.files = translations/*.qm
 
+sqlscript.path = $$SQLSCRIPT_PATH
+sqlscript.files = resource/sql/*
+
 INSTALLS += target\
     images \
     desktop \
     license \
     doc \
-    translations
+    translations \
+    sqlscript
 
 #QMAKE_CXXFLAGS += -std=c++0x
 

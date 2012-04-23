@@ -32,6 +32,7 @@ public:
 
     static QString translationPath();
     static QString licensePath();
+    static QString sqlScriptPath();
     static QString saveDir();
 };
 

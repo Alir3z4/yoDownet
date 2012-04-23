@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>urlDialog</class>
- <widget class="QDialog" name="urlDialog">
+ <class>UrlDialog</class>
+ <widget class="QDialog" name="UrlDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -60,7 +60,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>urlDialog</receiver>
+   <receiver>UrlDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -76,7 +76,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>urlDialog</receiver>
+   <receiver>UrlDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

@@ -18,17 +18,17 @@
 **
 ****************************************************************************************/
 
-#ifndef urlDIALOG_H
-#define urlDIALOG_H
+#ifndef URLDIALOG_H
+#define URLDIALOG_H
 
 #include <QDialog>
 #include <QVariantList>
 
 namespace Ui {
-class urlDialog;
+class UrlDialog;
 }
 
-class urlDialog : public QDialog
+class UrlDialog : public QDialog
 {
     Q_OBJECT
     
@@ -44,7 +44,7 @@ private slots:
     void on_urlEdit_returnPressed();
 
 private:
-    Ui::urlDialog *ui;
+    Ui::UrlDialog *ui;
 };
 
-#endif // urlDIALOG_H
+#endif // URLDIALOG_H

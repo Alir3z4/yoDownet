@@ -21,14 +21,14 @@
 #include "urldialog.h"
 #include "ui_urldialog.h"
 
-urlDialog::urlDialog(QWidget *parent) :
+UrlDialog::UrlDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::urlDialog)
+    ui(new Ui::UrlDialog)
 {
     ui->setupUi(this);
 }
 
-urlDialog::~urlDialog()
+UrlDialog::~UrlDialog()
 {
     delete ui;
 }

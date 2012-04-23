@@ -99,6 +99,15 @@ void MainWindow::on_actionRemove_triggered()
     downloader->removeDownloads(currentColumns(UrlModel::save_path));
 }
 
+void MainWindow::on_actionRemoveFromList_triggered()
+{
+    QModelIndexList indexes = ui->urlView->selectionModel()->selectedRows();
+    foreach(QModelIndex idx, indexes){
+        model->removeRow(idx.row());
+    }
+    submitUrlViewChanges();
+}
+
 void MainWindow::on_reportBugAction_triggered()
 {
     ReportBugDialog bugDialog;

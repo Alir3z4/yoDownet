@@ -33,13 +33,13 @@ public:
         id,
         url,
         save_path,
+        filename,
         status,
         progress,
         remaining_time,
         speed,
         created_at,
-        updated_at,
-        filename
+        downloaded_at
     };
 
     QVariant data(const QModelIndex &idx, int role) const;

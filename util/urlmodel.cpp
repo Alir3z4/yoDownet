@@ -19,7 +19,6 @@
 ****************************************************************************************/
 
 #include "urlmodel.h"
-#include <QSqlQuery>
 #include <QTimer>
 
 UrlModel::UrlModel(QObject *parent) :
@@ -53,11 +52,17 @@ QVariant UrlModel::headerData(int section, Qt::Orientation orientation, int role
     QVariant value = QSqlTableModel::headerData(section, orientation, role);
     if(value.isValid() && role == Qt::DisplayRole){
         switch(section){
+        case id:
+            return tr("ID");
+            break;
         case url:
             return tr("URL");
             break;
         case save_path:
             return tr("Save Path");
+            break;
+        case filename:
+            return tr("File Name");
             break;
         case status:
             return tr("Status");
@@ -74,11 +79,8 @@ QVariant UrlModel::headerData(int section, Qt::Orientation orientation, int role
         case created_at:
             return tr("Added");
             break;
-        case updated_at:
-            return tr("Modified");
-            break;
-        case filename:
-            return tr("File Name");
+        case downloaded_at:
+            return tr("Downloaded At");
             break;
         }
     }

@@ -13,8 +13,6 @@ DEFINES += TRANSLATION_PATH=$${TRANSLATION_PATH}
 DEFINES +=LICENSE_PATH=$${LICENSE_PATH}
 DEFINES +=SQLSCRIPT_PATH=$${SQLSCRIPT_PATH}
 
-# Messages
-message(Translation path : $$TRANSLATION_PATH)
 REQUIRED_MSG = is required :|
 
 isEmpty(TRANSLATION_PATH){
@@ -29,6 +27,9 @@ isEmpty(SQLSCRIPT_PATH){
 
 images.path = /usr/share/pixmaps
 images.files = resource/images/*
+for(define, DEFINES){
+    message($$define)
+}
 
 desktop.path = /usr/share/applications
 desktop.files = installers/yoDownet.desktop

@@ -23,6 +23,7 @@
 
 #include <QDialog>
 #include <QVariantList>
+#include <QPushButton>
 
 namespace Ui {
 class UrlDialog;
@@ -42,9 +43,12 @@ private slots:
     void on_urlEdit_textChanged();
 
     void on_urlEdit_returnPressed();
+    void on_resetButton_clicked();
 
 private:
     Ui::UrlDialog *ui;
+
+    QPushButton *resetButton;
 };
 
 #endif // URLDIALOG_H

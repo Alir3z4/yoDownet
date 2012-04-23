@@ -26,6 +26,10 @@ UrlDialog::UrlDialog(QWidget *parent) :
     ui(new Ui::UrlDialog)
 {
     ui->setupUi(this);
+
+    resetButton = ui->buttonBox->button(QDialogButtonBox::Reset);
+
+    connect(resetButton, SIGNAL(clicked()), this, SLOT(on_resetButton_clicked()));
 }
 
 UrlDialog::~UrlDialog()
@@ -52,8 +56,7 @@ void urlDialog::on_urlEdit_textChanged()
         ui->buttonBox->setDisabled(true);
 }
 
-void urlDialog::on_urlEdit_returnPressed()
+void UrlDialog::on_resetButton_clicked()
 {
-    if(ui->buttonBox->isEnabled())
-        accepted();
+    ui->urlsTextEdit->document()->clear();
 }

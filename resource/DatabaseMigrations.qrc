@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/sqlite">
-        <file alias="sqlite_0">sql/sqlite_0.sql</file>
-        <file alias="sqlite_1">sql/sqlite_1.sql</file>
-        <file alias="sqlite_2">sql/sqlite_2.sql</file>
-    </qresource>
-</RCC>

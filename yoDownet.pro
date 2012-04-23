@@ -125,5 +125,4 @@ OTHER_FILES += \
     resource/sql/sqlite_2.sql
 
 RESOURCES += \
-    resource/icons.qrc \
-    resource/DatabaseMigrations.qrc
+    resource/icons.qrc

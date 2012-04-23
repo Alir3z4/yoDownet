@@ -25,6 +25,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QDesktopServices>
+#include "util/paths.h"
 
 yoDataBase::yoDataBase(QObject *parent) :
     QObject(parent)
@@ -54,7 +55,9 @@ const QSqlError yoDataBase::initDb()
     int i=0;
     QSqlQuery initDbQuery;
     while(true){
-        QFile schemaFile(QString(":/sqlite/sqlite_%1").arg(i));
+        QFile schemaFile(QString("%1/sqlite_%2.sql")
+                         .arg(Paths::sqlScriptPath())
+                         .arg(i));
         if(!schemaFile.exists()) break;
         schemaFile.open(QIODevice::ReadOnly | QIODevice::Text);
         QTextStream in(&schemaFile);

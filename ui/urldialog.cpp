@@ -20,6 +20,7 @@
 
 #include "urldialog.h"
 #include "ui_urldialog.h"
+#include <QTextStream>
 
 UrlDialog::UrlDialog(QWidget *parent) :
     QDialog(parent),
@@ -48,9 +49,9 @@ QStringList UrlDialog::urls() const
     return urlList;
 }
 
-void urlDialog::on_urlEdit_textChanged()
+void UrlDialog::on_urlsTextEdit_textChanged()
 {
-    if(!ui->urlEdit->text().isEmpty())
+    if(!ui->urlsTextEdit->document()->toPlainText().isEmpty())
         ui->buttonBox->setEnabled(true);
     else
         ui->buttonBox->setDisabled(true);

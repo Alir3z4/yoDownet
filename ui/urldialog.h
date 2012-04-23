@@ -22,7 +22,7 @@
 #define URLDIALOG_H
 
 #include <QDialog>
-#include <QVariantList>
+#include <QStringList>
 #include <QPushButton>
 
 namespace Ui {
@@ -40,9 +40,7 @@ public:
     QStringList urls() const;
 
 private slots:
-    void on_urlEdit_textChanged();
-
-    void on_urlEdit_returnPressed();
+    void on_urlsTextEdit_textChanged();
     void on_resetButton_clicked();
 
 private:

@@ -117,6 +117,7 @@ void MainWindow::initUrlsTable()
     ui->urlView->horizontalHeader()->setMovable(true);
     ui->urlView->setModel(model);
     ui->urlView->hideColumn(model->fieldIndex("id"));
+    ui->urlView->hideColumn(model->fieldIndex("downloaded_at"));
 
 }
 

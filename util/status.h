@@ -55,6 +55,7 @@ public:
     inline QString name() const { return _name; }
     inline void setPath(const QString &path) { _path = path; }
     inline QString path() const { return _path; }
+    inline void setFileAlreadyBytes(const qint64 fileAlreadyBytes) { _fileAlreadyBytes = fileAlreadyBytes; }
     inline void setBytesTotal(const qint64 totalLength) { _bytesTotal = totalLength; }
     inline qint64 bytesTotal() const { return _bytesTotal; }
     inline void setBytesReceived(const qint64 completedLength) { _bytesReceived = completedLength; }
@@ -64,9 +65,7 @@ public:
     inline DownloadMode downloadMode() const { return _dlMode; }
     inline void setDownloadStatus(const DownloadStatus dlStatus) { _dlStatus = dlStatus; }
     inline DownloadStatus downloadStatus() const { return _dlStatus; }
-    
-signals:
-    
+
 public slots:
     void startTime();
     void updateFileStatus(qint64 bytesReceived, qint64 bytesTotal);
@@ -76,6 +75,7 @@ private:
     QString _remainingTime;
     QString _name;
     QString _path;
+    qint64 _fileAlreadyBytes;
     qint64 _bytesTotal;
     qint64 _bytesReceived;
     int _downloadRate;

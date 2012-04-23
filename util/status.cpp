@@ -46,7 +46,6 @@ QString Status::remainingTime() const
 
 QString Status::downloadRate() const
 {
-
     int speedInt = (int)_downloadRate;
     if(speedInt < 0)
         speedInt = 0;
@@ -80,11 +79,10 @@ QString Status::downloadModeString() const
 
 void Status::updateFileStatus(qint64 bytesReceived, qint64 bytesTotal)
 {
-    if(!_bytesTotal)
-        _bytesTotal = bytesTotal;
-    _bytesReceived = bytesReceived;
-    _progress = _bytesReceived*100/_bytesTotal;
-    _downloadRate = _bytesReceived * 1000.0 / _startTime->elapsed();
+    _bytesTotal = _fileAlreadyBytes+bytesTotal;
+    _bytesReceived = _fileAlreadyBytes+bytesReceived;
+    _progress = ((bytesReceived+_fileAlreadyBytes) * 100)/(_fileAlreadyBytes+bytesTotal);
+    _downloadRate = bytesReceived * 1000.0 / _startTime->elapsed();
 }
 
 void Status::startTime()
@@ -92,4 +90,3 @@ void Status::startTime()
     _startTime = new QTime();
     _startTime->start();
 }
-

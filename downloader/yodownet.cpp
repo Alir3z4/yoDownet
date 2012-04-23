@@ -124,6 +124,8 @@ void yoDownet::startRequest(const QUrl &url)
     QNetworkRequest request(url);
     request.setRawHeader("Range", QByteArray("bytes=SIZE-").replace("SIZE", QVariant(_file->size()).toByteArray()));
 
+    _status->setFileAlreadyBytes(_file->size());
+
     _reply = manager.get(request);
 
     _status->setUrl(url.toString());

@@ -10,6 +10,7 @@ TARGET = yoDownet
 TEMPLATE = app
 
 DEFINES += TRANSLATION_PATH=$${TRANSLATION_PATH}
+DEFINES +=LICENSE_PATH=$${LICENSE_PATH}
 
 # Messages
 message(Translation path : $$TRANSLATION_PATH)
@@ -35,6 +36,8 @@ license.path = /usr/share/licenses/yodownet
     doc.path = /usr/share/doc/yodownet
     doc.files = doc/ChangeLog
 }
+
+license.path = $$LICENSE_PATH
 license.files = doc/COPYING
 
 doc.path = /usr/share/doc/yodownet

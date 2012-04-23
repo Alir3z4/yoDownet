@@ -27,6 +27,10 @@ QString Paths::translationPath()
     return STRINGIFY(TRANSLATION_PATH);
 }
 
+QString Paths::licensePath()
+{
+    return STRINGIFY(LICENSE_PATH) + QString("/COPYING");
+}
 QString Paths::saveDir()
 {
     QSettings settings;

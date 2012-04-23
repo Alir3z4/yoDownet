@@ -41,7 +41,8 @@ public:
 
 private slots:
     void on_urlsTextEdit_textChanged();
-    void on_resetButton_clicked();
+
+    void onResetbuttonClicked();
 
 private:
     Ui::UrlDialog *ui;

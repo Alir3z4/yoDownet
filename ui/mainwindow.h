@@ -47,6 +47,7 @@ private slots:
     void on_aboutQtAction_triggered();
     void on_actionAdd_triggered();
     void on_actionPause_triggered();
+    void on_actionResume_triggered();
     void on_actionRemove_triggered();
     void on_reportBugAction_triggered();
     void on_aboutyoDownetAction_triggered();

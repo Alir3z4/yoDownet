@@ -89,6 +89,11 @@ void MainWindow::on_actionPause_triggered()
     downloader->pauseDownloads(currentColumns());
 }
 
+void MainWindow::on_actionResume_triggered()
+{
+    downloader->addDownloads(currentColumns());
+}
+
 void MainWindow::on_actionRemove_triggered()
 {
     downloader->removeDownloads(currentColumns(UrlModel::save_path));

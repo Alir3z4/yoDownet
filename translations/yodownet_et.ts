@@ -53,17 +53,17 @@ http://sourceforge.net/projects/yodownet/
         <translation>Litsents</translation>
     </message>
     <message>
-        <location filename="../ui/aboutdialog.ui" line="887"/>
+        <location filename="../ui/aboutdialog.ui" line="213"/>
         <source>&amp;Close</source>
         <translation>Sule</translation>
     </message>
     <message>
-        <location filename="../ui/aboutdialog.cpp" line="31"/>
+        <location filename="../ui/aboutdialog.cpp" line="40"/>
         <source>Version %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/aboutdialog.cpp" line="32"/>
+        <location filename="../ui/aboutdialog.cpp" line="41"/>
         <source>Based on Qt %1</source>
         <translation>Põhineb raamistikul Qt %1</translation>
     </message>
@@ -79,14 +79,8 @@ http://sourceforge.net/projects/yodownet/
 <context>
     <name>ImportUrls</name>
     <message>
-        <location filename="../ui/importurls.ui" line="14"/>
-        <source>Import Urls</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/importurls.ui" line="23"/>
         <source>Urls &lt;span style=&quot; vertical-align:sub;&quot;&gt;(seperate in each line)&lt;/span&gt;</source>
-        <translation>URL-id &lt;span style=&quot; vertical-align:sub;&quot;&gt;(igaüks eraldi reale)&lt;/span&gt;</translation>
+        <translation type="obsolete">URL-id &lt;span style=&quot; vertical-align:sub;&quot;&gt;(igaüks eraldi reale)&lt;/span&gt;</translation>
     </message>
 </context>
 <context>
@@ -1027,128 +1021,133 @@ http://sourceforge.net/projects/yodownet/
         <translation>Muuda</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="113"/>
+        <location filename="../ui/mainwindow.ui" line="114"/>
         <source>&amp;Settings</source>
         <translation>&amp;Seaded</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="123"/>
+        <location filename="../ui/mainwindow.ui" line="124"/>
         <source>&amp;Help</source>
         <translation>Abiinfo</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="169"/>
+        <location filename="../ui/mainwindow.ui" line="170"/>
         <source>E&amp;xit</source>
         <translation>Välju</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="172"/>
+        <location filename="../ui/mainwindow.ui" line="173"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="182"/>
+        <location filename="../ui/mainwindow.ui" line="183"/>
         <source>About &amp;Qt</source>
         <translation>&amp;Qt raamistikust</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="197"/>
+        <location filename="../ui/mainwindow.ui" line="198"/>
         <source>About yo&amp;Downet</source>
         <translation>Rakendusest yo&amp;Downet</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="207"/>
+        <location filename="../ui/mainwindow.ui" line="208"/>
         <source>Report Bug...</source>
         <translation>Teavita veast...</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="217"/>
+        <location filename="../ui/mainwindow.ui" line="218"/>
         <source>&amp;Preferences</source>
         <translation>Eelistused</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="220"/>
-        <location filename="../ui/mainwindow.ui" line="294"/>
+        <location filename="../ui/mainwindow.ui" line="221"/>
+        <location filename="../ui/mainwindow.ui" line="295"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="231"/>
+        <location filename="../ui/mainwindow.ui" line="232"/>
         <source>Show &amp;Menubar</source>
         <translation>Näita &amp;Menüüriba</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="234"/>
+        <location filename="../ui/mainwindow.ui" line="235"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="245"/>
+        <location filename="../ui/mainwindow.ui" line="246"/>
         <source>Show &amp;Toolbar</source>
         <translation>Näita &amp;tööriistariba</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="248"/>
+        <location filename="../ui/mainwindow.ui" line="249"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="259"/>
+        <location filename="../ui/mainwindow.ui" line="260"/>
         <source>Show StatusBar</source>
         <translation>Näita olekuriba</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="262"/>
+        <location filename="../ui/mainwindow.ui" line="263"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="272"/>
+        <location filename="../ui/mainwindow.ui" line="273"/>
         <source>&amp;Add</source>
         <translation>Lis&amp;a</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="275"/>
+        <location filename="../ui/mainwindow.ui" line="276"/>
         <source>Add</source>
         <translation>Lisa</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="278"/>
+        <location filename="../ui/mainwindow.ui" line="279"/>
         <source>Ctrl+A</source>
         <translation>Ctrl+A</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="291"/>
+        <location filename="../ui/mainwindow.ui" line="292"/>
         <source>&amp;Pause</source>
         <translation>&amp;Paus</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="310"/>
+        <location filename="../ui/mainwindow.ui" line="311"/>
         <source>&amp;Remove</source>
         <translation>Eemalda</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="320"/>
+        <location filename="../ui/mainwindow.ui" line="324"/>
         <source>&amp;Resume</source>
         <translation>Jätka</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="325"/>
+        <location filename="../ui/mainwindow.ui" line="332"/>
         <source>Resume All</source>
         <translation>Jätka kõiki</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="330"/>
+        <location filename="../ui/mainwindow.ui" line="337"/>
         <source>Stop All</source>
         <translation>Peata kõik</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="343"/>
+        <location filename="../ui/mainwindow.ui" line="350"/>
         <source>Stop</source>
         <translation>Peata</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.cpp" line="76"/>
+        <location filename="../ui/mainwindow.ui" line="361"/>
+        <source>Remove Fr&amp;om List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/mainwindow.cpp" line="77"/>
         <source>yoDownet : About Qt</source>
         <translation>yoDownet : Raamistikust Qt</translation>
     </message>
@@ -1352,12 +1351,12 @@ Veateate saatmiseks kliki aloleval nupul. See avab veebilehitseja aknas &lt;a hr
 <context>
     <name>Status</name>
     <message>
-        <location filename="../util/status.cpp" line="35"/>
+        <location filename="../util/status.cpp" line="36"/>
         <source>Sec</source>
         <translation>Sek</translation>
     </message>
     <message>
-        <location filename="../util/status.cpp" line="38"/>
+        <location filename="../util/status.cpp" line="39"/>
         <source>Min</source>
         <translation>Min</translation>
     </message>
@@ -1388,79 +1387,106 @@ Veateate saatmiseks kliki aloleval nupul. See avab veebilehitseja aknas &lt;a hr
     </message>
 </context>
 <context>
+    <name>UrlDialog</name>
+    <message>
+        <location filename="../ui/urldialog.ui" line="26"/>
+        <source>Add new download</source>
+        <translation type="unfinished">Lisa uus allalaadimine</translation>
+    </message>
+    <message>
+        <location filename="../ui/urldialog.ui" line="40"/>
+        <source>Urls &lt;span style=&quot; vertical-align:sub;&quot;&gt;(seperate in each line)&lt;/span&gt;</source>
+        <translation type="unfinished">URL-id &lt;span style=&quot; vertical-align:sub;&quot;&gt;(igaüks eraldi reale)&lt;/span&gt;</translation>
+    </message>
+</context>
+<context>
     <name>UrlModel</name>
     <message>
-        <location filename="../util/urlmodel.cpp" line="57"/>
+        <location filename="../util/urlmodel.cpp" line="56"/>
+        <source>ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="59"/>
         <source>URL</source>
         <translation>URL</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="60"/>
+        <location filename="../util/urlmodel.cpp" line="62"/>
         <source>Save Path</source>
         <translation>Salvestamise asukoht</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="63"/>
+        <location filename="../util/urlmodel.cpp" line="68"/>
         <source>Status</source>
         <translation>Olek</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="66"/>
+        <location filename="../util/urlmodel.cpp" line="71"/>
         <source>Progress</source>
         <translation>Edenemine</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="69"/>
+        <location filename="../util/urlmodel.cpp" line="74"/>
         <source>Remaining Time</source>
         <translation>Aega järgi</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="72"/>
+        <location filename="../util/urlmodel.cpp" line="77"/>
         <source>Speed</source>
         <translation>Kiirus</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="75"/>
+        <location filename="../util/urlmodel.cpp" line="80"/>
         <source>Added</source>
         <translation>Lisatud</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="78"/>
         <source>Modified</source>
-        <translation>Muudetud</translation>
+        <translation type="obsolete">Muudetud</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="81"/>
+        <location filename="../util/urlmodel.cpp" line="65"/>
         <source>File Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="92"/>
+        <location filename="../util/urlmodel.cpp" line="83"/>
+        <source>Downloaded At</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="94"/>
         <source>Idle</source>
         <translation>Ootel</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="95"/>
+        <location filename="../util/urlmodel.cpp" line="97"/>
         <source>Starting</source>
         <translation>Käivitamine</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="98"/>
+        <location filename="../util/urlmodel.cpp" line="100"/>
         <source>Downloading</source>
         <translation>Allalaadimine</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="101"/>
+        <location filename="../util/urlmodel.cpp" line="103"/>
         <source>Finished</source>
         <translation>Lõpetatud</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="104"/>
+        <location filename="../util/urlmodel.cpp" line="106"/>
         <source>Failed</source>
         <translation>Ebaõnnestus</translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="107"/>
+        <location filename="../util/urlmodel.cpp" line="109"/>
+        <source>Paused</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="112"/>
         <source>Unknown Status</source>
         <translation>Tundmatu olek</translation>
     </message>
@@ -1468,25 +1494,24 @@ Veateate saatmiseks kliki aloleval nupul. See avab veebilehitseja aknas &lt;a hr
 <context>
     <name>urlDialog</name>
     <message>
-        <location filename="../ui/urldialog.ui" line="26"/>
         <source>Add new download</source>
-        <translation>Lisa uus allalaadimine</translation>
+        <translation type="obsolete">Lisa uus allalaadimine</translation>
     </message>
 </context>
 <context>
     <name>yoDataBase</name>
     <message>
-        <location filename="../util/yodatabase.cpp" line="36"/>
+        <location filename="../util/yodatabase.cpp" line="37"/>
         <source>Unable to initialize Database</source>
         <translation>Andmebaasi käivitamine ebaõnnestus</translation>
     </message>
     <message>
-        <location filename="../util/yodatabase.cpp" line="44"/>
+        <location filename="../util/yodatabase.cpp" line="45"/>
         <source>Unable to load database</source>
         <translation>Andmebaasi laadimine ebaõnnestus</translation>
     </message>
     <message>
-        <location filename="../util/yodatabase.cpp" line="44"/>
+        <location filename="../util/yodatabase.cpp" line="45"/>
         <source>yoDownet needs the SQLITE driver</source>
         <translation>yoDownet vajab SQLITE draiverit</translation>
     </message>

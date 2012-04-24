@@ -47,17 +47,17 @@ http://sourceforge.net/projects/yodownet/
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/aboutdialog.ui" line="887"/>
+        <location filename="../ui/aboutdialog.ui" line="213"/>
         <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/aboutdialog.cpp" line="31"/>
+        <location filename="../ui/aboutdialog.cpp" line="40"/>
         <source>Version %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/aboutdialog.cpp" line="32"/>
+        <location filename="../ui/aboutdialog.cpp" line="41"/>
         <source>Based on Qt %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -67,19 +67,6 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/widget/filebrowz.ui" line="23"/>
         <source>Browz...</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ImportUrls</name>
-    <message>
-        <location filename="../ui/importurls.ui" line="14"/>
-        <source>Import Urls</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../ui/importurls.ui" line="23"/>
-        <source>Urls &lt;span style=&quot; vertical-align:sub;&quot;&gt;(seperate in each line)&lt;/span&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1021,128 +1008,133 @@ http://sourceforge.net/projects/yodownet/
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="113"/>
+        <location filename="../ui/mainwindow.ui" line="114"/>
         <source>&amp;Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="123"/>
+        <location filename="../ui/mainwindow.ui" line="124"/>
         <source>&amp;Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="169"/>
+        <location filename="../ui/mainwindow.ui" line="170"/>
         <source>E&amp;xit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="172"/>
+        <location filename="../ui/mainwindow.ui" line="173"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="182"/>
+        <location filename="../ui/mainwindow.ui" line="183"/>
         <source>About &amp;Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="197"/>
+        <location filename="../ui/mainwindow.ui" line="198"/>
         <source>About yo&amp;Downet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="207"/>
+        <location filename="../ui/mainwindow.ui" line="208"/>
         <source>Report Bug...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="217"/>
+        <location filename="../ui/mainwindow.ui" line="218"/>
         <source>&amp;Preferences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="220"/>
-        <location filename="../ui/mainwindow.ui" line="294"/>
+        <location filename="../ui/mainwindow.ui" line="221"/>
+        <location filename="../ui/mainwindow.ui" line="295"/>
         <source>Ctrl+P</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="231"/>
+        <location filename="../ui/mainwindow.ui" line="232"/>
         <source>Show &amp;Menubar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="234"/>
+        <location filename="../ui/mainwindow.ui" line="235"/>
         <source>Ctrl+M</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="245"/>
+        <location filename="../ui/mainwindow.ui" line="246"/>
         <source>Show &amp;Toolbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="248"/>
+        <location filename="../ui/mainwindow.ui" line="249"/>
         <source>Ctrl+T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="259"/>
+        <location filename="../ui/mainwindow.ui" line="260"/>
         <source>Show StatusBar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="262"/>
+        <location filename="../ui/mainwindow.ui" line="263"/>
         <source>Ctrl+S</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="272"/>
+        <location filename="../ui/mainwindow.ui" line="273"/>
         <source>&amp;Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="275"/>
+        <location filename="../ui/mainwindow.ui" line="276"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="278"/>
+        <location filename="../ui/mainwindow.ui" line="279"/>
         <source>Ctrl+A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="291"/>
+        <location filename="../ui/mainwindow.ui" line="292"/>
         <source>&amp;Pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="310"/>
+        <location filename="../ui/mainwindow.ui" line="311"/>
         <source>&amp;Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="320"/>
+        <location filename="../ui/mainwindow.ui" line="324"/>
         <source>&amp;Resume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="325"/>
+        <location filename="../ui/mainwindow.ui" line="332"/>
         <source>Resume All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="330"/>
+        <location filename="../ui/mainwindow.ui" line="337"/>
         <source>Stop All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="343"/>
+        <location filename="../ui/mainwindow.ui" line="350"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.cpp" line="76"/>
+        <location filename="../ui/mainwindow.ui" line="361"/>
+        <source>Remove Fr&amp;om List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/mainwindow.cpp" line="77"/>
         <source>yoDownet : About Qt</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1343,12 +1335,12 @@ To submit a bug report. click on the button below. This will open a web browser 
 <context>
     <name>Status</name>
     <message>
-        <location filename="../util/status.cpp" line="35"/>
+        <location filename="../util/status.cpp" line="36"/>
         <source>Sec</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/status.cpp" line="38"/>
+        <location filename="../util/status.cpp" line="39"/>
         <source>Min</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1379,105 +1371,120 @@ To submit a bug report. click on the button below. This will open a web browser 
     </message>
 </context>
 <context>
-    <name>UrlModel</name>
+    <name>UrlDialog</name>
     <message>
-        <location filename="../util/urlmodel.cpp" line="57"/>
-        <source>URL</source>
+        <location filename="../ui/urldialog.ui" line="26"/>
+        <source>Add new download</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/urlmodel.cpp" line="60"/>
-        <source>Save Path</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="63"/>
-        <source>Status</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="66"/>
-        <source>Progress</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="69"/>
-        <source>Remaining Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="72"/>
-        <source>Speed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="75"/>
-        <source>Added</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="78"/>
-        <source>Modified</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="81"/>
-        <source>File Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="92"/>
-        <source>Idle</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="95"/>
-        <source>Starting</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="98"/>
-        <source>Downloading</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="101"/>
-        <source>Finished</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="104"/>
-        <source>Failed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/urlmodel.cpp" line="107"/>
-        <source>Unknown Status</source>
+        <location filename="../ui/urldialog.ui" line="40"/>
+        <source>Urls &lt;span style=&quot; vertical-align:sub;&quot;&gt;(seperate in each line)&lt;/span&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>urlDialog</name>
+    <name>UrlModel</name>
     <message>
-        <location filename="../ui/urldialog.ui" line="26"/>
-        <source>Add new download</source>
+        <location filename="../util/urlmodel.cpp" line="56"/>
+        <source>ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="59"/>
+        <source>URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="62"/>
+        <source>Save Path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="68"/>
+        <source>Status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="71"/>
+        <source>Progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="74"/>
+        <source>Remaining Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="77"/>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="80"/>
+        <source>Added</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="65"/>
+        <source>File Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="83"/>
+        <source>Downloaded At</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="94"/>
+        <source>Idle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="97"/>
+        <source>Starting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="100"/>
+        <source>Downloading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="103"/>
+        <source>Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="106"/>
+        <source>Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="109"/>
+        <source>Paused</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/urlmodel.cpp" line="112"/>
+        <source>Unknown Status</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>yoDataBase</name>
     <message>
-        <location filename="../util/yodatabase.cpp" line="36"/>
+        <location filename="../util/yodatabase.cpp" line="37"/>
         <source>Unable to initialize Database</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/yodatabase.cpp" line="44"/>
+        <location filename="../util/yodatabase.cpp" line="45"/>
         <source>Unable to load database</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../util/yodatabase.cpp" line="44"/>
+        <location filename="../util/yodatabase.cpp" line="45"/>
         <source>yoDownet needs the SQLITE driver</source>
         <translation type="unfinished"></translation>
     </message>

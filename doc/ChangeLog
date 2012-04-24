@@ -1,3 +1,14 @@
+2012-04-22 Alireza Savand <alireza.savand@gmail.com>
+    * bug-#5-issue-with-resume: Fixed, now progress and remaining time will be correct.
+    * task-#14-import-multi-urls-at-time: So by the current url add dialog, it's possible to add many urls at time.
+    * bug-#15-yoDownet-could-now-find-the-translations-file: Fixed, by the defined Pre-Processor at qmake time.
+    * task-#16-push-the-remove-and-remove-the-file: Remove the File from the file-system and database.
+    * task-#17-make-installation-little-bit-more-handy: At the QMake time some Pre-Precessor variable have to be defined.
+    * task-#18-remove-addNewDlToUrlsTable-from-MainWindow: Remove that useless and buggy function and implemented inside the update urlView part.
+    * task-#19-code-cleaning-on-downloader-yoDownet-class: Some FIXME and variable names mess solved, remove auto keyword.
+    * bug-#20-make-urls.id-null: Fix the urls.null not allowed bug, and Re-Strcuture the database and added a new field.
+    * task-#21-remove-download-from-the-download-list-only: Now it's possible to remove the download just from the urls tale view|list .
+
 2012-04-20 Alireza Savand <alireza.savand@gmail.com>
 
     * task-#13-translation-by-transifex: make the project translatable and also multi-lingual.

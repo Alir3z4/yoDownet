@@ -85,7 +85,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>644</width>
+     <width>642</width>
      <height>21</height>
     </rect>
    </property>
@@ -328,8 +328,14 @@
    </property>
   </action>
   <action name="resumeAllAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Resume All</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
    </property>
   </action>
   <action name="stopAllAction">

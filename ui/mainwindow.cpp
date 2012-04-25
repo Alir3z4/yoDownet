@@ -76,7 +76,7 @@ void MainWindow::on_preferencesAction_triggered()
 
 void MainWindow::on_aboutQtAction_triggered()
 {
-    msg.aboutQt(this, tr("yoDownet : About Qt"));
+    qApp->aboutQt();
 }
 
 void MainWindow::on_addAction_triggered()

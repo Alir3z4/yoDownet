@@ -370,22 +370,6 @@
  </resources>
  <connections>
   <connection>
-   <sender>exitAction</sender>
-   <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>345</x>
-     <y>202</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>showMenuBarAction</sender>
    <signal>toggled(bool)</signal>
    <receiver>menuBar</receiver>

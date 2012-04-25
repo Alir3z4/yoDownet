@@ -46,6 +46,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(downloader, SIGNAL(downloadUpdated(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downloadRemoved(QString)), this, SLOT(onDownloadRemoved(QString)));
 
+    connect(ui->exitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
+
     prepareTrayIcon();
 }
 

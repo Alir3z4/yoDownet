@@ -61,6 +61,7 @@ private slots:
     void submitUrlViewChanges();
 
     void onDownloadRemoved(const QString &fileName);
+    void trayIconTriggered();
 
 private:
     Ui::MainWindow *ui;

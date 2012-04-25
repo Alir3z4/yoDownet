@@ -175,6 +175,11 @@ void MainWindow::onDownloadRemoved(const QString &fileName)
     }
 }
 
+void MainWindow::trayIconTriggered()
+{
+    if(isHidden()) show(); else hide();
+}
+
 void MainWindow::createActionsOnMainWindow()
 {
     addActions(ui->menuBar->actions());
@@ -289,6 +294,7 @@ void MainWindow::prepareTrayIcon()
     _trayMenu->addSeparator();
     _trayMenu->addAction(ui->exitAction);
     _trayIcon->setReady(_trayMenu, windowIcon());
+    connect(_trayIcon, SIGNAL(triggered()), this, SLOT(trayIconTriggered()));
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)

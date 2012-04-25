@@ -93,7 +93,7 @@
     <property name="title">
      <string>&amp;File</string>
     </property>
-    <addaction name="actionAdd"/>
+    <addaction name="addAction"/>
     <addaction name="separator"/>
     <addaction name="exitAction"/>
    </widget>
@@ -101,13 +101,13 @@
     <property name="title">
      <string>&amp;Edit</string>
     </property>
-    <addaction name="actionPause"/>
-    <addaction name="actionResume"/>
-    <addaction name="actionStop"/>
-    <addaction name="actionResumeAll"/>
-    <addaction name="actionRemove"/>
-    <addaction name="actionStopAll"/>
-    <addaction name="actionRemoveFromList"/>
+    <addaction name="pauseAction"/>
+    <addaction name="resumeAction"/>
+    <addaction name="stopAction"/>
+    <addaction name="resumeAllAction"/>
+    <addaction name="removeAction"/>
+    <addaction name="stopAllAction"/>
+    <addaction name="removeFromListAction"/>
    </widget>
    <widget class="QMenu" name="settingsMenu">
     <property name="title">
@@ -152,11 +152,11 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionAdd"/>
-   <addaction name="actionPause"/>
-   <addaction name="actionResume"/>
-   <addaction name="actionStop"/>
-   <addaction name="actionRemove"/>
+   <addaction name="addAction"/>
+   <addaction name="pauseAction"/>
+   <addaction name="resumeAction"/>
+   <addaction name="stopAction"/>
+   <addaction name="removeAction"/>
    <addaction name="separator"/>
    <addaction name="exitAction"/>
   </widget>
@@ -263,7 +263,7 @@
     <string>Ctrl+S</string>
    </property>
   </action>
-  <action name="actionAdd">
+  <action name="addAction">
    <property name="icon">
     <iconset theme="add">
      <normaloff/>
@@ -279,7 +279,7 @@
     <string>Ctrl+A</string>
    </property>
   </action>
-  <action name="actionPause">
+  <action name="pauseAction">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -298,7 +298,7 @@
     <bool>true</bool>
    </property>
   </action>
-  <action name="actionRemove">
+  <action name="removeAction">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -311,7 +311,7 @@
     <string>&amp;Remove</string>
    </property>
   </action>
-  <action name="actionResume">
+  <action name="resumeAction">
    <property name="enabled">
     <bool>true</bool>
    </property>
@@ -327,12 +327,12 @@
     <bool>true</bool>
    </property>
   </action>
-  <action name="actionResumeAll">
+  <action name="resumeAllAction">
    <property name="text">
     <string>Resume All</string>
    </property>
   </action>
-  <action name="actionStopAll">
+  <action name="stopAllAction">
    <property name="text">
     <string>Stop All</string>
    </property>
@@ -340,7 +340,7 @@
     <bool>false</bool>
    </property>
   </action>
-  <action name="actionStop">
+  <action name="stopAction">
    <property name="icon">
     <iconset theme="player_stop">
      <normaloff/>
@@ -353,9 +353,11 @@
     <bool>false</bool>
    </property>
   </action>
-  <action name="actionRemoveFromList">
+  <action name="removeFromListAction">
    <property name="icon">
-    <iconset theme="list-remove"/>
+    <iconset theme="list-remove">
+     <normaloff/>
+    </iconset>
    </property>
    <property name="text">
     <string>Remove Fr&amp;om List</string>

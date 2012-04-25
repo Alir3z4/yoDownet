@@ -45,11 +45,11 @@ public:
 private slots:
     void on_preferencesAction_triggered();
     void on_aboutQtAction_triggered();
-    void on_actionAdd_triggered();
-    void on_actionPause_triggered();
-    void on_actionResume_triggered();
-    void on_actionRemove_triggered();
-    void on_actionRemoveFromList_triggered();
+    void on_addAction_triggered();
+    void on_pauseAction_triggered();
+    void on_resumeAction_triggered();
+    void on_removeAction_triggered();
+    void on_removeActionFromList_triggered();
     void on_reportBugAction_triggered();
     void on_aboutyoDownetAction_triggered();
     void createActionsOnMainWindow();

@@ -77,29 +77,29 @@ void MainWindow::on_aboutQtAction_triggered()
     msg.aboutQt(this, tr("yoDownet : About Qt"));
 }
 
-void MainWindow::on_actionAdd_triggered()
+void MainWindow::on_addAction_triggered()
 {
     UrlDialog addUrlDialog;
     if(addUrlDialog.exec() == QDialog::Accepted)
         downloader->addDownloads(addUrlDialog.urls());
 }
 
-void MainWindow::on_actionPause_triggered()
+void MainWindow::on_pauseAction_triggered()
 {
     downloader->pauseDownloads(currentColumns());
 }
 
-void MainWindow::on_actionResume_triggered()
+void MainWindow::on_resumeAction_triggered()
 {
     downloader->addDownloads(currentColumns());
 }
 
-void MainWindow::on_actionRemove_triggered()
+void MainWindow::on_removeAction_triggered()
 {
     downloader->removeDownloads(currentColumns(UrlModel::save_path));
 }
 
-void MainWindow::on_actionRemoveFromList_triggered()
+void MainWindow::on_removeActionFromList_triggered()
 {
     QModelIndexList indexes = ui->urlView->selectionModel()->selectedRows();
     foreach(QModelIndex idx, indexes){

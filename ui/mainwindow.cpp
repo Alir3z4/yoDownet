@@ -45,6 +45,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(downloader, SIGNAL(downlaodResumed(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downloadUpdated(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downloadRemoved(QString)), this, SLOT(onDownloadRemoved(QString)));
+
+    prepareTrayIcon();
 }
 
 MainWindow::~MainWindow()
@@ -280,4 +282,14 @@ void MainWindow::loadSettings()
     settings.endGroup();
 
     settings.endGroup();
+}
+
+void MainWindow::prepareTrayIcon()
+{
+    _trayIcon = new SystemTrayIcon;
+    _trayMenu = new QMenu;
+    _trayMenu->addAction(ui->addAction);
+    _trayMenu->addSeparator();
+    _trayMenu->addAction(ui->exitAction);
+    _trayIcon->setReady(_trayMenu, windowIcon());
 }

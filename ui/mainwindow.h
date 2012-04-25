@@ -24,7 +24,9 @@
 #include <QMainWindow>
 #include <QTableWidgetItem>
 #include "util/yomessage.h"
+#include <QCloseEvent>
 #include "util/yodatabase.h"
+#include "ui/widget/systemtrayicon.h"
 #include "downloader/yodownet.h"
 #include "util/urlmodel.h"
 
@@ -66,9 +68,12 @@ private:
     Ui::MainWindow *ui;
     yoMessage msg;
     yoDataBase *db;
+    SystemTrayIcon *_trayIcon;
+    QMenu *_trayMenu;
     UrlModel *model;
     yoDownet *downloader;
 
+    void prepareTrayIcon();
 };
 
 #endif // MAINWINDOW_H

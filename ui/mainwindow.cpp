@@ -103,7 +103,7 @@ void MainWindow::on_removeAction_triggered()
     downloader->removeDownloads(currentColumns(UrlModel::save_path));
 }
 
-void MainWindow::on_removeActionFromList_triggered()
+void MainWindow::on_removeFromListAction_triggered()
 {
     QModelIndexList indexes = ui->urlView->selectionModel()->selectedRows();
     foreach(QModelIndex idx, indexes){

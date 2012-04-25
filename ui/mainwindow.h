@@ -50,7 +50,7 @@ private slots:
     void on_pauseAction_triggered();
     void on_resumeAction_triggered();
     void on_removeAction_triggered();
-    void on_removeActionFromList_triggered();
+    void on_removeFromListAction_triggered();
     void on_reportBugAction_triggered();
     void on_aboutyoDownetAction_triggered();
     void createActionsOnMainWindow();

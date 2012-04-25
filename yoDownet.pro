@@ -80,7 +80,6 @@ SOURCES += main.cpp\
     ui/prefwidget/prefinterfacewidget.cpp \
     util/paths.cpp \
     util/languages.cpp \
-    util/version.cpp \
     ui/widget/systemtrayicon.cpp
 
 HEADERS  += ui/mainwindow.h \
@@ -100,7 +99,6 @@ HEADERS  += ui/mainwindow.h \
     ui/prefwidget/prefinterfacewidget.h \
     util/paths.h \
     util/languages.h \
-    util/version.h \
     ui/widget/systemtrayicon.h
 
 FORMS    += ui/mainwindow.ui \

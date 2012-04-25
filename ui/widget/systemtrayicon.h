@@ -15,7 +15,12 @@ public:
 
 signals:
     void ready();
+    void triggered();
+    void doubleClicked();
+    void middleClicked();
 
+public slots:
+    void iconActivated(QSystemTrayIcon::ActivationReason reason);
 
 private:
     QSystemTrayIcon *_tryIcon;

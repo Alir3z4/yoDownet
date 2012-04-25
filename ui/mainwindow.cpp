@@ -122,11 +122,6 @@ void MainWindow::on_aboutyoDownetAction_triggered()
    about.exec();
 }
 
-void MainWindow::closeEvent(QCloseEvent * )
-{
-    saveSettings();
-}
-
 void MainWindow::initUrlsTable()
 {
     // FIXME: Move me to the constructor
@@ -292,4 +287,12 @@ void MainWindow::prepareTrayIcon()
     _trayMenu->addSeparator();
     _trayMenu->addAction(ui->exitAction);
     _trayIcon->setReady(_trayMenu, windowIcon());
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    saveSettings();
+    if(!isHidden()) event->ignore();
+    hide();
+
 }

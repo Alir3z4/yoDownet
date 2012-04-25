@@ -56,7 +56,6 @@ private slots:
     void createActionsOnMainWindow();
     void saveSettings();
     void loadSettings();
-    void closeEvent(QCloseEvent *);
     void initUrlsTable();
     void updateUrlsTable(const Status *status);
     void submitUrlViewChanges();
@@ -72,6 +71,8 @@ private:
     yoDownet *downloader;
 
     void prepareTrayIcon();
+    void closeEvent(QCloseEvent * event);
+
 };
 
 #endif // MAINWINDOW_H

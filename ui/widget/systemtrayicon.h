@@ -16,8 +16,6 @@ public:
 signals:
     void ready();
 
-private slots:
-    void showTryIcon();
 
 private:
     QSystemTrayIcon *_tryIcon;

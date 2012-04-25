@@ -54,6 +54,11 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete db;
+    delete model;
+    delete downloader;
+    delete _trayIcon;
+    delete _trayMenu;
 }
 
 QStringList MainWindow::currentColumns(const int &column) const

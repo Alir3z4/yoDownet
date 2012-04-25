@@ -294,7 +294,9 @@ void MainWindow::prepareTrayIcon()
     _trayMenu->addSeparator();
     _trayMenu->addAction(ui->exitAction);
     _trayIcon->setReady(_trayMenu, windowIcon());
+
     connect(_trayIcon, SIGNAL(triggered()), this, SLOT(trayIconTriggered()));
+    connect(_trayIcon, SIGNAL(middleClicked()), ui->addAction, SLOT(trigger()));
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)

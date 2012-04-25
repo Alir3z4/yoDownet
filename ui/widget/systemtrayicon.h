@@ -11,7 +11,7 @@ class SystemTrayIcon : public QWidget
 public:
     explicit SystemTrayIcon(QWidget *parent = 0);
 
-    void setReady(const QList<QAction *> &actions, const QIcon &icon);
+    void setReady(QMenu *menu, const QIcon &icon);
 
 signals:
     void ready();
@@ -21,8 +21,6 @@ private slots:
 
 private:
     QSystemTrayIcon *_tryIcon;
-    QMenu *_tryIconMenu;
-
 };
 
 #endif // SYSTEMTRAYICON_H

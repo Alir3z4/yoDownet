@@ -80,7 +80,8 @@ SOURCES += main.cpp\
     ui/prefwidget/prefinterfacewidget.cpp \
     util/paths.cpp \
     util/languages.cpp \
-    ui/widget/systemtrayicon.cpp
+    ui/widget/systemtrayicon.cpp \
+    core/validators/regexvalidator.cpp
 
 HEADERS  += ui/mainwindow.h \
     ui/preferencesdialog.h \
@@ -99,7 +100,8 @@ HEADERS  += ui/mainwindow.h \
     ui/prefwidget/prefinterfacewidget.h \
     util/paths.h \
     util/languages.h \
-    ui/widget/systemtrayicon.h
+    ui/widget/systemtrayicon.h \
+    core/validators/regexvalidator.h
 
 FORMS    += ui/mainwindow.ui \
     ui/preferencesdialog.ui \

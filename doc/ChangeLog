@@ -1,3 +1,8 @@
+2012-04-26 Alireza Savand <alireza.savand@gmail.com>
+    * task-#22-system-tray-icon: Added System tray icon, with basic impelement such as exit & add download
+    * task-#23-correct-action-naming: Change and normalize action name sin the MainWindow
+    * task-#24-delete-dummy-version-class: Delete the dummy Version class that just holds version numbering
+
 2012-04-22 Alireza Savand <alireza.savand@gmail.com>
     * bug-#5-issue-with-resume: Fixed, now progress and remaining time will be correct.
     * task-#14-import-multi-urls-at-time: So by the current url add dialog, it's possible to add many urls at time.
@@ -10,7 +15,6 @@
     * task-#21-remove-download-from-the-download-list-only: Now it's possible to remove the download just from the urls tale view|list .
 
 2012-04-20 Alireza Savand <alireza.savand@gmail.com>
-
     * task-#13-translation-by-transifex: make the project translatable and also multi-lingual.
     * Re-Strcuture all of the project directory in [Java|Python]-Style.
     * Add Trasnlation tab in the AbouDialog.
@@ -25,6 +29,5 @@
     * task-#12-add-changelog: Just done!
 
 2012-02-25  Alireza Savand  <alireza.savand@gmail.com>
-
     * bug-fixes-#2 yodownet.cpp
     * add ChangeLog file

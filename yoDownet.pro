@@ -81,7 +81,8 @@ SOURCES += main.cpp\
     util/paths.cpp \
     util/languages.cpp \
     ui/widget/systemtrayicon.cpp \
-    core/validators/regexvalidator.cpp
+    core/validators/regexvalidator.cpp \
+    core/validators/urlvalidator.cpp
 
 HEADERS  += ui/mainwindow.h \
     ui/preferencesdialog.h \
@@ -101,7 +102,8 @@ HEADERS  += ui/mainwindow.h \
     util/paths.h \
     util/languages.h \
     ui/widget/systemtrayicon.h \
-    core/validators/regexvalidator.h
+    core/validators/regexvalidator.h \
+    core/validators/urlvalidator.h
 
 FORMS    += ui/mainwindow.ui \
     ui/preferencesdialog.ui \

@@ -6,10 +6,11 @@
 class UrlValidator : public RegexValidator
 {
 public:
-    UrlValidator(const QString &url);
+    UrlValidator(const QString &url = NULL);
 
     inline void setUrl(const QString &url) {
         setInput(url);
+        setErrorMessage(tr("%1 is invalid URL").arg(url));
     }
 
     bool isValid();

@@ -2,9 +2,7 @@
 
 UrlValidator::UrlValidator(const QString &url)
 {
-
-    setInput(url);
-    setErrorMessage(tr("%1 is invalid URL").arg(url));
+    if(!url.isNull()) setInput(url);
 
     // For the Record this code is copied from django.core.validators.URLValidator
     // And Also i want to say thank you to all the django [devs|community|users]

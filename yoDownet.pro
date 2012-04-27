@@ -105,6 +105,9 @@ HEADERS  += ui/mainwindow.h \
     core/validators/regexvalidator.h \
     core/validators/urlvalidator.h
 
+    SOURCES += core/validators/tests/testurlvalidator.cpp
+
+    HEADERS += core/validators/tests/testurlvalidator.h
 FORMS    += ui/mainwindow.ui \
     ui/preferencesdialog.ui \
     ui/prefwidget/prefdownloaderswidget.ui \

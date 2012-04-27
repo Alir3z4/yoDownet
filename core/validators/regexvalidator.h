@@ -2,17 +2,29 @@
 #define REGEXVALIDATOR_H
 
 #include <QObject>
+#include <QRegExpValidator>
 
 class RegexValidator : public QObject
 {
     Q_OBJECT
 public:
     explicit RegexValidator(QObject *parent = 0);
-    
-signals:
-    
-public slots:
-    
+    ~RegexValidator();
+
+protected:
+    QRegExpValidator *_regexValidator;
+    QString _input;
+    QString _errorMessage;
+
+    inline void setErrorMessage(const QString &errorMesage) {
+        _errorMessage = errorMesage;
+    }
+
+    inline void setInput(const QString &input) {
+        _input = input;
+    }
+
+    virtual bool isValid() = 0;
 };
 
 #endif // REGEXVALIDATOR_H

@@ -18,6 +18,11 @@
 **
 ****************************************************************************************/
 
+#ifdef TESTING
+#include "core/validators/tests/testurlvalidator.h"
+QTEST_MAIN(TestUrlValidator)
+#else
+
 #include <QApplication>
 #include <QSettings>
 #include <QTranslator>
@@ -50,3 +55,5 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
+
+#endif

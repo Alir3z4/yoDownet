@@ -6,7 +6,13 @@
 class UrlValidator : public RegexValidator
 {
 public:
-    UrlValidator();
+    UrlValidator(const QString &url);
+
+    inline void setUrl(const QString &url) {
+        setInput(url);
+    }
+
+    bool isValid();
 };
 
 #endif // URLVALIDATOR_H

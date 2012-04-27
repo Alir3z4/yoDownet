@@ -18,4 +18,16 @@ UrlValidator::UrlValidator(const QString &url)
             "(?:/?|[/?]\\S+)$";
     _regexValidator = new QRegExpValidator(QRegExp(regexPattern, Qt::CaseInsensitive), this->parent());
 }
+
+bool UrlValidator::isValid()
+{
+    int pos = 0;
+    switch(_regexValidator->validate(_input, pos)){
+    case QValidator::Acceptable:
+        return true;
+        break;
+    default:
+        return false;
+        break;
+    }
 }

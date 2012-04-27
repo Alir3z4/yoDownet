@@ -1,7 +1,9 @@
 #ifndef URLVALIDATOR_H
 #define URLVALIDATOR_H
 
-class UrlValidator
+#include "regexvalidator.h"
+
+class UrlValidator : public RegexValidator
 {
 public:
     UrlValidator();

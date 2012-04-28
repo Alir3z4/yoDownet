@@ -14,11 +14,6 @@ public:
 protected:
     QRegExpValidator *_regexValidator;
     QString _input;
-    QString _errorMessage;
-
-    inline void setErrorMessage(const QString &errorMesage) {
-        _errorMessage = errorMesage;
-    }
 
     inline void setInput(const QString &input) {
         _input = input;

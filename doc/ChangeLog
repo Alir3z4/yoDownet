@@ -1,3 +1,7 @@
+2012-04-29 Alireza Savand <alireza.savand@gmail.com>
+    * task-#26-urls-validation: Create a couple of class to validate the entered urls.
+    * task-#27-write-tests-for-UrlValidator-class: UrlValidator class well-tested somehow, but maybe the testig way will changed in the future releases.
+
 2012-04-26 Alireza Savand <alireza.savand@gmail.com>
     * task-#22-system-tray-icon: Added System tray icon, with basic impelement such as exit & add download
     * task-#23-correct-action-naming: Change and normalize action name sin the MainWindow

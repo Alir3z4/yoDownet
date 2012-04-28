@@ -19,6 +19,7 @@
 ****************************************************************************************/
 
 #include "yodownet.h"
+#include "core/validators/urlvalidator.h"
 #include "util/paths.h"
 
 yoDownet::yoDownet(QObject *parent) :
@@ -29,6 +30,9 @@ yoDownet::yoDownet(QObject *parent) :
 }
 void yoDownet::addDownload(const QString &url)
 {
+    UrlValidator urlValidator(url);
+    if(!urlValidator.isValid()) return;
+
     QUrl tempUrl(url);
     QFileInfo fInfo(tempUrl.path());
     QString fileName = fInfo.fileName();

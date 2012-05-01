@@ -83,6 +83,7 @@ SOURCES += main.cpp\
     ui/widget/systemtrayicon.cpp \
     core/validators/regexvalidator.cpp \
     core/validators/urlvalidator.cpp
+    plus/messages/basemessage.cpp \
 
 HEADERS  += ui/mainwindow.h \
     ui/preferencesdialog.h \
@@ -104,6 +105,7 @@ HEADERS  += ui/mainwindow.h \
     ui/widget/systemtrayicon.h \
     core/validators/regexvalidator.h \
     core/validators/urlvalidator.h
+    plus/messages/basemessage.h \
 
 contains(CONFIG, qtestlib){
     DEFINES += TESTING

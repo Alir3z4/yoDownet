@@ -21,6 +21,7 @@
 #include "urldialog.h"
 #include "ui_urldialog.h"
 #include <QTextStream>
+#include "plus/messages/constants.h"
 
 UrlDialog::UrlDialog(QWidget *parent) :
     QDialog(parent),
@@ -28,9 +29,11 @@ UrlDialog::UrlDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    resetButton = ui->buttonBox->button(QDialogButtonBox::Reset);
+    _urlValidator = new UrlValidator(this);
 
-    connect(resetButton, SIGNAL(clicked()), this, SLOT(onResetbuttonClicked()));
+    _resetButton = ui->buttonBox->button(QDialogButtonBox::Reset);
+
+    connect(_resetButton, SIGNAL(clicked()), this, SLOT(onResetbuttonClicked()));
 }
 
 UrlDialog::~UrlDialog()
@@ -42,11 +45,23 @@ QStringList UrlDialog::urls() const
 {
     QStringList urlList;
     QString urlText = ui->urlsTextEdit->document()->toPlainText();
+    QString url;
     QTextStream textStream(&urlText);
     while(!textStream.atEnd()){
-        urlList << textStream.readLine();
+        url = textStream.readLine();
+        _urlValidator->setUrl(url);
+        if(_urlValidator->isValid())
+            urlList << textStream.readLine();
+        else
+            _message->addMessage(
+                        _urlValidator->errorTitle(), _urlValidator->errorMessage(), _urlValidator->errorTag());
     }
     return urlList;
+}
+
+void UrlDialog::setMessageEcoSystem(Message *message)
+{
+    _message = message;
 }
 
 void UrlDialog::on_urlsTextEdit_textChanged()

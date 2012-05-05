@@ -25,9 +25,10 @@
 #include <QTableWidgetItem>
 #include <QCloseEvent>
 #include "util/yodatabase.h"
+#include "util/urlmodel.h"
+#include "plus/messages/message.h"
 #include "ui/widget/systemtrayicon.h"
 #include "downloader/yodownet.h"
-#include "util/urlmodel.h"
 
 namespace Ui {
     class MainWindow;
@@ -70,6 +71,7 @@ private:
     QMenu *_trayMenu;
     UrlModel *model;
     yoDownet *downloader;
+    Message *_message;
 
     void prepareTrayIcon();
     void closeEvent(QCloseEvent * event);

@@ -24,6 +24,8 @@
 #include <QDialog>
 #include <QStringList>
 #include <QPushButton>
+#include "core/validators/urlvalidator.h"
+#include "plus/messages/message.h"
 
 namespace Ui {
 class UrlDialog;
@@ -38,6 +40,7 @@ public:
     ~UrlDialog();
 
     QStringList urls() const;
+    void setMessageEcoSystem(Message *message);
 
 private slots:
     void on_urlsTextEdit_textChanged();
@@ -47,7 +50,10 @@ private slots:
 private:
     Ui::UrlDialog *ui;
 
-    QPushButton *resetButton;
+    QPushButton *_resetButton;
+    UrlValidator *_urlValidator;
+    Message *_message;
+
 };
 
 #endif // URLDIALOG_H

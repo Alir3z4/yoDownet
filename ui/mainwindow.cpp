@@ -29,7 +29,8 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    db(new yoDataBase(parent)), model(new UrlModel(parent)), downloader(new yoDownet(parent))
+    db(new yoDataBase(parent)), model(new UrlModel(parent)),
+    downloader(new yoDownet(parent)), _message(new Message(parent))
 {
     ui->setupUi(this);
 
@@ -89,6 +90,7 @@ void MainWindow::on_aboutQtAction_triggered()
 void MainWindow::on_addAction_triggered()
 {
     UrlDialog addUrlDialog;
+    addUrlDialog.setMessageEcoSystem(_message);
     if(addUrlDialog.exec() == QDialog::Accepted)
         downloader->addDownloads(addUrlDialog.urls());
 }
@@ -300,6 +302,8 @@ void MainWindow::prepareTrayIcon()
     _trayMenu->addAction(ui->exitAction);
     _trayIcon->setReady(_trayMenu, windowIcon());
 
+    _message->setSysTrayIcon(_trayIcon);
+
     connect(_trayIcon, SIGNAL(triggered()), this, SLOT(trayIconTriggered()));
     connect(_trayIcon, SIGNAL(middleClicked()), ui->addAction, SLOT(trigger()));
 }
@@ -309,5 +313,4 @@ void MainWindow::closeEvent(QCloseEvent *event)
     saveSettings();
     if(!isHidden()) event->ignore();
     hide();
-
 }

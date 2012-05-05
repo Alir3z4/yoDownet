@@ -20,6 +20,8 @@ protected:
     }
 
     virtual bool isValid() = 0;
+    virtual QString errorTitle() const = 0;
+    virtual QString errorMessage() const = 0;
 };
 
 #endif // REGEXVALIDATOR_H

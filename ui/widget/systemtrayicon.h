@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QSystemTrayIcon>
 #include <QMenu>
+#include "plus/messages/constants.h"
 
 class SystemTrayIcon : public QWidget
 {
@@ -12,6 +13,7 @@ public:
     explicit SystemTrayIcon(QWidget *parent = 0);
 
     void setReady(QMenu *menu, const QIcon &icon);
+    void showMessage(const QString &title, const QString &msg, MessageConstants::Tag icon, int msec = 7000);
 
 signals:
     void ready();
@@ -23,7 +25,7 @@ public slots:
     void iconActivated(QSystemTrayIcon::ActivationReason reason);
 
 private:
-    QSystemTrayIcon *_tryIcon;
+    QSystemTrayIcon *_trayIcon;
 };
 
 #endif // SYSTEMTRAYICON_H

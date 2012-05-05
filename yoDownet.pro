@@ -107,7 +107,8 @@ HEADERS  += ui/mainwindow.h \
     core/validators/regexvalidator.h \
     core/validators/urlvalidator.h \
     plus/messages/basemessage.h \
-    plus/messages/message.h
+    plus/messages/message.h \
+    plus/messages/constants.h
 
 contains(CONFIG, qtestlib){
     DEFINES += TESTING

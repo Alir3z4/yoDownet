@@ -1,4 +1,5 @@
 #include "urlvalidator.h"
+#include "plus/messages/constants.h"
 
 UrlValidator::UrlValidator(QObject *parent, const QString &url) :
     RegexValidator(parent)
@@ -29,4 +30,22 @@ bool UrlValidator::isValid()
         return false;
         break;
     }
+}
+
+MessageConstants::Tag UrlValidator::errorTag() const
+{
+    return MessageConstants::Critial;
+}
+
+QString UrlValidator::errorTitle() const
+{
+    return tr("Invalid Url");
+}
+
+QString UrlValidator::errorMessage() const
+{
+    if(!_input.isEmpty())
+        return tr("%1 is not a valid Url.")
+                .arg(_input);
+    return QString("");
 }

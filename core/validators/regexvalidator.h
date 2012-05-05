@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QRegExpValidator>
+#include "plus/messages/constants.h"
 
 class RegexValidator : public QObject
 {
@@ -20,6 +21,7 @@ protected:
     }
 
     virtual bool isValid() = 0;
+    virtual MessageConstants::Tag errorTag() const = 0;
     virtual QString errorTitle() const = 0;
     virtual QString errorMessage() const = 0;
 };

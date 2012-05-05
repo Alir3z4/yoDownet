@@ -13,6 +13,9 @@ public:
     }
 
     bool isValid();
+    MessageConstants::Tag errorTag() const;
+    QString errorTitle() const;
+    QString errorMessage() const;
 };
 
 #endif // URLVALIDATOR_H

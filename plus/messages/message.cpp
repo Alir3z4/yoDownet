@@ -29,3 +29,14 @@ void Message::setSysTrayIcon(SystemTrayIcon *sysTrayIcon)
 }
 
 void Message::showMessage()
+{
+    qDebug() << _messages->count();
+    if(_messages->count() > 0){
+        QString messageTitle = _messages->first().title();
+        QString messageBody = _messages->first().body();
+        MessageConstants::Tag messageTag = _messages->first().tag();
+        _messages->removeFirst();
+        _sysTrayIcon->showMessage(messageTitle, messageBody, messageTag);
+        qDebug() << messageTitle << "\n" << messageBody << " ~ " << messageTag;
+    }
+}

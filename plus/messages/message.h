@@ -17,7 +17,7 @@ public:
     void setSysTrayIcon(SystemTrayIcon *sysTrayIcon);
 
 private slots:
-    void showMessage();
+    virtual void showMessage();
 
 private:
     QQueue<BaseMessage> *_messages;

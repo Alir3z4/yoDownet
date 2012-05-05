@@ -1,6 +1,7 @@
 #include "urlvalidator.h"
 
-UrlValidator::UrlValidator(const QString &url)
+UrlValidator::UrlValidator(QObject *parent, const QString &url) :
+    RegexValidator(parent)
 {
     if(!url.isNull()) setInput(url);
 

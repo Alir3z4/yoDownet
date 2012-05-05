@@ -1,21 +1,14 @@
 #ifndef BASEMESSAGE_H
 #define BASEMESSAGE_H
 
-#include <QObject>
+#include <QString>
+#include "plus/messages/constants.h"
 
-class BaseMessage : public QObject
+class BaseMessage
 {
-    Q_OBJECT
 public:
-    explicit BaseMessage(QObject *parent = 0);
+    explicit BaseMessage();
 
-    enum Tags{
-        Debug,
-        Info,
-        Success,
-        Warning,
-        Error
-    };
 
     void setText(const QString &message);
     QString text() const;
@@ -25,7 +18,7 @@ public:
 
 private:
     QString _message;
-    Tags _tag;
+    MessageConstants::Tag _tag;
 };
 
 #endif // BASEMESSAGE_H

@@ -5,14 +5,26 @@ BaseMessage::BaseMessage()
     return;
 }
 
-void BaseMessage::setText(const QString &message)
+void BaseMessage::setTitle(const QString &title)
+{
+    _title = title;
+}
+
+QString BaseMessage::title() const
+{
+    return _title;
+}
+
+void BaseMessage::setBody(const QString &message)
 {
     _message = message;
 }
 
-QString BaseMessage::text() const
+void BaseMessage::setMessage(const QString &title, const QString &message, const MessageConstants::Tag &tag)
 {
-    return _message;
+    _title = title;
+    _message = message;
+    _tag = tag;
 }
 
 void BaseMessage::setTag(const MessageConstants::Tag &tag)
@@ -23,5 +35,10 @@ void BaseMessage::setTag(const MessageConstants::Tag &tag)
 MessageConstants::Tag BaseMessage::tag() const
 {
     return _tag;
+}
+
+QString BaseMessage::body() const
+{
+    return _message;
 }
 

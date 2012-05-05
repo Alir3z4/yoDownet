@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QQueue>
 #include "plus/messages/basemessage.h"
+#include "ui/widget/systemtrayicon.h"
 
 class Message : public QObject
 {
@@ -11,18 +12,16 @@ class Message : public QObject
 public:
     explicit Message(QObject *parent = 0);
     ~Message();
-    
-    void addMessage(const BaseMessage::Tags &tag, const QString &message);
 
-signals:
-    void newMessage();
+    void addMessage(const QString &title, const QString &message, const MessageConstants::Tag tag);
+    void setSysTrayIcon(SystemTrayIcon *sysTrayIcon);
 
 private slots:
     void showMessage();
 
 private:
-    BaseMessage *_baseMessage;
-    QQueue<BaseMessage*> *_messages;
+    QQueue<BaseMessage> *_messages;
+    SystemTrayIcon *_sysTrayIcon;
 };
 
 #endif // MESSAGE_H

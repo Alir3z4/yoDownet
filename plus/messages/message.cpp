@@ -1,28 +1,31 @@
 #include "message.h"
+#include <QTimer>
+#include <QDebug>
 
 Message::Message(QObject *parent) :
-    QObject(parent)
+    QObject(parent), _messages(new QQueue<BaseMessage>)
 {
-    _baseMessage = new BaseMessage;
-    _messages = new QQueue<BaseMessage*>;
-
-    connect(this, SIGNAL(newMessage()), SLOT(showMessage()));
+    QTimer *checkQueue = new QTimer(this);
+    connect(checkQueue, SIGNAL(timeout()), this, SLOT(showMessage()));
+    checkQueue->start(5000);
 }
 
 Message::~Message()
 {
-    delete _baseMessage;
     delete _messages;
 }
 
-void Message::addMessage(const BaseMessage::Tags &tag, const QString &message)
+void Message::addMessage(const QString &title, const QString &message, const MessageConstants::Tag tag)
 {
-    _baseMessage->setText(message);
-    _baseMessage->setTag(tag);
+    BaseMessage baseMessage;
+    baseMessage.setMessage(title, message, tag);
 
-    _messages->enqueue(_baseMessage);
-    emit newMessage();
+    _messages->enqueue(baseMessage);
+}
+
+void Message::setSysTrayIcon(SystemTrayIcon *sysTrayIcon)
+{
+    _sysTrayIcon = sysTrayIcon;
 }
 
 void Message::showMessage()
-{}

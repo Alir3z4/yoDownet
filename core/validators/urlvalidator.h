@@ -6,7 +6,7 @@
 class UrlValidator : public RegexValidator
 {
 public:
-    UrlValidator(const QString &url = NULL);
+    UrlValidator(QObject *parent = 0, const QString &url = NULL);
 
     inline void setUrl(const QString &url) {
         setInput(url);

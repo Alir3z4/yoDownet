@@ -62,6 +62,7 @@ private slots:
     void submitUrlViewChanges();
 
     void onDownloadRemoved(const QString &fileName);
+    void onDownloadResumed(const Status *status);
     void trayIconTriggered();
 
 private:

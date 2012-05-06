@@ -44,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(downloader, SIGNAL(downloadInitialed(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downloadPaused(const Status*)), this, SLOT(submitUrlViewChanges()));
     connect(downloader, SIGNAL(downlaodResumed(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
+    connect(downloader, SIGNAL(downlaodResumed(const Status*)), this, SLOT(onDownloadResumed(const Status*)));
     connect(downloader, SIGNAL(downloadUpdated(const Status*)), this, SLOT(updateUrlsTable(const Status*)));
     connect(downloader, SIGNAL(downloadRemoved(QString)), this, SLOT(onDownloadRemoved(QString)));
 
@@ -161,6 +162,10 @@ void MainWindow::updateUrlsTable(const Status *status)
         int row = ui->urlView->model()->rowCount()-1;
         ui->urlView->model()->setData(ui->urlView->model()->index(row, UrlModel::url), status->url());
 
+        _message->addMessage(
+                    tr("New Download"),
+                    tr("%1 has been successfully added ;)").arg(status->url()),
+                    MessageConstants::Success);
         submitUrlViewChanges();
     }
 }
@@ -175,11 +180,24 @@ void MainWindow::onDownloadRemoved(const QString &fileName)
     QAbstractItemModel *removeModel = ui->urlView->model();
     for(int i = 0; i < ui->urlView->model()->rowCount(); ++i){
         if(removeModel->data(removeModel->index(i, UrlModel::save_path)).toString() == fileName){
-            if(model->removeRow(i))
+            if(model->removeRow(i)){
                 submitUrlViewChanges();
+                _message->addMessage(
+                            tr("Download removed"),
+                            tr("%1 has been successfully removed.").arg(fileName),
+                            MessageConstants::Info);
+            }
             return;
         }
     }
+}
+
+void MainWindow::onDownloadResumed(const Status *status)
+{
+    _message->addMessage(
+                tr("Resume Download"),
+                tr("Resuming %1").arg(status->name()),
+                MessageConstants::Info);
 }
 
 void MainWindow::trayIconTriggered()

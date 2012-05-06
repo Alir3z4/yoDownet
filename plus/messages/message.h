@@ -22,6 +22,7 @@ private slots:
 private:
     QQueue<BaseMessage> *_messages;
     SystemTrayIcon *_sysTrayIcon;
+    QTimer *_checkQueue;
 };
 
 #endif // MESSAGE_H

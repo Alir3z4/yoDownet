@@ -20,6 +20,7 @@
 
 #include "status.h"
 #include "cmath"
+
 Status::Status(QObject *parent) :
     QObject(parent)
 {
@@ -79,6 +80,7 @@ QString Status::downloadModeString() const
 
 void Status::updateFileStatus(qint64 bytesReceived, qint64 bytesTotal)
 {
+    if(_fileAlreadyBytes == 0) _fileAlreadyBytes = 1;
     _bytesTotal = _fileAlreadyBytes+bytesTotal;
     _bytesReceived = _fileAlreadyBytes+bytesReceived;
     _progress = ((bytesReceived+_fileAlreadyBytes) * 100)/(_fileAlreadyBytes+bytesTotal);

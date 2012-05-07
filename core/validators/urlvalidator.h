@@ -8,9 +8,7 @@ class UrlValidator : public BaseValidator
 public:
     UrlValidator(QObject *parent = 0, const QString &url = NULL);
 
-    inline void setUrl(const QString &url) {
-        setInput(url);
-    }
+    void setUrl(const QString &url);
 
     bool isValid();
     MessageConstants::Tag errorTag() const;

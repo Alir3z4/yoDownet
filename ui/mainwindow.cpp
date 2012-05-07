@@ -93,7 +93,8 @@ void MainWindow::on_addAction_triggered()
     UrlDialog addUrlDialog;
     addUrlDialog.setMessageEcoSystem(_message);
     if(addUrlDialog.exec() == QDialog::Accepted)
-        downloader->addDownloads(addUrlDialog.urls());
+        if(!addUrlDialog.urls().isEmpty())
+            downloader->addDownloads(addUrlDialog.urls());
 }
 
 void MainWindow::on_pauseAction_triggered()

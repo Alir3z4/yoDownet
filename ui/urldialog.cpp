@@ -45,13 +45,13 @@ QStringList UrlDialog::urls() const
 {
     QStringList urlList;
     QString urlText = ui->urlsTextEdit->document()->toPlainText();
-    QString url;
     QTextStream textStream(&urlText);
+    QString urlLine;
     while(!textStream.atEnd()){
-        url = textStream.readLine();
-        _urlValidator->setUrl(url);
+        urlLine = textStream.readLine();
+        _urlValidator->setUrl(urlLine);
         if(_urlValidator->isValid())
-            urlList << textStream.readLine();
+            urlList << urlLine;
         else
             _message->addMessage(
                         _urlValidator->errorTitle(), _urlValidator->errorMessage(), _urlValidator->errorTag());

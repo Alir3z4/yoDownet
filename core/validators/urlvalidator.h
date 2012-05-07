@@ -1,9 +1,9 @@
 #ifndef URLVALIDATOR_H
 #define URLVALIDATOR_H
 
-#include "regexvalidator.h"
+#include "core/validators/basevalidator.h"
 
-class UrlValidator : public RegexValidator
+class UrlValidator : public BaseValidator
 {
 public:
     UrlValidator(QObject *parent = 0, const QString &url = NULL);

@@ -2,9 +2,10 @@
 #include "plus/messages/constants.h"
 
 UrlValidator::UrlValidator(QObject *parent, const QString &url) :
-    RegexValidator(parent)
+    BaseValidator(parent)
 {
     if(!url.isNull()) setInput(url);
+}
 
     // For the Record this code is copied from django.core.validators.URLValidator
     // And Also i want to say thank you to all the django [devs|community|users]

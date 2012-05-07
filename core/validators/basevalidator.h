@@ -2,18 +2,16 @@
 #define REGEXVALIDATOR_H
 
 #include <QObject>
-#include <QRegExpValidator>
 #include "plus/messages/constants.h"
 
-class RegexValidator : public QObject
+class BaseValidator : public QObject
 {
     Q_OBJECT
 public:
-    explicit RegexValidator(QObject *parent = 0);
-    ~RegexValidator();
+    explicit BaseValidator(QObject *parent = 0);
+    ~BaseValidator();
 
 protected:
-    QRegExpValidator *_regexValidator;
     QString _input;
 
     inline void setInput(const QString &input) {

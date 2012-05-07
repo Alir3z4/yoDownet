@@ -1,3 +1,7 @@
+2012-05-07 Alireza Savand <alireza.savand@gmail.com>
+    * task-#28-messaging-ecosystem: Implemented couple of class to handle messaging and communicating with user
+    * bug-#29-encoded-url-validation: any standard URI will be valid now!
+
 2012-04-29 Alireza Savand <alireza.savand@gmail.com>
     * task-#26-urls-validation: Create a couple of class to validate the entered urls.
     * task-#27-write-tests-for-UrlValidator-class: UrlValidator class well-tested somehow, but maybe the testig way will changed in the future releases.

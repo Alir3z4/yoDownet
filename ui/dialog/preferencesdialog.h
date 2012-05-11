@@ -22,10 +22,10 @@
 #define PREFERENCESDIALOG_H
 
 #include <QDialog>
-#include "prefwidget/prefdownloaderswidget.h"
-#include "prefwidget/prefdatabasewidget.h"
-#include "prefwidget/prefinterfacewidget.h"
 #include <QPushButton>
+#include "ui/prefwidget/prefdownloaderswidget.h"
+#include "ui/prefwidget/prefdatabasewidget.h"
+#include "ui/prefwidget/prefinterfacewidget.h"
 
 namespace Ui {
 class PreferencesDialog;

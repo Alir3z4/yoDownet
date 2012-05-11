@@ -20,11 +20,11 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "ui/dialog/preferencesdialog.h"
+#include "ui/dialog/urldialog.h"
+#include "ui/dialog/aboutdialog.h"
+#include "ui/dialog/reportbugdialog.h"
 #include <QSettings>
-#include "preferencesdialog.h"
-#include "urldialog.h"
-#include "aboutdialog.h"
-#include "reportbugdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

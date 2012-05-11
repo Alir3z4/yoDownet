@@ -46,7 +46,7 @@ INSTALLS += target\
 
 SOURCES += main.cpp\
         ui/mainwindow.cpp \
-    ui/preferencesdialog.cpp \
+    ui/dialog/preferencesdialog.cpp \
     ui/prefwidget/prefdownloaderswidget.cpp \
     ui/prefwidget/prefdatabasewidget.cpp \
     util/yomessage.cpp \
@@ -55,10 +55,10 @@ SOURCES += main.cpp\
     downloader/yodownet.cpp \
     util/fileinfo.cpp \
     util/status.cpp \
-    ui/urldialog.cpp \
+    ui/dialog/urldialog.cpp \
     util/urlmodel.cpp \
-    ui/aboutdialog.cpp \
-    ui/reportbugdialog.cpp \
+    ui/dialog/aboutdialog.cpp \
+    ui/dialog/reportbugdialog.cpp \
     ui/prefwidget/prefinterfacewidget.cpp \
     util/paths.cpp \
     util/languages.cpp \
@@ -69,7 +69,7 @@ SOURCES += main.cpp\
     core/validators/basevalidator.cpp
 
 HEADERS  += ui/mainwindow.h \
-    ui/preferencesdialog.h \
+    ui/dialog/preferencesdialog.h \
     ui/prefwidget/prefdownloaderswidget.h \
     ui/prefwidget/prefdatabasewidget.h \
     util/yomessage.h \
@@ -78,10 +78,10 @@ HEADERS  += ui/mainwindow.h \
     downloader/yodownet.h \
     util/fileinfo.h \
     util/status.h \
-    ui/urldialog.h \
+    ui/dialog/urldialog.h \
     util/urlmodel.h \
-    ui/aboutdialog.h \
-    ui/reportbugdialog.h \
+    ui/dialog/aboutdialog.h \
+    ui/dialog/reportbugdialog.h \
     ui/prefwidget/prefinterfacewidget.h \
     util/paths.h \
     util/languages.h \
@@ -101,13 +101,13 @@ contains(CONFIG, qtestlib){
 }
 
 FORMS    += ui/mainwindow.ui \
-    ui/preferencesdialog.ui \
+    ui/dialog/preferencesdialog.ui \
     ui/prefwidget/prefdownloaderswidget.ui \
     ui/prefwidget/prefdatabasewidget.ui \
     ui/widget/filebrowz.ui \
-    ui/urldialog.ui \
-    ui/aboutdialog.ui \
-    ui/reportbugdialog.ui \
+    ui/dialog/urldialog.ui \
+    ui/dialog/aboutdialog.ui \
+    ui/dialog/reportbugdialog.ui \
     ui/prefwidget/prefinterfacewidget.ui
 
 TRANSLATIONS += translations/yodownet_en.ts \

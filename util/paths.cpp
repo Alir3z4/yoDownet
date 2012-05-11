@@ -27,9 +27,9 @@ QString Paths::translationPath()
     return STRINGIFY(TRANSLATION_PATH);
 }
 
-QString Paths::licensePath()
+QString Paths::docPath()
 {
-    return STRINGIFY(LICENSE_PATH) + QString("/COPYING");
+    return STRINGIFY(DOC_PATH);
 }
 
 QString Paths::sqlScriptPath()

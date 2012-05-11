@@ -31,7 +31,7 @@ class Paths
 public:
 
     static QString translationPath();
-    static QString licensePath();
+    static QString docPath();
     static QString sqlScriptPath();
     static QString saveDir();
 };

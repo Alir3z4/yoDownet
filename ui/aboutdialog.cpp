@@ -30,7 +30,7 @@ AboutDialog::AboutDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QFile licenseFile(Paths::licensePath());
+    QFile licenseFile(Paths::docPath() + "/COPYING");
     licenseFile.open(QIODevice::ReadOnly | QIODevice::Text);
     QTextStream in(&licenseFile);
 

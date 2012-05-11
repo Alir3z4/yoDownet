@@ -9,53 +9,35 @@ QT += core gui sql network
 TARGET = yoDownet
 TEMPLATE = app
 
-DEFINES +=TRANSLATION_PATH=$${TRANSLATION_PATH}
-DEFINES +=LICENSE_PATH=$${LICENSE_PATH}
-DEFINES +=SQLSCRIPT_PATH=$${SQLSCRIPT_PATH}
-
-REQUIRED_MSG = is required :|
-
-isEmpty(TRANSLATION_PATH){
-    error(TRANSLATION_PATH $$REQUIRED_MSG)
-}
-isEmpty(LICENSE_PATH){
-    error(LICENSE_PATH $$REQUIRED_MSG)
-}
-isEmpty(SQLSCRIPT_PATH){
-    error(SQLSCRIPT_PATH $$REQUIRED_MSG)
-}
-
-for(define, DEFINES){
-    message($$define)
-}
-
 unix{
+    DEFINES += PREFIX=$${PREFIX}
+    isEmpty(PREFIX){
+        message(The PREFIX is empty. So the default value will be used.)
+        PREFIX=/usr
+        message(PREFIX defined as $$PREFIX)
+    }
 
-    target.path = /usr/bin
-
-    images.path = /usr/share/pixmaps
-    images.files = resource/images/*
-
-    desktop.path = /usr/share/applications
-    desktop.files = installers/yoDownet.desktop
-
-    doc.path = /usr/share/doc/yodownet
-    doc.files = doc/ChangeLog
+    target.path = $$PREFIX/bin
+    translations.path = $$PREFIX/share/yodownet/translations/
+    sqlscript.path = $$PREFIX/share/yodownet/translations/
+    images.path = $$PREFIX/share/pixmaps
+    desktop.path = $$PREFIX/share/applications
+    doc.path = $$PREFIX/share/doc/yodownet
 }
 
-license.path = $$LICENSE_PATH
-license.files = doc/COPYING
-
-translations.path = $$TRANSLATION_PATH
+images.files = resource/images/*
+desktop.files = installers/yoDownet.desktop
+doc.files = doc/*
 translations.files = translations/*.qm
-
-sqlscript.path = $$SQLSCRIPT_PATH
 sqlscript.files = resource/sql/*
+
+DEFINES += TRANSLATION_PATH=$$translations.path
+DEFINES += SQLSCRIPT_PATH=$$sqlscript.path
+DEFINES += DOC_PATH=$$doc.path
 
 INSTALLS += target\
     images \
     desktop \
-    license \
     doc \
     translations \
     sqlscript

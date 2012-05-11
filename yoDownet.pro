@@ -27,7 +27,7 @@ unix{
 
 images.files = resource/images/*
 desktop.files = installers/yoDownet.desktop
-doc.files = doc/*
+doc.files = doc/C*
 translations.files = translations/*.qm
 sqlscript.files = resource/sql/*
 

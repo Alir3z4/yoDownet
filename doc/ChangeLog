@@ -1,3 +1,7 @@
+2012-05-11 Alireza Savand <alireza.savand@gmail.com>
+    * task-#30-clean-installation: make installation cleaner and more simple.
+    * task-#31-project-dir-restructure: move dialogs to dialog dir ;)
+
 2012-05-07 Alireza Savand <alireza.savand@gmail.com>
     * task-#28-messaging-ecosystem: Implemented couple of class to handle messaging and communicating with user
     * bug-#29-encoded-url-validation: any standard URI will be valid now!

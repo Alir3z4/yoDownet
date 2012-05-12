@@ -19,7 +19,7 @@ unix{
 
     target.path = $$PREFIX/bin
     translations.path = $$PREFIX/share/yodownet/translations/
-    sqlscript.path = $$PREFIX/share/yodownet/translations/
+    sqlscript.path = $$PREFIX/share/yodownet/resource/sql/
     images.path = $$PREFIX/share/pixmaps
     desktop.path = $$PREFIX/share/applications
     doc.path = $$PREFIX/share/doc/yodownet

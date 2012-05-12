@@ -23,11 +23,13 @@ unix{
     images.path = $$PREFIX/share/pixmaps
     desktop.path = $$PREFIX/share/applications
     doc.path = $$PREFIX/share/doc/yodownet
+    license = $$PREFIX/share/licenses/yodownet/
 }
 
 images.files = resource/images/*
 desktop.files = installers/yoDownet.desktop
 doc.files = doc/C*
+license = doc/COPYING
 translations.files = translations/*.qm
 sqlscript.files = resource/sql/*
 
@@ -39,6 +41,7 @@ INSTALLS += target\
     images \
     desktop \
     doc \
+    license \
     translations \
     sqlscript
 

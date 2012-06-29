@@ -74,3 +74,13 @@ bool yoDataBase::removeDB(const QSqlDatabase &removeDb)
     removeDb.removeDatabase(removeDb.connectionName());
     return true;
 }
+
+int yoDataBase::lastInsertedID() const
+{
+    return _lastInsertedId;
+}
+
+void yoDataBase::setLastInsertedId(const int lastId)
+{
+    _lastInsertedId = lastId;
+}

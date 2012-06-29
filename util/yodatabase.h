@@ -49,9 +49,7 @@ public:
 
     const QSqlError initDb();
     bool removeDB(const QSqlDatabase &db);
-
-    // [inlines]
-    inline int lastInsertedID() const { return _lastInsertedId; }
+    int lastInsertedID() const;
 
 signals:
     void databaseFailed(const QString &errorMsg, const QString &action);
@@ -59,9 +57,7 @@ signals:
 private:
     int _lastInsertedId;
 
-    // [inlines]
-    inline void setLastInsertedId(const int lastId) { _lastInsertedId = lastId; }
-    
+    void setLastInsertedId(const int lastId);
 };
 
 #endif // YODATABASE_H

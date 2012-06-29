@@ -38,7 +38,8 @@ QVariant UrlModel::data(const QModelIndex &idx, int role) const
     QVariant value = QSqlTableModel::data(idx, role);
     if(role == Qt::TextAlignmentRole) return Qt::AlignCenter;
     if(value.isValid() && role == Qt::DisplayRole){
-        if(idx.column() == progress)
+        if(idx.column() == progress){
+            if(value.toInt() >= 100) value = 100;
             return value.toString().append("%");
         else if(idx.column() == status)
             return downloadStatus(value.toInt());

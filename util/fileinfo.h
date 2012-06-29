@@ -29,17 +29,6 @@ class FileInfo : public QObject
 public:
     explicit FileInfo(QObject *parent = 0);
 
-
-    // [inlines]
-
-
-public slots:
-
-private:
-
-
-    // [inlines]
-
 };
 
 #endif // FILEINFO_H

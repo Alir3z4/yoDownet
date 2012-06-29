@@ -78,6 +78,11 @@ QString Status::downloadModeString() const
     return QString();
 }
 
+void Status::setUrl(const QString &url)
+{
+    _url = url;
+}
+
 void Status::updateFileStatus(qint64 bytesReceived, qint64 bytesTotal)
 {
     if(_fileAlreadyBytes == 0) _fileAlreadyBytes = 1;
@@ -91,4 +96,74 @@ void Status::startTime()
 {
     _startTime = new QTime();
     _startTime->start();
+}
+
+void Status::setName(const QString &name)
+{
+    _name = name;
+}
+
+QString Status::name() const
+{
+    return _name;
+}
+
+void Status::setPath(const QString &path)
+{
+    _path = path;
+}
+
+QString Status::path() const
+{
+    return _path;
+}
+
+void Status::setFileAlreadyBytes(const qint64 fileAlreadyBytes)
+{
+    _fileAlreadyBytes = fileAlreadyBytes;
+}
+
+void Status::setBytesTotal(const qint64 totalLength)
+{
+    _bytesTotal = totalLength;
+}
+
+qint64 Status::bytesTotal() const
+{
+    return _bytesTotal;
+}
+
+void Status::setBytesReceived(const qint64 completedLength)
+{
+    _bytesReceived = completedLength;
+}
+
+qint64 Status::bytesReceived() const
+{
+    return _bytesReceived;
+}
+
+int Status::progress() const
+{
+    return _progress;
+}
+
+void Status::setDownloadMode(const Status::DownloadMode dlMode)
+{
+    _dlMode = dlMode;
+}
+
+Status::DownloadMode Status::downloadMode() const
+{
+    return _dlMode;
+}
+
+void Status::setDownloadStatus(const Status::DownloadStatus dlStatus)
+{
+    _dlStatus = dlStatus;
+}
+
+Status::DownloadStatus Status::downloadStatus() const
+{
+    return _dlStatus;
 }

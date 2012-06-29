@@ -27,3 +27,8 @@ BaseValidator::BaseValidator(QObject *parent) :
 BaseValidator::~BaseValidator()
 {
 }
+
+void BaseValidator::setInput(const QString &input)
+{
+    _input = input;
+}

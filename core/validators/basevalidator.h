@@ -34,7 +34,7 @@ public:
 protected:
     QString _input;
 
-    inline void setInput(const QString &input);
+    void setInput(const QString &input);
 
     virtual bool isValid() = 0;
     virtual MessageConstants::Tag errorTag() const = 0;

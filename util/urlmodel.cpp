@@ -36,8 +36,7 @@ UrlModel::UrlModel(QObject *parent) :
 QVariant UrlModel::data(const QModelIndex &idx, int role) const
 {
     QVariant value = QSqlTableModel::data(idx, role);
-    if(role == Qt::TextAlignmentRole)
-        return Qt::AlignCenter;
+    if(role == Qt::TextAlignmentRole) return Qt::AlignCenter;
     if(value.isValid() && role == Qt::DisplayRole){
         if(idx.column() == progress)
             return value.toString().append("%");

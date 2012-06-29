@@ -41,8 +41,11 @@ QVariant UrlModel::data(const QModelIndex &idx, int role) const
         if(idx.column() == progress){
             if(value.toInt() >= 100) value = 100;
             return value.toString().append("%");
-        else if(idx.column() == status)
+        }else if(idx.column() == status){
+            int prNum = idx.sibling(idx.row(), 5).data().toString().remove("%").toInt();
+            if(prNum >= 100) return downloadStatus(3);
             return downloadStatus(value.toInt());
+        }
     }
     return value;
 }

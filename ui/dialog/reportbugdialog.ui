@@ -11,10 +11,12 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>yodownet : Submit Bug Report</string>
+   <string>yoDownet : Submit Bug Report</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="tools-report-bug"/>
+   <iconset theme="tools-report-bug">
+    <normaloff/>
+   </iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="3">
@@ -57,7 +59,9 @@ To submit a bug report. click on the button below. This will open a web browser 
       <string>Okay, Let's Submit And Contribute</string>
      </property>
      <property name="icon">
-      <iconset theme="tools-report-bug"/>
+      <iconset theme="tools-report-bug">
+       <normaloff/>
+      </iconset>
      </property>
     </widget>
    </item>
@@ -67,7 +71,9 @@ To submit a bug report. click on the button below. This will open a web browser 
       <string>&amp;Close</string>
      </property>
      <property name="icon">
-      <iconset theme="dialog-close"/>
+      <iconset theme="dialog-close">
+       <normaloff/>
+      </iconset>
      </property>
     </widget>
    </item>

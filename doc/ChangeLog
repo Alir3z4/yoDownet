@@ -1,3 +1,13 @@
+0000-00-00 Alireza Savand <alireza.savand@gmail.com>
+    * Fixed sqlscript.path to installed in correct path.
+    * Fixed the +100 and weird progress.
+    * Fixed some bugs on the url table at MainWindow.
+    * remove unused stuf.
+    * Removed the inline function and replaced with normal function.
+    * Comment unused languages.
+    * Updated About Dialog.
+    * Language files updated, and alot of unused translatable string removed.
+
 2012-05-11 Alireza Savand <alireza.savand@gmail.com>
     * task-#30-clean-installation: make installation cleaner and more simple.
     * task-#31-project-dir-restructure: move dialogs to dialog dir ;)

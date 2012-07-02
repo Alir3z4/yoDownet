@@ -35,9 +35,14 @@ AboutDialog::AboutDialog(QWidget *parent) :
     QTextStream in(&licenseFile);
 
     ui->licenseTextEdit->setPlainText(in.readAll());
-
-    ui->versionLabel->setText(tr("Version %1").arg(qApp->applicationVersion()));
-    ui->qtVersionLabel->setText(tr("Based on Qt %1").arg(qVersion()));
+    ui->descriptionLabel->setText(tr(
+                "<b>Version: %1</b>\n"
+                "Based on Qt %2\n\n\n"
+                "yoDownet, The Previous Generation Graphical Download Manager.\n"
+                "yoDownet uses Qt toolkit for both front-end and back-end implementation!\n\n\n"
+                "Copyright (C) 2011-2012 by Alireza Savand\nhttp://sourceforge.net/projects/yodownet/\n")
+                                 .arg(qApp->applicationVersion())
+                                 .arg(qVersion()));
 }
 
 AboutDialog::~AboutDialog()

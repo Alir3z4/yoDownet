@@ -418,23 +418,23 @@ If your database is not already set up you can use the following SQL commands (a
     <name>ReportBugDialog</name>
     <message>
         <location filename="../ui/dialog/reportbugdialog.ui" line="14"/>
-        <source>yodownet : Submit Bug Report</source>
+        <source>yoDownet : Submit Bug Report</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dialog/reportbugdialog.ui" line="29"/>
+        <location filename="../ui/dialog/reportbugdialog.ui" line="31"/>
         <source>&lt;b&gt;Submit Bug Report&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
 To submit a bug report. click on the button below. This will open a web browser windows on &lt;a href=&quot;https://sourceforge.net/p/yodownet/tickets/&quot;&gt;ticket system&lt;/a&gt; where you will find a form to fill in.&lt;br /&gt;But for submit a bug you need to register on &lt;a href=&quot;https://sourceforge.net&quot;&gt;Sourceforge&lt;/a&gt; where yoDownet hosted.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dialog/reportbugdialog.ui" line="57"/>
+        <location filename="../ui/dialog/reportbugdialog.ui" line="59"/>
         <source>Okay, Let&apos;s Submit And Contribute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dialog/reportbugdialog.ui" line="67"/>
+        <location filename="../ui/dialog/reportbugdialog.ui" line="71"/>
         <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>

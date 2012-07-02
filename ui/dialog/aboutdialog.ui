@@ -14,7 +14,7 @@
    <string>yoDownet : About</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resource/icons.qrc">
+   <iconset resource="../../resource/icons.qrc">
     <normaloff>:/icons/images/yoDownet_64.svg</normaloff>:/icons/images/yoDownet_64.svg</iconset>
   </property>
   <layout class="QGridLayout" name="AboutDialogGridLayout">

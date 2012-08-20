@@ -51,7 +51,6 @@ SOURCES += main.cpp\
         ui/mainwindow.cpp \
     ui/dialog/preferencesdialog.cpp \
     ui/prefwidget/prefdownloaderswidget.cpp \
-    ui/prefwidget/prefdatabasewidget.cpp \
     util/yomessage.cpp \
     ui/widget/filebrowz.cpp \
     util/yodatabase.cpp \
@@ -74,7 +73,6 @@ SOURCES += main.cpp\
 HEADERS  += ui/mainwindow.h \
     ui/dialog/preferencesdialog.h \
     ui/prefwidget/prefdownloaderswidget.h \
-    ui/prefwidget/prefdatabasewidget.h \
     util/yomessage.h \
     ui/widget/filebrowz.h \
     util/yodatabase.h \

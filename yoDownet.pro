@@ -49,7 +49,6 @@ SOURCES += main.cpp\
     ui/prefwidget/prefdownloaderswidget.cpp \
     util/yomessage.cpp \
     ui/widget/filebrowz.cpp \
-    util/yodatabase.cpp \
     downloader/yodownet.cpp \
     util/fileinfo.cpp \
     util/status.cpp \
@@ -71,7 +70,6 @@ HEADERS  += ui/mainwindow.h \
     ui/prefwidget/prefdownloaderswidget.h \
     util/yomessage.h \
     ui/widget/filebrowz.h \
-    util/yodatabase.h \
     downloader/yodownet.h \
     util/fileinfo.h \
     util/status.h \

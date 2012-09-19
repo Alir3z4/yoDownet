@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT += core gui sql network
+QT += core gui network
 
 TARGET = yoDownet
 TEMPLATE = app
@@ -19,7 +19,6 @@ unix{
 
     target.path = $$PREFIX/bin
     translations.path = $$PREFIX/share/yodownet/translations/
-    sqlscript.path = $$PREFIX/share/yodownet/resource/sql/
     images.path = $$PREFIX/share/pixmaps
     desktop.path = $$PREFIX/share/applications
     doc.path = $$PREFIX/share/doc/yodownet
@@ -31,10 +30,8 @@ desktop.files = installers/yoDownet.desktop
 doc.files = doc/C*
 license = doc/COPYING
 translations.files = translations/*.qm
-sqlscript.files = resource/sql/*
 
 DEFINES += TRANSLATION_PATH=$$translations.path
-DEFINES += SQLSCRIPT_PATH=$$sqlscript.path
 DEFINES += DOC_PATH=$$doc.path
 
 INSTALLS += target\
@@ -42,8 +39,7 @@ INSTALLS += target\
     desktop \
     doc \
     license \
-    translations \
-    sqlscript
+    translations
 
 #QMAKE_CXXFLAGS += -std=c++0x
 
@@ -119,10 +115,7 @@ OTHER_FILES += \
     LicenseTemplate \
     installers/archlinux/PKGBUILD \
     resource/images/yoDownet_64.svg \
-    doc/ChangeLog \
-    resource/sql/sqlite_0.sql \
-    resource/sql/sqlite_1.sql \
-    resource/sql/sqlite_2.sql
+    doc/ChangeLog
 
 RESOURCES += \
     resource/icons.qrc

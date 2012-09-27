@@ -28,8 +28,7 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow),
-    db(new yoDataBase(parent)), model(new UrlModel(parent)),
+    ui(new Ui::MainWindow),model(new UrlModel(parent)),
     downloader(new yoDownet(parent)), _message(new Message(parent))
 {
     ui->setupUi(this);
@@ -56,7 +55,6 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete db;
     delete model;
     delete downloader;
     delete _trayIcon;

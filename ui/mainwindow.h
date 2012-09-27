@@ -24,7 +24,6 @@
 #include <QMainWindow>
 #include <QTableWidgetItem>
 #include <QCloseEvent>
-#include "util/yodatabase.h"
 #include "util/urlmodel.h"
 #include "plus/messages/message.h"
 #include "ui/widget/systemtrayicon.h"
@@ -67,7 +66,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    yoDataBase *db;
     SystemTrayIcon *_trayIcon;
     QMenu *_trayMenu;
     UrlModel *model;

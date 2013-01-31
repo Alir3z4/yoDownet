@@ -123,9 +123,9 @@ QString Status::path() const
     return _path;
 }
 
-void Status::setUuid()
+void Status::setUuid(const QUuid &uuid)
 {
-    _uuid = QUuid::createUuid();
+    _uuid = uuid;
 }
 
 QUuid Status::uuid() const

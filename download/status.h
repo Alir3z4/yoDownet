@@ -59,7 +59,7 @@ public:
     void setPath(const QString &path);
     QString path() const;
 
-    void setUuid();
+    void setUuid(const QUuid &uuid=QUuid::createUuid());
     QUuid uuid() const;
 
     QList<File*> files();
@@ -99,7 +99,6 @@ private:
     DownloadMode _dlMode;
     DownloadStatus _dlStatus;
 
-    
 };
 
 #endif // STATUS_H

@@ -63,7 +63,8 @@ SOURCES += main.cpp\
     core/validators/urlvalidator.cpp \
     plus/messages/basemessage.cpp \
     plus/messages/message.cpp \
-    core/validators/basevalidator.cpp
+    core/validators/basevalidator.cpp \
+    download/download.cpp
 
 HEADERS  += ui/mainwindow.h \
     ui/dialog/preferencesdialog.h \
@@ -85,7 +86,8 @@ HEADERS  += ui/mainwindow.h \
     plus/messages/basemessage.h \
     plus/messages/message.h \
     plus/messages/constants.h \
-    core/validators/basevalidator.h
+    core/validators/basevalidator.h \
+    download/download.h
 
 contains(CONFIG, qtestlib){
     DEFINES += TESTING

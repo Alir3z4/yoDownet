@@ -23,6 +23,7 @@
 
 #include <QObject>
 #include <QTime>
+#include <QUuid>
 
 class Status : public QObject
 {
@@ -54,6 +55,9 @@ public:
     QString name() const;
     void setPath(const QString &path);
     QString path() const;
+
+    void setUuid();
+    QUuid uuid() const;
     void setFileAlreadyBytes(const qint64 fileAlreadyBytes);
     void setBytesTotal(const qint64 totalLength);
     qint64 bytesTotal() const;
@@ -74,6 +78,7 @@ private:
     QString _remainingTime;
     QString _name;
     QString _path;
+    QUuid _uuid;
     qint64 _fileAlreadyBytes;
     qint64 _bytesTotal;
     qint64 _bytesReceived;

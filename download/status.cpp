@@ -123,6 +123,16 @@ QString Status::path() const
     return _path;
 }
 
+void Status::setUuid()
+{
+    _uuid = QUuid::createUuid();
+}
+
+QUuid Status::uuid() const
+{
+    return _uuid;
+}
+
 void Status::setFileAlreadyBytes(const qint64 fileAlreadyBytes)
 {
     _fileAlreadyBytes = fileAlreadyBytes;

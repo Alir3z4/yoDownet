@@ -24,6 +24,7 @@
 #include <QObject>
 #include <QTime>
 #include <QUuid>
+#include "download/file.h"
 
 class Status : public QObject
 {
@@ -51,21 +52,30 @@ public:
 
     void setUrl(const QString &url);
     QString url() const;
+
     void setName(const QString &name);
     QString name() const;
+
     void setPath(const QString &path);
     QString path() const;
 
     void setUuid();
     QUuid uuid() const;
+
+    QList<File*> files();
+
     void setFileAlreadyBytes(const qint64 fileAlreadyBytes);
     void setBytesTotal(const qint64 totalLength);
+
     qint64 bytesTotal() const;
     void setBytesReceived(const qint64 completedLength);
+
     qint64 bytesReceived() const;
     int progress() const;
+
     void setDownloadMode(const DownloadMode dlMode);
     DownloadMode downloadMode() const;
+
     void setDownloadStatus(const DownloadStatus dlStatus);
     DownloadStatus downloadStatus() const;
 
@@ -79,6 +89,7 @@ private:
     QString _name;
     QString _path;
     QUuid _uuid;
+    QList<File*> _files;
     qint64 _fileAlreadyBytes;
     qint64 _bytesTotal;
     qint64 _bytesReceived;

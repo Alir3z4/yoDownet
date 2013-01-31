@@ -133,6 +133,11 @@ QUuid Status::uuid() const
     return _uuid;
 }
 
+QList<File *> Status::files()
+{
+    return _files;
+}
+
 void Status::setFileAlreadyBytes(const qint64 fileAlreadyBytes)
 {
     _fileAlreadyBytes = fileAlreadyBytes;

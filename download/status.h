@@ -33,6 +33,8 @@ class Status : public QObject
     Q_PROPERTY(QString path READ path WRITE setPath)
     Q_PROPERTY(QString name READ name WRITE setName)
     Q_PROPERTY(QUuid uuid READ uuid WRITE setUuid)
+    Q_ENUMS(DownloadMode)
+    Q_ENUMS(DownloadStatus)
 
 public:
     explicit Status(QObject *parent = 0);

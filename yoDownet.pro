@@ -51,7 +51,6 @@ SOURCES += main.cpp\
     ui/widget/filebrowz.cpp \
     downloader/yodownet.cpp \
     util/fileinfo.cpp \
-    util/status.cpp \
     ui/dialog/urldialog.cpp \
     util/urlmodel.cpp \
     ui/dialog/aboutdialog.cpp \
@@ -66,7 +65,8 @@ SOURCES += main.cpp\
     core/validators/basevalidator.cpp \
     download/download.cpp \
     download/uri.cpp \
-    download/file.cpp
+    download/file.cpp \
+    download/status.cpp
 
 HEADERS  += ui/mainwindow.h \
     ui/dialog/preferencesdialog.h \
@@ -75,7 +75,6 @@ HEADERS  += ui/mainwindow.h \
     ui/widget/filebrowz.h \
     downloader/yodownet.h \
     util/fileinfo.h \
-    util/status.h \
     ui/dialog/urldialog.h \
     util/urlmodel.h \
     ui/dialog/aboutdialog.h \
@@ -91,7 +90,8 @@ HEADERS  += ui/mainwindow.h \
     core/validators/basevalidator.h \
     download/download.h \
     download/uri.h \
-    download/file.h
+    download/file.h \
+    download/status.h
 
 contains(CONFIG, qtestlib){
     DEFINES += TESTING

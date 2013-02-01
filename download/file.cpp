@@ -34,3 +34,13 @@ QFile *File::file()
 {
     return _file;
 }
+
+void File::setPath(const QString &path)
+{
+    _path = path;
+}
+
+QString File::path() const
+{
+    return _path;
+}

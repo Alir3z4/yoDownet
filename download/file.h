@@ -33,8 +33,12 @@ public:
     void setFile(QFile *file);
     QFile *file();
 
+    void setPath(const QString &path);
+    QString path() const;
+
 private:
     QFile *_file;
+    QString _path;
 };
 
 #endif // FILE_H

@@ -29,6 +29,7 @@ yoDownet::yoDownet(QObject *parent) :
 }
 void yoDownet::addDownload(const QString &url)
 {
+    //TODO: The entire method have to be done in Download class.
     QUrl tempUrl(url);
     QFileInfo fInfo(tempUrl.path());
     QString fileName = fInfo.fileName();

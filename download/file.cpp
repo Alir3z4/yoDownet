@@ -44,3 +44,13 @@ QString File::path() const
 {
     return _path;
 }
+
+void File::setCompletedLength(const int &completedLength)
+{
+    _completedLength = completedLength;
+}
+
+int File::completedLength() const
+{
+    return _completedLength;
+}

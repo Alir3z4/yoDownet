@@ -36,9 +36,13 @@ public:
     void setPath(const QString &path);
     QString path() const;
 
+    void setCompletedLength(const int &completedLength);
+    int completedLength() const;
+
 private:
     QFile *_file;
     QString _path;
+    int _completedLength;
 };
 
 #endif // FILE_H

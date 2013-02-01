@@ -27,6 +27,10 @@
 class File : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QFile *file READ file WRITE setFile)
+    Q_PROPERTY(QString path READ path WRITE setPath)
+    Q_PROPERTY(int completedLength READ completedLength WRITE setCompletedLength)
+
 public:
     explicit File(QObject *parent = 0);
 

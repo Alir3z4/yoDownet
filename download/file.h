@@ -22,12 +22,19 @@
 #define FILE_H
 
 #include <QObject>
+#include <QFile>
 
 class File : public QObject
 {
     Q_OBJECT
 public:
     explicit File(QObject *parent = 0);
+
+    void setFile(QFile *file);
+    QFile *file();
+
+private:
+    QFile *_file;
 };
 
 #endif // FILE_H

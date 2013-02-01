@@ -24,3 +24,13 @@ File::File(QObject *parent) :
     QObject(parent)
 {
 }
+
+void File::setFile(QFile *file)
+{
+    _file = file;
+}
+
+QFile *File::file()
+{
+    return _file;
+}

@@ -22,17 +22,21 @@
 #define DOWNLOAD_H
 
 #include <QObject>
+#include <QUuid>
 
 class Download : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QUuid uuid READ uuid WRITE setUuid)
+
 public:
     explicit Download(QObject *parent = 0);
-    
-signals:
-    
-public slots:
-    
+
+    void setUuid(const QUuid &uuid=QUuid::createUuid());
+    QUuid uuid() const;
+
+private:
+    QUuid _uuid;
 };
 
 #endif // DOWNLOAD_H

@@ -29,10 +29,8 @@
 class Status : public QObject
 {
     Q_OBJECT
-
     Q_PROPERTY(QString path READ path WRITE setPath)
     Q_PROPERTY(QString name READ name WRITE setName)
-    Q_PROPERTY(QUuid uuid READ uuid WRITE setUuid)
     Q_ENUMS(DownloadMode)
     Q_ENUMS(DownloadStatus)
 
@@ -66,9 +64,6 @@ public:
     void setPath(const QString &path);
     QString path() const;
 
-    void setUuid(const QUuid &uuid=QUuid::createUuid());
-    QUuid uuid() const;
-
     QList<File*> files() const;
 
     void setFileAlreadyBytes(const qint64 fileAlreadyBytes);
@@ -95,7 +90,6 @@ private:
     QString _remainingTime;
     QString _name;
     QString _path;
-    QUuid _uuid;
     QList<File*> _files;
     qint64 _fileAlreadyBytes;
     qint64 _bytesTotal;

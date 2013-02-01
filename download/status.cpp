@@ -123,16 +123,6 @@ QString Status::path() const
     return _path;
 }
 
-void Status::setUuid(const QUuid &uuid)
-{
-    _uuid = uuid;
-}
-
-QUuid Status::uuid() const
-{
-    return _uuid;
-}
-
 QList<File *> Status::files() const
 {
     return _files;

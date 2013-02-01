@@ -24,3 +24,13 @@ Download::Download(QObject *parent) :
     QObject(parent)
 {
 }
+
+void Download::setUuid(const QUuid &uuid)
+{
+    _uuid = uuid;
+}
+
+QUuid Download::uuid() const
+{
+    return _uuid;
+}

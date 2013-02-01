@@ -28,11 +28,6 @@ class File : public QObject
     Q_OBJECT
 public:
     explicit File(QObject *parent = 0);
-    
-signals:
-    
-public slots:
-    
 };
 
 #endif // FILE_H

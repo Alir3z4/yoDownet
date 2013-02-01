@@ -69,7 +69,7 @@ public:
     void setUuid(const QUuid &uuid=QUuid::createUuid());
     QUuid uuid() const;
 
-    QList<File*> files();
+    QList<File*> files() const;
 
     void setFileAlreadyBytes(const qint64 fileAlreadyBytes);
     void setBytesTotal(const qint64 totalLength);

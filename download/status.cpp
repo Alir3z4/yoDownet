@@ -133,7 +133,7 @@ QUuid Status::uuid() const
     return _uuid;
 }
 
-QList<File *> Status::files()
+QList<File *> Status::files() const
 {
     return _files;
 }

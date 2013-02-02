@@ -22,8 +22,8 @@
 #include "util/paths.h"
 
 yoDownet::yoDownet(QObject *parent) :
-    QObject(parent), downloads(new QHash<QNetworkReply*, QFile*>),
-    statusHash( new QHash<QUrl, Status*>)
+    QObject(parent), _downloads(new QHash<QNetworkReply*, QFile*>),
+    _statusHash( new QHash<QUrl, Status*>)
 {
     connect(this, SIGNAL(fileReadyToRemove(QFile*)), this, SLOT(removeFile(QFile*)));
 }
@@ -70,11 +70,11 @@ void yoDownet::addDownloads(const QStringList &urls)
 
 void yoDownet::pauseDownload(const QString &url)
 {
-    QHash<QNetworkReply*, QFile*>::iterator i = downloads->begin();
-    while(i != downloads->end()){
+    QHash<QNetworkReply*, QFile*>::iterator i = _downloads->begin();
+    while(i != _downloads->end()){
         if(i.key()->url().toString() == url){
             i.value()->write(i.key()->readAll());
-            Status *status = statusHash->find(i.key()->url()).value();
+            Status *status = _statusHash->find(i.key()->url()).value();
             status->setDownloadStatus(Status::Paused);
             emit downloadPaused(status);
             i.key()->close();
@@ -92,13 +92,13 @@ void yoDownet::pauseDownloads(const QStringList &urls)
 
 void yoDownet::removeDownload(const QString &filePath)
 {
-    if(downloads->isEmpty()){
+    if(_downloads->isEmpty()){
         emit fileReadyToRemove(new QFile(filePath));
         return;
     }
-    foreach(QFile *file, downloads->values()){
+    foreach(QFile *file, _downloads->values()){
         if(file->fileName() == filePath){
-            QNetworkReply *reply = downloads->key(file);
+            QNetworkReply *reply = _downloads->key(file);
             emit pauseDownload(reply->url().toString());
             emit fileReadyToRemove(file);
             break;
@@ -115,8 +115,8 @@ void yoDownet::removeDownloads(const QStringList &files)
 
 void yoDownet::replyMetaDataChanged(QObject *currentReply)
 {
-    QHash<QNetworkReply*, QFile*>::iterator i = downloads->find(qobject_cast<QNetworkReply*>(currentReply));
-    Status *status = statusHash->find(i.key()->url()).value();
+    QHash<QNetworkReply*, QFile*>::iterator i = _downloads->find(qobject_cast<QNetworkReply*>(currentReply));
+    Status *status = _statusHash->find(i.key()->url()).value();
     status->setBytesTotal(i.key()->header(QNetworkRequest::ContentLengthHeader).toULongLong());
 }
 
@@ -127,13 +127,13 @@ void yoDownet::startRequest(const QUrl &url)
 
     _status->setFileAlreadyBytes(_file->size());
 
-    _reply = manager.get(request);
+    _reply = _manager.get(request);
 
     _status->setUrl(url.toString());
     _status->setDownloadStatus(Status::Starting);
 
-    QHash<QNetworkReply*, QFile*>::iterator i = downloads->insert( _reply, _file);
-    QHash<QUrl, Status*>::iterator statusIt = statusHash->insert(i.key()->url(), _status);
+    QHash<QNetworkReply*, QFile*>::iterator i = _downloads->insert( _reply, _file);
+    QHash<QUrl, Status*>::iterator statusIt = _statusHash->insert(i.key()->url(), _status);
 
     if(statusIt.value()->downloadMode() == Status::NewDownload){
         emit downloadInitialed(statusIt.value());
@@ -142,28 +142,28 @@ void yoDownet::startRequest(const QUrl &url)
         emit downlaodResumed(statusIt.value());
     }
 
-    readyReadSignalMapper = new QSignalMapper(this);
-    metaChangedSignalMapper = new QSignalMapper(this);
-    finishedSignalMapper = new QSignalMapper(this);
+    _readyReadSignalMapper = new QSignalMapper(this);
+    _metaChangedSignalMapper = new QSignalMapper(this);
+    _finishedSignalMapper = new QSignalMapper(this);
 
-    readyReadSignalMapper->setMapping(i.key(), i.key());
-    metaChangedSignalMapper->setMapping(i.key(), i.key());
-    finishedSignalMapper->setMapping(i.key(), i.key());
+    _readyReadSignalMapper->setMapping(i.key(), i.key());
+    _metaChangedSignalMapper->setMapping(i.key(), i.key());
+    _finishedSignalMapper->setMapping(i.key(), i.key());
 
-    connect(i.key(), SIGNAL(readyRead()), readyReadSignalMapper, SLOT(map()));
-    connect(i.key(), SIGNAL(metaDataChanged()), metaChangedSignalMapper, SLOT(map()));
-    connect(i.key(), SIGNAL(finished()), finishedSignalMapper, SLOT(map()));
+    connect(i.key(), SIGNAL(readyRead()), _readyReadSignalMapper, SLOT(map()));
+    connect(i.key(), SIGNAL(metaDataChanged()), _metaChangedSignalMapper, SLOT(map()));
+    connect(i.key(), SIGNAL(finished()), _finishedSignalMapper, SLOT(map()));
     connect(i.key(), SIGNAL(downloadProgress(qint64,qint64)), statusIt.value(),  SLOT(updateFileStatus(qint64,qint64)));
 
-    connect(readyReadSignalMapper, SIGNAL(mapped(QObject*)), this, SLOT(httpReadyRead(QObject*)));
-    connect(metaChangedSignalMapper, SIGNAL(mapped(QObject*)), this, SLOT(replyMetaDataChanged(QObject*)));
-    connect(finishedSignalMapper, SIGNAL(mapped(QObject*)), this, SLOT(httpFinished(QObject*)));
+    connect(_readyReadSignalMapper, SIGNAL(mapped(QObject*)), this, SLOT(httpReadyRead(QObject*)));
+    connect(_metaChangedSignalMapper, SIGNAL(mapped(QObject*)), this, SLOT(replyMetaDataChanged(QObject*)));
+    connect(_finishedSignalMapper, SIGNAL(mapped(QObject*)), this, SLOT(httpFinished(QObject*)));
 }
 
 void yoDownet::httpReadyRead(QObject *currentReply)
 {
-    QHash<QNetworkReply*, QFile*>::iterator i = downloads->find(qobject_cast<QNetworkReply*>(currentReply));
-    Status *status = statusHash->find(i.key()->url()).value();
+    QHash<QNetworkReply*, QFile*>::iterator i = _downloads->find(qobject_cast<QNetworkReply*>(currentReply));
+    Status *status = _statusHash->find(i.key()->url()).value();
     if(i.value()){
         if(i.value()->size() == status->bytesTotal()){
             i.key()->close();
@@ -177,14 +177,14 @@ void yoDownet::httpReadyRead(QObject *currentReply)
 
 void yoDownet::httpFinished(QObject *currentReply)
 {
-    QHash<QNetworkReply*, QFile*>::iterator i = downloads->find(qobject_cast<QNetworkReply*>(currentReply));
-    Status *status = statusHash->find(i.key()->url()).value();
+    QHash<QNetworkReply*, QFile*>::iterator i = _downloads->find(qobject_cast<QNetworkReply*>(currentReply));
+    Status *status = _statusHash->find(i.key()->url()).value();
 
     i.value()->flush();
     i.value()->close();
     i.value() = 0;
     i.key()->deleteLater();
-    downloads->remove(i.key());
+    _downloads->remove(i.key());
 
     if(status->downloadStatus() != Status::Paused)
         status->setDownloadStatus(Status::Finished);

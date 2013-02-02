@@ -64,15 +64,15 @@ private slots:
     void removeFile(QFile *file);
 
 private:
-    QNetworkAccessManager manager;
+    QNetworkAccessManager _manager;
     QNetworkReply *_reply;
     QFile *_file;
     Status *_status;
-    QSignalMapper *readyReadSignalMapper;
-    QSignalMapper *metaChangedSignalMapper;
-    QSignalMapper *finishedSignalMapper;
-    QHash<QNetworkReply*, QFile*> *downloads;
-    QHash<QUrl, Status*> *statusHash;
+    QSignalMapper *_readyReadSignalMapper;
+    QSignalMapper *_metaChangedSignalMapper;
+    QSignalMapper *_finishedSignalMapper;
+    QHash<QNetworkReply*, QFile*> *_downloads;
+    QHash<QUrl, Status*> *_statusHash;
 };
 
 #endif // YODOWNET_H

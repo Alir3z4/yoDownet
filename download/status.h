@@ -29,8 +29,6 @@
 class Status : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString path READ path WRITE setPath)
-    Q_PROPERTY(QString name READ name WRITE setName)
     Q_ENUMS(DownloadMode)
     Q_ENUMS(DownloadStatus)
 
@@ -55,15 +53,6 @@ public:
     QString downloadRate() const;
     QString downloadModeString() const;
 
-    void setUrl(const QString &url);
-    QString url() const;
-
-    void setName(const QString &name);
-    QString name() const;
-
-    void setPath(const QString &path);
-    QString path() const;
-
     QList<File*> files() const;
 
     void setFileAlreadyBytes(const qint64 fileAlreadyBytes);
@@ -86,10 +75,7 @@ public slots:
     void updateFileStatus(qint64 bytesReceived, qint64 bytesTotal);
 
 private:
-    QString _url;
     QString _remainingTime;
-    QString _name;
-    QString _path;
     QList<File*> _files;
     qint64 _fileAlreadyBytes;
     qint64 _bytesTotal;

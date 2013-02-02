@@ -27,16 +27,31 @@
 class Download : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QString path READ path WRITE setPath)
+    Q_PROPERTY(QString name READ name WRITE setName)
     Q_PROPERTY(QUuid uuid READ uuid WRITE setUuid)
 
 public:
     explicit Download(QObject *parent = 0);
 
+    void setUrl(const QString &url);
+    QString url() const;
+
+    void setName(const QString &name);
+    QString name() const;
+
+    void setPath(const QString &path);
+    QString path() const;
+
     void setUuid(const QUuid &uuid=QUuid::createUuid());
     QUuid uuid() const;
 
 private:
+    QString _url;
+    QString _name;
+    QString _path;
     QUuid _uuid;
+
 };
 
 #endif // DOWNLOAD_H

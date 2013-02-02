@@ -103,26 +103,6 @@ void Status::startTime()
     _startTime->start();
 }
 
-void Status::setName(const QString &name)
-{
-    _name = name;
-}
-
-QString Status::name() const
-{
-    return _name;
-}
-
-void Status::setPath(const QString &path)
-{
-    _path = path;
-}
-
-QString Status::path() const
-{
-    return _path;
-}
-
 QList<File *> Status::files() const
 {
     return _files;

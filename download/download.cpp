@@ -25,6 +25,36 @@ Download::Download(QObject *parent) :
 {
 }
 
+void Download::setUrl(const QString &url)
+{
+    _url = url;
+}
+
+QString Download::url() const
+{
+    return _url;
+}
+
+void Download::setName(const QString &name)
+{
+    _name = name;
+}
+
+QString Download::name() const
+{
+    return _name;
+}
+
+void Download::setPath(const QString &path)
+{
+    _path = path;
+}
+
+QString Download::path() const
+{
+    return _path;
+}
+
 void Download::setUuid(const QUuid &uuid)
 {
     _uuid = uuid;

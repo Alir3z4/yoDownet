@@ -25,12 +25,12 @@ Download::Download(QObject *parent) :
 {
 }
 
-void Download::setUrl(const QString &url)
+void Download::setUrl(const QUrl &url)
 {
     _url = url;
 }
 
-QString Download::url() const
+QUrl Download::url() const
 {
     return _url;
 }

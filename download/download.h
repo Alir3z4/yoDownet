@@ -23,6 +23,7 @@
 
 #include <QObject>
 #include <QUuid>
+#include <QUrl>
 
 class Download : public QObject
 {
@@ -34,8 +35,8 @@ class Download : public QObject
 public:
     explicit Download(QObject *parent = 0);
 
-    void setUrl(const QString &url);
-    QString url() const;
+    void setUrl(const QUrl &url);
+    QUrl url() const;
 
     void setName(const QString &name);
     QString name() const;
@@ -47,7 +48,7 @@ public:
     QUuid uuid() const;
 
 private:
-    QString _url;
+    QUrl _url;
     QString _name;
     QString _path;
     QUuid _uuid;

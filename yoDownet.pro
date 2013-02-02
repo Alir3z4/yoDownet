@@ -89,7 +89,6 @@ HEADERS  += ui/mainwindow.h \
     plus/messages/constants.h \
     core/validators/basevalidator.h \
     download/download.h \
-    download/uri.h \
     download/file.h \
     download/status.h
 

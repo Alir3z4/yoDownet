@@ -64,3 +64,13 @@ QUuid Download::uuid() const
 {
     return _uuid;
 }
+
+void Download::setStatus(const Status *status)
+{
+    _status = status;
+}
+
+Status *Download::status() const
+{
+    return _status;
+}

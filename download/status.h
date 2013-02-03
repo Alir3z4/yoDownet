@@ -24,7 +24,6 @@
 #include <QObject>
 #include <QTime>
 #include <QUuid>
-#include "download/file.h"
 
 class Status : public QObject
 {
@@ -53,8 +52,6 @@ public:
     QString downloadRate() const;
     QString downloadModeString() const;
 
-    QList<File*> files() const;
-
     void setFileAlreadyBytes(const qint64 fileAlreadyBytes);
     void setBytesTotal(const qint64 totalLength);
 
@@ -76,7 +73,6 @@ public slots:
 
 private:
     QString _remainingTime;
-    QList<File*> _files;
     qint64 _fileAlreadyBytes;
     qint64 _bytesTotal;
     qint64 _bytesReceived;

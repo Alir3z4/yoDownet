@@ -103,11 +103,6 @@ void Status::startTime()
     _startTime->start();
 }
 
-QList<File *> Status::files() const
-{
-    return _files;
-}
-
 void Status::setFileAlreadyBytes(const qint64 fileAlreadyBytes)
 {
     _fileAlreadyBytes = fileAlreadyBytes;

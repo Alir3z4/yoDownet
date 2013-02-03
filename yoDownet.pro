@@ -65,7 +65,6 @@ SOURCES += main.cpp\
     core/validators/basevalidator.cpp \
     download/download.cpp \
     download/uri.cpp \
-    download/file.cpp \
     download/status.cpp
 
 HEADERS  += ui/mainwindow.h \
@@ -89,7 +88,6 @@ HEADERS  += ui/mainwindow.h \
     plus/messages/constants.h \
     core/validators/basevalidator.h \
     download/download.h \
-    download/file.h \
     download/status.h
 
 contains(CONFIG, qtestlib){

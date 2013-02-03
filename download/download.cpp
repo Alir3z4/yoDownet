@@ -25,6 +25,16 @@ Download::Download(QObject *parent) :
 {
 }
 
+void Download::setFile(QFile *file)
+{
+    _file = file;
+}
+
+QFile *Download::file()
+{
+    return _file;
+}
+
 void Download::setUrl(const QUrl &url)
 {
     _url = url;

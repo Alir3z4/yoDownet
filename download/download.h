@@ -22,6 +22,7 @@
 #define DOWNLOAD_H
 
 #include <QObject>
+#include <QFile>
 #include <QUuid>
 #include <QUrl>
 #include "download/status.h"
@@ -29,6 +30,7 @@
 class Download : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(QFile *file READ file WRITE setFile)
     Q_PROPERTY(QString path READ path WRITE setPath)
     Q_PROPERTY(QString name READ name WRITE setName)
     Q_PROPERTY(QUuid uuid READ uuid WRITE setUuid)
@@ -36,6 +38,9 @@ class Download : public QObject
 
 public:
     explicit Download(QObject *parent = 0);
+
+    void setFile(QFile *file);
+    QFile *file();
 
     void setUrl(const QUrl &url);
     QUrl url() const;
@@ -53,6 +58,7 @@ public:
     Status *status() const;
 
 private:
+    QFile *_file;
     QUrl _url;
     QString _name;
     QString _path;

@@ -87,7 +87,16 @@ void FileBrowz::setOptions(QFileDialog::Options options)
 
 void FileBrowz::setBrowzPath(const QString &browztPath)
 {
-    // TODO: is writable or what ?
+    /* TODO: is writable or what ?
+     * There is some refrences that can help to fix this issue.
+     *
+     * http://qt-project.org/forums/viewthread/645
+     * http://lists.trolltech.com/qt-interest/2006-07/thread00412-0.html
+     * http://www.qtforum.org/article/2169/folder-write-permission.html
+     *
+     *  For now I'm thinking about creating a temporary file just for test
+     * to find out the seleted directory is writable or not.
+     */
     ui->pathEdit->setText((browztPath.isEmpty()) ? QDir::homePath() : browztPath);
 }
 

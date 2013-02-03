@@ -40,17 +40,17 @@ FileBrowz::~FileBrowz()
     delete ui;
 }
 
-const QString FileBrowz::caption()
+QString FileBrowz::caption() const
 {
     return _caption;
 }
 
-const QString FileBrowz::filter()
+QString FileBrowz::filter() const
 {
     return _filter;
 }
 
-const QString FileBrowz::browzPath()
+const QString FileBrowz::browzPath() const
 {
     return ui->pathEdit->text();
 }
@@ -60,7 +60,7 @@ FileBrowz::BrowzType FileBrowz::browzType() const
     return _type;
 }
 
-const QFileDialog::Options FileBrowz::options()
+const QFileDialog::Options FileBrowz::options() const
 {
     return _options;
 }

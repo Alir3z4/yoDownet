@@ -33,6 +33,7 @@
 #include <QFileInfo>
 #include "download/status.h"
 
+// TODO: Shoulda use `Download` class entirly.
 class yoDownet : public QObject
 {
     Q_OBJECT
@@ -61,6 +62,7 @@ private slots:
     void startRequest(const QUrl &url);
     void httpReadyRead(QObject *currentReply);
     void httpFinished(QObject *currentReply);
+    // TODO: Removing file can be done in `Download` class.
     void removeFile(QFile *file);
 
 private:

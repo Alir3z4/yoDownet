@@ -39,6 +39,8 @@ class Download : public QObject
 public:
     explicit Download(QObject *parent = 0);
 
+    bool newDownload(const QUrl &url, const QUuid &uuid=NULL);
+
     void setFile(QFile *file);
     QFile *file();
 

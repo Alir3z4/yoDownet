@@ -19,10 +19,50 @@
 ****************************************************************************************/
 
 #include "download.h"
+#include <QFileInfo>
+#include "util/paths.h"
 
 Download::Download(QObject *parent) :
     QObject(parent)
 {
+}
+
+bool Download::newDownload(const QUrl &url, const QUuid &uuid)
+{
+    if (!uuid)
+        uuid = QUuid::createUuid();
+
+    _url = url;
+    _uuid = uuid;
+
+    QFileInfo fileInfo(_url.path());
+    QString fileName = fileInfo.fileName();
+    if(fileName.isEmpty())
+        fileName = "yodownet";
+
+    QString savePath = Paths::saveDir();
+    QString fileWithPath = savePath.append(fileName);
+
+    _file = new QFile(fileWithPath);
+    _status = new Status(this);
+    _status->setName(fileName);
+    _status->setPath(savePath);
+
+    bool isOpened;
+    if(QFile::exists(fileWithPath)){
+        isOpened = _file->open(QIODevice::Append);
+        _status->setDownloadMode(Status::ResumeDownload);
+    }else{
+        isOpened = _file->open(QIODevice::WriteOnly);
+        _status->setDownloadMode(Status::NewDownload);
+    }
+
+    if(!isOpened){
+        delete _file;
+        _file = 0;
+        return false;
+    }
+    return true;
 }
 
 void Download::setFile(QFile *file)

@@ -29,36 +29,8 @@ yoDownet::yoDownet(QObject *parent) :
 }
 void yoDownet::addDownload(const QString &url)
 {
-    //TODO: The entire method have to be done in Download class.
-    QUrl tempUrl(url);
-    QFileInfo fInfo(tempUrl.path());
-    QString fileName = fInfo.fileName();
-    if(fileName.isEmpty())
-        fileName = "yodownet";
-
-    QString savePath = Paths::saveDir();
-
-    QString fileWithPath = savePath.append(fileName);
-
-    _file = new QFile(fileWithPath);
-    _status = new Status(this);
-    _status->setName(fileName);
-    _status->setPath(savePath);
-
-    bool isOpened;
-    if(QFile::exists(fileWithPath)){
-        isOpened = _file->open(QIODevice::Append);
-        _status->setDownloadMode(Status::ResumeDownload);
-    }else{
-        isOpened = _file->open(QIODevice::WriteOnly);
-        _status->setDownloadMode(Status::NewDownload);
-    }
-    if(!isOpened){
-        delete _file;
-        _file = 0;
-        return;
-    }
-    startRequest(tempUrl);
+    if (_download->newDownload(QUrl(url)))
+        startRequest(_download->url());
 }
 
 void yoDownet::addDownloads(const QStringList &urls)

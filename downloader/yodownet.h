@@ -31,6 +31,7 @@
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include <download/download.h>
 #include "download/status.h"
 
 // TODO: Shoulda use `Download` class entirly.
@@ -69,11 +70,12 @@ private:
     QNetworkAccessManager _manager;
     QNetworkReply *_reply;
     QFile *_file;
+    Download *_download;
     Status *_status;
     QSignalMapper *_readyReadSignalMapper;
     QSignalMapper *_metaChangedSignalMapper;
     QSignalMapper *_finishedSignalMapper;
-    QHash<QNetworkReply*, QFile*> *_downloads;
+    QHash<QNetworkReply*, Download*> *_downloadHash;
     QHash<QUrl, Status*> *_statusHash;
 };
 

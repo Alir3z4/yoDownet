@@ -22,7 +22,7 @@
 #include "util/paths.h"
 
 yoDownet::yoDownet(QObject *parent) :
-    QObject(parent), _downloads(new QHash<QNetworkReply*, QFile*>),
+    QObject(parent), _downloadHash(new QHash<QNetworkReply*, QFile*>),
     _statusHash( new QHash<QUrl, Status*>)
 {
     connect(this, SIGNAL(fileReadyToRemove(QFile*)), this, SLOT(removeFile(QFile*)));
@@ -42,8 +42,8 @@ void yoDownet::addDownloads(const QStringList &urls)
 
 void yoDownet::pauseDownload(const QString &url)
 {
-    QHash<QNetworkReply*, QFile*>::iterator i = _downloads->begin();
-    while(i != _downloads->end()){
+    QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->begin();
+    while(i != _downloadHash->end()){
         if(i.key()->url().toString() == url){
             i.value()->write(i.key()->readAll());
             Status *status = _statusHash->find(i.key()->url()).value();
@@ -64,13 +64,14 @@ void yoDownet::pauseDownloads(const QStringList &urls)
 
 void yoDownet::removeDownload(const QString &filePath)
 {
-    if(_downloads->isEmpty()){
+    if(_downloadHash->isEmpty()){
         emit fileReadyToRemove(new QFile(filePath));
         return;
     }
     // FIXME: file pointer doesn't exist here, Value is Download pointer
+    foreach(QFile *file, _downloadHash->values()){
         if(file->fileName() == filePath){
-            QNetworkReply *reply = _downloads->key(file);
+            QNetworkReply *reply = _downloadHash->key(file);
             emit pauseDownload(reply->url().toString());
             emit fileReadyToRemove(file);
             break;
@@ -87,7 +88,7 @@ void yoDownet::removeDownloads(const QStringList &files)
 
 void yoDownet::replyMetaDataChanged(QObject *currentReply)
 {
-    QHash<QNetworkReply*, QFile*>::iterator i = _downloads->find(qobject_cast<QNetworkReply*>(currentReply));
+    QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->find(qobject_cast<QNetworkReply*>(currentReply));
     Status *status = _statusHash->find(i.key()->url()).value();
     status->setBytesTotal(i.key()->header(QNetworkRequest::ContentLengthHeader).toULongLong());
 }
@@ -95,16 +96,15 @@ void yoDownet::replyMetaDataChanged(QObject *currentReply)
 void yoDownet::startRequest(const QUrl &url)
 {
     QNetworkRequest request(url);
-    request.setRawHeader("Range", QByteArray("bytes=SIZE-").replace("SIZE", QVariant(_file->size()).toByteArray()));
+    request.setRawHeader("Range", QByteArray("bytes=SIZE-").replace("SIZE", QVariant(_download->file()->size()).toByteArray()));
 
-    _status->setFileAlreadyBytes(_file->size());
+    _status->setFileAlreadyBytes(_download->file()->size());
 
     _reply = _manager.get(request);
 
-    _status->setUrl(url.toString());
     _status->setDownloadStatus(Status::Starting);
 
-    QHash<QNetworkReply*, QFile*>::iterator i = _downloads->insert( _reply, _file);
+    QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->insert(_reply, _download);
     QHash<QUrl, Status*>::iterator statusIt = _statusHash->insert(i.key()->url(), _status);
 
     if(statusIt.value()->downloadMode() == Status::NewDownload){

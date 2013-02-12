@@ -149,14 +149,14 @@ void yoDownet::httpReadyRead(QObject *currentReply)
 
 void yoDownet::httpFinished(QObject *currentReply)
 {
-    QHash<QNetworkReply*, QFile*>::iterator i = _downloads->find(qobject_cast<QNetworkReply*>(currentReply));
+    QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->find(qobject_cast<QNetworkReply*>(currentReply));
     Status *status = _statusHash->find(i.key()->url()).value();
 
-    i.value()->flush();
-    i.value()->close();
-    i.value() = 0;
+    i.value()->file()->flush();
+    i.value()->file()->close();
+    i.value()->file() = 0;
     i.key()->deleteLater();
-    _downloads->remove(i.key());
+    _downloadHash->remove(i.key());
 
     if(status->downloadStatus() != Status::Paused)
         status->setDownloadStatus(Status::Finished);

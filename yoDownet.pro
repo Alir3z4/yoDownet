@@ -64,7 +64,6 @@ SOURCES += main.cpp\
     plus/messages/message.cpp \
     core/validators/basevalidator.cpp \
     download/download.cpp \
-    download/uri.cpp \
     download/status.cpp
 
 HEADERS  += ui/mainwindow.h \

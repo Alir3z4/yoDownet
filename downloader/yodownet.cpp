@@ -134,13 +134,13 @@ void yoDownet::startRequest(const QUrl &url)
 
 void yoDownet::httpReadyRead(QObject *currentReply)
 {
-    QHash<QNetworkReply*, QFile*>::iterator i = _downloads->find(qobject_cast<QNetworkReply*>(currentReply));
+    QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->find(qobject_cast<QNetworkReply*>(currentReply));
     Status *status = _statusHash->find(i.key()->url()).value();
-    if(i.value()){
-        if(i.value()->size() == status->bytesTotal()){
+    if (i.value()->file()) {
+        if (i.value()->file()->size() == status->bytesTotal()) {
             i.key()->close();
-        }else if(i.value()->size() < status->bytesTotal()){
-            i.value()->write(i.key()->readAll());
+        } else if (i.value()->file()->size() < status->bytesTotal()) {
+            i.value()->file()->write(i.key()->readAll());
             status->setDownloadStatus(Status::Downloading);
             emit downloadUpdated(status);
         }

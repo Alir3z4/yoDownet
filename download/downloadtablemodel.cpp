@@ -40,6 +40,25 @@ int DownloadTableModel::columnCount(const QModelIndex &parent) const
 
 QVariant DownloadTableModel::data(const QModelIndex &index, int role) const
 {
+    QVariant value = QAbstractTableModel::data(index, role);
+
+    if (role == Qt::TextAlignmentRole)
+        return Qt::AlignCenter;
+
+    if (value.isValid() && role == Qt::DisplayRole) {
+        if (index.column() == Progress) {
+            if (value.toInt() >= 100)
+                value = 100;
+            return value.toString().append("%");
+        } else if (index.column() == Status) {
+            int prg = index.sibling(index.row(), 5).data().toString().remove("%").toInt();
+            if (prg  >= 100)
+                return downloadStatus(3);
+            return downloadStatus(value.toInt());
+        }
+    }
+
+    return value;
 }
 
 QVariant DownloadTableModel::headerData(int section, Qt::Orientation orientation, int role) const

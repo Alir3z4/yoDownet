@@ -24,3 +24,35 @@ DownloadTableModel::DownloadTableModel(QObject *parent) :
     QAbstractTableModel(parent)
 {
 }
+
+int DownloadTableModel::rowCount(const QModelIndex &parent) const
+{
+}
+
+int DownloadTableModel::columnCount(const QModelIndex &parent) const
+{
+}
+
+QVariant DownloadTableModel::data(const QModelIndex &index, int role) const
+{
+}
+
+QVariant DownloadTableModel::headerData(int section, Qt::Orientation orientation, int role) const
+{
+}
+
+Qt::ItemFlags DownloadTableModel::flags(const QModelIndex &index) const
+{
+}
+
+bool DownloadTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+}
+
+bool DownloadTableModel::insertRows(int position, int rows, const QModelIndex &index)
+{
+}
+
+bool DownloadTableModel::removeRows(int position, int rows, const QModelIndex &index)
+{
+}

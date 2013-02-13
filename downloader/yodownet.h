@@ -42,10 +42,11 @@ public:
     explicit yoDownet(QObject *parent = 0);
 
 signals:
-    void downloadInitialed(const Status *status);
-    void downloadPaused(const Status *status);
-    void downlaodResumed(const Status *status);
-    void downloadUpdated(const Status *status);
+    void downloadInitialed(const Download *download);
+    void downloadPaused(const Download *download);
+    void downlaodResumed(const Download *download);
+    void downloadUpdated(const Download *download);
+    // FIXME: Shoulda send uuid of download.
     void downloadRemoved(const QString &fileName);
     void downloadFinished();
     void fileReadyToRemove(QFile *file);

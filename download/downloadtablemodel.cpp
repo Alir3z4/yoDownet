@@ -61,3 +61,28 @@ bool DownloadTableModel::insertRows(int position, int rows, const QModelIndex &i
 bool DownloadTableModel::removeRows(int position, int rows, const QModelIndex &index)
 {
 }
+
+QString DownloadTableModel::downloadStatus(const int status) const
+{
+    switch(mode){
+    case 0:
+        return tr("Idle");
+        break;
+    case 1:
+        return tr("Starting");
+        break;
+    case 2:
+        return tr("Downloading");
+        break;
+    case 3:
+        return tr("Finished");
+        break;
+    case 4:
+        return tr("Failed");
+        break;
+    case 5:
+        return tr("Paused");
+        break;
+    }
+    return tr("Unknown Status");
+}

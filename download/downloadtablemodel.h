@@ -55,6 +55,8 @@ public:
 
 private:
     QList<Download> _downloadList;
+
+    QString downloadStatus(const int status) const;
 };
 
 #endif // DOWNLOADTABLEMODEL_H

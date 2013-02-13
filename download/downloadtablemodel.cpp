@@ -25,6 +25,11 @@ DownloadTableModel::DownloadTableModel(QObject *parent) :
 {
 }
 
+DownloadTableModel::DownloadTableModel(QList<Download> downloadList, QObject *parent)
+{
+    _downloadList = downloadList;
+}
+
 int DownloadTableModel::rowCount(const QModelIndex &parent) const
 {
 }

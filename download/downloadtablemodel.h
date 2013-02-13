@@ -22,12 +22,14 @@
 #define DOWNLOADTABLEMODEL_H
 
 #include <QAbstractTableModel>
+#include "download/download.h"
 
 class DownloadTableModel : public QAbstractTableModel
 {
     Q_OBJECT
 public:
     explicit DownloadTableModel(QObject *parent = 0);
+    explicit DownloadTableModel(QList<Download> downloadList, QObject *parent=0);
 
     int rowCount(const QModelIndex &parent) const;
     int columnCount(const QModelIndex &parent) const;
@@ -37,6 +39,9 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role=Qt::EditRole);
     bool insertRows(int position, int rows, const QModelIndex &index=QModelIndex());
     bool removeRows(int position, int rows, const QModelIndex &index=QModelIndex());
+
+private:
+    QList<Download> _downloadList;
 };
 
 #endif // DOWNLOADTABLEMODEL_H

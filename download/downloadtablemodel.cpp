@@ -63,6 +63,44 @@ QVariant DownloadTableModel::data(const QModelIndex &index, int role) const
 
 QVariant DownloadTableModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
+    QVariant value = QAbstractTableModel::headerData(section, orientation, role);
+
+    if (value.isValid() && role == Qt::DisplayRole) {
+        switch (section) {
+        case Uuid:
+            return tr("Uuid");
+            break;
+        case URL:
+            return tr("URL");
+            break;
+        case SavePath:
+            return tr("Save Path");
+            break;
+        case FileName:
+            return tr("File Name");
+            break;
+        case Status:
+            return tr("Status");
+            break;
+        case Progress:
+            return tr("Progress");
+            break;
+        case RemainingTime:
+            return tr("Remaining Time");
+            break;
+        case Speed:
+            return tr("Speed");
+            break;
+        case Added:
+            return tr("Added");
+            break;
+        case Downloaded:
+            return tr("Downloaded");
+            break;
+        }
+    }
+
+    return value;
 }
 
 Qt::ItemFlags DownloadTableModel::flags(const QModelIndex &index) const

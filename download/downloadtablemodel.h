@@ -31,6 +31,19 @@ public:
     explicit DownloadTableModel(QObject *parent = 0);
     explicit DownloadTableModel(QList<Download> downloadList, QObject *parent=0);
 
+    enum Downloads {
+        Uuid,
+        URL,
+        SavePath,
+        FileName,
+        Status,
+        Progress,
+        RemainingTime,
+        Speed,
+        Added,
+        Downloaded
+    };
+
     int rowCount(const QModelIndex &parent) const;
     int columnCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;

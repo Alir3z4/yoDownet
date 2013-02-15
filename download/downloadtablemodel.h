@@ -29,7 +29,6 @@ class DownloadTableModel : public QAbstractTableModel
     Q_OBJECT
 public:
     explicit DownloadTableModel(QObject *parent = 0);
-    explicit DownloadTableModel(QList<Download> downloadList, QObject *parent=0);
 
     enum Downloads {
         Uuid,
@@ -54,7 +53,7 @@ public:
     bool removeRows(int position, int rows, const QModelIndex &index=QModelIndex());
 
 private:
-    QList<Download> _downloadList;
+    QList<Download*> _downloadList;
 
     QString downloadStatus(const int status) const;
 };

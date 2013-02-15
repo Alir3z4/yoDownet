@@ -25,11 +25,6 @@ DownloadTableModel::DownloadTableModel(QObject *parent) :
 {
 }
 
-DownloadTableModel::DownloadTableModel(QList<Download> downloadList, QObject *parent)
-{
-    _downloadList = downloadList;
-}
-
 int DownloadTableModel::rowCount(const QModelIndex &parent) const
 {
 }
@@ -40,7 +35,7 @@ int DownloadTableModel::columnCount(const QModelIndex &parent) const
 
 QVariant DownloadTableModel::data(const QModelIndex &index, int role) const
 {
-    QVariant value = QAbstractTableModel::data(index, role);
+    QVariant value = DownloadTableModel::data(index, role);
 
     if (role == Qt::TextAlignmentRole)
         return Qt::AlignCenter;
@@ -121,7 +116,7 @@ bool DownloadTableModel::removeRows(int position, int rows, const QModelIndex &i
 
 QString DownloadTableModel::downloadStatus(const int status) const
 {
-    switch(mode){
+    switch(status){
     case 0:
         return tr("Idle");
         break;

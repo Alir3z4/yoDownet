@@ -29,8 +29,8 @@ Download::Download(QObject *parent) :
 
 bool Download::newDownload(const QUrl &url, const QUuid &uuid)
 {
-    if (!uuid)
-        uuid = QUuid::createUuid();
+    if (uuid == NULL)
+        this->setUuid();
 
     _url = url;
     _uuid = uuid;
@@ -45,8 +45,8 @@ bool Download::newDownload(const QUrl &url, const QUuid &uuid)
 
     _file = new QFile(fileWithPath);
     _status = new Status(this);
-    _status->setName(fileName);
-    _status->setPath(savePath);
+    this->setName(fileName);
+    this->setPath(savePath);
 
     bool isOpened;
     if(QFile::exists(fileWithPath)){
@@ -105,7 +105,7 @@ QString Download::path() const
     return _path;
 }
 
-void Download::setUuid(const QUuid &uuid)
+void Download::setUuid(QUuid uuid)
 {
     _uuid = uuid;
 }
@@ -115,7 +115,7 @@ QUuid Download::uuid() const
     return _uuid;
 }
 
-void Download::setStatus(const Status *status)
+void Download::setStatus(Status *status)
 {
     _status = status;
 }

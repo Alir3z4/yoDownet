@@ -53,10 +53,10 @@ public:
     void setPath(const QString &path);
     QString path() const;
 
-    void setUuid(const QUuid &uuid=QUuid::createUuid());
+    void setUuid(QUuid uuid=QUuid::createUuid());
     QUuid uuid() const;
 
-    void setStatus(const Status *status);
+    void setStatus(Status *status);
     Status *status() const;
 
 private:

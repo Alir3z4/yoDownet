@@ -50,9 +50,7 @@ SOURCES += main.cpp\
     util/yomessage.cpp \
     ui/widget/filebrowz.cpp \
     downloader/yodownet.cpp \
-    util/fileinfo.cpp \
     ui/dialog/urldialog.cpp \
-    util/urlmodel.cpp \
     ui/dialog/aboutdialog.cpp \
     ui/dialog/reportbugdialog.cpp \
     ui/prefwidget/prefinterfacewidget.cpp \
@@ -73,9 +71,7 @@ HEADERS  += ui/mainwindow.h \
     util/yomessage.h \
     ui/widget/filebrowz.h \
     downloader/yodownet.h \
-    util/fileinfo.h \
     ui/dialog/urldialog.h \
-    util/urlmodel.h \
     ui/dialog/aboutdialog.h \
     ui/dialog/reportbugdialog.h \
     ui/prefwidget/prefinterfacewidget.h \

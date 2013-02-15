@@ -78,16 +78,6 @@ QString Status::downloadModeString() const
     return QString();
 }
 
-void Status::setUrl(const QString &url)
-{
-    _url = url;
-}
-
-QString Status::url() const
-{
-    return _url;
-}
-
 void Status::updateFileStatus(qint64 bytesReceived, qint64 bytesTotal)
 {
     if(_fileAlreadyBytes == 0) _fileAlreadyBytes = 1;

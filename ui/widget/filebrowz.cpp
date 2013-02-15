@@ -50,7 +50,7 @@ QString FileBrowz::filter() const
     return _filter;
 }
 
-const QString FileBrowz::browzPath() const
+QString FileBrowz::browzPath() const
 {
     return ui->pathEdit->text();
 }
@@ -60,7 +60,7 @@ FileBrowz::BrowzType FileBrowz::browzType() const
     return _type;
 }
 
-const QFileDialog::Options FileBrowz::options() const
+QFileDialog::Options FileBrowz::options() const
 {
     return _options;
 }

@@ -24,7 +24,7 @@
 #include <QMainWindow>
 #include <QTableWidgetItem>
 #include <QCloseEvent>
-#include "util/urlmodel.h"
+#include "download/downloadtablemodel.h"
 #include "plus/messages/message.h"
 #include "ui/widget/systemtrayicon.h"
 #include "downloader/yodownet.h"
@@ -41,7 +41,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    QStringList currentColumns(const int &column = UrlModel::url) const;
+    QStringList currentColumns(const int &column = DownloadTableModel::URL) const;
 
 private slots:
     void on_preferencesAction_triggered();
@@ -57,18 +57,18 @@ private slots:
     void saveSettings();
     void loadSettings();
     void initUrlsTable();
-    void updateUrlsTable(const Status *status);
+    void updateUrlsTable(const Download *download);
     void submitUrlViewChanges();
 
     void onDownloadRemoved(const QString &fileName);
-    void onDownloadResumed(const Status *status);
+    void onDownloadResumed(const Download *download);
     void trayIconTriggered();
 
 private:
     Ui::MainWindow *ui;
     SystemTrayIcon *_trayIcon;
     QMenu *_trayMenu;
-    UrlModel *model;
+    DownloadTableModel *model;
     yoDownet *downloader;
     Message *_message;
 

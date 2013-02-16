@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT += core gui network sql
+QT += core gui network
 
 TARGET = yoDownet
 TEMPLATE = app

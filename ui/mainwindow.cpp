@@ -28,7 +28,7 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow),model(new DownloadTableModel(parent)),
+    ui(new Ui::MainWindow), model(new DownloadTableModel(parent)),
     downloader(new yoDownet(parent)), _message(new Message(parent))
 {
     ui->setupUi(this);
@@ -40,11 +40,11 @@ MainWindow::MainWindow(QWidget *parent) :
     initUrlsTable();
 
     // Connect the signals/slot
-    connect(downloader, SIGNAL(downloadInitialed(const Download*)), this, SLOT(updateUrlsTable(const Status*)));
+    connect(downloader, SIGNAL(downloadInitialed(const Download*)), this, SLOT(updateUrlsTable(const Download*)));
     connect(downloader, SIGNAL(downloadPaused(const Download*)), this, SLOT(submitUrlViewChanges()));
-    connect(downloader, SIGNAL(downlaodResumed(const Download*)), this, SLOT(updateUrlsTable(const Status*)));
-    connect(downloader, SIGNAL(downlaodResumed(const Download*)), this, SLOT(onDownloadResumed(const Status*)));
-    connect(downloader, SIGNAL(downloadUpdated(const Download*)), this, SLOT(updateUrlsTable(const Status*)));
+    connect(downloader, SIGNAL(downlaodResumed(const Download*)), this, SLOT(updateUrlsTable(const Download*)));
+    connect(downloader, SIGNAL(downlaodResumed(const Download*)), this, SLOT(onDownloadResumed(const Download*)));
+    connect(downloader, SIGNAL(downloadUpdated(const Download*)), this, SLOT(updateUrlsTable(const Download*)));
     connect(downloader, SIGNAL(downloadRemoved(QString)), this, SLOT(onDownloadRemoved(QString)));
 
     connect(ui->exitAction, SIGNAL(triggered()), qApp, SLOT(quit()));

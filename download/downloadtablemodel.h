@@ -53,6 +53,7 @@ public:
     bool removeRows(int position, int rows, const QModelIndex &index=QModelIndex());
 
 private:
+    int const column_count = 10;
     QList<Download*> _downloadList;
 
     QString downloadStatus(const int status) const;

@@ -33,6 +33,8 @@ int DownloadTableModel::rowCount(const QModelIndex &parent) const
 
 int DownloadTableModel::columnCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
+    return column_count;
 }
 
 QVariant DownloadTableModel::data(const QModelIndex &index, int role) const

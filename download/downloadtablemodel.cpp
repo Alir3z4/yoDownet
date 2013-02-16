@@ -127,6 +127,15 @@ bool DownloadTableModel::setData(const QModelIndex &index, const QVariant &value
 
 bool DownloadTableModel::insertRows(int position, int rows, const QModelIndex &index)
 {
+    Q_UNUSED(index)
+    beginInsertRows(QModelIndex(), position, position+rows-1);
+
+    for (int row = 0; row < rows; row++) {
+        // Insert new download to _downloadList.
+    }
+
+    endInsertRows();
+    return true;
 }
 
 bool DownloadTableModel::removeRows(int position, int rows, const QModelIndex &index)

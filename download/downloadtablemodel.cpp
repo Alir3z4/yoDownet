@@ -112,6 +112,17 @@ Qt::ItemFlags DownloadTableModel::flags(const QModelIndex &index) const
 
 bool DownloadTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
+    if (index.isValid() && role == Qt::EditRole) {
+        int row = index.row();
+
+        // TODO: Do the set data and shit
+
+        emit(dataChanged(index, index));
+
+        return true;
+    }
+
+    return false;
 }
 
 bool DownloadTableModel::insertRows(int position, int rows, const QModelIndex &index)

@@ -136,9 +136,7 @@ void MainWindow::initUrlsTable()
     // FIXME: Move me to the constructor
     ui->urlView->horizontalHeader()->setMovable(true);
     ui->urlView->setModel(model);
-    ui->urlView->hideColumn(model->Uuid);
-    ui->urlView->hideColumn(model->Downloaded);
-
+    ui->urlView->hideColumn(DownloadTableModel::Uuid);
 }
 
 void MainWindow::updateUrlsTable(const Download *download)

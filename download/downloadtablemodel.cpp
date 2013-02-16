@@ -27,6 +27,8 @@ DownloadTableModel::DownloadTableModel(QObject *parent) :
 
 int DownloadTableModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
+    return _downloadList.size();
 }
 
 int DownloadTableModel::columnCount(const QModelIndex &parent) const

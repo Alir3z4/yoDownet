@@ -112,6 +112,16 @@ bool DownloadTableModel::insertRows(int position, int rows, const QModelIndex &i
 
 bool DownloadTableModel::removeRows(int position, int rows, const QModelIndex &index)
 {
+    Q_UNUSED(index)
+    beginRemoveRows(QModelIndex(), position, position+rows-1);
+
+    for (int row = 0; row < rows; ++row) {
+        // TODO: What out, this needs real implementation.
+        _downloadList.removeAt(position);
+    }
+
+    endRemoveRows();
+    return true;
 }
 
 QString DownloadTableModel::downloadStatus(const int status) const

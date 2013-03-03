@@ -23,9 +23,9 @@
 QTEST_MAIN(TestUrlValidator)
 #else
 
-#include <QApplication>
-#include <QSettings>
-#include <QTranslator>
+#include <QtWidgets/QApplication>
+#include <QtCore/QSettings>
+#include <QtCore/QTranslator>
 #include "util/paths.h"
 #include "ui/mainwindow.h"
 

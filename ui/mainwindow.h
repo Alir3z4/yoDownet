@@ -22,7 +22,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QTableWidgetItem>
+#include <QtWidgets/QTableWidgetItem>
 #include <QCloseEvent>
 #include "download/downloadtablemodel.h"
 #include "plus/messages/message.h"

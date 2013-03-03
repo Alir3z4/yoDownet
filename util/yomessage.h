@@ -21,7 +21,7 @@
 #ifndef YOMESSAGE_H
 #define YOMESSAGE_H
 
-#include <QtGui/QMessageBox>
+#include <QtWidgets/QMessageBox>
 class QString;
 
 class yoMessage : public QMessageBox

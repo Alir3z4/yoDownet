@@ -19,6 +19,7 @@
 ****************************************************************************************/
 
 #include "downloadtablemodel.h"
+#include <QtCore/QDebug>
 
 DownloadTableModel::DownloadTableModel(QObject *parent) :
     QAbstractTableModel(parent)

@@ -21,7 +21,7 @@
 #ifndef DOWNLOADTABLEMODEL_H
 #define DOWNLOADTABLEMODEL_H
 
-#include <QAbstractTableModel>
+#include <QtCore/QAbstractTableModel>
 #include "download/download.h"
 
 class DownloadTableModel : public QAbstractTableModel

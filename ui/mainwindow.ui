@@ -185,9 +185,6 @@
    <property name="menuRole">
     <enum>QAction::AboutQtRole</enum>
    </property>
-   <property name="softKeyRole">
-    <enum>QAction::NoSoftKey</enum>
-   </property>
   </action>
   <action name="aboutyoDownetAction">
    <property name="icon">

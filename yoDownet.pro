@@ -63,7 +63,8 @@ SOURCES += main.cpp\
     core/validators/basevalidator.cpp \
     download/download.cpp \
     download/status.cpp \
-    download/downloadtablemodel.cpp
+    download/downloadtablemodel.cpp \
+    download/downloadstore.cpp
 
 HEADERS  += ui/mainwindow.h \
     ui/dialog/preferencesdialog.h \
@@ -85,7 +86,8 @@ HEADERS  += ui/mainwindow.h \
     core/validators/basevalidator.h \
     download/download.h \
     download/status.h \
-    download/downloadtablemodel.h
+    download/downloadtablemodel.h \
+    download/downloadstore.h
 
 contains(CONFIG, qtestlib){
     DEFINES += TESTING

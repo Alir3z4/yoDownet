@@ -75,10 +75,8 @@ QStringList MainWindow::currentColumns(const int &column) const
 
 void MainWindow::on_preferencesAction_triggered()
 {
-    PreferencesDialog prefDialog;
-    if(prefDialog.exec() == QDialog::Accepted) {
-        // Doing some
-    }
+    PreferencesDialog prefDialog(this);
+    prefDialog.exec();
 }
 
 void MainWindow::on_aboutQtAction_triggered()
@@ -121,13 +119,13 @@ void MainWindow::on_removeFromListAction_triggered()
 
 void MainWindow::on_reportBugAction_triggered()
 {
-    ReportBugDialog bugDialog;
+    ReportBugDialog bugDialog(this);
     bugDialog.exec();
 }
 
 void MainWindow::on_aboutyoDownetAction_triggered()
 {
-   AboutDialog about;
+   AboutDialog about(this);
    about.exec();
 }
 

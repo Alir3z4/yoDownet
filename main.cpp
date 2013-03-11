@@ -26,6 +26,7 @@ QTEST_MAIN(TestUrlValidator)
 #include <QtWidgets/QApplication>
 #include <QtCore/QSettings>
 #include <QtCore/QTranslator>
+#include <QtGui/QIcon>
 #include "util/paths.h"
 #include "ui/mainwindow.h"
 
@@ -33,10 +34,15 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
-    QCoreApplication::setApplicationName("yoDownet");
-    QCoreApplication::setApplicationVersion("2012.05.11");
-    QCoreApplication::setOrganizationName("Alir3z4");
-    QCoreApplication::setOrganizationDomain("yodownet.sourceforge.net");
+    a.setApplicationName(QObject::tr("yoDownet"));
+    a.setApplicationVersion("2012.05.11");
+    a.setOrganizationName("Alir3z4");
+    a.setOrganizationDomain("yodownet.sourceforge.net");
+    a.setApplicationDisplayName(a.applicationName());
+
+    QIcon appIcon;
+    appIcon.addFile(QStringLiteral(":/icons/images/yoDownet_64.svg"), QSize(), QIcon::Normal, QIcon::Off);
+    a.setWindowIcon(appIcon);
 
     // FIXME move this from here to some other file
     QSettings settings;

@@ -23,12 +23,10 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Add new download</string>
+   <string>snload</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="add">
-    <normaloff/>
-   </iconset>
+   <iconset theme="add"/>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>

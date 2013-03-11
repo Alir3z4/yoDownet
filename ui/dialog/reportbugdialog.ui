@@ -11,12 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>yoDownet : Submit Bug Report</string>
-  </property>
-  <property name="windowIcon">
-   <iconset theme="tools-report-bug">
-    <normaloff/>
-   </iconset>
+   <string>Submit Bug Report</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="3">

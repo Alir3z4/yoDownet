@@ -17,12 +17,10 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>yoDownet - Preferences</string>
+   <string>Preferences</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="configure">
-    <normaloff/>
-   </iconset>
+   <iconset theme="preferences-system"/>
   </property>
   <layout class="QGridLayout" name="PreferencesDialogGridLayout">
    <item row="0" column="0">

@@ -41,8 +41,6 @@ INSTALLS += target\
     license \
     translations
 
-#QMAKE_CXXFLAGS += -std=c++0x
-
 SOURCES += main.cpp\
         ui/mainwindow.cpp \
     ui/dialog/preferencesdialog.cpp \

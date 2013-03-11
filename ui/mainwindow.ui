@@ -13,10 +13,6 @@
   <property name="windowTitle">
    <string>yoDownet</string>
   </property>
-  <property name="windowIcon">
-   <iconset resource="../resource/icons.qrc">
-    <normaloff>:/icons/images/yoDownet_64.svg</normaloff>:/icons/images/yoDownet_64.svg</iconset>
-  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">

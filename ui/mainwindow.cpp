@@ -1,7 +1,7 @@
 /****************************************************************************************
 ** mainwindow.cpp is part of yoDownet
 **
-** Copyright 2011, 2012 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2011, 2012, 2013 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -203,9 +203,21 @@ void MainWindow::trayIconTriggered()
     if(isHidden()) show(); else hide();
 }
 
+void MainWindow::changeEvent(QEvent *e)
+{
+    QMainWindow::changeEvent(e);
+    switch (e->type()) {
+    case QEvent::LanguageChange:
+        ui->retranslateUi(this);
+        break;
+    default:
+        break;
+    }
+}
+
 void MainWindow::createActionsOnMainWindow()
 {
-    addActions(ui->menuBar->actions());
+    addActions(ui->menubar->actions());
 }
 
 void MainWindow::saveSettings()
@@ -219,8 +231,8 @@ void MainWindow::saveSettings()
     settings.setValue("fullScreen", isFullScreen());
     settings.setValue("state", saveState());
 
-    settings.beginGroup("menuBar");
-    settings.setValue("isHidden", ui->menuBar->isHidden());
+    settings.beginGroup("menubar");
+    settings.setValue("isHidden", ui->menubar->isHidden());
     settings.endGroup();
 
     settings.beginGroup("urlView");
@@ -230,28 +242,28 @@ void MainWindow::saveSettings()
     settings.endGroup();
     settings.endGroup();
 
-    settings.beginGroup("statusBar");
-    settings.setValue("isHidden", ui->statusBar->isHidden());
+    settings.beginGroup("statusbar");
+    settings.setValue("isHidden", ui->statusbar->isHidden());
     settings.endGroup();
 
-    settings.beginGroup("mainToolBar");
-    settings.setValue("isHidden", ui->mainToolBar->isHidden());
-    settings.setValue("geometry", ui->mainToolBar->geometry());
+    settings.beginGroup("toolbar");
+    settings.setValue("isHidden", ui->toolbar->isHidden());
+    settings.setValue("geometry", ui->toolbar->geometry());
     settings.endGroup();
 
-    settings.beginGroup("showMenuBarAction");
-    settings.setValue("isChecked", ui->showMenuBarAction->isChecked());
-    settings.setValue("shortcut", ui->showMenuBarAction->shortcut());
+    settings.beginGroup("showMenubarAction");
+    settings.setValue("isChecked", ui->showMenubarAction->isChecked());
+    settings.setValue("shortcut", ui->showMenubarAction->shortcut());
     settings.endGroup();
 
-    settings.beginGroup("showToolBarAction");
-    settings.setValue("isChecked", ui->showToolBarAction->isChecked());
-    settings.setValue("shortcut", ui->showToolBarAction->shortcut());
+    settings.beginGroup("showToolbarAction");
+    settings.setValue("isChecked", ui->showToolbarAction->isChecked());
+    settings.setValue("shortcut", ui->showToolbarAction->shortcut());
     settings.endGroup();
 
-    settings.beginGroup("showStatusBarAction");
-    settings.setValue("isChecked", ui->showStatusBarAction->isChecked());
-    settings.setValue("shortcut", ui->showStatusBarAction->shortcut());
+    settings.beginGroup("showStatusbarAction");
+    settings.setValue("isChecked", ui->showStatusbarAction->isChecked());
+    settings.setValue("shortcut", ui->showStatusbarAction->shortcut());
     settings.endGroup();
 
     settings.endGroup();
@@ -275,35 +287,35 @@ void MainWindow::loadSettings()
     settings.endGroup();
     settings.endGroup();
 
-    settings.beginGroup("menuBar");
-    ui->menuBar->setHidden(settings.value("isHidden", false).toBool());
+    settings.beginGroup("menubar");
+    ui->menubar->setHidden(settings.value("isHidden", false).toBool());
     settings.endGroup();
 
-    settings.beginGroup("statusBar");
-    ui->statusBar->setHidden(settings.value("isHidden", false).toBool());
+    settings.beginGroup("statusbar");
+    ui->statusbar->setHidden(settings.value("isHidden", false).toBool());
     settings.endGroup();
 
-    settings.beginGroup("mainToolBar");
-    ui->mainToolBar->setHidden(settings.value("isHidden", false).toBool());
-    ui->mainToolBar->setGeometry(settings.value("geometry").toRect());
+    settings.beginGroup("toolbar");
+    ui->toolbar->setHidden(settings.value("isHidden", false).toBool());
+    ui->toolbar->setGeometry(settings.value("geometry").toRect());
     settings.endGroup();
 
-    settings.beginGroup("showMenuBarAction");
-    ui->showMenuBarAction->setChecked(settings.value("isChecked", true).toBool());
-    ui->showMenuBarAction->setShortcut(
-                QKeySequence(settings.value("shortcut", ui->showMenuBarAction->shortcut().toString()).toString()));
+    settings.beginGroup("showMenubarAction");
+    ui->showMenubarAction->setChecked(settings.value("isChecked", true).toBool());
+    ui->showMenubarAction->setShortcut(
+                QKeySequence(settings.value("shortcut", ui->showMenubarAction->shortcut().toString()).toString()));
     settings.endGroup();
 
-    settings.beginGroup("showToolBarAction");
-    ui->showToolBarAction->setChecked(settings.value("isChecked", true).toBool());
-    ui->showToolBarAction->setShortcut(
-                QKeySequence(settings.value("shortcut", ui->showToolBarAction->shortcut().toString()).toString()));
+    settings.beginGroup("showToolbarAction");
+    ui->showToolbarAction->setChecked(settings.value("isChecked", true).toBool());
+    ui->showToolbarAction->setShortcut(
+                QKeySequence(settings.value("shortcut", ui->showToolbarAction->shortcut().toString()).toString()));
     settings.endGroup();
 
-    settings.beginGroup("showStatusBarAction");
-    ui->showStatusBarAction->setChecked(settings.value("isChecked", true).toBool());
-    ui->showStatusBarAction->setShortcut(
-                QKeySequence(settings.value("shortcut", ui->showStatusBarAction->shortcut().toString()).toString()));
+    settings.beginGroup("showStatusbarAction");
+    ui->showStatusbarAction->setChecked(settings.value("isChecked", true).toBool());
+    ui->showStatusbarAction->setShortcut(
+                QKeySequence(settings.value("shortcut", ui->showStatusbarAction->shortcut().toString()).toString()));
     settings.endGroup();
 
     settings.endGroup();

@@ -1,7 +1,7 @@
 /****************************************************************************************
 ** mainwindow.h is part of yoDownet
 **
-** Copyright 2011, 2012 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2011, 2012, 2013 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -30,13 +30,13 @@
 #include "downloader/yodownet.h"
 
 namespace Ui {
-    class MainWindow;
+class MainWindow;
 }
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
+    
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
@@ -64,6 +64,9 @@ private slots:
     void onDownloadResumed(const Download *download);
     void trayIconTriggered();
 
+protected:
+    void changeEvent(QEvent *e);
+
 private:
     Ui::MainWindow *ui;
     SystemTrayIcon *_trayIcon;
@@ -74,7 +77,6 @@ private:
 
     void prepareTrayIcon();
     void closeEvent(QCloseEvent * event);
-
 };
 
 #endif // MAINWINDOW_H

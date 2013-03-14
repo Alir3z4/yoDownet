@@ -29,8 +29,7 @@ Download::Download(QObject *parent) :
 
 bool Download::newDownload(const QUrl &url, const QUuid &uuid)
 {
-    if (uuid == NULL)
-        this->setUuid();
+    setUuid(uuid);
 
     _url = url;
     _uuid = uuid;
@@ -108,6 +107,8 @@ QString Download::path() const
 
 void Download::setUuid(QUuid uuid)
 {
+    if (uuid.isNull())
+        uuid = QUuid::createUuid();
     _uuid = uuid;
 }
 

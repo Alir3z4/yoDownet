@@ -49,19 +49,20 @@ bool Download::newDownload(const QUrl &url, const QUuid &uuid)
     this->setPath(savePath);
 
     bool isOpened;
-    if(QFile::exists(fileWithPath)){
+    if (QFile::exists(fileWithPath)) {
         isOpened = _file->open(QIODevice::Append);
         _status->setDownloadMode(Status::ResumeDownload);
-    }else{
+    } else {
         isOpened = _file->open(QIODevice::WriteOnly);
         _status->setDownloadMode(Status::NewDownload);
     }
 
-    if(!isOpened){
+    if (!isOpened) {
         delete _file;
         _file = 0;
         return false;
     }
+
     return true;
 }
 

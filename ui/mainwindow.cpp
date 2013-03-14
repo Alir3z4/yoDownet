@@ -65,7 +65,8 @@ QStringList MainWindow::currentColumns(const int &column) const
 {
     QModelIndexList indexes = ui->urlView->selectionModel()->selectedRows(column);
     QStringList selectedColumns;
-    for(int i = 0; i < indexes.count(); ++i){
+
+    for (int i = 0; i < indexes.count(); ++i) {
         QModelIndex index = indexes[i];
         selectedColumns.push_back(index.data().toString());
     }
@@ -88,9 +89,11 @@ void MainWindow::on_addAction_triggered()
 {
     UrlDialog addUrlDialog;
     addUrlDialog.setMessageEcoSystem(_message);
-    if(addUrlDialog.exec() == QDialog::Accepted)
-        if(!addUrlDialog.urls().isEmpty())
+
+    if (addUrlDialog.exec() == QDialog::Accepted) {
+        if (!addUrlDialog.urls().isEmpty())
             downloader->addDownloads(addUrlDialog.urls());
+    }
 }
 
 void MainWindow::on_pauseAction_triggered()
@@ -111,9 +114,11 @@ void MainWindow::on_removeAction_triggered()
 void MainWindow::on_removeFromListAction_triggered()
 {
     QModelIndexList indexes = ui->urlView->selectionModel()->selectedRows();
-    foreach(QModelIndex idx, indexes){
+
+    foreach (QModelIndex idx, indexes) {
         model->removeRow(idx.row());
     }
+
     submitUrlViewChanges();
 }
 
@@ -141,8 +146,9 @@ void MainWindow::updateUrlsTable(const Download *download)
 {
     bool urlExist = false;
     QAbstractItemModel *updateModel = ui->urlView->model();
+
     for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
-        if(updateModel->data(updateModel->index(i, DownloadTableModel::URL)).toString() == download->url().toString()){
+        if (updateModel->data(updateModel->index(i, DownloadTableModel::URL)).toString() == download->url().toString()) {
             updateModel->setData(updateModel->index(i, DownloadTableModel::FileName), download->name());
             updateModel->setData(updateModel->index(i, DownloadTableModel::SavePath), download->path());
             updateModel->setData(updateModel->index(i, DownloadTableModel::Status), download->status()->downloadStatus());
@@ -152,7 +158,8 @@ void MainWindow::updateUrlsTable(const Download *download)
             urlExist = true;
         }
     }
-    if(!urlExist){
+
+    if (!urlExist) {
         ui->urlView->model()->insertRow(ui->urlView->model()->rowCount());
         int row = ui->urlView->model()->rowCount()-1;
         ui->urlView->model()->setData(ui->urlView->model()->index(row, DownloadTableModel::URL), download->url());
@@ -174,15 +181,17 @@ void MainWindow::submitUrlViewChanges()
 void MainWindow::onDownloadRemoved(const QString &fileName)
 {
     QAbstractItemModel *removeModel = ui->urlView->model();
-    for(int i = 0; i < ui->urlView->model()->rowCount(); ++i){
-        if(removeModel->data(removeModel->index(i, DownloadTableModel::SavePath)).toString() == fileName){
-            if(model->removeRow(i)){
+
+    for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
+        if (removeModel->data(removeModel->index(i, DownloadTableModel::SavePath)).toString() == fileName) {
+            if (model->removeRow(i)) {
                 submitUrlViewChanges();
                 _message->addMessage(
                             tr("Download removed"),
                             tr("%1 has been successfully removed.").arg(fileName),
                             MessageConstants::Info);
             }
+
             return;
         }
     }
@@ -198,7 +207,7 @@ void MainWindow::onDownloadResumed(const Download *download)
 
 void MainWindow::trayIconTriggered()
 {
-    if(isHidden()) show(); else hide();
+    if (isHidden()) show(); else hide();
 }
 
 void MainWindow::changeEvent(QEvent *e)
@@ -337,6 +346,6 @@ void MainWindow::prepareTrayIcon()
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     saveSettings();
-    if(!isHidden()) event->ignore();
+    if (!isHidden()) event->ignore();
     hide();
 }

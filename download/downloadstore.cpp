@@ -19,8 +19,31 @@
 ****************************************************************************************/
 
 #include "downloadstore.h"
+#include <QtCore/QSettings>
 
 DownloadStore::DownloadStore(QObject *parent) :
     QObject(parent)
 {
+}
+
+/*
+ * Loading download data from settings.
+ * This function may called from DownloadStore initializer.
+ *
+ */
+void DownloadStore::loadDownloadData()
+{
+
+}
+
+/*
+ * Saving download data into settings.
+ *  Download data normally should be a List of `Download`, And data won't
+ * Saved on-by-one, Saving idea here is to save all the list object in ByteArray format.
+ * This way will give more performance for both saving/loading time.
+ *
+ */
+void DownloadStore::saveDownloadData()
+{
+
 }

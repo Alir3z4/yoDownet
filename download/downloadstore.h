@@ -28,11 +28,10 @@ class DownloadStore : public QObject
     Q_OBJECT
 public:
     explicit DownloadStore(QObject *parent = 0);
-    
-signals:
-    
-public slots:
-    
+
+private slots:
+    void loadDownloadData();
+    void saveDownloadData();
 };
 
 #endif // DOWNLOADSTORE_H

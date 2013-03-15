@@ -87,7 +87,7 @@ HEADERS  += ui/mainwindow.h \
     download/downloadtablemodel.h \
     download/downloadstore.h
 
-contains(CONFIG, qtestlib){
+contains(CONFIG, testlib){
     DEFINES += TESTING
 
     SOURCES += core/validators/tests/testurlvalidator.cpp

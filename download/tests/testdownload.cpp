@@ -23,7 +23,11 @@
 TestDownload::TestDownload(QObject *parent) :
     QObject(parent)
 {
-    download = new Download(this);
+}
+
+void TestDownload::initTestCase()
+{
+    url = "http://www.qt-project.com/somefile.tar.gz";
 }
 
 void TestDownload::testAddDownload()

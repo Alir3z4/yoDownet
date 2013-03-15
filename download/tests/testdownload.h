@@ -33,6 +33,7 @@ public:
     explicit TestDownload(QObject *parent = 0);
 
 private slots:
+    void initTestCase();
     void testAddDownload();
     void testAddDownloadPreUuid();
     void testDownloadUuid();
@@ -41,7 +42,7 @@ private slots:
     void testDownloadUrl();
 
 private:
-    Download *download;
+    QString url;
 };
 
 DECLARE_TEST(TestDownload)

@@ -32,7 +32,9 @@ void TestDownload::initTestCase()
 
 void TestDownload::testAddDownload()
 {
-    QFAIL("");
+    Download download;
+
+    QCOMPARE(download.newDownload(QUrl(url)), true);
 }
 
 void TestDownload::testAddDownloadPreUuid()

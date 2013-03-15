@@ -76,7 +76,13 @@ void TestDownload::testDownloadName()
 
 void TestDownload::testDownloadPath()
 {
-    QFAIL("");
+    Download download;
+
+    download.newDownload(url);
+    QString defaultPath = QString(QDir::homePath() + QDir::toNativeSeparators("/"));
+
+    QCOMPARE(download.path(), defaultPath);
+
 }
 
 void TestDownload::testDownloadUrl()

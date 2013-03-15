@@ -92,7 +92,7 @@ contains(CONFIG, qtestlib){
 
     SOURCES += core/validators/tests/testurlvalidator.cpp
 
-    HEADERS += core/validators/tests/testurlvalidator.h
+    HEADERS += core/autotest.h \
 }
 
 FORMS    += ui/mainwindow.ui \

@@ -38,7 +38,7 @@ bool Download::newDownload(const QUrl &url, const QUuid &uuid)
         fileName = "yodownet";
 
     QString savePath = Paths::saveDir();
-    QString fileWithPath = savePath.append(fileName);
+    QString fileWithPath = QString(savePath).append(fileName);
 
     _file = new QFile(fileWithPath);
     _status = new Status(this);
@@ -107,10 +107,12 @@ QString Download::fileAbsolutePath() const
 {
     return QString(path() + name());
 }
+
 void Download::setUuid(QUuid uuid)
 {
     if (uuid.isNull())
         uuid = QUuid::createUuid();
+
     _uuid = uuid;
 }
 

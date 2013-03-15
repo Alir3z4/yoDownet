@@ -90,9 +90,12 @@ HEADERS  += ui/mainwindow.h \
 contains(CONFIG, testlib){
     DEFINES += TESTING
 
-    SOURCES += core/validators/tests/testurlvalidator.cpp
+    SOURCES += core/validators/tests/testurlvalidator.cpp \
+        download/tests/testdownload.cpp
 
     HEADERS += core/autotest.h \
+        core/validators/tests/testurlvalidator.h \
+        download/tests/testdownload.h
 }
 
 FORMS    += ui/mainwindow.ui \

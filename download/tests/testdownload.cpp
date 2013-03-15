@@ -87,5 +87,12 @@ void TestDownload::testDownloadPath()
 
 void TestDownload::testDownloadUrl()
 {
-    QFAIL("");
+    Download download;
+
+    download.newDownload(url);
+
+    QCOMPARE(download.url().isEmpty(), false);
+    QCOMPARE(download.url().isValid(), true);
+    QCOMPARE(download.url().path(), QString("/somefile.tar.gz"));
+    QCOMPARE(download.url(), QUrl(url));
 }

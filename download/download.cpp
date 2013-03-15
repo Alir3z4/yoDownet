@@ -105,6 +105,10 @@ QString Download::path() const
     return _path;
 }
 
+QString Download::fileAbsolutePath() const
+{
+    return QString(path() + name());
+}
 void Download::setUuid(QUuid uuid)
 {
     if (uuid.isNull())

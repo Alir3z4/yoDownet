@@ -53,6 +53,8 @@ public:
     void setPath(const QString &path);
     QString path() const;
 
+    QString fileAbsolutePath() const;
+
     void setUuid(QUuid uuid=QUuid::createUuid());
     QUuid uuid() const;
 

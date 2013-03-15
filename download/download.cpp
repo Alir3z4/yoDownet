@@ -30,9 +30,7 @@ Download::Download(QObject *parent) :
 bool Download::newDownload(const QUrl &url, const QUuid &uuid)
 {
     setUuid(uuid);
-
-    _url = url;
-    _uuid = uuid;
+    setUrl(url);
 
     QFileInfo fileInfo(_url.path());
     QString fileName = fileInfo.fileName();

@@ -23,4 +23,35 @@
 TestDownload::TestDownload(QObject *parent) :
     QObject(parent)
 {
+    download = new Download(this);
+}
+
+void TestDownload::testAddDownload()
+{
+    QFAIL("");
+}
+
+void TestDownload::testAddDownloadPreUuid()
+{
+    QFAIL("");
+}
+
+void TestDownload::testDownloadUuid()
+{
+    QFAIL("");
+}
+
+void TestDownload::testDownloadName()
+{
+    QFAIL("");
+}
+
+void TestDownload::testDownloadPath()
+{
+    QFAIL("");
+}
+
+void TestDownload::testDownloadUrl()
+{
+    QFAIL("");
 }

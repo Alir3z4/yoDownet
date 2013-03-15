@@ -22,6 +22,8 @@
 #define TESTDOWNLOAD_H
 
 #include <QObject>
+#include <QtTest/QtTest>
+#include "download/download.h"
 #include "core/autotest.h"
 
 class TestDownload : public QObject
@@ -30,10 +32,17 @@ class TestDownload : public QObject
 public:
     explicit TestDownload(QObject *parent = 0);
 
-public slots:
+private slots:
+    void testAddDownload();
+    void testAddDownloadPreUuid();
+    void testDownloadUuid();
+    void testDownloadName();
+    void testDownloadPath();
+    void testDownloadUrl();
 
+private:
+    Download *download;
 };
 
 DECLARE_TEST(TestDownload)
-
 #endif // TESTDOWNLOAD_H

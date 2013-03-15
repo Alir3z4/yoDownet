@@ -65,7 +65,13 @@ void TestDownload::testDownloadPreUuid()
 
 void TestDownload::testDownloadName()
 {
-    QFAIL("");
+    Download download;
+
+    download.newDownload(url);
+
+    QCOMPARE(download.name().isEmpty(), false);
+    QCOMPARE(download.name().isNull(), false);
+    QCOMPARE(download.name(), QString("somefile.tar.gz"));
 }
 
 void TestDownload::testDownloadPath()

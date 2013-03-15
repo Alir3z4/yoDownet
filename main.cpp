@@ -19,8 +19,8 @@
 ****************************************************************************************/
 
 #ifdef TESTING
-#include "core/validators/tests/testurlvalidator.h"
-QTEST_MAIN(TestUrlValidator)
+#include "core/autotest.h"
+TEST_MAIN
 #else
 
 #include <QtWidgets/QApplication>

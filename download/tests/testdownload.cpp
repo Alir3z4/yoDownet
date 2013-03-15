@@ -43,6 +43,15 @@ void TestDownload::testAddDownloadPreUuid()
 void TestDownload::testDownloadUuid()
 {
     QFAIL("");
+
+void TestDownload::testDownloadPreUuid()
+{
+    Download download;
+
+    QUuid preUuid = QUuid::createUuid();
+    download.newDownload(url, preUuid);
+
+    QCOMPARE(download.uuid(), preUuid);
 }
 
 void TestDownload::testDownloadName()

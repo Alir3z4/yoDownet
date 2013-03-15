@@ -37,6 +37,7 @@ private slots:
     void testAddDownload();
     void testAddDownloadPreUuid();
     void testDownloadUuid();
+    void testDownloadPreUuid();
     void testDownloadName();
     void testDownloadPath();
     void testDownloadUrl();

@@ -44,6 +44,16 @@ void TestDownload::testAddDownloadPreUuid()
     QCOMPARE(download.newDownload(url, QUuid::createUuid()), true);
 }
 
+void TestDownload::testAddDownloadPreName()
+{
+    QFAIL("");
+}
+
+void TestDownload::testAddDownloadPrePath()
+{
+    QFAIL("");
+}
+
 void TestDownload::testDownloadUuid()
 {
     Download download;
@@ -83,6 +93,16 @@ void TestDownload::testDownloadPath()
 
     QCOMPARE(download.path(), defaultPath);
 
+}
+
+void TestDownload::testDownloadFile()
+{
+    QFAIL("");
+}
+
+void TestDownload::testDownloadFileAbsolutePath()
+{
+    QFAIL("");
 }
 
 void TestDownload::testDownloadUrl()

@@ -36,10 +36,14 @@ private slots:
     void initTestCase();
     void testAddDownload();
     void testAddDownloadPreUuid();
+    void testAddDownloadPreName();
+    void testAddDownloadPrePath();
     void testDownloadUuid();
     void testDownloadPreUuid();
     void testDownloadName();
     void testDownloadPath();
+    void testDownloadFile();
+    void testDownloadFileAbsolutePath();
     void testDownloadUrl();
 
 private:

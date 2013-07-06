@@ -25,14 +25,16 @@
 Download::Download(QObject *parent) :
     QObject(parent)
 {
+    _file = new QFile(this);
 }
+
 
 bool Download::newDownload(const QUrl &url, const QUuid &uuid)
 {
     setUuid(uuid);
     setUrl(url);
 
-    QFileInfo fileInfo(_url.path());
+    QFileInfo fileInfo(url.path());
     QString fileName = fileInfo.fileName();
     if(fileName.isEmpty())
         fileName = "yodownet";
@@ -40,7 +42,7 @@ bool Download::newDownload(const QUrl &url, const QUuid &uuid)
     QString savePath = Paths::saveDir();
     QString fileWithPath = QString(savePath).append(fileName);
 
-    _file = new QFile(fileWithPath);
+    this->setFile(new QFile(fileWithPath));
     _status = new Status(this);
     this->setName(fileName);
     this->setPath(savePath);

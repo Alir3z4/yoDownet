@@ -108,10 +108,12 @@ QString Download::fileAbsolutePath() const
     return QString(path() + name());
 }
 
-void Download::setUuid(QUuid uuid)
+void Download::setUuid(const QUuid &uuid)
 {
-    if (uuid.isNull())
-        uuid = QUuid::createUuid();
+    if (uuid.isNull()) {
+        _uuid = QUuid::createUuid();
+        return;
+    }
 
     _uuid = uuid;
 }

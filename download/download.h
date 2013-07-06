@@ -55,7 +55,7 @@ public:
 
     QString fileAbsolutePath() const;
 
-    void setUuid(QUuid uuid=QUuid::createUuid());
+    void setUuid(const QUuid &uuid=QUuid::createUuid());
     QUuid uuid() const;
 
     void setStatus(Status *status);

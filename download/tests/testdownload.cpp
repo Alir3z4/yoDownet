@@ -97,7 +97,11 @@ void TestDownload::testDownloadPath()
 
 void TestDownload::testDownloadFile()
 {
-    QFAIL("");
+    Download download;
+    download.newDownload(url);
+
+    QCOMPARE(download.file()->isOpen(), true);
+    QCOMPARE(download.file()->size(), qint64(0));
 }
 
 void TestDownload::testDownloadFileAbsolutePath()

@@ -18,6 +18,12 @@
 **
 ****************************************************************************************/
 
+/*! \file TestDownload.h
+ *  \brief Test Download class
+ *
+ *  Unit testing Download class.
+ */
+
 #ifndef TESTDOWNLOAD_H
 #define TESTDOWNLOAD_H
 
@@ -33,20 +39,56 @@ public:
     explicit TestDownload(QObject *parent = 0);
 
 private slots:
+    /*!
+     * \brief Initialize TestCase class and required variables.
+     */
     void initTestCase();
+    /*!
+     * \brief Should add new download.
+     */
     void testAddDownload();
+    /*!
+     * \brief Should add new download with custom UUID.
+     */
     void testAddDownloadPreUuid();
+    /*!
+     * \brief Should add new download with pre-defined or custom name.
+     */
     void testAddDownloadPreName();
+    /*!
+     * \brief Should add new download with pre-defined or custom file path.
+     */
     void testAddDownloadPrePath();
+    /*!
+     * \brief Download UUID should not be null after adding new download.
+     */
     void testDownloadUuid();
+    /*!
+     * \brief Should add new download with pre-defined UUID.
+     */
     void testDownloadPreUuid();
     void testDownloadName();
+    /*!
+     * \brief Should get download path after adding new download.
+     */
     void testDownloadPath();
+    /*!
+     * \brief Should have not-null, Open file after adding new download.
+     */
     void testDownloadFile();
+    /*!
+     * \brief Should get absolute file path after adding new download.
+     */
     void testDownloadFileAbsolutePath();
+    /*!
+     * \brief Should get download URL after adding new download.
+     */
     void testDownloadUrl();
 
 private:
+    /*!
+     * \brief A string to hold our boring sample/fake url.
+     */
     QString url;
 };
 

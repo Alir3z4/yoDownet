@@ -40,6 +40,10 @@ int DownloadTableModel::columnCount(const QModelIndex &parent) const
 
 QVariant DownloadTableModel::data(const QModelIndex &index, int role) const
 {
+    if (!index.isValid())
+        return QVariant();
+
+    QVariant value = QVariant();
 
     if (role == Qt::TextAlignmentRole)
         return Qt::AlignCenter;

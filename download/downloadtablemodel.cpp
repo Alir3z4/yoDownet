@@ -217,7 +217,8 @@ bool DownloadTableModel::insertRows(int position, int rows, const QModelIndex &i
     beginInsertRows(QModelIndex(), position, position+rows-1);
 
     for (int row = 0; row < rows; row++) {
-        // Insert new download to _downloadList.
+        DownloadHolder *download = new DownloadHolder(this);
+        _downloadList.insert(position, download);
     }
 
     endInsertRows();
@@ -260,5 +261,6 @@ QString DownloadTableModel::downloadStatus(const int status) const
         return tr("Paused");
         break;
     }
+
     return tr("Unknown Status");
 }

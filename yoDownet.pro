@@ -62,7 +62,8 @@ SOURCES += main.cpp\
     download/download.cpp \
     download/status.cpp \
     download/downloadtablemodel.cpp \
-    download/downloadstore.cpp
+    download/downloadstore.cpp \
+    download/downloadholder.cpp
 
 HEADERS  += ui/mainwindow.h \
     ui/dialog/preferencesdialog.h \
@@ -85,7 +86,8 @@ HEADERS  += ui/mainwindow.h \
     download/download.h \
     download/status.h \
     download/downloadtablemodel.h \
-    download/downloadstore.h
+    download/downloadstore.h \
+    download/downloadholder.h
 
 contains(CONFIG, testlib){
     DEFINES += TESTING

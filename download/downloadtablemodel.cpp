@@ -165,7 +165,6 @@ bool DownloadTableModel::setData(const QModelIndex &index, const QVariant &value
 
         DownloadHolder *download = _downloadList.value(row);
 
-        emit(dataChanged(index, index));
         switch (index.column()) {
         case Uuid:
             download->setUuid(value.toString());
@@ -200,6 +199,11 @@ bool DownloadTableModel::setData(const QModelIndex &index, const QVariant &value
         default:
             break;
         }
+
+        QModelIndex transposedIndex = createIndex(index.column(), index.row());
+
+        emit dataChanged(index, index);
+        emit dataChanged(transposedIndex, transposedIndex);
 
         return true;
     }

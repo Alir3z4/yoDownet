@@ -134,3 +134,13 @@ Status *Download::status() const
 {
     return _status;
 }
+
+void Download::setCreated(const QDateTime &created)
+{
+    _created = created;
+}
+
+QDateTime Download::created() const
+{
+    return _created;
+}

@@ -61,6 +61,9 @@ public:
     void setStatus(Status *status);
     Status *status() const;
 
+    void setCreated(const QDateTime &created);
+    QDateTime created() const;
+
 private:
     QFile *_file;
     QUrl _url;
@@ -68,6 +71,7 @@ private:
     QString _path;
     QUuid _uuid;
     Status *_status;
+    QDateTime _created;
 
 };
 

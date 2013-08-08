@@ -22,7 +22,7 @@
 #define DOWNLOADTABLEMODEL_H
 
 #include <QtCore/QAbstractTableModel>
-#include "download/download.h"
+#include "download/downloadholder.h"
 
 class DownloadTableModel : public QAbstractTableModel
 {
@@ -51,9 +51,10 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role=Qt::EditRole);
     bool insertRows(int position, int rows, const QModelIndex &index=QModelIndex());
     bool removeRows(int position, int rows, const QModelIndex &index=QModelIndex());
+    void setDownloadHash(QList<DownloadHolder*> &downloadList);
 
 private:
-    QList<Download*> _downloadList;
+    QList<DownloadHolder*> _downloadList;
 
     QString downloadStatus(const int status) const;
 };

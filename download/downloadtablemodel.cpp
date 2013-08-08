@@ -105,10 +105,13 @@ QVariant DownloadTableModel::headerData(int section, Qt::Orientation orientation
 
 Qt::ItemFlags DownloadTableModel::flags(const QModelIndex &index) const
 {
-    if (!index.isValid())
-        return Qt::ItemIsEnabled;
+    Qt::ItemFlags flags = QAbstractItemModel::flags(index);
 
-    return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
+    if (index.row() != index.column()) {
+        flags |= Qt::ItemIsEditable;
+    }
+
+    return flags;
 }
 
 bool DownloadTableModel::setData(const QModelIndex &index, const QVariant &value, int role)

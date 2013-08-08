@@ -48,16 +48,56 @@ QVariant DownloadTableModel::data(const QModelIndex &index, int role) const
     if (role == Qt::TextAlignmentRole)
         return Qt::AlignCenter;
 
-    if (value.isValid() && role == Qt::DisplayRole) {
-        if (index.column() == Progress) {
-            if (value.toInt() >= 100)
+    if (_downloadList.isEmpty())
+        return QVariant();
+
+    if (index.isValid() && role == Qt::DisplayRole) {
+        DownloadHolder *download = _downloadList.at(index.row());
+
+        switch (index.column()) {
+        case Uuid:
+            value = download->uuid();
+            break;
+        case URL:
+            value = download->url();
+            break;
+        case SavePath:
+            value = download->savePath();
+            break;
+        case FileName:
+            value = download->fileName();
+            break;
+        case Status:
+            value = download->status();
+            int progress;
+            progress = index.sibling(index.row(), Progress).data().toString().remove("%").toInt();
+            if (progress >= 100) {
+                value = this->downloadStatus(3);
+            } else {
+                value = this->downloadStatus(value.toInt());
+            }
+            break;
+        case Progress:
+            value = download->progress();
+            if (value.toInt() >= 100) {
                 value = 100;
-            return value.toString().append("%");
-        } else if (index.column() == Status) {
-            int prg = index.sibling(index.row(), 5).data().toString().remove("%").toInt();
-            if (prg  >= 100)
-                return downloadStatus(3);
-            return downloadStatus(value.toInt());
+            }
+            value = value.toString().append("%");
+            break;
+        case RemainingTime:
+            value = download->remainingTime();
+            break;
+        case Speed:
+            value = download->speed();
+            break;
+        case Added:
+            value = download->added();
+            break;
+        case Downloaded:
+            value = download->downloaded();
+            break;
+        default:
+            break;
         }
     }
 

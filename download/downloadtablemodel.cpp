@@ -163,9 +163,43 @@ bool DownloadTableModel::setData(const QModelIndex &index, const QVariant &value
     if (index.isValid() && role == Qt::EditRole) {
         int row = index.row();
 
-        // TODO: Do the set data and shit
+        DownloadHolder *download = _downloadList.value(row);
 
         emit(dataChanged(index, index));
+        switch (index.column()) {
+        case Uuid:
+            download->setUuid(value.toString());
+            break;
+        case URL:
+            download->setUrl(value.toString());
+            break;
+        case SavePath:
+            download->setSavePath(value.toString());
+            break;
+        case FileName:
+            download->setFileName(value.toString());
+            break;
+        case Status:
+            download->setStatus(this->downloadStatus(value.toInt()));
+            break;
+        case Progress:
+            download->setProgress(value.toString());
+            break;
+        case RemainingTime:
+            download->setRemainingTime(value.toString());
+            break;
+        case Speed:
+            download->setSpeed(value.toString());
+            break;
+        case Added:
+            download->setAdded(value.toString());
+            break;
+        case Downloaded:
+            download->setDownloaded(value.toString());
+            break;
+        default:
+            break;
+        }
 
         return true;
     }

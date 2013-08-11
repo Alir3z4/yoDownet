@@ -5,7 +5,12 @@
 LogMe::LogMe(QObject *parent) :
     QObject(parent)
 {
-    _className = parent->metaObject()->className();
+    if (parent == 0) {
+        return;
+    }
+
+    _className  = parent->metaObject()->className();
+
 }
 
 void LogMe::debug(const QString &debugMessage)

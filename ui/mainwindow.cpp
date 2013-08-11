@@ -29,8 +29,10 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow), model(new DownloadTableModel(parent)),
-    downloader(new yoDownet(parent)), _message(new Message(parent))
+    downloader(new yoDownet(parent)), _message(new Message(parent)), _logger(new LogMe(this))
 {
+    _logger->info("Initializing main window");
+
     ui->setupUi(this);
 
     loadSettings();
@@ -59,6 +61,7 @@ MainWindow::~MainWindow()
     delete downloader;
     delete _trayIcon;
     delete _trayMenu;
+    delete _logger;
 }
 
 QStringList MainWindow::currentColumns(const int &column) const

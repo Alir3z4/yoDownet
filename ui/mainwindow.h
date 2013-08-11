@@ -24,6 +24,7 @@
 #include <QMainWindow>
 #include <QtWidgets/QTableWidgetItem>
 #include <QCloseEvent>
+#include "core/logme.h"
 #include "download/downloadtablemodel.h"
 #include "plus/messages/message.h"
 #include "ui/widget/systemtrayicon.h"
@@ -74,6 +75,7 @@ private:
     DownloadTableModel *model;
     yoDownet *downloader;
     Message *_message;
+    LogMe *_logger;
 
     void prepareTrayIcon();
     void closeEvent(QCloseEvent * event);

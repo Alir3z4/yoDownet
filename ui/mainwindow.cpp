@@ -56,6 +56,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    _logger->info("Destroying main window resources");
+    _logger->info("Memory you're free now, free!");
+
     delete ui;
     delete model;
     delete downloader;
@@ -210,7 +213,13 @@ void MainWindow::onDownloadResumed(const Download *download)
 
 void MainWindow::trayIconTriggered()
 {
-    if (isHidden()) show(); else hide();
+    if (isHidden()) {
+        _logger->info("Showing main window");
+        show();
+    } else {
+        _logger->info("Hiding main window");
+        hide();
+    }
 }
 
 void MainWindow::changeEvent(QEvent *e)
@@ -232,6 +241,8 @@ void MainWindow::createActionsOnMainWindow()
 
 void MainWindow::saveSettings()
 {
+    _logger->info("Saving settings");
+
     QSettings settings;
     settings.beginGroup("MainWindow");
 
@@ -277,10 +288,14 @@ void MainWindow::saveSettings()
     settings.endGroup();
 
     settings.endGroup();
+
+    _logger->info("Settings saved");
 }
 
 void MainWindow::loadSettings()
 {
+    _logger->info("Loading settings");
+
     QSettings settings;
     settings.beginGroup("MainWindow");
     move(settings.value("pos", QPoint(200, 200)).toPoint());
@@ -329,10 +344,14 @@ void MainWindow::loadSettings()
     settings.endGroup();
 
     settings.endGroup();
+
+    _logger->success("Settings loaded");
 }
 
 void MainWindow::prepareTrayIcon()
 {
+    _logger->info("Preparing system tray icon");
+
     _trayIcon = new SystemTrayIcon;
     _trayMenu = new QMenu;
     _trayMenu->addAction(ui->addAction);

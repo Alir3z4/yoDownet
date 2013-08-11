@@ -28,6 +28,11 @@ void LogMe::error(const QString &errorMessage)
     this->logMessage("error", errorMessage);
 }
 
+void LogMe::setClassName(const QString &className)
+{
+    _className = className;
+}
+
 void LogMe::logMessage(const QString &logLevel, const QString &logMessage) const
 {
     qDebug() << QString("%1::%2 %3 %4").arg(_className,

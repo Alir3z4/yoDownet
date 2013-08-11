@@ -14,6 +14,8 @@ public:
     void success(const QString &successMessage);
     void error(const QString &errorMessage);
 
+    void setClassName(const QString &className);
+
 private:
     QString _className;
 

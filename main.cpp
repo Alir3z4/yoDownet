@@ -27,6 +27,7 @@ TEST_MAIN
 #include <QtCore/QSettings>
 #include <QtCore/QTranslator>
 #include <QtGui/QIcon>
+#include "core/logme.h"
 #include "util/paths.h"
 #include "ui/mainwindow.h"
 
@@ -40,6 +41,10 @@ int main(int argc, char *argv[])
     a.setOrganizationDomain("yodownet.sourceforge.net");
     a.setApplicationDisplayName(a.applicationName());
 
+    LogMe logger;
+    logger.setClassName("Main");
+    logger.info("yoDownet Started");
+
     QIcon appIcon;
     appIcon.addFile(QStringLiteral(":/icons/images/yoDownet_64.svg"), QSize(), QIcon::Normal, QIcon::Off);
     a.setWindowIcon(appIcon);
@@ -52,6 +57,7 @@ int main(int argc, char *argv[])
     settings.endGroup();
     settings.endGroup();
 
+    logger.info("Loading translations");
     QTranslator translator;
     translator.load(Paths::translationPath() + "yodownet_" + language);
     a.installTranslator(&translator);

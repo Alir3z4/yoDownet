@@ -30,13 +30,17 @@ Download::Download(QObject *parent) :
 
 bool Download::newDownload(const QUrl &url, const QUuid &uuid)
 {
+    _logger->info(QString("Initializing new download: %1").arg(url.toString()));
+
     setUuid(uuid);
     setUrl(url);
 
     QFileInfo fileInfo(url.path());
     QString fileName = fileInfo.fileName();
-    if(fileName.isEmpty())
+    if(fileName.isEmpty()) {
+        _logger->info("Download file name is empty, setting default name");
         fileName = "yodownet";
+    }
 
     QString savePath = Paths::saveDir();
     QString fileWithPath = QString(savePath).append(fileName);
@@ -50,18 +54,25 @@ bool Download::newDownload(const QUrl &url, const QUuid &uuid)
 
     bool isOpened;
     if (QFile::exists(fileWithPath)) {
+        _logger->info("Download file exist on file-system, Going to resume");
+
         isOpened = _file->open(QIODevice::Append);
         _status->setDownloadMode(Status::ResumeDownload);
     } else {
+        _logger->info("New download recognized");
+
         isOpened = _file->open(QIODevice::WriteOnly);
         _status->setDownloadMode(Status::NewDownload);
     }
 
     if (!isOpened) {
+        _logger->error("Couldn't open file for '%1', adding new download aborted");
         delete _file;
         _file = 0;
         return false;
     }
+
+    _created = QDateTime::currentDateTime();
 
     return true;
 }
@@ -113,7 +124,9 @@ QString Download::fileAbsolutePath() const
 
 void Download::setUuid(const QUuid &uuid)
 {
+    _logger->info("Initializing UUID");
     if (uuid.isNull()) {
+        _logger->info("Given UUID is null, Generating new one");
         _uuid = QUuid::createUuid();
         return;
     }

@@ -25,6 +25,7 @@
 #include <QFile>
 #include <QUuid>
 #include <QUrl>
+#include "core/logme.h"
 #include "download/status.h"
 
 class Download : public QObject
@@ -72,6 +73,8 @@ private:
     QUuid _uuid;
     Status *_status;
     QDateTime _created;
+
+    LogMe *_logger;
 
 };
 

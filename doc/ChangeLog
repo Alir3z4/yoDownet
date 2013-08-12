@@ -11,6 +11,7 @@
     * Removed *.sql file from resource.
     * Deleted yoDataBase class and it's ugly implemention.
     * Removed newDownload from `yoDownet` to `Download`
+    * Fixed #34: Add Logging functionality
 
 2012-05-11 Alireza Savand <alireza.savand@gmail.com>
     * task-#30-clean-installation: make installation cleaner and more simple.

@@ -23,9 +23,8 @@
 #include "util/paths.h"
 
 Download::Download(QObject *parent) :
-    QObject(parent)
+    QObject(parent), _logger(new LogMe(this))
 {
-    _file = new QFile(this);
 }
 
 
@@ -41,6 +40,8 @@ bool Download::newDownload(const QUrl &url, const QUuid &uuid)
 
     QString savePath = Paths::saveDir();
     QString fileWithPath = QString(savePath).append(fileName);
+
+    _file = new QFile(this);
 
     this->setFile(new QFile(fileWithPath));
     _status = new Status(this);

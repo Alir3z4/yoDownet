@@ -181,6 +181,8 @@ void yoDownet::httpFinished(QObject *currentReply)
     QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->find(qobject_cast<QNetworkReply*>(currentReply));
     Status *status = _statusHash->find(i.key()->url()).value();
 
+    _logger->info(QString("HTTP request has finished for '%1'").arg(i.value()->url().toString()));
+
     i.value()->file()->flush();
     i.value()->file()->close();
     i.value()->setFile(0);

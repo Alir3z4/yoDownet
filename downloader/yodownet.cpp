@@ -27,6 +27,7 @@ yoDownet::yoDownet(QObject *parent) :
 {
     connect(this, SIGNAL(fileReadyToRemove(QFile*)), this, SLOT(removeFile(QFile*)));
 }
+
 void yoDownet::addDownload(const QString &url)
 {
     Download *newDownload = new Download(this);

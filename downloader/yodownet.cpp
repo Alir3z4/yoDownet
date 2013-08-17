@@ -42,18 +42,18 @@ void yoDownet::addDownloads(const QStringList &urls)
 
 void yoDownet::pauseDownload(const QString &url)
 {
-    _logger->info(QString("Pausing download '{0}'").arg(url));
+    _logger->info(QString("Pausing download '%1'").arg(url));
 
     QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->begin();
     while(i != _downloadHash->end()){
         if(i.key()->url().toString() == url){
-            _logger->info(QString("Found download '{0}' in hash.").arg(url));
+            _logger->info(QString("Found download '%1' in hash.").arg(url));
 
             i.value()->file()->write(i.key()->readAll());
             Status *status = _statusHash->find(i.key()->url()).value();
             status->setDownloadStatus(Status::Paused);
 
-            _logger->info(QString("Emit 'downloadPaused' signal for '{0}'").arg(url));
+            _logger->info(QString("Emit 'downloadPaused' signal for '%1'").arg(url));
             emit downloadPaused(i.value());
 
             i.key()->close();
@@ -71,17 +71,18 @@ void yoDownet::pauseDownloads(const QStringList &urls)
 
 void yoDownet::removeDownload(const QString &filePath)
 {
-    _logger->info(QString("Start Removing '{0}' via download engine").arg(filePath));
+    _logger->info(QString("Start Removing '%1' via download engine").arg(filePath));
 
     if(_downloadHash->isEmpty()){
-        _logger->info(QString("Download hash is empty, emiting `fileReadyToRemove` singal to remove file '{0}'").arg(filePath));
+        _logger->info(QString("Download hash is empty, emiting `fileReadyToRemove` singal to remove file '%1'").arg(filePath));
 
         emit fileReadyToRemove(new QFile(filePath));
         return;
     }
     foreach(Download *download, _downloadHash->values()){
         if(download->file()->fileName() == filePath){
-            _logger->info(QString("Found download '{0}' in hash.").arg(filePath));
+            _logger->info(QString("Found download '%1' in hash.").arg(filePath));
+
             QNetworkReply *reply = _downloadHash->key(download);
             emit pauseDownload(reply->url().toString());
             emit fileReadyToRemove(download->file());

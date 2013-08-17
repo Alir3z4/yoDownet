@@ -68,12 +68,11 @@ void yoDownet::removeDownload(const QString &filePath)
         emit fileReadyToRemove(new QFile(filePath));
         return;
     }
-    // FIXME: file pointer doesn't exist here, Value is Download pointer
-    foreach(QFile *file, _downloadHash->values()){
-        if(file->fileName() == filePath){
-            QNetworkReply *reply = _downloadHash->key(file);
+    foreach(Download *download, _downloadHash->values()){
+        if(download->file()->fileName() == filePath){
+            QNetworkReply *reply = _downloadHash->key(download);
             emit pauseDownload(reply->url().toString());
-            emit fileReadyToRemove(file);
+            emit fileReadyToRemove(download->file());
             break;
         }
     }

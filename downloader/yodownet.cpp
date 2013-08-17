@@ -35,9 +35,13 @@ void yoDownet::addDownload(const QString &url)
 
 void yoDownet::addDownloads(const QStringList &urls)
 {
-    if(urls.isEmpty()) return;
-    for(int i = 0; i < urls.size(); ++i)
+    if(urls.isEmpty()) {
+        return;
+    }
+
+    for(int i = 0; i < urls.size(); ++i) {
         addDownload(urls[i]);
+    }
 }
 
 void yoDownet::pauseDownload(const QString &url)

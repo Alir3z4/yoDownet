@@ -113,6 +113,7 @@ void yoDownet::startRequest(const QUrl &url)
 {
     QNetworkRequest request(url);
     request.setRawHeader("Range", QByteArray("bytes=SIZE-").replace("SIZE", QVariant(_download->file()->size()).toByteArray()));
+    _logger->info(QString("Starting request for '%1'").arg(newDownload->url().toString()));
 
     _status->setFileAlreadyBytes(_download->file()->size());
 
@@ -130,13 +131,22 @@ void yoDownet::startRequest(const QUrl &url)
         emit downlaodResumed(statusIt.value());
     }
 
+    // Initialing `SignalMapper`
+    _logger->info(QString("Initialing `SignalMapper`s for `%1`").arg(newDownload->url().toString()));
+
     _readyReadSignalMapper = new QSignalMapper(this);
     _metaChangedSignalMapper = new QSignalMapper(this);
     _finishedSignalMapper = new QSignalMapper(this);
 
+    // Setup mapping on `SignalMapper`
+    _logger->info(QString("Setup mapping on signal mappers for `%1`").arg(newDownload->url().toString()));
+
     _readyReadSignalMapper->setMapping(i.key(), i.key());
     _metaChangedSignalMapper->setMapping(i.key(), i.key());
     _finishedSignalMapper->setMapping(i.key(), i.key());
+
+    // Connecting signals to the `receivers` via `SignalMapper`
+    _logger->info(QString("Connecting signals to receivers via signals mappers for `%1`").arg(newDownload->url().toString()));
 
     connect(i.key(), SIGNAL(readyRead()), _readyReadSignalMapper, SLOT(map()));
     connect(i.key(), SIGNAL(metaDataChanged()), _metaChangedSignalMapper, SLOT(map()));

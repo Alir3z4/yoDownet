@@ -24,6 +24,7 @@
 yoDownet::yoDownet(QObject *parent) :
     QObject(parent), _downloadHash(new QHash<QNetworkReply*, QFile*>),
     _statusHash( new QHash<QUrl, Status*>)
+    _statusHash( new QHash<QUrl, Status*>), _logger(new LogMe(this))
 {
     connect(this, SIGNAL(fileReadyToRemove(QFile*)), this, SLOT(removeFile(QFile*)));
 }

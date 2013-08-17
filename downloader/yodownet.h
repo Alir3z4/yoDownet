@@ -31,6 +31,7 @@
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include "core/logme.h"
 #include <download/download.h>
 #include "download/status.h"
 
@@ -85,6 +86,8 @@ private:
     QSignalMapper *_finishedSignalMapper;
     QHash<QNetworkReply*, Download*> *_downloadHash;
     QHash<QUrl, Status*> *_statusHash;
+
+    LogMe *_logger;
 };
 
 #endif // YODOWNET_H

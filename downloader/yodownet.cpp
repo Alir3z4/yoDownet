@@ -189,6 +189,7 @@ void yoDownet::httpFinished(QObject *currentReply)
     _downloadHash->remove(i.key());
 
     if(status->downloadStatus() != Status::Paused) {
+        _logger->info("HTTP request has finished, I'm done with downloading.");
         status->setDownloadStatus(Status::Finished);
     }
 

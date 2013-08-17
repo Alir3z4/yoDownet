@@ -67,7 +67,7 @@ void yoDownet::removeDownload(const QString &filePath)
     _logger->info(QString("Start Removing '{0}' via download engine").arg(filePath));
 
     if(_downloadHash->isEmpty()){
-        _logger->info("Download hash is empty, emiting singal to remove download.");
+        _logger->info(QString("Download hash is empty, emiting `fileReadyToRemove` singal to remove file '{0}'").arg(filePath));
 
         emit fileReadyToRemove(new QFile(filePath));
         return;

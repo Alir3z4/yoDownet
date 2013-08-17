@@ -42,13 +42,20 @@ void yoDownet::addDownloads(const QStringList &urls)
 
 void yoDownet::pauseDownload(const QString &url)
 {
+    _logger->info(QString("Pausing download '{0}'").arg(url));
+
     QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->begin();
     while(i != _downloadHash->end()){
         if(i.key()->url().toString() == url){
-            i.value()->write(i.key()->readAll());
+            _logger->info(QString("Found download '{0}' in hash.").arg(url));
+
+            i.value()->file()->write(i.key()->readAll());
             Status *status = _statusHash->find(i.key()->url()).value();
             status->setDownloadStatus(Status::Paused);
-            emit downloadPaused(status);
+
+            _logger->info(QString("Emit 'downloadPaused' signal for '{0}'").arg(url));
+            emit downloadPaused(i.value());
+
             i.key()->close();
             break;
         }

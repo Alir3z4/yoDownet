@@ -64,12 +64,17 @@ void yoDownet::pauseDownloads(const QStringList &urls)
 
 void yoDownet::removeDownload(const QString &filePath)
 {
+    _logger->info(QString("Start Removing '{0}' via download engine").arg(filePath));
+
     if(_downloadHash->isEmpty()){
+        _logger->info("Download hash is empty, emiting singal to remove download.");
+
         emit fileReadyToRemove(new QFile(filePath));
         return;
     }
     foreach(Download *download, _downloadHash->values()){
         if(download->file()->fileName() == filePath){
+            _logger->info(QString("Found download '{0}' in hash.").arg(filePath));
             QNetworkReply *reply = _downloadHash->key(download);
             emit pauseDownload(reply->url().toString());
             emit fileReadyToRemove(download->file());

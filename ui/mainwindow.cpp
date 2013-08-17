@@ -161,6 +161,7 @@ void MainWindow::updateUrlsTable(const Download *download)
             updateModel->setData(updateModel->index(i, DownloadTableModel::Progress), download->status()->progress());
             updateModel->setData(updateModel->index(i, DownloadTableModel::RemainingTime), download->status()->remainingTime());
             updateModel->setData(updateModel->index(i, DownloadTableModel::Speed), download->status()->downloadRate());
+            updateModel->setData(updateModel->index(i, DownloadTableModel::Added), download->created());
             urlExist = true;
         }
     }

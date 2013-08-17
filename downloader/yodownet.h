@@ -69,7 +69,7 @@ public slots:
 
 private slots:
     void replyMetaDataChanged(QObject *currentReply);
-    void startRequest(const QUrl &url);
+    void startRequest(Download *newDownload);
     void httpReadyRead(QObject *currentReply);
     void httpFinished(QObject *currentReply);
     // TODO: Removing file can be done in `Download` class.
@@ -78,9 +78,6 @@ private slots:
 private:
     QNetworkAccessManager _manager;
     QNetworkReply *_reply;
-    QFile *_file;
-    Download *_download;
-    Status *_status;
     QSignalMapper *_readyReadSignalMapper;
     QSignalMapper *_metaChangedSignalMapper;
     QSignalMapper *_finishedSignalMapper;

@@ -22,16 +22,18 @@
 #include "util/paths.h"
 
 yoDownet::yoDownet(QObject *parent) :
-    QObject(parent), _downloadHash(new QHash<QNetworkReply*, QFile*>),
-    _statusHash( new QHash<QUrl, Status*>)
+    QObject(parent), _downloadHash(new QHash<QNetworkReply*, Download*>),
     _statusHash( new QHash<QUrl, Status*>), _logger(new LogMe(this))
 {
     connect(this, SIGNAL(fileReadyToRemove(QFile*)), this, SLOT(removeFile(QFile*)));
 }
 void yoDownet::addDownload(const QString &url)
 {
-    if (_download->newDownload(QUrl(url)))
-        startRequest(_download->url());
+    Download *newDownload = new Download(this);
+
+    if (newDownload->newDownload(QUrl(url))) {
+        startRequest(newDownload);
+    }
 }
 
 void yoDownet::addDownloads(const QStringList &urls)
@@ -110,26 +112,26 @@ void yoDownet::replyMetaDataChanged(QObject *currentReply)
     status->setBytesTotal(i.key()->header(QNetworkRequest::ContentLengthHeader).toULongLong());
 }
 
-void yoDownet::startRequest(const QUrl &url)
+void yoDownet::startRequest(Download *newDownload)
 {
-    QNetworkRequest request(url);
-    request.setRawHeader("Range", QByteArray("bytes=SIZE-").replace("SIZE", QVariant(_download->file()->size()).toByteArray()));
     _logger->info(QString("Starting request for '%1'").arg(newDownload->url().toString()));
 
-    _status->setFileAlreadyBytes(_download->file()->size());
+    QNetworkRequest request(newDownload->url().toString());
+    request.setRawHeader("Range", QByteArray("bytes=SIZE-").replace("SIZE", QVariant(newDownload->file()->size()).toByteArray()));
+
+    newDownload->status()->setFileAlreadyBytes(newDownload->file()->size());
 
     _reply = _manager.get(request);
 
-    _status->setDownloadStatus(Status::Starting);
+    newDownload->status()->setDownloadStatus(Status::Starting);
 
-    QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->insert(_reply, _download);
-    QHash<QUrl, Status*>::iterator statusIt = _statusHash->insert(i.key()->url(), _status);
+    QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->insert(_reply, newDownload);
+    QHash<QUrl, Status*>::iterator statusIt = _statusHash->insert(i.key()->url(), newDownload->status());
 
-    if(statusIt.value()->downloadMode() == Status::NewDownload){
-        emit downloadInitialed(statusIt.value());
-    }
-    else if(statusIt.value()->downloadMode() == Status::ResumeDownload){
-        emit downlaodResumed(statusIt.value());
+    if (statusIt.value()->downloadMode() == Status::NewDownload) {
+        emit downloadInitialed(i.value());
+    } else if (statusIt.value()->downloadMode() == Status::ResumeDownload) {
+        emit downlaodResumed(i.value());
     }
 
     // Initialing `SignalMapper`
@@ -162,14 +164,14 @@ void yoDownet::startRequest(const QUrl &url)
 void yoDownet::httpReadyRead(QObject *currentReply)
 {
     QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->find(qobject_cast<QNetworkReply*>(currentReply));
-    Status *status = _statusHash->find(i.key()->url()).value();
     if (i.value()->file()) {
+        Status *status = _statusHash->find(i.key()->url()).value();
         if (i.value()->file()->size() == status->bytesTotal()) {
             i.key()->close();
         } else if (i.value()->file()->size() < status->bytesTotal()) {
             i.value()->file()->write(i.key()->readAll());
             status->setDownloadStatus(Status::Downloading);
-            emit downloadUpdated(status);
+            emit downloadUpdated(i.value());
         }
     }
 }
@@ -181,22 +183,25 @@ void yoDownet::httpFinished(QObject *currentReply)
 
     i.value()->file()->flush();
     i.value()->file()->close();
-    i.value()->file() = 0;
+    i.value()->setFile(0);
     i.key()->deleteLater();
+
     _downloadHash->remove(i.key());
 
-    if(status->downloadStatus() != Status::Paused)
+    if(status->downloadStatus() != Status::Paused) {
         status->setDownloadStatus(Status::Finished);
+    }
 
     // Oh let's emit this mother fucker!
-    emit downloadUpdated(status);
+    emit downloadUpdated(i.value());
 }
 
 void yoDownet::removeFile(QFile *file)
 {
     const QString fileName = file->fileName();
-    if(!file->remove())
+    if(!file->remove()) {
         return;
+    }
     file = 0;
     emit downloadRemoved(fileName);
 }

@@ -141,7 +141,7 @@ void yoDownet::startRequest(const QUrl &url)
     connect(i.key(), SIGNAL(readyRead()), _readyReadSignalMapper, SLOT(map()));
     connect(i.key(), SIGNAL(metaDataChanged()), _metaChangedSignalMapper, SLOT(map()));
     connect(i.key(), SIGNAL(finished()), _finishedSignalMapper, SLOT(map()));
-    connect(i.key(), SIGNAL(downloadProgress(qint64,qint64)), statusIt.value(),  SLOT(updateFileStatus(qint64,qint64)));
+    connect(i.key(), SIGNAL(downloadProgress(qint64,qint64)), statusIt.value(), SLOT(updateFileStatus(qint64, qint64)));
 
     connect(_readyReadSignalMapper, SIGNAL(mapped(QObject*)), this, SLOT(httpReadyRead(QObject*)));
     connect(_metaChangedSignalMapper, SIGNAL(mapped(QObject*)), this, SLOT(replyMetaDataChanged(QObject*)));

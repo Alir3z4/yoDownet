@@ -68,7 +68,6 @@ QVariant DownloadTableModel::data(const QModelIndex &index, int role) const
             value = download->fileName();
             break;
         case Status:
-            value = download->status();
             int progress;
             progress = index.sibling(index.row(), Progress).data().toString().remove("%").toInt();
             if (progress >= 100) {
@@ -179,10 +178,10 @@ bool DownloadTableModel::setData(const QModelIndex &index, const QVariant &value
             download->setFileName(value.toString());
             break;
         case Status:
-            download->setStatus(this->downloadStatus(value.toInt()));
+            download->setStatus(value.toInt());
             break;
         case Progress:
-            download->setProgress(value.toString());
+            download->setProgress(value.toInt());
             break;
         case RemainingTime:
             download->setRemainingTime(value.toString());

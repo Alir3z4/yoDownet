@@ -40,16 +40,16 @@ int DownloadTableModel::columnCount(const QModelIndex &parent) const
 
 QVariant DownloadTableModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid())
+    if (!index.isValid() || _downloadList.isEmpty()) {
         return QVariant();
+    }
 
     QVariant value = QVariant();
 
-    if (role == Qt::TextAlignmentRole)
+    if (role == Qt::TextAlignmentRole) {
         return Qt::AlignCenter;
+    }
 
-    if (_downloadList.isEmpty())
-        return QVariant();
 
     if (index.isValid() && role == Qt::DisplayRole) {
         DownloadHolder *download = _downloadList.at(index.row());

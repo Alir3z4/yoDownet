@@ -369,6 +369,8 @@ void MainWindow::prepareTrayIcon()
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     saveSettings();
-    if (!isHidden()) event->ignore();
+    if (!isHidden()) {
+        event->ignore();
+    }
     hide();
 }

@@ -55,12 +55,12 @@ void DownloadHolder::setStatus(const QString &status)
     _status = status;
 }
 
-QString DownloadHolder::progress() const
+int DownloadHolder::progress() const
 {
     return _progress;
 }
 
-void DownloadHolder::setProgress(const QString &progress)
+void DownloadHolder::setProgress(const int &progress)
 {
     _progress = progress;
 }

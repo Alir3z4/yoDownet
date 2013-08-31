@@ -24,8 +24,8 @@ public:
     QString status() const;
     void setStatus(const QString &status);
 
-    QString progress() const;
-    void setProgress(const QString &progress);
+    int progress() const;
+    void setProgress(const int &progress);
 
     QString remainingTime() const;
     void setRemainingTime(const QString &remainingTime);
@@ -45,7 +45,7 @@ private:
     QString _savePath;
     QString _fileName;
     QString _status;
-    QString _progress;
+    int _progress;
     QString _remainingTime;
     QString _speed;
     QString _added;

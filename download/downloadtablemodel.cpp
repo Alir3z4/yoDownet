@@ -71,7 +71,7 @@ QVariant DownloadTableModel::data(const QModelIndex &index, int role) const
             if (progress >= 100) {
                 value = this->downloadStatus(3);
             } else {
-                value = this->downloadStatus(value.toInt());
+                value = this->downloadStatus(download->status());
             }
             break;
         case Progress:

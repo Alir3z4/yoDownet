@@ -160,9 +160,8 @@ bool DownloadTableModel::setData(const QModelIndex &index, const QVariant &value
 {
     if (role != Qt::EditRole) return false;
     if (index.isValid() && role == Qt::EditRole) {
-        int row = index.row();
 
-        DownloadHolder *download = _downloadList.value(row);
+        DownloadHolder *download = _downloadList.value(index.row());
 
         switch (index.column()) {
         case Uuid:

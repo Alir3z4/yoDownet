@@ -43,12 +43,11 @@ QVariant DownloadTableModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    QVariant value = QVariant();
-
     if (role == Qt::TextAlignmentRole) {
         return Qt::AlignCenter;
     }
 
+    QVariant value = QVariant();
 
     if (index.isValid() && role == Qt::DisplayRole) {
         DownloadHolder *download = _downloadList.at(index.row());

@@ -158,7 +158,6 @@ Qt::ItemFlags DownloadTableModel::flags(const QModelIndex &index) const
 
 bool DownloadTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
-    if (role != Qt::EditRole) return false;
     if (index.isValid() && role == Qt::EditRole) {
 
         DownloadHolder *download = _downloadList.value(index.row());

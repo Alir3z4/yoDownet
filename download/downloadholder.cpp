@@ -45,12 +45,12 @@ void DownloadHolder::setFileName(const QString &fileName)
     _fileName = fileName;
 }
 
-QString DownloadHolder::status() const
+int DownloadHolder::status() const
 {
     return _status;
 }
 
-void DownloadHolder::setStatus(const QString &status)
+void DownloadHolder::setStatus(const int &status)
 {
     _status = status;
 }

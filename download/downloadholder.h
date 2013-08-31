@@ -21,8 +21,8 @@ public:
     QString fileName() const;
     void setFileName(const QString &fileName);
 
-    QString status() const;
-    void setStatus(const QString &status);
+    int status() const;
+    void setStatus(const int &status);
 
     int progress() const;
     void setProgress(const int &progress);
@@ -44,7 +44,7 @@ private:
     QString _url;
     QString _savePath;
     QString _fileName;
-    QString _status;
+    int _status;
     int _progress;
     QString _remainingTime;
     QString _speed;

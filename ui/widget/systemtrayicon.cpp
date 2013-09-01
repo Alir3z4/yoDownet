@@ -73,6 +73,6 @@ void SystemTrayIcon::iconActivated(QSystemTrayIcon::ActivationReason reason)
             emit middleClicked();
             break;
         default:
-            ;
+            break;
     }
 }

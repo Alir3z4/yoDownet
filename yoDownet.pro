@@ -89,7 +89,8 @@ HEADERS  += ui/mainwindow.h \
     download/downloadtablemodel.h \
     download/downloadstore.h \
     download/downloadholder.h \
-    core/logme.h
+    core/logme.h \
+    download/downloadconstants.h
 
 contains(CONFIG, testlib){
     DEFINES += TESTING

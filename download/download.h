@@ -31,11 +31,6 @@
 class Download : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QFile *file READ file WRITE setFile)
-    Q_PROPERTY(QString path READ path WRITE setPath)
-    Q_PROPERTY(QString name READ name WRITE setName)
-    Q_PROPERTY(QUuid uuid READ uuid WRITE setUuid)
-    Q_PROPERTY(Status *status READ status WRITE setStatus)
 
 public:
     explicit Download(QObject *parent = 0);

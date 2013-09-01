@@ -26,6 +26,7 @@
 #include <QCloseEvent>
 #include "core/logme.h"
 #include "download/downloadtablemodel.h"
+#include "download/downloadconstants.h"
 #include "plus/messages/message.h"
 #include "ui/widget/systemtrayicon.h"
 #include "downloader/yodownet.h"
@@ -42,7 +43,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    QStringList currentColumns(const int &column = DownloadTableModel::URL) const;
+    QStringList currentColumns(const int &column = DownloadConstants::Attributes::URL) const;
 
 private slots:
     void on_preferencesAction_triggered();

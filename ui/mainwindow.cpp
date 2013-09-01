@@ -114,7 +114,7 @@ void MainWindow::on_resumeAction_triggered()
 
 void MainWindow::on_removeAction_triggered()
 {
-    downloader->removeDownloads(currentColumns(DownloadTableModel::SavePath));
+    downloader->removeDownloads(currentColumns(DownloadConstants::Attributes::SavePath));
 }
 
 void MainWindow::on_removeFromListAction_triggered()
@@ -145,7 +145,7 @@ void MainWindow::initUrlsTable()
     // FIXME: Move me to the constructor
 //    ui->urlView->horizontalHeader()->setMovable(true);
     ui->urlView->setModel(model);
-    ui->urlView->hideColumn(DownloadTableModel::Uuid);
+    ui->urlView->hideColumn(DownloadConstants::Attributes::Uuid);
 }
 
 void MainWindow::updateUrlsTable(const Download *download)
@@ -154,14 +154,14 @@ void MainWindow::updateUrlsTable(const Download *download)
     QAbstractItemModel *updateModel = ui->urlView->model();
 
     for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
-        if (updateModel->data(updateModel->index(i, DownloadTableModel::URL)).toString() == download->url().toString()) {
-            updateModel->setData(updateModel->index(i, DownloadTableModel::FileName), download->name());
-            updateModel->setData(updateModel->index(i, DownloadTableModel::SavePath), download->path());
-            updateModel->setData(updateModel->index(i, DownloadTableModel::Status), download->status()->downloadStatus());
-            updateModel->setData(updateModel->index(i, DownloadTableModel::Progress), download->status()->progress());
-            updateModel->setData(updateModel->index(i, DownloadTableModel::RemainingTime), download->status()->remainingTime());
-            updateModel->setData(updateModel->index(i, DownloadTableModel::Speed), download->status()->downloadRate());
-            updateModel->setData(updateModel->index(i, DownloadTableModel::Added), download->created());
+        if (updateModel->data(updateModel->index(i, DownloadConstants::Attributes::URL)).toString() == download->url().toString()) {
+            updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::FileName), download->name());
+            updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::SavePath), download->path());
+            updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::Status), download->status()->downloadStatus());
+            updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::Progress), download->status()->progress());
+            updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::RemainingTime), download->status()->remainingTime());
+            updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::Speed), download->status()->downloadRate());
+            updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::Added), download->created());
             urlExist = true;
         }
     }
@@ -169,7 +169,7 @@ void MainWindow::updateUrlsTable(const Download *download)
     if (!urlExist) {
         ui->urlView->model()->insertRow(ui->urlView->model()->rowCount());
         int row = ui->urlView->model()->rowCount()-1;
-        ui->urlView->model()->setData(ui->urlView->model()->index(row, DownloadTableModel::URL), download->url());
+        ui->urlView->model()->setData(ui->urlView->model()->index(row, DownloadConstants::Attributes::URL), download->url());
 
         _message->addMessage(
                     tr("New Download"),
@@ -190,7 +190,7 @@ void MainWindow::onDownloadRemoved(const QString &fileName)
     QAbstractItemModel *removeModel = ui->urlView->model();
 
     for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
-        if (removeModel->data(removeModel->index(i, DownloadTableModel::SavePath)).toString() == fileName) {
+        if (removeModel->data(removeModel->index(i, DownloadConstants::Attributes::SavePath)).toString() == fileName) {
             if (model->removeRow(i)) {
                 submitUrlViewChanges();
                 _message->addMessage(

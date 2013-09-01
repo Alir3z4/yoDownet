@@ -34,7 +34,7 @@ int DownloadTableModel::rowCount(const QModelIndex &parent) const
 int DownloadTableModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
-    return parent.isValid() ? 0 : Downloaded;
+    return parent.isValid() ? 0 : DownloadConstants::Attributes::Downloaded;
 }
 
 QVariant DownloadTableModel::data(const QModelIndex &index, int role) const
@@ -53,44 +53,44 @@ QVariant DownloadTableModel::data(const QModelIndex &index, int role) const
         DownloadHolder *download = _downloadList.at(index.row());
 
         switch (index.column()) {
-        case Uuid:
+        case DownloadConstants::Attributes::Uuid:
             value = download->uuid();
             break;
-        case URL:
+        case DownloadConstants::Attributes::URL:
             value = download->url();
             break;
-        case SavePath:
+        case DownloadConstants::Attributes::SavePath:
             value = download->savePath();
             break;
-        case FileName:
+        case DownloadConstants::Attributes::FileName:
             value = download->fileName();
             break;
-        case Status:
+        case DownloadConstants::Attributes::Status:
             int progress;
-            progress = index.sibling(index.row(), Progress).data().toString().remove("%").toInt();
+            progress = index.sibling(index.row(), DownloadConstants::Attributes::Progress).data().toString().remove("%").toInt();
             if (progress >= 100) {
                 value = this->downloadStatus(3);
             } else {
                 value = this->downloadStatus(download->status());
             }
             break;
-        case Progress:
+        case DownloadConstants::Attributes::Progress:
             value = download->progress();
             if (value.toInt() >= 100) {
                 value = 100;
             }
             value = value.toString().append("%");
             break;
-        case RemainingTime:
+        case DownloadConstants::Attributes::RemainingTime:
             value = download->remainingTime();
             break;
-        case Speed:
+        case DownloadConstants::Attributes::Speed:
             value = download->speed();
             break;
-        case Added:
+        case DownloadConstants::Attributes::Added:
             value = download->added();
             break;
-        case Downloaded:
+        case DownloadConstants::Attributes::Downloaded:
             value = download->downloaded();
             break;
         default:
@@ -107,34 +107,34 @@ QVariant DownloadTableModel::headerData(int section, Qt::Orientation orientation
 
     if (value.isValid() && role == Qt::DisplayRole) {
         switch (section) {
-        case Uuid:
+        case DownloadConstants::Attributes::Uuid:
             return tr("Uuid");
             break;
-        case URL:
+        case DownloadConstants::Attributes::URL:
             return tr("URL");
             break;
-        case SavePath:
+        case DownloadConstants::Attributes::SavePath:
             return tr("Save Path");
             break;
-        case FileName:
+        case DownloadConstants::Attributes::FileName:
             return tr("File Name");
             break;
-        case Status:
+        case DownloadConstants::Attributes::Status:
             return tr("Status");
             break;
-        case Progress:
+        case DownloadConstants::Attributes::Progress:
             return tr("Progress");
             break;
-        case RemainingTime:
+        case DownloadConstants::Attributes::RemainingTime:
             return tr("Remaining Time");
             break;
-        case Speed:
+        case DownloadConstants::Attributes::Speed:
             return tr("Speed");
             break;
-        case Added:
+        case DownloadConstants::Attributes::Added:
             return tr("Added");
             break;
-        case Downloaded:
+        case DownloadConstants::Attributes::Downloaded:
             return tr("Downloaded");
             break;
         }
@@ -161,34 +161,34 @@ bool DownloadTableModel::setData(const QModelIndex &index, const QVariant &value
         DownloadHolder *download = _downloadList.value(index.row());
 
         switch (index.column()) {
-        case Uuid:
+        case DownloadConstants::Attributes::Uuid:
             download->setUuid(value.toString());
             break;
-        case URL:
+        case DownloadConstants::Attributes::URL:
             download->setUrl(value.toString());
             break;
-        case SavePath:
+        case DownloadConstants::Attributes::SavePath:
             download->setSavePath(value.toString());
             break;
-        case FileName:
+        case DownloadConstants::Attributes::FileName:
             download->setFileName(value.toString());
             break;
-        case Status:
+        case DownloadConstants::Attributes::Status:
             download->setStatus(value.toInt());
             break;
-        case Progress:
+        case DownloadConstants::Attributes::Progress:
             download->setProgress(value.toInt());
             break;
-        case RemainingTime:
+        case DownloadConstants::Attributes::RemainingTime:
             download->setRemainingTime(value.toString());
             break;
-        case Speed:
+        case DownloadConstants::Attributes::Speed:
             download->setSpeed(value.toString());
             break;
-        case Added:
+        case DownloadConstants::Attributes::Added:
             download->setAdded(value.toString());
             break;
-        case Downloaded:
+        case DownloadConstants::Attributes::Downloaded:
             download->setDownloaded(value.toString());
             break;
         default:

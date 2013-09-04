@@ -22,7 +22,7 @@
 #include <QtCore/QSettings>
 
 DownloadStore::DownloadStore(QObject *parent) :
-    QObject(parent)
+    QObject(parent), _logger(new LogMe(this))
 {
 }
 

@@ -22,6 +22,7 @@
 #define DOWNLOADSTORE_H
 
 #include <QObject>
+#include "core/logme.h"
 
 class DownloadStore : public QObject
 {
@@ -32,6 +33,7 @@ public:
 private slots:
     void loadDownloadData();
     void saveDownloadData();
+    LogMe *_logger;
 };
 
 #endif // DOWNLOADSTORE_H

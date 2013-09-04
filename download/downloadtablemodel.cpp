@@ -238,7 +238,7 @@ bool DownloadTableModel::removeRows(int position, int rows, const QModelIndex &i
     beginRemoveRows(QModelIndex(), position, position+rows-1);
 
     for (int row = 0; row < rows; ++row) {
-        // TODO: What out, this needs real implementation.
+        // TODO: watch out, this needs real implementation. Or does it ?
         _downloadList.removeAt(position);
     }
 

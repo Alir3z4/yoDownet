@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow), model(new DownloadTableModel(parent)),
     downloader(new yoDownet(parent)), _message(new Message(parent)), _logger(new LogMe(this))
 {
-    _logger->info("Initializing main window");
+    _logger->info("Initializing MainWindow");
 
     ui->setupUi(this);
 

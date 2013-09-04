@@ -33,10 +33,14 @@ class DownloadStore : public QObject
 public:
     explicit DownloadStore(QObject *parent = 0);
 
-    void saveDownloadData();
     void loadDownloads();
+    void saveDownloads();
+
     DownloadTableModel *downloadModel() const;
     void setDownloadModel(DownloadTableModel *downloadModel);
+
+private:
+    DownloadTableModel *_downloadModel;
     LogMe *_logger;
 };
 

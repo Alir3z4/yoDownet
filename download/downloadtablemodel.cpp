@@ -19,10 +19,12 @@
 ****************************************************************************************/
 
 #include "downloadtablemodel.h"
+#include "download/downloadconstants.h"
 
 DownloadTableModel::DownloadTableModel(QObject *parent) :
-    QAbstractTableModel(parent)
+    QAbstractTableModel(parent), _downloadStore(new DownloadStore(parent))
 {
+    _downloadStore->setDownloadModel(this);
 }
 
 int DownloadTableModel::rowCount(const QModelIndex &parent) const
@@ -268,4 +270,10 @@ QString DownloadTableModel::downloadStatus(const int status) const
     }
 
     return tr("Unknown Status");
+}
+
+QVariant DownloadTableModel::downloadItemValue(const int &row, const DownloadConstants::Attributes::Attributes &column) const
+{
+    DownloadHolder *download = _downloadList.value(row);
+    return download->attributeValueById(column);
 }

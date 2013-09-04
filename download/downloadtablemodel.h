@@ -23,6 +23,9 @@
 
 #include <QtCore/QAbstractTableModel>
 #include "download/downloadholder.h"
+#include "download/downloadstore.h"
+
+class DownloadStore;
 
 class DownloadTableModel : public QAbstractTableModel
 {
@@ -42,7 +45,11 @@ public:
 
     int downloadListCount() const;
     int downloadAttributeCount() const;
+
+    QVariant downloadItemValue(const int &row, const DownloadConstants::Attributes::Attributes &column) const;
+
 private:
+    DownloadStore *_downloadStore;
     QList<DownloadHolder*> _downloadList;
 
     QString downloadStatus(const int status) const;

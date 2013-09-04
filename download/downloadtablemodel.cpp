@@ -143,6 +143,11 @@ QVariant DownloadTableModel::headerData(int section, Qt::Orientation orientation
     return value;
 }
 
+int DownloadTableModel::downloadAttributeCount() const
+{
+    return DownloadConstants::Attributes::Downloaded;
+}
+
 Qt::ItemFlags DownloadTableModel::flags(const QModelIndex &index) const
 {
     Qt::ItemFlags flags = QAbstractItemModel::flags(index);

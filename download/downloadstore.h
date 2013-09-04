@@ -33,9 +33,8 @@ class DownloadStore : public QObject
 public:
     explicit DownloadStore(QObject *parent = 0);
 
-private slots:
-    void loadDownloadData();
     void saveDownloadData();
+    void loadDownloads();
     DownloadTableModel *downloadModel() const;
     void setDownloadModel(DownloadTableModel *downloadModel);
     LogMe *_logger;

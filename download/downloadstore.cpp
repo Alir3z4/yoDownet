@@ -26,6 +26,7 @@ DownloadStore::DownloadStore(QObject *parent) :
 {
 }
 
+void DownloadStore::loadDownloads()
 {
 
 }

@@ -40,6 +40,7 @@ public:
     bool removeRows(int position, int rows, const QModelIndex &index=QModelIndex());
     void setDownloadHash(QList<DownloadHolder*> &downloadList);
 
+    int downloadListCount() const;
     int downloadAttributeCount() const;
 private:
     QList<DownloadHolder*> _downloadList;

@@ -143,6 +143,11 @@ QVariant DownloadTableModel::headerData(int section, Qt::Orientation orientation
     return value;
 }
 
+
+int DownloadTableModel::downloadListCount() const
+{
+    return _downloadList.size();
+}
 int DownloadTableModel::downloadAttributeCount() const
 {
     return DownloadConstants::Attributes::Downloaded;

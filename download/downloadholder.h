@@ -2,6 +2,7 @@
 #define DOWNLOADHOLDER_H
 
 #include <QObject>
+#include "download/downloadconstants.h"
 
 class DownloadHolder : public QObject
 {
@@ -38,6 +39,8 @@ public:
 
     QString downloaded() const;
     void setDownloaded(const QString &downloaded);
+
+    QVariant attributeValueById(const DownloadConstants::Attributes::Attributes &attr) const;
 
 private:
     QString _uuid;

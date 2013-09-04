@@ -1,4 +1,5 @@
 #include "downloadholder.h"
+#include <QtCore/QVariant>
 
 DownloadHolder::DownloadHolder(QObject *parent) :
     QObject(parent)
@@ -103,4 +104,46 @@ QString DownloadHolder::downloaded() const
 void DownloadHolder::setDownloaded(const QString &downloaded)
 {
     _downloaded = downloaded;
+}
+
+QVariant DownloadHolder::attributeValueById(const DownloadConstants::Attributes::Attributes &attr) const
+{
+    QVariant value;
+
+    switch (attr) {
+    case DownloadConstants::Attributes::Uuid:
+        value = this->uuid();
+        break;
+    case DownloadConstants::Attributes::URL:
+        value = this->url();
+        break;
+    case DownloadConstants::Attributes::SavePath:
+        value = this->savePath();
+        break;
+    case DownloadConstants::Attributes::FileName:
+        value = this->fileName();
+        break;
+    case DownloadConstants::Attributes::Status:
+        value = this->status();
+        break;
+    case DownloadConstants::Attributes::Progress:
+        value = this->progress();
+        break;
+    case DownloadConstants::Attributes::RemainingTime:
+        value = this->remainingTime();
+        break;
+    case DownloadConstants::Attributes::Speed:
+        value = this->speed();
+        break;
+    case DownloadConstants::Attributes::Added:
+        value = this->added();
+        break;
+    case DownloadConstants::Attributes::Downloaded:
+        value = this->downloaded();
+        break;
+    default:
+        break;
+    }
+
+    return value;
 }

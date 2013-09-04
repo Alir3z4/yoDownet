@@ -23,6 +23,9 @@
 
 #include <QObject>
 #include "core/logme.h"
+#include <download/downloadtablemodel.h>
+
+class DownloadTableModel;
 
 class DownloadStore : public QObject
 {
@@ -33,6 +36,8 @@ public:
 private slots:
     void loadDownloadData();
     void saveDownloadData();
+    DownloadTableModel *downloadModel() const;
+    void setDownloadModel(DownloadTableModel *downloadModel);
     LogMe *_logger;
 };
 

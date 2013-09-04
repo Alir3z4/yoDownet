@@ -33,3 +33,13 @@ DownloadStore::DownloadStore(QObject *parent) :
 {
 
 }
+DownloadTableModel *DownloadStore::downloadModel() const
+{
+    return _downloadModel;
+}
+
+void DownloadStore::setDownloadModel(DownloadTableModel *downloadModel)
+{
+    _downloadModel = downloadModel;
+}
+

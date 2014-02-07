@@ -12,7 +12,7 @@ TEMPLATE = app
 unix{
     DEFINES += PREFIX=$${PREFIX}
     isEmpty(PREFIX){
-        message(The PREFIX is empty. So the default value will be used.)
+        message(The PREFIX is empty. The default value will be used.)
         PREFIX=/usr
         message(PREFIX defined as $$PREFIX)
     }
@@ -22,14 +22,22 @@ unix{
     images.path = $$PREFIX/share/pixmaps
     desktop.path = $$PREFIX/share/applications
     doc.path = $$PREFIX/share/doc/yodownet
-    license = $$PREFIX/share/licenses/yodownet/
+    license.path = $$PREFIX/share/licenses/yodownet/
+
+    message(Target: $$target.path)
+    message(Translations: $$translations.path)
+    message(Images: $$images.path)
+    message(Desktop: $$desktop.path)
+    message(Documents: $$doc.path)
+    message(License: $$license.path)
 }
 
 images.files = resource/images/*
 desktop.files = installers/yoDownet.desktop
 doc.files = doc/C*
-license = doc/COPYING
+license.files = doc/COPYING
 translations.files = translations/*.qm
+
 
 DEFINES += TRANSLATION_PATH=$$translations.path
 DEFINES += DOC_PATH=$$doc.path

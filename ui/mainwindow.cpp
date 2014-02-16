@@ -374,3 +374,23 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
     hide();
 }
+
+QHash<QUuid, QVariantList> MainWindow::downloadHash() const
+{
+    QHash<QUuid, QVariantList> dlHash;
+
+    for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
+        QVariantList downloadAttributeList;
+        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::FileName)));
+        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::SavePath)));
+        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Status)));
+        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Progress)));
+        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::RemainingTime)));
+        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Speed)));
+        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Added)));
+
+        dlHash.insert(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Uuid)).toUuid(), downloadAttributeList);
+    }
+
+    return dlHash;
+}

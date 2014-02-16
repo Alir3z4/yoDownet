@@ -101,9 +101,12 @@ void yoDownet::removeDownload(const QString &filePath)
 
 void yoDownet::removeDownloads(const QStringList &files)
 {
-    if(files.isEmpty()) return;
-    for(int i = 0; i < files.size(); ++i)
+    if(files.isEmpty()) {
+        return;
+    }
+    for(int i = 0; i < files.size(); ++i) {
         removeDownload(files[i]);
+    }
 }
 
 void yoDownet::replyMetaDataChanged(QObject *currentReply)

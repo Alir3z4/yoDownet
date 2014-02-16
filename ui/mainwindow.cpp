@@ -215,10 +215,10 @@ void MainWindow::onDownloadResumed(const Download *download)
 void MainWindow::trayIconTriggered()
 {
     if (isHidden()) {
-        _logger->info("Showing main window");
+        _logger->info("Showing MainWindow");
         show();
     } else {
-        _logger->info("Hiding main window");
+        _logger->info("Hiding MainWindow");
         hide();
     }
 }

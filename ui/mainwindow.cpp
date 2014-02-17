@@ -375,8 +375,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
     hide();
 }
 
-QHash<QUuid, QVariantList> MainWindow::downloadHash() const
+QByteArray MainWindow::downloadHash() const
 {
+    _logger->info("Getting downloadHash");
+
     QHash<QUuid, QVariantList> dlHash;
 
     for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
@@ -392,5 +394,12 @@ QHash<QUuid, QVariantList> MainWindow::downloadHash() const
         dlHash.insert(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Uuid)).toUuid(), downloadAttributeList);
     }
 
-    return dlHash;
+    _logger->info("downloadHash populated");
+
+
+    QByteArray downloadHashByteArray;
+    QDataStream downloadHashDataStream(&downloadHashByteArray, QIODevice::WriteOnly);
+    downloadHashDataStream << dlHash;
+
+    return downloadHashByteArray;
 }

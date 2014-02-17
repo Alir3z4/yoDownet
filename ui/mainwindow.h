@@ -81,7 +81,7 @@ private:
     void prepareTrayIcon();
     void closeEvent(QCloseEvent * event);
 
-    QHash<QUuid, QVariantList> downloadHash() const;
+    QByteArray downloadHash() const;
 };
 
 #endif // MAINWINDOW_H

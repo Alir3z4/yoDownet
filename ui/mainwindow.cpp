@@ -260,6 +260,7 @@ void MainWindow::saveSettings()
     settings.endGroup();
 
     settings.beginGroup("urlView");
+    settings.setValue("downloadHash", this->downloadHash());
     settings.beginGroup("horizontalHeader");
     settings.setValue("state", ui->urlView->horizontalHeader()->saveState());
     settings.setValue("geometry", ui->urlView->horizontalHeader()->saveGeometry());
@@ -309,6 +310,7 @@ void MainWindow::loadSettings()
     restoreState(settings.value("state", QByteArray()).toByteArray());
 
     settings.beginGroup("urlView");
+    this->populateUrlView(settings.value("downloadHash"));
     settings.beginGroup("horizontalHeader");
     ui->urlView->horizontalHeader()->restoreState(settings.value("state").toByteArray());
     ui->urlView->horizontalHeader()->restoreGeometry(settings.value("geometry").toByteArray());

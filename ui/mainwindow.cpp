@@ -375,31 +375,58 @@ void MainWindow::closeEvent(QCloseEvent *event)
     hide();
 }
 
-QByteArray MainWindow::downloadHash() const
+QHash<QString, QVariant> MainWindow::downloadHash() const
 {
     _logger->info("Getting downloadHash");
 
-    QHash<QUuid, QVariantList> dlHash;
+    QHash<QString, QVariant> dlHash;
 
     for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
-        QVariantList downloadAttributeList;
-        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::FileName)));
-        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::SavePath)));
-        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Status)));
-        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Progress)));
-        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::RemainingTime)));
-        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Speed)));
-        downloadAttributeList.append(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Added)));
+        QHash<QString, QVariant> downloadAttributeHash;
+        downloadAttributeHash.insert(
+                    QString::number(DownloadConstants::Attributes::URL),
+                    ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::URL))
+        );
+        downloadAttributeHash.insert(
+                    QString::number(DownloadConstants::Attributes::FileName),
+                    ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::FileName))
+        );
+        downloadAttributeHash.insert(
+                    QString::number(DownloadConstants::Attributes::SavePath),
+                    ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::SavePath))
+        );
+        downloadAttributeHash.insert(
+                    QString::number(DownloadConstants::Attributes::Status),
+                    ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Status))
+        );
+        downloadAttributeHash.insert(
+                    QString::number(DownloadConstants::Attributes::Progress),
+                    ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Progress))
+        );
+        downloadAttributeHash.insert(
+                    QString::number(DownloadConstants::Attributes::RemainingTime),
+                    ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::RemainingTime))
+        );
+        downloadAttributeHash.insert(
+                    QString::number(DownloadConstants::Attributes::Speed),
+                    ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Speed))
+        );
+        downloadAttributeHash.insert(
+                    QString::number(DownloadConstants::Attributes::Added),
+                    ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Added))
+        );
 
-        dlHash.insert(ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Uuid)).toUuid(), downloadAttributeList);
+        dlHash.insert(
+                    ui->urlView->model()->data(ui->urlView->model()->index(i, DownloadConstants::Attributes::Uuid)).toString(),
+                    QVariant::fromValue(downloadAttributeHash)
+        );
     }
 
     _logger->info("downloadHash populated");
 
+    return dlHash;
+}
 
-    QByteArray downloadHashByteArray;
-    QDataStream downloadHashDataStream(&downloadHashByteArray, QIODevice::WriteOnly);
-    downloadHashDataStream << dlHash;
 
     return downloadHashByteArray;
 }

@@ -156,6 +156,7 @@ void MainWindow::updateUrlsTable(const Download *download)
 
     for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
         if (updateModel->data(updateModel->index(i, DownloadConstants::Attributes::URL)).toString() == download->url().toString()) {
+            updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::Uuid), download->uuid());
             updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::FileName), download->name());
             updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::SavePath), download->path());
             updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::Status), download->status()->downloadStatus());

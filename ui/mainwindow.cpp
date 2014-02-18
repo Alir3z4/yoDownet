@@ -427,6 +427,51 @@ QHash<QString, QVariant> MainWindow::downloadHash() const
     return dlHash;
 }
 
+void MainWindow::populateUrlView(const QVariant downloadVariant)
+{
+    QHash<QString, QVariant> dlHash = downloadVariant.toHash();
+    QHashIterator<QString, QVariant> i(dlHash);
+    while (i.hasNext()) {
+        i.next();
+        QHash<QString, QVariant> downloadAttributeHash = i.value().toHash();
+        ui->urlView->model()->insertRow(ui->urlView->model()->rowCount());
+        int row = ui->urlView->model()->rowCount() - 1;
+        ui->urlView->model()->setData(
+                    ui->urlView->model()->index(row, DownloadConstants::Attributes::Uuid),
+                    i.key()
+        );
+        ui->urlView->model()->setData(
+                    ui->urlView->model()->index(row, DownloadConstants::Attributes::URL),
+                    downloadAttributeHash.value(QString::number(DownloadConstants::Attributes::URL))
+        );
+        ui->urlView->model()->setData(
+                    ui->urlView->model()->index(row, DownloadConstants::Attributes::FileName),
+                    downloadAttributeHash.value(QString::number(DownloadConstants::Attributes::FileName))
+        );
+        ui->urlView->model()->setData(
+                    ui->urlView->model()->index(row, DownloadConstants::Attributes::SavePath),
+                    downloadAttributeHash.value(QString::number(DownloadConstants::Attributes::SavePath))
+        );
+        ui->urlView->model()->setData(
+                    ui->urlView->model()->index(row, DownloadConstants::Attributes::Status),
+                    downloadAttributeHash.value(QString::number(DownloadConstants::Attributes::Status))
+        );
+        ui->urlView->model()->setData(
+                    ui->urlView->model()->index(row, DownloadConstants::Attributes::Progress),
+                    downloadAttributeHash.value(QString::number(DownloadConstants::Attributes::Progress))
+        );
+        ui->urlView->model()->setData(
+                    ui->urlView->model()->index(row, DownloadConstants::Attributes::RemainingTime),
+                    downloadAttributeHash.value(QString::number(DownloadConstants::Attributes::RemainingTime))
+        );
+        ui->urlView->model()->setData(
+                    ui->urlView->model()->index(row, DownloadConstants::Attributes::Speed),
+                    downloadAttributeHash.value(QString::number(DownloadConstants::Attributes::Speed))
+        );
+        ui->urlView->model()->setData(
+                    ui->urlView->model()->index(row, DownloadConstants::Attributes::Added),
+                    downloadAttributeHash.value(QString::number(DownloadConstants::Attributes::Added))
+        );
+    }
 
-    return downloadHashByteArray;
 }

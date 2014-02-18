@@ -82,6 +82,7 @@ private:
     void closeEvent(QCloseEvent * event);
 
     QHash<QString, QVariant> downloadHash() const;
+    void populateUrlView(const QVariant downloadVariant);
 };
 
 #endif // MAINWINDOW_H

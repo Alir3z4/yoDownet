@@ -72,7 +72,7 @@ bool Download::newDownload(const QUrl &url, const QUuid &uuid)
         return false;
     }
 
-    _created = QDateTime::currentDateTime();
+    this->setCreated(QDateTime::currentDateTime());
 
     return true;
 }

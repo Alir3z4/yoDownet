@@ -57,7 +57,6 @@ public slots:
     void addDownload(const QString &url);
     // FIXME: Use uuid.
     void pauseDownload(const QString &url);
-    // FIXME: Use uuid.
     void removeDownload(const QUuid &uuid);
 
 private slots:

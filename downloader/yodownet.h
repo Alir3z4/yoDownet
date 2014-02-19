@@ -51,6 +51,7 @@ signals:
     void downloadRemoved(const QString &fileName);
     void downloadFinished();
     void fileReadyToRemove(QFile *file);
+    void downloadDoesNotExistToRemove(const QUuid &uuid);
 
 public slots:
     void addDownload(const QString &url);

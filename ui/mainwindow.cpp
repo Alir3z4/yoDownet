@@ -131,13 +131,13 @@ void MainWindow::on_resumeAction_triggered()
 
 void MainWindow::on_removeAction_triggered()
 {
-    QStringList savePaths = this->currentColumns(DownloadConstants::Attributes::SavePath);
-    if (savePaths.isEmpty()) {
+    QStringList uuids = this->currentColumns(DownloadConstants::Attributes::Uuid);
+    if (uuids.isEmpty()) {
         return;
     }
 
-    for (int i = 0; i < savePaths.size(); ++i) {
-        downloader->removeDownload(savePaths[i]);
+    for (int i = 0; i < uuids.size(); ++i) {
+        downloader->removeDownload(QUuid(uuids[i]));
     }
 }
 

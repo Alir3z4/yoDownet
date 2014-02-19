@@ -57,7 +57,7 @@ public slots:
     // FIXME: Use uuid.
     void pauseDownload(const QString &url);
     // FIXME: Use uuid.
-    void removeDownload(const QString &filePath);
+    void removeDownload(const QUuid &uuid);
 
 private slots:
     void replyMetaDataChanged(QObject *currentReply);

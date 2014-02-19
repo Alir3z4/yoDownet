@@ -59,19 +59,19 @@ void yoDownet::pauseDownload(const QString &url)
     }
 }
 
-void yoDownet::removeDownload(const QString &filePath)
+void yoDownet::removeDownload(const QUuid &uuid)
 {
-    _logger->info(QString("Start Removing '%1' via download engine").arg(filePath));
+    _logger->info(QString("Start Removing [%1] via downloader engine").arg(uuid.toString()));
 
     if(_downloadHash->isEmpty()){
-        _logger->info(QString("Download hash is empty, emiting `fileReadyToRemove` singal to remove file '%1'").arg(filePath));
+        _logger->info(QString("Download hash is empty, emiting `fileReadyToRemove` singal to remove download with UUID: [%1]").arg(uuid.toString()));
 
-        emit fileReadyToRemove(new QFile(filePath));
+        emit this->downloadDoesNotExistToRemove(uuid);
         return;
     }
     foreach(Download *download, _downloadHash->values()){
-        if(download->file()->fileName() == filePath){
-            _logger->info(QString("Found download '%1' in hash.").arg(filePath));
+        if(download->uuid() == uuid){
+            _logger->info(QString("Found download [%1] in hash.").arg(uuid.toString()));
 
             QNetworkReply *reply = _downloadHash->key(download);
             emit pauseDownload(reply->url().toString());

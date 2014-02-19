@@ -45,6 +45,9 @@ public:
 
     QStringList currentColumns(const int &column = DownloadConstants::Attributes::URL) const;
 
+signals:
+    void downloadRemoved(const QString &fileName);
+
 private slots:
     void on_preferencesAction_triggered();
     void on_aboutQtAction_triggered();

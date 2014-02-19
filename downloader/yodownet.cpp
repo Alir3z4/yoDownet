@@ -37,17 +37,6 @@ void yoDownet::addDownload(const QString &url)
     }
 }
 
-void yoDownet::addDownloads(const QStringList &urls)
-{
-    if(urls.isEmpty()) {
-        return;
-    }
-
-    for(int i = 0; i < urls.size(); ++i) {
-        addDownload(urls[i]);
-    }
-}
-
 void yoDownet::pauseDownload(const QString &url)
 {
     _logger->info(QString("Pausing download '%1'").arg(url));
@@ -70,13 +59,6 @@ void yoDownet::pauseDownload(const QString &url)
     }
 }
 
-void yoDownet::pauseDownloads(const QStringList &urls)
-{
-    if(urls.isEmpty()) return;
-    for(int i = 0; i < urls.size(); ++i)
-        pauseDownload(urls[i]);
-}
-
 void yoDownet::removeDownload(const QString &filePath)
 {
     _logger->info(QString("Start Removing '%1' via download engine").arg(filePath));
@@ -96,16 +78,6 @@ void yoDownet::removeDownload(const QString &filePath)
             emit fileReadyToRemove(download->file());
             break;
         }
-    }
-}
-
-void yoDownet::removeDownloads(const QStringList &files)
-{
-    if(files.isEmpty()) {
-        return;
-    }
-    for(int i = 0; i < files.size(); ++i) {
-        removeDownload(files[i]);
     }
 }
 

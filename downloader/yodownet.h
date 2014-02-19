@@ -54,18 +54,10 @@ signals:
 
 public slots:
     void addDownload(const QString &url);
-    // FIXME: doesn't need mass operation.
-    void addDownloads(const QStringList &urls);
     // FIXME: Use uuid.
     void pauseDownload(const QString &url);
     // FIXME: Use uuid.
-    // FIXME: doesn't need mass operation.
-    void pauseDownloads(const QStringList &urls);
-    // FIXME: Use uuid.
     void removeDownload(const QString &filePath);
-    // FIXME: Use uuid.
-    // FIXME: doesn't need mass operation.
-    void removeDownloads(const QStringList &files);
 
 private slots:
     void replyMetaDataChanged(QObject *currentReply);

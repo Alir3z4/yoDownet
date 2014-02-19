@@ -98,24 +98,50 @@ void MainWindow::on_addAction_triggered()
     addUrlDialog.setMessageEcoSystem(_message);
 
     if (addUrlDialog.exec() == QDialog::Accepted) {
-        if (!addUrlDialog.urls().isEmpty())
-            downloader->addDownloads(addUrlDialog.urls());
+        if (!addUrlDialog.urls().isEmpty()) {
+            QStringList urls = addUrlDialog.urls();
+            for (int i = 0; i < urls.size(); ++i) {
+                downloader->addDownload(urls[i]);
+            }
+        }
     }
 }
 
 void MainWindow::on_pauseAction_triggered()
 {
-    downloader->pauseDownloads(currentColumns());
+    QStringList urls = this->currentColumns();
+    if(urls.isEmpty()) {
+        return;
+    }
+
+    for (int i = 0; i < urls.size(); ++i) {
+        downloader->addDownload(urls[i]);
+    }
 }
 
 void MainWindow::on_resumeAction_triggered()
 {
-    downloader->addDownloads(currentColumns());
+    QStringList urls = this->currentColumns();
+
+    if (urls.isEmpty()) {
+        return;
+    }
+
+    for (int i = 0; i < urls.size(); ++i) {
+        downloader->addDownload(urls[i]);
+    }
 }
 
 void MainWindow::on_removeAction_triggered()
 {
-    downloader->removeDownloads(currentColumns(DownloadConstants::Attributes::SavePath));
+    QStringList savePaths = this->currentColumns(DownloadConstants::Attributes::SavePath);
+    if (savePaths.isEmpty()) {
+        return;
+    }
+
+    for (int i = 0; i < savePaths.size(); ++i) {
+        downloader->removeDownload(savePaths[i]);
+    }
 }
 
 void MainWindow::on_removeFromListAction_triggered()

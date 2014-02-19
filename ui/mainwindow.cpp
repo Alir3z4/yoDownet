@@ -37,12 +37,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     createActionsOnMainWindow();
 
-    // Initialize urlsTable :|
     initUrlsTable();
-
     loadSettings();
 
-    // Connect the signals/slot
     connect(downloader, SIGNAL(downloadInitialed(const Download*)), this, SLOT(updateUrlsTable(const Download*)));
     connect(downloader, SIGNAL(downloadPaused(const Download*)), this, SLOT(submitUrlViewChanges()));
     connect(downloader, SIGNAL(downlaodResumed(const Download*)), this, SLOT(updateUrlsTable(const Download*)));

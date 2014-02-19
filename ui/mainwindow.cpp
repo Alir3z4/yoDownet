@@ -217,7 +217,7 @@ void MainWindow::onDownloadRemoved(const QString &fileName)
     QAbstractItemModel *removeModel = ui->urlView->model();
 
     for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
-        if (removeModel->data(removeModel->index(i, DownloadConstants::Attributes::SavePath)).toString() == fileName) {
+        if (removeModel->data(removeModel->index(i, DownloadConstants::Attributes::FileName)).toString() == fileName) {
             if (model->removeRow(i)) {
                 submitUrlViewChanges();
                 _message->addMessage(
@@ -260,6 +260,7 @@ void MainWindow::onDownloadDoesNotExistToRemove(const QUuid &uuid)
         }
     }
 }
+
 void MainWindow::trayIconTriggered()
 {
     if (isHidden()) {

@@ -114,7 +114,7 @@ void MainWindow::on_pauseAction_triggered()
     }
 
     for (int i = 0; i < urls.size(); ++i) {
-        downloader->addDownload(urls[i]);
+        downloader->pauseDownload(QUuid(urls[i]));
     }
 }
 

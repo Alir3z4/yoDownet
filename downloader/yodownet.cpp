@@ -37,22 +37,23 @@ void yoDownet::addDownload(const QString &url)
     }
 }
 
-void yoDownet::pauseDownload(const QString &url)
+void yoDownet::pauseDownload(const QUuid &uuid)
 {
-    _logger->info(QString("Pausing download '%1'").arg(url));
+    _logger->info(QString("Pausing download [%1]").arg(uuid.toString()));
 
     QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->begin();
     while(i != _downloadHash->end()){
-        if(i.key()->url().toString() == url){
-            _logger->info(QString("Found download '%1' in hash.").arg(url));
+        if(i.value()->uuid() == uuid){
+            _logger->info(QString("Found download [%1] in hash.").arg(uuid.toString()));
 
             i.value()->file()->write(i.key()->readAll());
             Status *status = _statusHash->find(i.key()->url()).value();
             status->setDownloadStatus(Status::Paused);
 
-            _logger->info(QString("Emit 'downloadPaused' signal for '%1'").arg(url));
+            _logger->info(QString("Emit 'downloadPaused' signal for [%1]").arg(uuid.toString()));
             emit downloadPaused(i.value());
 
+            i.key()->abort();
             i.key()->close();
             break;
         }

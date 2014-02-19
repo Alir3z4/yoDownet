@@ -164,8 +164,6 @@ void yoDownet::httpFinished(QObject *currentReply)
     i.value()->setFile(0);
     i.key()->deleteLater();
 
-    _downloadHash->remove(i.key());
-
     if(status->downloadStatus() != Status::Paused) {
         _logger->info("HTTP request has finished, I'm done with downloading.");
         status->setDownloadStatus(Status::Finished);
@@ -173,6 +171,8 @@ void yoDownet::httpFinished(QObject *currentReply)
 
     // Oh let's emit this mother fucker!
     emit downloadUpdated(i.value());
+
+    _downloadHash->remove(i.key());
 }
 
 void yoDownet::removeFile(QFile *file)

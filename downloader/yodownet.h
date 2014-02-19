@@ -47,7 +47,6 @@ signals:
     void downloadPaused(const Download *download);
     void downlaodResumed(const Download *download);
     void downloadUpdated(const Download *download);
-    // FIXME: Shoulda send uuid of download.
     void downloadRemoved(const QString &fileName);
     void downloadFinished();
     void fileReadyToRemove(QFile *file);

@@ -49,7 +49,6 @@ int main(int argc, char *argv[])
     appIcon.addFile(QStringLiteral(":/icons/images/yoDownet_64.svg"), QSize(), QIcon::Normal, QIcon::Off);
     a.setWindowIcon(appIcon);
 
-    // FIXME move this from here to some other file
     QSettings settings;
     settings.beginGroup("PreferencesDialog");
     settings.beginGroup("PrefInterfaceWidget");

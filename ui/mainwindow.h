@@ -67,6 +67,7 @@ private slots:
 
     void onDownloadRemoved(const QString &fileName);
     void onDownloadResumed(const Download *download);
+    void onDownloadDoesNotExistToRemove(const QUuid &uuid);
     void trayIconTriggered();
 
 protected:

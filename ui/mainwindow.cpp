@@ -239,6 +239,27 @@ void MainWindow::onDownloadResumed(const Download *download)
                 MessageConstants::Info);
 }
 
+void MainWindow::onDownloadDoesNotExistToRemove(const QUuid &uuid)
+{
+    for (int row = 0; row < ui->urlView->model()->rowCount(); ++row) {
+        QModelIndex index = ui->urlView->model()->index(row, DownloadConstants::Attributes::Uuid);
+        if (index.data().toUuid() == uuid) {
+            QString savePath = ui->urlView->model()->index(row, DownloadConstants::Attributes::SavePath).data().toString();
+            QString fileName = ui->urlView->model()->index(row, DownloadConstants::Attributes::FileName).data().toString();
+            QString filePath = QString("%1%2%3").arg(savePath, QDir::toNativeSeparators("/"), fileName);
+
+            QFile file(filePath);
+            if (!file.remove()) {
+                _logger->error(file.errorString());
+                return;
+            }
+            emit this->downloadRemoved(fileName);
+        }
+
+        if (ui->urlView->model()->data(ui->urlView->model()->index(row, DownloadConstants::Attributes::Uuid)).toUuid() == uuid) {
+        }
+    }
+}
 void MainWindow::trayIconTriggered()
 {
     if (isHidden()) {

@@ -47,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(downloader, SIGNAL(downloadUpdated(const Download*)), this, SLOT(updateUrlsTable(const Download*)));
     connect(downloader, SIGNAL(downloadRemoved(QString)), this, SLOT(onDownloadRemoved(QString)));
     connect(downloader, SIGNAL(downloadDoesNotExistToRemove(QUuid)), this, SLOT(onDownloadDoesNotExistToRemove(QUuid)));
+    connect(this, SIGNAL(downloadRemoved(QString)), this, SLOT(onDownloadRemoved(QString)));
 
     connect(ui->exitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
 

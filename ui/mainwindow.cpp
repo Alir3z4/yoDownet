@@ -223,7 +223,8 @@ void MainWindow::onDownloadRemoved(const QString &fileName)
                 _message->addMessage(
                             tr("Download removed"),
                             tr("%1 has been successfully removed.").arg(fileName),
-                            MessageConstants::Info);
+                            MessageConstants::Info
+                );
             }
 
             return;

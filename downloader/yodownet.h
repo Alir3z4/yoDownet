@@ -35,7 +35,6 @@
 #include <download/download.h>
 #include "download/status.h"
 
-// TODO: Shoulda use `Download` class entirly.
 class yoDownet : public QObject
 {
     Q_OBJECT

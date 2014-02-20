@@ -37,6 +37,7 @@ void yoDownet::addDownload(const QString &url)
     }
 }
 
+// TODO: emit signal when download hash is empty OR no download has been found
 void yoDownet::pauseDownload(const QUuid &uuid)
 {
     _logger->info(QString("Pausing download [%1]").arg(uuid.toString()));

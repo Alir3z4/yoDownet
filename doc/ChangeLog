@@ -15,6 +15,7 @@
     * Using UUID on downloader engine.
     * Remove mass operation method from download engine class.
     * Handling file removal/delete on MainWindow if downloader engine is not able handle.
+    * Fixed #33: No sql or actual database module is being used anymore.
 
 2012-05-11 Alireza Savand <alireza.savand@gmail.com>
     * task-#30-clean-installation: make installation cleaner and more simple.

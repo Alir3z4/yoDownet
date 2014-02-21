@@ -97,6 +97,8 @@ void MainWindow::on_aboutQtAction_triggered()
 
 void MainWindow::on_addAction_triggered()
 {
+    _logger->info("Add action triggered");
+
     UrlDialog addUrlDialog;
     addUrlDialog.setMessageEcoSystem(_message);
 

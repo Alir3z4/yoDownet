@@ -132,9 +132,13 @@ void MainWindow::on_pauseAction_triggered()
 
 void MainWindow::on_resumeAction_triggered()
 {
+    _logger->info("Resume action triggered");
+
     QStringList urls = this->currentColumns();
 
     if (urls.isEmpty()) {
+        _logger->info("URL list is empty, resume action aborted");
+
         return;
     }
 

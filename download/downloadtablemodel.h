@@ -1,7 +1,7 @@
 /****************************************************************************************
 ** downloadtablemodel.h is part of yoDownet
 **
-** Copyright 2013 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2013, 2014 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by

@@ -184,6 +184,8 @@ void MainWindow::on_removeFromListAction_triggered()
 
 void MainWindow::on_reportBugAction_triggered()
 {
+    _logger->info("Report bug action triggered");
+
     ReportBugDialog bugDialog(this);
     bugDialog.exec();
 }

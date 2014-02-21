@@ -1,5 +1,5 @@
 [main]
-host = https://www.transifex.net
+host = https://www.transifex.com
 
 [yodownet.ts]
 file_filter = translations/yodownet_<lang>.ts

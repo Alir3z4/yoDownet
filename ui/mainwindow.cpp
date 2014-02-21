@@ -200,6 +200,7 @@ void MainWindow::on_aboutyoDownetAction_triggered()
 
 void MainWindow::initUrlsTable()
 {
+    _logger->info("Initializing URLs table");
     // FIXME: Move me to the constructor
 //    ui->urlView->horizontalHeader()->setMovable(true);
     ui->urlView->setModel(model);

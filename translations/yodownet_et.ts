@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="et" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="et">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -9,27 +11,36 @@
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="72"/>
         <source>Translation</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="78"/>
         <source>Oh And those people with translations.
     Added in order to contribute ;)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="95"/>
         <source>Estonian:
-    Eraser (Rivo Zängov)</source>
-        <translation type="unfinished"/>
+    Eraser (Rivo Zängov)
+
+Persian:
+    Alir3z4 (علیرضا ساوند)
+
+Turkish:
+    yakup (якуп)
+
+VIETNAMESE:
+    ppanhh (Anh Phan)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dialog/aboutdialog.ui" line="104"/>
+        <location filename="../ui/dialog/aboutdialog.ui" line="113"/>
         <source>License</source>
         <translation>Litsents</translation>
     </message>
     <message>
-        <location filename="../ui/dialog/aboutdialog.ui" line="139"/>
+        <location filename="../ui/dialog/aboutdialog.ui" line="148"/>
         <source>&amp;Close</source>
         <translation>Sule</translation>
     </message>
@@ -46,7 +57,7 @@ yoDownet uses Qt toolkit for both front-end and back-end implementation!
 Copyright (C) 2011-2012 by Alireza Savand
 http://sourceforge.net/projects/yodownet/
 </source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -54,87 +65,87 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="113"/>
         <source>Uuid</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="116"/>
         <source>URL</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="119"/>
         <source>Save Path</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="122"/>
         <source>File Name</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="125"/>
         <source>Status</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="128"/>
         <source>Progress</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="131"/>
         <source>Remaining Time</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="134"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="137"/>
         <source>Added</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="140"/>
         <source>Downloaded</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="258"/>
         <source>Idle</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="261"/>
         <source>Starting</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="264"/>
         <source>Downloading</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="267"/>
         <source>Finished</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="270"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="273"/>
         <source>Paused</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../download/downloadtablemodel.cpp" line="277"/>
         <source>Unknown Status</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -150,12 +161,27 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../util/languages.cpp" line="63"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../util/languages.cpp" line="66"/>
         <source>Estonian</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/languages.cpp" line="68"/>
+        <source>Persian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/languages.cpp" line="192"/>
+        <source>Turkish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/languages.cpp" line="202"/>
+        <source>Vietnamese</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -198,47 +224,47 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/mainwindow.ui" line="122"/>
         <source>toolBar</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="164"/>
         <source>Exit</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="174"/>
         <source>Pause</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="184"/>
         <source>Resume</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="194"/>
         <source>Remove</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="204"/>
         <source>Remove From List</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="239"/>
         <source>Show Menubar</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="253"/>
         <source>Show Toolbar</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="267"/>
         <source>Show Statusbar</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="280"/>
@@ -288,17 +314,17 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/mainwindow.cpp" line="236"/>
         <source>%1 has been successfully added ;)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="257"/>
         <source>Download removed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="258"/>
         <source>%1 has been successfully removed.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="271"/>
@@ -308,7 +334,7 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/mainwindow.cpp" line="272"/>
         <source>Resuming %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -316,7 +342,7 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="17"/>
         <source>Database</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="28"/>
@@ -459,17 +485,17 @@ Kui sinu andmebaasi pole veel seadistatud, siis kasuta (pärast õige parooli si
     <message>
         <location filename="../ui/prefwidget/prefinterfacewidget.ui" line="14"/>
         <source>Interface</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefinterfacewidget.ui" line="29"/>
         <source>&amp;Interface</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefinterfacewidget.ui" line="37"/>
         <source>L&amp;anguage:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -477,7 +503,7 @@ Kui sinu andmebaasi pole veel seadistatud, siis kasuta (pärast õige parooli si
     <message>
         <location filename="../ui/dialog/preferencesdialog.ui" line="20"/>
         <source>Preferences</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -485,7 +511,7 @@ Kui sinu andmebaasi pole veel seadistatud, siis kasuta (pärast õige parooli si
     <message>
         <location filename="../main.cpp" line="38"/>
         <source>yoDownet</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -493,14 +519,14 @@ Kui sinu andmebaasi pole veel seadistatud, siis kasuta (pärast õige parooli si
     <message>
         <location filename="../ui/dialog/reportbugdialog.ui" line="14"/>
         <source>Submit Bug Report</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/dialog/reportbugdialog.ui" line="26"/>
         <source>&lt;b&gt;Submit Bug Report&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
 To submit a bug report. click on the button below. This will open a web browser windows on &lt;a href=&quot;https://github.com/Alir3z4/yoDownet/issues&quot;&gt;ticket system&lt;/a&gt; where you will find a form to fill in.&lt;br /&gt;But for submit a bug you need to register on &lt;a href=&quot;https://github.com/Alir3z4/yoDownet&quot;&gt;Github&lt;/a&gt; where yoDownet hosted.
 </source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/dialog/reportbugdialog.ui" line="54"/>
@@ -556,7 +582,7 @@ To submit a bug report. click on the button below. This will open a web browser 
     <message>
         <location filename="../ui/dialog/urldialog.ui" line="26"/>
         <source>snload</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/dialog/urldialog.ui" line="38"/>
@@ -569,12 +595,12 @@ To submit a bug report. click on the button below. This will open a web browser 
     <message>
         <location filename="../core/validators/urlvalidator.cpp" line="48"/>
         <source>Invalid Url</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../core/validators/urlvalidator.cpp" line="54"/>
         <source>%1 is not a valid Url.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -122,7 +122,10 @@ FORMS    += ui/mainwindow.ui \
     ui/prefwidget/prefinterfacewidget.ui
 
 TRANSLATIONS += translations/yodownet_en.ts \
-    translations/yodownet_et.ts
+    translations/yodownet_et.ts \
+    translations/yodownet_fa.ts \
+    translations/yodownet_tr.ts \
+    translations/yodownet_vi.ts
 
 OTHER_FILES += \
     doc/COPYING \

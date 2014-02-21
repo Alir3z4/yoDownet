@@ -22,16 +22,25 @@
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="95"/>
         <source>Estonian:
-    Eraser (Rivo Zängov)</source>
+    Eraser (Rivo Zängov)
+
+Persian:
+    Alir3z4 (علیرضا ساوند)
+
+Turkish:
+    yakup (якуп)
+
+VIETNAMESE:
+    ppanhh (Anh Phan)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dialog/aboutdialog.ui" line="104"/>
+        <location filename="../ui/dialog/aboutdialog.ui" line="113"/>
         <source>License</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dialog/aboutdialog.ui" line="139"/>
+        <location filename="../ui/dialog/aboutdialog.ui" line="148"/>
         <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
@@ -157,6 +166,21 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../util/languages.cpp" line="66"/>
         <source>Estonian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/languages.cpp" line="68"/>
+        <source>Persian</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/languages.cpp" line="192"/>
+        <source>Turkish</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../util/languages.cpp" line="202"/>
+        <source>Vietnamese</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

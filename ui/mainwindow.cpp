@@ -90,6 +90,8 @@ void MainWindow::on_preferencesAction_triggered()
 
 void MainWindow::on_aboutQtAction_triggered()
 {
+    _logger->info("AboutQt action triggered");
+
     qApp->aboutQt();
 }
 

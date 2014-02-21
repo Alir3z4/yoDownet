@@ -115,12 +115,17 @@ void MainWindow::on_addAction_triggered()
 
 void MainWindow::on_pauseAction_triggered()
 {
-    QStringList urls = this->currentColumns();
+    _logger->info("Pause action triggered");
+
+    QStringList urls = this->currentColumns(DownloadConstants::Attributes::Uuid);
     if(urls.isEmpty()) {
+        _logger->info("URL list is empty, pause action aborted");
+
         return;
     }
 
     for (int i = 0; i < urls.size(); ++i) {
+        _logger->info(QString("Pausing [%1]").arg(urls[i]));
         downloader->pauseDownload(QUuid(urls[i]));
     }
 }

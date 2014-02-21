@@ -65,7 +65,7 @@ QMap<QString, QString> Languages::translations()
 //    m["es"] = tr("Spanish");
     m["et"] = tr("Estonian");
 //    m["eu"] = tr("Basque");
-//    m["fa"] = tr("Persian");
+    m["fa"] = tr("Persian");
 //    m["ff"] = tr("Fulah");
 //    m["fi"] = tr("Finnish");
 //    m["fj"] = tr("Fijian");
@@ -189,7 +189,7 @@ QMap<QString, QString> Languages::translations()
 //    m["tl"] = tr("Tagalog");
 //    m["tn"] = tr("Tswana");
 //    m["to"] = tr("Tonga");
-//    m["tr"] = tr("Turkish");
+    m["tr"] = tr("Turkish");
 //    m["ts"] = tr("Tsonga");
 //    m["tt"] = tr("Tatar");
 //    m["tw"] = tr("Twi");
@@ -199,7 +199,7 @@ QMap<QString, QString> Languages::translations()
 //    m["ur"] = tr("Urdu");
 //    m["uz"] = tr("Uzbek");
 //    m["ve"] = tr("Venda");
-//    m["vi"] = tr("Vietnamese");
+    m["vi"] = tr("Vietnamese");
 //    m["vo"] = trUtf8("Volapük");
 //    m["wa"] = tr("Walloon");
 //    m["wo"] = tr("Wolof");

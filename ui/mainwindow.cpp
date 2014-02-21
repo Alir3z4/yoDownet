@@ -82,6 +82,8 @@ QStringList MainWindow::currentColumns(const int &column) const
 
 void MainWindow::on_preferencesAction_triggered()
 {
+    _logger->info("Preferences action triggered");
+
     PreferencesDialog prefDialog(this);
     prefDialog.exec();
 }

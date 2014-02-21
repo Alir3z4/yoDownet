@@ -241,7 +241,7 @@ void MainWindow::updateUrlsTable(const Download *download)
 
 void MainWindow::submitUrlViewChanges()
 {
-//    model->submitAll();
+    this->saveSettings();
     return;
 }
 

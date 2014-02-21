@@ -481,11 +481,15 @@ QHash<QString, QVariant> MainWindow::downloadHash() const
 
 void MainWindow::populateUrlView(const QVariant downloadVariant)
 {
+    _logger->info("Loading download list");
+
     QHash<QString, QVariant> dlHash = downloadVariant.toHash();
     QHashIterator<QString, QVariant> i(dlHash);
     while (i.hasNext()) {
         i.next();
+
         QHash<QString, QVariant> downloadAttributeHash = i.value().toHash();
+
         ui->urlView->model()->insertRow(ui->urlView->model()->rowCount());
         int row = ui->urlView->model()->rowCount() - 1;
         ui->urlView->model()->setData(

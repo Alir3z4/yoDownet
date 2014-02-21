@@ -1,7 +1,7 @@
 /****************************************************************************************
-** prefdatabasewidget.cpp is part of yoDownet
+** downloadconstants.h is part of yoDownet
 **
-** Copyright 2011, 2012 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2013 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -18,17 +18,27 @@
 **
 ****************************************************************************************/
 
-#include "prefdatabasewidget.h"
-#include "ui_prefdatabasewidget.h"
+#ifndef DOWNLOADCONSTANTS_H
+#define DOWNLOADCONSTANTS_H
 
-PrefDataBaseWidget::PrefDataBaseWidget(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::PrefDataBaseWidget)
-{
-    ui->setupUi(this);
+namespace DownloadConstants {
+    namespace Attributes {
+        enum Attributes{
+            Uuid,
+            URL,
+            SavePath,
+            FileName,
+            Status,
+            Progress,
+            RemainingTime,
+            Speed,
+            Added,
+            Downloaded
+        };
+
+    }
+
 }
 
-PrefDataBaseWidget::~PrefDataBaseWidget()
-{
-    delete ui;
-}
+
+#endif // DOWNLOADCONSTANTS_H

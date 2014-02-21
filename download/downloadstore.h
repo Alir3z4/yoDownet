@@ -1,7 +1,7 @@
 /****************************************************************************************
-** fileinfo.h is part of yoDownet
+** downloadstore.h is part of yoDownet
 **
-** Copyright 2012 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2013 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -18,17 +18,30 @@
 **
 ****************************************************************************************/
 
-#ifndef FILEINFO_H
-#define FILEINFO_H
+#ifndef DOWNLOADSTORE_H
+#define DOWNLOADSTORE_H
 
 #include <QObject>
+#include "core/logme.h"
+#include <download/downloadtablemodel.h>
 
-class FileInfo : public QObject
+class DownloadTableModel;
+
+class DownloadStore : public QObject
 {
     Q_OBJECT
 public:
-    explicit FileInfo(QObject *parent = 0);
+    explicit DownloadStore(QObject *parent = 0);
 
+    void loadDownloads();
+    void saveDownloads();
+
+    DownloadTableModel *downloadModel() const;
+    void setDownloadModel(DownloadTableModel *downloadModel);
+
+private:
+    DownloadTableModel *_downloadModel;
+    LogMe *_logger;
 };
 
-#endif // FILEINFO_H
+#endif // DOWNLOADSTORE_H

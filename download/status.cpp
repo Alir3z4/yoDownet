@@ -1,7 +1,7 @@
 /****************************************************************************************
 ** status.cpp is part of yoDownet
 **
-** Copyright 2012 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2012, 2013 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -78,16 +78,6 @@ QString Status::downloadModeString() const
     return QString();
 }
 
-void Status::setUrl(const QString &url)
-{
-    _url = url;
-}
-
-QString Status::url() const
-{
-    return _url;
-}
-
 void Status::updateFileStatus(qint64 bytesReceived, qint64 bytesTotal)
 {
     if(_fileAlreadyBytes == 0) _fileAlreadyBytes = 1;
@@ -101,26 +91,6 @@ void Status::startTime()
 {
     _startTime = new QTime();
     _startTime->start();
-}
-
-void Status::setName(const QString &name)
-{
-    _name = name;
-}
-
-QString Status::name() const
-{
-    return _name;
-}
-
-void Status::setPath(const QString &path)
-{
-    _path = path;
-}
-
-QString Status::path() const
-{
-    return _path;
 }
 
 void Status::setFileAlreadyBytes(const qint64 fileAlreadyBytes)

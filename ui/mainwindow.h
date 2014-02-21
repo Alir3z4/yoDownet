@@ -1,7 +1,7 @@
 /****************************************************************************************
 ** mainwindow.h is part of yoDownet
 **
-** Copyright 2011, 2012 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2011, 2012, 2013, 2014 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -22,27 +22,31 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QTableWidgetItem>
+#include <QtWidgets/QTableWidgetItem>
 #include <QCloseEvent>
-#include "util/yodatabase.h"
-#include "util/urlmodel.h"
+#include "core/logme.h"
+#include "download/downloadtablemodel.h"
+#include "download/downloadconstants.h"
 #include "plus/messages/message.h"
 #include "ui/widget/systemtrayicon.h"
 #include "downloader/yodownet.h"
 
 namespace Ui {
-    class MainWindow;
+class MainWindow;
 }
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
+    
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    QStringList currentColumns(const int &column = UrlModel::url) const;
+    QStringList currentColumns(const int &column = DownloadConstants::Attributes::URL) const;
+
+signals:
+    void downloadRemoved(const QString &fileName);
 
 private slots:
     void on_preferencesAction_triggered();
@@ -58,25 +62,31 @@ private slots:
     void saveSettings();
     void loadSettings();
     void initUrlsTable();
-    void updateUrlsTable(const Status *status);
+    void updateUrlsTable(const Download *download);
     void submitUrlViewChanges();
 
     void onDownloadRemoved(const QString &fileName);
-    void onDownloadResumed(const Status *status);
+    void onDownloadResumed(const Download *download);
+    void onDownloadDoesNotExistToRemove(const QUuid &uuid);
     void trayIconTriggered();
+
+protected:
+    void changeEvent(QEvent *e);
 
 private:
     Ui::MainWindow *ui;
-    yoDataBase *db;
     SystemTrayIcon *_trayIcon;
     QMenu *_trayMenu;
-    UrlModel *model;
+    DownloadTableModel *model;
     yoDownet *downloader;
     Message *_message;
+    LogMe *_logger;
 
     void prepareTrayIcon();
     void closeEvent(QCloseEvent * event);
 
+    QHash<QString, QVariant> downloadHash() const;
+    void populateUrlView(const QVariant downloadVariant);
 };
 
 #endif // MAINWINDOW_H

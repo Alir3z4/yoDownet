@@ -37,9 +37,6 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) :
     prefDler = new PrefDownloadersWidget;
     addSection(prefDler);
 
-    prefDb = new PrefDataBaseWidget;
-    addSection(prefDb);
-
     prefInt = new PrefInterfaceWidget;
 
     addSection(prefInt);

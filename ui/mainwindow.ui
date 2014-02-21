@@ -1,33 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author>Alireza Savand</author>
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>644</width>
-    <height>384</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>yoDownet</string>
+   <string/>
   </property>
-  <property name="windowIcon">
-   <iconset resource="../resource/icons.qrc">
-    <normaloff>:/icons/images/yoDownet_64.svg</normaloff>:/icons/images/yoDownet_64.svg</iconset>
-  </property>
-  <property name="unifiedTitleAndToolBarOnMac">
-   <bool>false</bool>
-  </property>
-  <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="MainWindowGridLayout">
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QTableView" name="urlView">
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
       <property name="editTriggers">
        <set>QAbstractItemView::NoEditTriggers</set>
       </property>
@@ -50,9 +39,6 @@
        <enum>QAbstractItemView::ScrollPerPixel</enum>
       </property>
       <property name="sortingEnabled">
-       <bool>true</bool>
-      </property>
-      <property name="wordWrap">
        <bool>true</bool>
       </property>
       <attribute name="horizontalHeaderCascadingSectionResizes">
@@ -80,13 +66,13 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
+  <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>642</width>
-     <height>21</height>
+     <width>800</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu">
@@ -104,18 +90,16 @@
     <addaction name="pauseAction"/>
     <addaction name="resumeAction"/>
     <addaction name="stopAction"/>
-    <addaction name="resumeAllAction"/>
     <addaction name="removeAction"/>
-    <addaction name="stopAllAction"/>
     <addaction name="removeFromListAction"/>
    </widget>
    <widget class="QMenu" name="settingsMenu">
     <property name="title">
      <string>&amp;Settings</string>
     </property>
-    <addaction name="showMenuBarAction"/>
-    <addaction name="showToolBarAction"/>
-    <addaction name="showStatusBarAction"/>
+    <addaction name="showMenubarAction"/>
+    <addaction name="showToolbarAction"/>
+    <addaction name="showStatusbarAction"/>
     <addaction name="separator"/>
     <addaction name="preferencesAction"/>
    </widget>
@@ -132,16 +116,13 @@
    <addaction name="settingsMenu"/>
    <addaction name="helpMenu"/>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
-  <widget class="QToolBar" name="mainToolBar">
-   <property name="iconSize">
-    <size>
-     <width>22</width>
-     <height>22</height>
-    </size>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolbar">
+   <property name="windowTitle">
+    <string>toolBar</string>
    </property>
    <property name="toolButtonStyle">
-    <enum>Qt::ToolButtonTextBesideIcon</enum>
+    <enum>Qt::ToolButtonIconOnly</enum>
    </property>
    <property name="floatable">
     <bool>true</bool>
@@ -156,37 +137,86 @@
    <addaction name="pauseAction"/>
    <addaction name="resumeAction"/>
    <addaction name="stopAction"/>
-   <addaction name="removeAction"/>
+   <addaction name="removeFromListAction"/>
    <addaction name="separator"/>
    <addaction name="exitAction"/>
   </widget>
-  <action name="exitAction">
+  <action name="addAction">
    <property name="icon">
-    <iconset theme="exit">
+    <iconset theme="list-add">
      <normaloff/>
     </iconset>
    </property>
    <property name="text">
-    <string>E&amp;xit</string>
+    <string>&amp;Add</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Q</string>
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="exitAction">
+   <property name="icon">
+    <iconset theme="application-exit">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="pauseAction">
+   <property name="icon">
+    <iconset theme="media-playback-pause">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Pause</string>
+   </property>
+  </action>
+  <action name="resumeAction">
+   <property name="icon">
+    <iconset theme="media-playlist-repeat">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Resume</string>
+   </property>
+  </action>
+  <action name="removeAction">
+   <property name="icon">
+    <iconset theme="edit-delete">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Remove</string>
+   </property>
+  </action>
+  <action name="removeFromListAction">
+   <property name="icon">
+    <iconset theme="list-remove">
+     <normaloff/>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Remove From List</string>
+   </property>
+  </action>
+  <action name="reportBugAction">
+   <property name="text">
+    <string>Report Bug...</string>
    </property>
   </action>
   <action name="aboutQtAction">
    <property name="icon">
-    <iconset theme="qtcreator">
+    <iconset theme="help-about">
      <normaloff/>
     </iconset>
    </property>
    <property name="text">
     <string>About &amp;Qt</string>
-   </property>
-   <property name="menuRole">
-    <enum>QAction::AboutQtRole</enum>
-   </property>
-   <property name="softKeyRole">
-    <enum>QAction::NoSoftKey</enum>
    </property>
   </action>
   <action name="aboutyoDownetAction">
@@ -198,19 +228,51 @@
     <string>About yo&amp;Downet</string>
    </property>
   </action>
-  <action name="reportBugAction">
-   <property name="icon">
-    <iconset theme="tools-report-bug">
-     <normaloff/>
-    </iconset>
+  <action name="showMenubarAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
    </property>
    <property name="text">
-    <string>Report Bug...</string>
+    <string>Show Menubar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="showToolbarAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Toolbar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="showStatusbarAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Show Statusbar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="preferencesAction">
    <property name="icon">
-    <iconset theme="configure">
+    <iconset theme="preferences-system">
      <normaloff/>
     </iconset>
    </property>
@@ -221,180 +283,41 @@
     <string>Ctrl+P</string>
    </property>
   </action>
-  <action name="showMenuBarAction">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Show &amp;Menubar</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+M</string>
-   </property>
-  </action>
-  <action name="showToolBarAction">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Show &amp;Toolbar</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+T</string>
-   </property>
-  </action>
-  <action name="showStatusBarAction">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Show StatusBar</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+S</string>
-   </property>
-  </action>
-  <action name="addAction">
-   <property name="icon">
-    <iconset theme="add">
-     <normaloff/>
-    </iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Add</string>
-   </property>
-   <property name="toolTip">
-    <string>Add</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+A</string>
-   </property>
-  </action>
-  <action name="pauseAction">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset theme="player_pause">
-     <normaloff/>
-    </iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Pause</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+P</string>
-   </property>
-   <property name="visible">
-    <bool>true</bool>
-   </property>
-  </action>
-  <action name="removeAction">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset theme="remove">
-     <normaloff/>
-    </iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Remove</string>
-   </property>
-  </action>
-  <action name="resumeAction">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset theme="player_play">
-     <normaloff/>
-    </iconset>
-   </property>
-   <property name="text">
-    <string>&amp;Resume</string>
-   </property>
-   <property name="visible">
-    <bool>true</bool>
-   </property>
-  </action>
-  <action name="resumeAllAction">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="text">
-    <string>Resume All</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
-  <action name="stopAllAction">
-   <property name="text">
-    <string>Stop All</string>
-   </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
   <action name="stopAction">
    <property name="icon">
-    <iconset theme="player_stop">
+    <iconset theme="media-playback-stop">
      <normaloff/>
     </iconset>
    </property>
    <property name="text">
     <string>Stop</string>
    </property>
-   <property name="visible">
-    <bool>false</bool>
-   </property>
-  </action>
-  <action name="removeFromListAction">
-   <property name="icon">
-    <iconset theme="list-remove">
-     <normaloff/>
-    </iconset>
-   </property>
-   <property name="text">
-    <string>Remove Fr&amp;om List</string>
-   </property>
   </action>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
  <resources>
   <include location="../resource/icons.qrc"/>
  </resources>
  <connections>
   <connection>
-   <sender>showMenuBarAction</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>menuBar</receiver>
-   <slot>setVisible(bool)</slot>
+   <sender>exitAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>332</x>
-     <y>9</y>
+     <x>399</x>
+     <y>299</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>showStatusBarAction</sender>
+   <sender>showStatusbarAction</sender>
    <signal>toggled(bool)</signal>
-   <receiver>statusBar</receiver>
+   <receiver>statusbar</receiver>
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -402,15 +325,15 @@
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>332</x>
-     <y>396</y>
+     <x>399</x>
+     <y>588</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>showToolBarAction</sender>
+   <sender>showToolbarAction</sender>
    <signal>toggled(bool)</signal>
-   <receiver>mainToolBar</receiver>
+   <receiver>toolbar</receiver>
    <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -418,8 +341,24 @@
      <y>-1</y>
     </hint>
     <hint type="destinationlabel">
-     <x>332</x>
-     <y>34</y>
+     <x>399</x>
+     <y>41</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>showMenubarAction</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>menubar</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>10</y>
     </hint>
    </hints>
   </connection>

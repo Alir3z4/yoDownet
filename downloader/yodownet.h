@@ -1,7 +1,7 @@
 /****************************************************************************************
 ** yodownet.h is part of yoDownet
 **
-** Copyright 2012 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2012, 2013, 2014 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -31,7 +31,9 @@
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
-#include "util/status.h"
+#include "core/logme.h"
+#include <download/download.h>
+#include "download/status.h"
 
 class yoDownet : public QObject
 {
@@ -40,39 +42,38 @@ public:
     explicit yoDownet(QObject *parent = 0);
 
 signals:
-    void downloadInitialed(const Status *status);
-    void downloadPaused(const Status *status);
-    void downlaodResumed(const Status *status);
-    void downloadUpdated(const Status *status);
+    void downloadInitialed(const Download *download);
+    void downloadPaused(const Download *download);
+    void downlaodResumed(const Download *download);
+    void downloadUpdated(const Download *download);
     void downloadRemoved(const QString &fileName);
     void downloadFinished();
     void fileReadyToRemove(QFile *file);
+    void downloadDoesNotExistToRemove(const QUuid &uuid);
 
 public slots:
     void addDownload(const QString &url);
-    void addDownloads(const QStringList &urls);
-    void pauseDownload(const QString &url);
-    void pauseDownloads(const QStringList &urls);
-    void removeDownload(const QString &filePath);
-    void removeDownloads(const QStringList &files);
+    void pauseDownload(const QUuid &uuid);
+    void removeDownload(const QUuid &uuid);
 
 private slots:
     void replyMetaDataChanged(QObject *currentReply);
-    void startRequest(const QUrl &url);
+    void startRequest(Download *newDownload);
     void httpReadyRead(QObject *currentReply);
     void httpFinished(QObject *currentReply);
+    // TODO: Removing file can be done in `Download` class.
     void removeFile(QFile *file);
 
 private:
-    QNetworkAccessManager manager;
+    QNetworkAccessManager _manager;
     QNetworkReply *_reply;
-    QFile *_file;
-    Status *_status;
-    QSignalMapper *readyReadSignalMapper;
-    QSignalMapper *metaChangedSignalMapper;
-    QSignalMapper *finishedSignalMapper;
-    QHash<QNetworkReply*, QFile*> *downloads;
-    QHash<QUrl, Status*> *statusHash;
+    QSignalMapper *_readyReadSignalMapper;
+    QSignalMapper *_metaChangedSignalMapper;
+    QSignalMapper *_finishedSignalMapper;
+    QHash<QNetworkReply*, Download*> *_downloadHash;
+    QHash<QUrl, Status*> *_statusHash;
+
+    LogMe *_logger;
 };
 
 #endif // YODOWNET_H

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT += core gui sql network
+QT += core gui widgets network
 
 TARGET = yoDownet
 TEMPLATE = app
@@ -12,29 +12,34 @@ TEMPLATE = app
 unix{
     DEFINES += PREFIX=$${PREFIX}
     isEmpty(PREFIX){
-        message(The PREFIX is empty. So the default value will be used.)
+        message(The PREFIX is empty. The default value will be used.)
         PREFIX=/usr
         message(PREFIX defined as $$PREFIX)
     }
 
     target.path = $$PREFIX/bin
     translations.path = $$PREFIX/share/yodownet/translations/
-    sqlscript.path = $$PREFIX/share/yodownet/resource/sql/
     images.path = $$PREFIX/share/pixmaps
     desktop.path = $$PREFIX/share/applications
     doc.path = $$PREFIX/share/doc/yodownet
-    license = $$PREFIX/share/licenses/yodownet/
+    license.path = $$PREFIX/share/licenses/yodownet/
+
+    message(Target: $$target.path)
+    message(Translations: $$translations.path)
+    message(Images: $$images.path)
+    message(Desktop: $$desktop.path)
+    message(Documents: $$doc.path)
+    message(License: $$license.path)
 }
 
 images.files = resource/images/*
 desktop.files = installers/yoDownet.desktop
 doc.files = doc/C*
-license = doc/COPYING
+license.files = doc/COPYING
 translations.files = translations/*.qm
-sqlscript.files = resource/sql/*
+
 
 DEFINES += TRANSLATION_PATH=$$translations.path
-DEFINES += SQLSCRIPT_PATH=$$sqlscript.path
 DEFINES += DOC_PATH=$$doc.path
 
 INSTALLS += target\
@@ -42,24 +47,16 @@ INSTALLS += target\
     desktop \
     doc \
     license \
-    translations \
-    sqlscript
-
-#QMAKE_CXXFLAGS += -std=c++0x
+    translations
 
 SOURCES += main.cpp\
         ui/mainwindow.cpp \
     ui/dialog/preferencesdialog.cpp \
     ui/prefwidget/prefdownloaderswidget.cpp \
-    ui/prefwidget/prefdatabasewidget.cpp \
     util/yomessage.cpp \
     ui/widget/filebrowz.cpp \
-    util/yodatabase.cpp \
     downloader/yodownet.cpp \
-    util/fileinfo.cpp \
-    util/status.cpp \
     ui/dialog/urldialog.cpp \
-    util/urlmodel.cpp \
     ui/dialog/aboutdialog.cpp \
     ui/dialog/reportbugdialog.cpp \
     ui/prefwidget/prefinterfacewidget.cpp \
@@ -69,20 +66,21 @@ SOURCES += main.cpp\
     core/validators/urlvalidator.cpp \
     plus/messages/basemessage.cpp \
     plus/messages/message.cpp \
-    core/validators/basevalidator.cpp
+    core/validators/basevalidator.cpp \
+    download/download.cpp \
+    download/status.cpp \
+    download/downloadtablemodel.cpp \
+    download/downloadstore.cpp \
+    download/downloadholder.cpp \
+    core/logme.cpp
 
 HEADERS  += ui/mainwindow.h \
     ui/dialog/preferencesdialog.h \
     ui/prefwidget/prefdownloaderswidget.h \
-    ui/prefwidget/prefdatabasewidget.h \
     util/yomessage.h \
     ui/widget/filebrowz.h \
-    util/yodatabase.h \
     downloader/yodownet.h \
-    util/fileinfo.h \
-    util/status.h \
     ui/dialog/urldialog.h \
-    util/urlmodel.h \
     ui/dialog/aboutdialog.h \
     ui/dialog/reportbugdialog.h \
     ui/prefwidget/prefinterfacewidget.h \
@@ -93,14 +91,24 @@ HEADERS  += ui/mainwindow.h \
     plus/messages/basemessage.h \
     plus/messages/message.h \
     plus/messages/constants.h \
-    core/validators/basevalidator.h
+    core/validators/basevalidator.h \
+    download/download.h \
+    download/status.h \
+    download/downloadtablemodel.h \
+    download/downloadstore.h \
+    download/downloadholder.h \
+    core/logme.h \
+    download/downloadconstants.h
 
-contains(CONFIG, qtestlib){
+contains(CONFIG, testlib){
     DEFINES += TESTING
 
-    SOURCES += core/validators/tests/testurlvalidator.cpp
+    SOURCES += core/validators/tests/testurlvalidator.cpp \
+        download/tests/testdownload.cpp
 
-    HEADERS += core/validators/tests/testurlvalidator.h
+    HEADERS += core/autotest.h \
+        core/validators/tests/testurlvalidator.h \
+        download/tests/testdownload.h
 }
 
 FORMS    += ui/mainwindow.ui \
@@ -121,10 +129,7 @@ OTHER_FILES += \
     LicenseTemplate \
     installers/archlinux/PKGBUILD \
     resource/images/yoDownet_64.svg \
-    doc/ChangeLog \
-    resource/sql/sqlite_0.sql \
-    resource/sql/sqlite_1.sql \
-    resource/sql/sqlite_2.sql
+    doc/ChangeLog
 
 RESOURCES += \
     resource/icons.qrc

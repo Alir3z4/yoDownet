@@ -40,11 +40,11 @@ public:
     explicit FileBrowz(QWidget *parent = 0);
     ~FileBrowz();
 
-    const QString caption();
-    const QString filter();
-    const QString browzPath();
+    QString caption() const;
+    QString filter() const;
+    QString browzPath() const;
     BrowzType browzType() const;
-    const QFileDialog::Options options();
+    QFileDialog::Options options() const;
 
 public slots:
     void setCaption(const QString &caption);

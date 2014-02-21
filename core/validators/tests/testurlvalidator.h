@@ -23,6 +23,7 @@
 
 #include <QtTest/QtTest>
 #include "core/validators/urlvalidator.h"
+#include "core/autotest.h"
 
 class TestUrlValidator : public QObject
 {
@@ -44,4 +45,5 @@ private:
     UrlValidator *_validator;
 };
 
+DECLARE_TEST(TestUrlValidator)
 #endif // TESTURLVALIDATOR_H

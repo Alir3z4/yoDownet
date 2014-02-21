@@ -1,7 +1,7 @@
 /****************************************************************************************
 ** status.h is part of yoDownet
 **
-** Copyright 2012 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2012, 2013 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -23,10 +23,14 @@
 
 #include <QObject>
 #include <QTime>
+#include <QUuid>
 
 class Status : public QObject
 {
     Q_OBJECT
+    Q_ENUMS(DownloadMode)
+    Q_ENUMS(DownloadStatus)
+
 public:
     explicit Status(QObject *parent = 0);
 
@@ -48,20 +52,18 @@ public:
     QString downloadRate() const;
     QString downloadModeString() const;
 
-    void setUrl(const QString &url);
-    QString url() const;
-    void setName(const QString &name);
-    QString name() const;
-    void setPath(const QString &path);
-    QString path() const;
     void setFileAlreadyBytes(const qint64 fileAlreadyBytes);
     void setBytesTotal(const qint64 totalLength);
+
     qint64 bytesTotal() const;
     void setBytesReceived(const qint64 completedLength);
+
     qint64 bytesReceived() const;
     int progress() const;
+
     void setDownloadMode(const DownloadMode dlMode);
     DownloadMode downloadMode() const;
+
     void setDownloadStatus(const DownloadStatus dlStatus);
     DownloadStatus downloadStatus() const;
 
@@ -70,10 +72,7 @@ public slots:
     void updateFileStatus(qint64 bytesReceived, qint64 bytesTotal);
 
 private:
-    QString _url;
     QString _remainingTime;
-    QString _name;
-    QString _path;
     qint64 _fileAlreadyBytes;
     qint64 _bytesTotal;
     qint64 _bytesReceived;
@@ -83,7 +82,6 @@ private:
     DownloadMode _dlMode;
     DownloadStatus _dlStatus;
 
-    
 };
 
 #endif // STATUS_H

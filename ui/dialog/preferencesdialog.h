@@ -24,7 +24,6 @@
 #include <QDialog>
 #include <QPushButton>
 #include "ui/prefwidget/prefdownloaderswidget.h"
-#include "ui/prefwidget/prefdatabasewidget.h"
 #include "ui/prefwidget/prefinterfacewidget.h"
 
 namespace Ui {
@@ -52,7 +51,6 @@ private:
     QPushButton *applyButton;
 
     PrefDownloadersWidget *prefDler;
-    PrefDataBaseWidget *prefDb;
     PrefInterfaceWidget *prefInt;
 
     void addSection(QWidget *w);

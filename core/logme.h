@@ -1,7 +1,7 @@
 /****************************************************************************************
-** urlmodel.h is part of yoDownet
+** logme.h is part of yoDownet
 **
-** Copyright 2012 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2013 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -18,36 +18,28 @@
 **
 ****************************************************************************************/
 
-#ifndef URLMODEL_H
-#define URLMODEL_H
+#ifndef LOGME_H
+#define LOGME_H
 
-#include <QSqlTableModel>
+#include <QObject>
 
-class UrlModel : public QSqlTableModel
+class LogMe : public QObject
 {
     Q_OBJECT
 public:
-    explicit UrlModel(QObject *parent = 0);
+    explicit LogMe(QObject *parent = 0);
 
-    enum Urls {
-        id,
-        url,
-        save_path,
-        filename,
-        status,
-        progress,
-        remaining_time,
-        speed,
-        created_at,
-        downloaded_at
-    };
+    void debug(const QString &debugMessage);
+    void info(const QString &infoMessage);
+    void success(const QString &successMessage);
+    void error(const QString &errorMessage);
 
-    QVariant data(const QModelIndex &idx, int role) const;
+    void setClassName(const QString &className);
 
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const;
+private:
+    QString _className;
 
-    QString downloadStatus(const int status) const;
-    
+    void logMessage(const QString &logLevel, const QString &logMessage) const;
 };
 
-#endif // URLMODEL_H
+#endif // LOGME_H

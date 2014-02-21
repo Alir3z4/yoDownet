@@ -50,11 +50,11 @@ QStringList UrlDialog::urls() const
     while(!textStream.atEnd()){
         urlLine = textStream.readLine();
         _urlValidator->setUrl(urlLine);
-        if(_urlValidator->isValid())
+        if(_urlValidator->isValid()){
             urlList << urlLine;
-        else
-            _message->addMessage(
-                        _urlValidator->errorTitle(), _urlValidator->errorMessage(), _urlValidator->errorTag());
+        }else{
+            _message->addMessage(_urlValidator->errorTitle(), _urlValidator->errorMessage(), _urlValidator->errorTag());
+        }
     }
     return urlList;
 }

@@ -46,13 +46,13 @@ void TestUrlValidator::noProtocol()
 
 void TestUrlValidator::encodedUrl()
 {
-    _validator->setUrl("http://www.qt-project.com/List%20of%20holidays.xml");
+    _validator->setUrl("http://www.qt-project.org/List%20of%20holidays.xml");
     QCOMPARE(_validator->isValid(), true);
 }
 
 void TestUrlValidator::withSpaceUrl()
 {
-    _validator->setUrl("http://www.qt-project.com/List of holidays.xml");
+    _validator->setUrl("http://www.qt-project.org/List of holidays.xml");
     QCOMPARE(_validator->isValid(), true);
 }
 
@@ -64,7 +64,7 @@ void TestUrlValidator::ftpUrl()
 
 void TestUrlValidator::httpUrl()
 {
-    _validator->setUrl("http://www.qt-project.com/somefile.tar.gz");
+    _validator->setUrl("http://www.qt-project.org/somefile.tar.gz");
     QCOMPARE(_validator->isValid(), true);
 }
 

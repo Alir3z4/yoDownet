@@ -1,7 +1,7 @@
 /****************************************************************************************
 ** main.cpp is part of yoDownet
 **
-** Copyright 2011, 2012 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2011, 2012, 2013 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -19,13 +19,15 @@
 ****************************************************************************************/
 
 #ifdef TESTING
-#include "core/validators/tests/testurlvalidator.h"
-QTEST_MAIN(TestUrlValidator)
+#include "core/autotest.h"
+TEST_MAIN
 #else
 
-#include <QApplication>
-#include <QSettings>
-#include <QTranslator>
+#include <QtWidgets/QApplication>
+#include <QtCore/QSettings>
+#include <QtCore/QTranslator>
+#include <QtGui/QIcon>
+#include "core/logme.h"
 #include "util/paths.h"
 #include "ui/mainwindow.h"
 
@@ -33,12 +35,20 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
-    QCoreApplication::setApplicationName("yoDownet");
-    QCoreApplication::setApplicationVersion("2012.05.11");
-    QCoreApplication::setOrganizationName("Alir3z4");
-    QCoreApplication::setOrganizationDomain("yodownet.sourceforge.net");
+    a.setApplicationName(QObject::tr("yoDownet"));
+    a.setApplicationVersion("2012.05.11");
+    a.setOrganizationName("Alir3z4");
+    a.setOrganizationDomain("yodownet.sourceforge.net");
+    a.setApplicationDisplayName(a.applicationName());
 
-    // FIXME move this from here to some other file
+    LogMe logger;
+    logger.setClassName("Main");
+    logger.info("yoDownet Started");
+
+    QIcon appIcon;
+    appIcon.addFile(QStringLiteral(":/icons/images/yoDownet_64.svg"), QSize(), QIcon::Normal, QIcon::Off);
+    a.setWindowIcon(appIcon);
+
     QSettings settings;
     settings.beginGroup("PreferencesDialog");
     settings.beginGroup("PrefInterfaceWidget");
@@ -46,6 +56,7 @@ int main(int argc, char *argv[])
     settings.endGroup();
     settings.endGroup();
 
+    logger.info("Loading translations");
     QTranslator translator;
     translator.load(Paths::translationPath() + "yodownet_" + language);
     a.installTranslator(&translator);

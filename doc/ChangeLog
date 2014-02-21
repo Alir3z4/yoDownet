@@ -2,11 +2,21 @@
     * Fixed sqlscript.path to installed in correct path.
     * Fixed the +100 and weird progress.
     * Fixed some bugs on the url table at MainWindow.
-    * remove unused stuf.
+    * Remove unused stuf.
     * Removed the inline function and replaced with normal function.
     * Comment unused languages.
     * Updated About Dialog.
     * Language files updated, and alot of unused translatable string removed.
+    * Removed Database preferneces widget from pref dialog.
+    * Removed *.sql file from resource.
+    * Deleted yoDataBase class and it's ugly implemention.
+    * Removed newDownload from `yoDownet` to `Download`.
+    * Fixed #34: Add Logging functionality.
+    * Using UUID on downloader engine.
+    * Remove mass operation method from download engine class.
+    * Handling file removal/delete on MainWindow if downloader engine is not able handle.
+    * Fixed #33: No sql or actual database module is being used anymore.
+    * Update Report bug dialog for github.
 
 2012-05-11 Alireza Savand <alireza.savand@gmail.com>
     * task-#30-clean-installation: make installation cleaner and more simple.
@@ -43,7 +53,6 @@
     * Couple of utility class added for utility sake.
 
 2012-02-29  Alireza Savand  <alireza.savand@gmail.com>
-
     * task-#3-addRemoveFun: Add remove functionality.
     * task-#8-database-migration/schema: So db schema will change in the future, why not have schema/migration tool ;)
     * task-#9-multiple-request-at-once: Okay, now user can execute multiple command/operation at once.

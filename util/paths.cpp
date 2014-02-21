@@ -32,10 +32,6 @@ QString Paths::docPath()
     return STRINGIFY(DOC_PATH);
 }
 
-QString Paths::sqlScriptPath()
-{
-    return STRINGIFY(SQLSCRIPT_PATH);
-}
 
 QString Paths::saveDir()
 {

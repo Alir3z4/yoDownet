@@ -149,8 +149,12 @@ void MainWindow::on_resumeAction_triggered()
 
 void MainWindow::on_removeAction_triggered()
 {
+     _logger->info("Remove action triggered");
+
     QStringList uuids = this->currentColumns(DownloadConstants::Attributes::Uuid);
     if (uuids.isEmpty()) {
+        _logger->info("URL list is empty, remove action aborted");
+
         return;
     }
 

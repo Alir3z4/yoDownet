@@ -17,6 +17,10 @@
     * Handling file removal/delete on MainWindow if downloader engine is not able handle.
     * Fixed #33: No sql or actual database module is being used anymore.
     * Update Report bug dialog for github.
+    * Update translations.
+    * Add "Vietnamese" language.
+    * Add "Turkish" language.
+    * Add "Persian" language.
 
 2012-05-11 Alireza Savand <alireza.savand@gmail.com>
     * task-#30-clean-installation: make installation cleaner and more simple.

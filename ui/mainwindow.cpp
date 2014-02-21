@@ -106,6 +106,7 @@ void MainWindow::on_addAction_triggered()
         if (!addUrlDialog.urls().isEmpty()) {
             QStringList urls = addUrlDialog.urls();
             for (int i = 0; i < urls.size(); ++i) {
+                _logger->info(QString("Passing %1 to downloader engine").arg(urls[i]));
                 downloader->addDownload(urls[i]);
             }
         }

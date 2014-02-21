@@ -1,15 +1,15 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="et" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="14"/>
         <source>yoDownet : About</source>
-        <translation>yoDownet: Rakendusest</translation>
+        <translation>yoDownet : Hakkında</translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="72"/>
         <source>Translation</source>
-        <translation type="unfinished"/>
+        <translation>Çeviri</translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="78"/>
@@ -21,17 +21,18 @@
         <location filename="../ui/dialog/aboutdialog.ui" line="95"/>
         <source>Estonian:
     Eraser (Rivo Zängov)</source>
-        <translation type="unfinished"/>
+        <translation>Estonyaca:
+    Eraser (Rivo Zängov)</translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="104"/>
         <source>License</source>
-        <translation>Litsents</translation>
+        <translation>Lisans</translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="139"/>
         <source>&amp;Close</source>
-        <translation>Sule</translation>
+        <translation>&amp;Kapat</translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.cpp" line="38"/>
@@ -46,7 +47,17 @@ yoDownet uses Qt toolkit for both front-end and back-end implementation!
 Copyright (C) 2011-2012 by Alireza Savand
 http://sourceforge.net/projects/yodownet/
 </source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Sürüm: %1&lt;/b&gt;
+Qt %2 Üzerinde
+
+
+yoDownet, Önceki nesil grafiksel indirme yöneticisi.
+yoDownet  Qt önyüzü ve arka uç uygulama hem araç!
+
+
+Telif hakkı (C) 2011-2012  Alireza Savand
+http://sourceforge.net/projects/yodownet/
+</translation>
     </message>
 </context>
 <context>
@@ -142,7 +153,7 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/widget/filebrowz.ui" line="23"/>
         <source>Browz...</source>
-        <translation>Sirvi...</translation>
+        <translation>Gözat...</translation>
     </message>
 </context>
 <context>
@@ -150,12 +161,12 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../util/languages.cpp" line="63"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>İngilizce</translation>
     </message>
     <message>
         <location filename="../util/languages.cpp" line="66"/>
         <source>Estonian</source>
-        <translation type="unfinished"/>
+        <translation>Estonyaca</translation>
     </message>
 </context>
 <context>
@@ -163,37 +174,37 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/mainwindow.ui" line="80"/>
         <source>&amp;File</source>
-        <translation>&amp;Fail</translation>
+        <translation>&amp;Dosya</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="88"/>
         <source>&amp;Edit</source>
-        <translation>Muuda</translation>
+        <translation>&amp;Düzenle</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="98"/>
         <source>&amp;Settings</source>
-        <translation>&amp;Seaded</translation>
+        <translation>&amp;Seçenekler</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="108"/>
         <source>&amp;Help</source>
-        <translation>Abiinfo</translation>
+        <translation>&amp;Yardım</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="219"/>
         <source>About &amp;Qt</source>
-        <translation>&amp;Qt raamistikust</translation>
+        <translation>Q&amp;t Hakkında</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="228"/>
         <source>About yo&amp;Downet</source>
-        <translation>Rakendusest yo&amp;Downet</translation>
+        <translation>yo&amp;Downet Hakkında</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="209"/>
         <source>Report Bug...</source>
-        <translation>Teavita veast...</translation>
+        <translation>Hata Rapor et...</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="122"/>
@@ -243,7 +254,7 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/mainwindow.ui" line="280"/>
         <source>&amp;Preferences</source>
-        <translation>Eelistused</translation>
+        <translation>&amp;Tercihler</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="283"/>
@@ -268,7 +279,7 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/mainwindow.ui" line="151"/>
         <source>&amp;Add</source>
-        <translation>Lis&amp;a</translation>
+        <translation>&amp;Ekle</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="154"/>
@@ -278,37 +289,37 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/mainwindow.ui" line="293"/>
         <source>Stop</source>
-        <translation>Peata</translation>
+        <translation>Durdur</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="235"/>
         <source>New Download</source>
-        <translation>Uus allalaadimine</translation>
+        <translation>Yeni İndirme</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="236"/>
         <source>%1 has been successfully added ;)</source>
-        <translation type="unfinished"/>
+        <translation>%1 başarılı bir şekilde eklendi ;)</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="257"/>
         <source>Download removed</source>
-        <translation type="unfinished"/>
+        <translation>İndirme kaldırıldı</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="258"/>
         <source>%1 has been successfully removed.</source>
-        <translation type="unfinished"/>
+        <translation>%1 başarılı bir şekilde kaldırıldı.</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="271"/>
         <source>Resume Download</source>
-        <translation>Jätka allalaadimisi</translation>
+        <translation>İndirmeyi Devam ettir</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="272"/>
         <source>Resuming %1</source>
-        <translation type="unfinished"/>
+        <translation>Devam ettiriliyor %1</translation>
     </message>
 </context>
 <context>
@@ -316,32 +327,32 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="17"/>
         <source>Database</source>
-        <translation type="unfinished"/>
+        <translation>Veri Tabanı</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="28"/>
         <source>Use &amp;external DataBase (recomended)</source>
-        <translation>Kasuta välist andm&amp;ebaasi (soovitatav)</translation>
+        <translation>Harici &amp;Veri tabanı Kullan (Tavsiye edilir)</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="38"/>
         <source>Connection Settings</source>
-        <translation>Ühenduse seaded</translation>
+        <translation>Bağlantı Seçenekleri</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="54"/>
         <source>&amp;Username:</source>
-        <translation>Kasutajanimi:</translation>
+        <translation>&amp;Kullanıcı adı:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="64"/>
         <source>&amp;Server:</source>
-        <translation>&amp;Server:</translation>
+        <translation>&amp;Sunucu:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="74"/>
         <source>&amp;Password:</source>
-        <translation>&amp;Parool:</translation>
+        <translation>&amp;Şifre:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="84"/>
@@ -356,7 +367,7 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="108"/>
         <source>&amp;DataBase:</source>
-        <translation>An&amp;dmebaas:</translation>
+        <translation>&amp;Veri Tabanı:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="118"/>
@@ -372,8 +383,7 @@ http://sourceforge.net/projects/yodownet/
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="156"/>
         <source>yoDownet expects the above database and user account to already exist This user also requires full access to the database. You MUST restart yoDownet after changing these settings
 If your database is not already set up you can use the following SQL commands (after replacing the password with the correct one):</source>
-        <translation>yoDownet eeldab, et ülalolev andmebaas ja kasutajakonto oleksid juba eelnevalt olemas. Sellel kasutajal peab olema ka täielik ligipääs andmebaasi. Pärast nende seadete muutmist PEAD sa yoDowneti taaskäivitama
-Kui sinu andmebaasi pole veel seadistatud, siis kasuta (pärast õige parooli sisestamist) andmebaasi loomiseks järgnevaid SQL-käske:</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -381,77 +391,77 @@ Kui sinu andmebaasi pole veel seadistatud, siis kasuta (pärast õige parooli si
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="14"/>
         <source>Downloader</source>
-        <translation>Allalaadija</translation>
+        <translation>İndirici</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="24"/>
         <source>&amp;Basic </source>
-        <translation>Peamine </translation>
+        <translation>&amp;Temel</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="34"/>
         <source>The directory to store the downloaded file.</source>
-        <translation>Kaust, kuhu allalaetud fail pannakse.</translation>
+        <translation>İndirilen dosyaların saklanacağı klasör.</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="37"/>
         <source>Save &amp;Path:</source>
-        <translation>Salvestamise asukoht:</translation>
+        <translation>Kayıt &amp;Yolu:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="50"/>
         <source>The file name of the log file.</source>
-        <translation>Logifaili nimi.</translation>
+        <translation>Bu kayıt dosyasının ismi.</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="53"/>
         <source>The file name of the log file. log is written to stdout. If empty  specified, log is not written to file.</source>
-        <translation>Logifaili nimi. Logi kirjutab stdout. Kui lahter on tühi  , siis logi ei salvestata.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="56"/>
         <source>&amp;Log File:</source>
-        <translation>&amp;Logifail:</translation>
+        <translation>&amp;Kayıt Dosyası:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="69"/>
         <source>Set maximum number of parallel downloads, Default: 5</source>
-        <translation>Määra maksimaalne üheaegsete allalaadimiste arv, vaikeväärtus on: 5</translation>
+        <translation>En Fazla Aynı Anda İndirmeyi Ayarla, Geçerli: 5</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="72"/>
         <source>Set maximum number of parallel downloads for every static (HTTP/FTP) URL, Default: 5</source>
-        <translation>Määra maksimaalne üheaegsete allalaadimiste arv iga staatilise (HTTP/FTP) ühenduse kohta, vaikeväärtus on: 5</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="75"/>
         <source>&amp;Max Parallel Downloads:</source>
-        <translation>&amp;Maks. üheaegseid allalaadimisi:</translation>
+        <translation>&amp;En Fazla Aynı Anda İndirme:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="114"/>
         <source>Continue downloading a partially downloaded file</source>
-        <translation>Jätka osaliselt allalaetud faili allalaadimist</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="117"/>
         <source>Continue downloading a partially downloaded file. Use this option to resume a download started by a web browser or another program which downloads files sequentially from the beginning. Currently this option is only applicable to HTTP(S)/FTP downloads.</source>
-        <translation>Jätka osaliselt allalaetud faili allalaadimist. Kasuta seda valikut, et jätkata veebilehitseja või mõne muu programmi poolt käivitatud allalaadimist. Momendil käib see valik ainult HTTP(S)/FTP allalaadimiste kohta.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="120"/>
         <source>&amp;Resume Downloads</source>
-        <translation>Jätka allalaadimisi</translation>
+        <translation>&amp;İndirmeleri Devam ettir</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.cpp" line="30"/>
         <source>Select a directory to save downloaded files</source>
-        <translation>Vali kaust, kuhu allalaetud failid salvestada</translation>
+        <translation>İndirilen dosyaları Kaydetmek İçin Klasör Seç</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.cpp" line="33"/>
         <source>Select a file to write log file into it</source>
-        <translation>Vali fail, millesse logitud andmed kirjutada</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -459,17 +469,17 @@ Kui sinu andmebaasi pole veel seadistatud, siis kasuta (pärast õige parooli si
     <message>
         <location filename="../ui/prefwidget/prefinterfacewidget.ui" line="14"/>
         <source>Interface</source>
-        <translation type="unfinished"/>
+        <translation>Arayüz</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefinterfacewidget.ui" line="29"/>
         <source>&amp;Interface</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Arayüz</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefinterfacewidget.ui" line="37"/>
         <source>L&amp;anguage:</source>
-        <translation type="unfinished"/>
+        <translation>D&amp;il:</translation>
     </message>
 </context>
 <context>
@@ -505,12 +515,12 @@ To submit a bug report. click on the button below. This will open a web browser 
     <message>
         <location filename="../ui/dialog/reportbugdialog.ui" line="54"/>
         <source>Okay, Let&apos;s Submit And Contribute</source>
-        <translation>OK, anna oma panus ja saada</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../ui/dialog/reportbugdialog.ui" line="66"/>
         <source>&amp;Close</source>
-        <translation>Sule</translation>
+        <translation>&amp;Kapat</translation>
     </message>
 </context>
 <context>
@@ -518,37 +528,37 @@ To submit a bug report. click on the button below. This will open a web browser 
     <message>
         <location filename="../download/status.cpp" line="37"/>
         <source>Sec</source>
-        <translation>Sek</translation>
+        <translation>San</translation>
     </message>
     <message>
         <location filename="../download/status.cpp" line="40"/>
         <source>Min</source>
-        <translation>Min</translation>
+        <translation>dk</translation>
     </message>
     <message>
         <location filename="../download/status.cpp" line="56"/>
         <source>bytes/sec</source>
-        <translation>baiti/sek</translation>
+        <translation>byte/san</translation>
     </message>
     <message>
         <location filename="../download/status.cpp" line="59"/>
         <source>KB/sec</source>
-        <translation>KM/sek</translation>
+        <translation>KB/san</translation>
     </message>
     <message>
         <location filename="../download/status.cpp" line="62"/>
         <source>MB/sec</source>
-        <translation>MB/sek</translation>
+        <translation>MB/san</translation>
     </message>
     <message>
         <location filename="../download/status.cpp" line="72"/>
         <source>New Download</source>
-        <translation>Uus allalaadimine</translation>
+        <translation>Yeni İndirme</translation>
     </message>
     <message>
         <location filename="../download/status.cpp" line="75"/>
         <source>Resume Download</source>
-        <translation>Jätka allalaadimisi</translation>
+        <translation>İndirmeyi Devam ettir</translation>
     </message>
 </context>
 <context>
@@ -561,7 +571,7 @@ To submit a bug report. click on the button below. This will open a web browser 
     <message>
         <location filename="../ui/dialog/urldialog.ui" line="38"/>
         <source>Urls &lt;span style=&quot; vertical-align:sub;&quot;&gt;(seperate in each line)&lt;/span&gt;</source>
-        <translation>URL-id &lt;span style=&quot; vertical-align:sub;&quot;&gt;(igaüks eraldi reale)&lt;/span&gt;</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -569,12 +579,12 @@ To submit a bug report. click on the button below. This will open a web browser 
     <message>
         <location filename="../core/validators/urlvalidator.cpp" line="48"/>
         <source>Invalid Url</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz Url</translation>
     </message>
     <message>
         <location filename="../core/validators/urlvalidator.cpp" line="54"/>
         <source>%1 is not a valid Url.</source>
-        <translation type="unfinished"/>
+        <translation>%1 geçerli bir Url değil.</translation>
     </message>
 </context>
 <context>
@@ -582,22 +592,22 @@ To submit a bug report. click on the button below. This will open a web browser 
     <message>
         <location filename="../util/yomessage.cpp" line="25"/>
         <source>yoDownet : Database error</source>
-        <translation>yoDownet : Andmebaasi viga</translation>
+        <translation>yoDownet : Veri tabanı hatası</translation>
     </message>
     <message>
         <location filename="../util/yomessage.cpp" line="26"/>
         <source>Whoops, we have little error from database on &lt;b&gt;%1&lt;/b&gt;.&lt;br /&gt;See the details below:&lt;br /&gt;%2</source>
-        <translation>Ups, väike viga andmebaasis &lt;b&gt;%1&lt;/b&gt;.&lt;br /&gt;Vaata lisainfot altpoolt:&lt;br /&gt;%2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../util/yomessage.cpp" line="33"/>
         <source>yoDownet : Watch out</source>
-        <translation>yoDownet : Vaata ette</translation>
+        <translation>yoDownet : Dikkat et</translation>
     </message>
     <message>
         <location filename="../util/yomessage.cpp" line="38"/>
         <source>yoDownet : Just for information sake ;)</source>
-        <translation>yoDownet : lihtsalt infoks ;)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../util/yomessage.cpp" line="45"/>

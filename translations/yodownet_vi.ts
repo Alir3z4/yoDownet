@@ -1,37 +1,39 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="et" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="vi" version="2.1">
 <context>
     <name>AboutDialog</name>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="14"/>
         <source>yoDownet : About</source>
-        <translation>yoDownet: Rakendusest</translation>
+        <translation>yoDownet : Thông tin</translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="72"/>
         <source>Translation</source>
-        <translation type="unfinished"/>
+        <translation>Dịch thuật</translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="78"/>
         <source>Oh And those people with translations.
     Added in order to contribute ;)</source>
-        <translation type="unfinished"/>
+        <translation>Đây là tên của các dịch giả.
+    xin cảm ơn họ đã đem đến sự đa dạng cho chương trình ;)</translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="95"/>
         <source>Estonian:
     Eraser (Rivo Zängov)</source>
-        <translation type="unfinished"/>
+        <translation>Estonian:
+    Eraser (Rivo Zängov)</translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="104"/>
         <source>License</source>
-        <translation>Litsents</translation>
+        <translation>Giấy phép</translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="139"/>
         <source>&amp;Close</source>
-        <translation>Sule</translation>
+        <translation>&amp;Đóng lại</translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.cpp" line="38"/>
@@ -46,7 +48,18 @@ yoDownet uses Qt toolkit for both front-end and back-end implementation!
 Copyright (C) 2011-2012 by Alireza Savand
 http://sourceforge.net/projects/yodownet/
 </source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;Phiên bản: %1&lt;/b&gt;
+Dựa trên Qt %2
+
+
+yoDownet, trình tải dữ liệu đầy hiệu quả dành riêng cho bạn.
+yoDownet sử dụng Qt toolkit để hoàn thiện chương trình cùng các tính năng đặc biệt của mình!
+
+
+Bản Quyền (C) 2011-2012 Bởi Alireza Savand
+Dịch bởi Phan Anh
+http://sourceforge.net/projects/yodownet/
+</translation>
     </message>
 </context>
 <context>
@@ -142,7 +155,7 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/widget/filebrowz.ui" line="23"/>
         <source>Browz...</source>
-        <translation>Sirvi...</translation>
+        <translation>Duyệt tìm...</translation>
     </message>
 </context>
 <context>
@@ -150,12 +163,12 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../util/languages.cpp" line="63"/>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>English</translation>
     </message>
     <message>
         <location filename="../util/languages.cpp" line="66"/>
         <source>Estonian</source>
-        <translation type="unfinished"/>
+        <translation>Estonian</translation>
     </message>
 </context>
 <context>
@@ -163,37 +176,37 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/mainwindow.ui" line="80"/>
         <source>&amp;File</source>
-        <translation>&amp;Fail</translation>
+        <translation>&amp;Tập tin</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="88"/>
         <source>&amp;Edit</source>
-        <translation>Muuda</translation>
+        <translation>C&amp;hỉnh sửa</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="98"/>
         <source>&amp;Settings</source>
-        <translation>&amp;Seaded</translation>
+        <translation>Thi&amp;ết lập</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="108"/>
         <source>&amp;Help</source>
-        <translation>Abiinfo</translation>
+        <translation>Tr&amp;ợ giúp</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="219"/>
         <source>About &amp;Qt</source>
-        <translation>&amp;Qt raamistikust</translation>
+        <translation>Thông tin về &amp;Qt</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="228"/>
         <source>About yo&amp;Downet</source>
-        <translation>Rakendusest yo&amp;Downet</translation>
+        <translation>Dịch bởi P&amp;han Anh</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="209"/>
         <source>Report Bug...</source>
-        <translation>Teavita veast...</translation>
+        <translation>Gửi báo cáo lỗi...</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="122"/>
@@ -243,7 +256,7 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/mainwindow.ui" line="280"/>
         <source>&amp;Preferences</source>
-        <translation>Eelistused</translation>
+        <translation>&amp;Tùy biến</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="283"/>
@@ -268,7 +281,7 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/mainwindow.ui" line="151"/>
         <source>&amp;Add</source>
-        <translation>Lis&amp;a</translation>
+        <translation>Thê&amp;m</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="154"/>
@@ -278,37 +291,37 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/mainwindow.ui" line="293"/>
         <source>Stop</source>
-        <translation>Peata</translation>
+        <translation>Dừng lại</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="235"/>
         <source>New Download</source>
-        <translation>Uus allalaadimine</translation>
+        <translation>Tải đối tượng mới</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="236"/>
         <source>%1 has been successfully added ;)</source>
-        <translation type="unfinished"/>
+        <translation>%1 đã được thêm vào thành công ;)</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="257"/>
         <source>Download removed</source>
-        <translation type="unfinished"/>
+        <translation>Phần tải về đã được loại bỏ</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="258"/>
         <source>%1 has been successfully removed.</source>
-        <translation type="unfinished"/>
+        <translation>%1 đã được loại bỏ thành công.</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="271"/>
         <source>Resume Download</source>
-        <translation>Jätka allalaadimisi</translation>
+        <translation>Tải lại</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.cpp" line="272"/>
         <source>Resuming %1</source>
-        <translation type="unfinished"/>
+        <translation>Đang tải lại %1</translation>
     </message>
 </context>
 <context>
@@ -316,32 +329,32 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="17"/>
         <source>Database</source>
-        <translation type="unfinished"/>
+        <translation>Cơ sở dữ liệu</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="28"/>
         <source>Use &amp;external DataBase (recomended)</source>
-        <translation>Kasuta välist andm&amp;ebaasi (soovitatav)</translation>
+        <translation>Sử dụng cơ sở dữ liệu b&amp;ổ sung (khuyên dùng)</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="38"/>
         <source>Connection Settings</source>
-        <translation>Ühenduse seaded</translation>
+        <translation>Thiết lập kết nối</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="54"/>
         <source>&amp;Username:</source>
-        <translation>Kasutajanimi:</translation>
+        <translation>Tê&amp;n người dùng:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="64"/>
         <source>&amp;Server:</source>
-        <translation>&amp;Server:</translation>
+        <translation>Serve&amp;r:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="74"/>
         <source>&amp;Password:</source>
-        <translation>&amp;Parool:</translation>
+        <translation>M&amp;ật khẩu:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="84"/>
@@ -356,12 +369,12 @@ http://sourceforge.net/projects/yodownet/
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="108"/>
         <source>&amp;DataBase:</source>
-        <translation>An&amp;dmebaas:</translation>
+        <translation>C&amp;ơ sở dữ liệu</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="118"/>
         <source>Po&amp;rt:</source>
-        <translation>Po&amp;rt:</translation>
+        <translation>Cổ&amp;ng kết nối:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="128"/>
@@ -372,8 +385,8 @@ http://sourceforge.net/projects/yodownet/
         <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="156"/>
         <source>yoDownet expects the above database and user account to already exist This user also requires full access to the database. You MUST restart yoDownet after changing these settings
 If your database is not already set up you can use the following SQL commands (after replacing the password with the correct one):</source>
-        <translation>yoDownet eeldab, et ülalolev andmebaas ja kasutajakonto oleksid juba eelnevalt olemas. Sellel kasutajal peab olema ka täielik ligipääs andmebaasi. Pärast nende seadete muutmist PEAD sa yoDowneti taaskäivitama
-Kui sinu andmebaasi pole veel seadistatud, siis kasuta (pärast õige parooli sisestamist) andmebaasi loomiseks järgnevaid SQL-käske:</translation>
+        <translation>yoDownet yêu cầu các dữ liệu trên cùng thông tin tài khoản của người dùng phải cùng tồn tại trước đó Người dùng này cũng phải có quyền đầy đủ trong thao tác truy cập của mình đối với cơ sở dữ liệu. Bạn PHẢI khởi động lại yoDownet sau khi thay đổi các thiết lập này
+Nếu cơ sở dữ liệu của bạn vẫn chưa được cài đặt bạn có thể sử dụng các lệnh SQL sau đây (sau khi đã thay đổi mật khẩu chính xác):</translation>
     </message>
 </context>
 <context>
@@ -381,77 +394,77 @@ Kui sinu andmebaasi pole veel seadistatud, siis kasuta (pärast õige parooli si
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="14"/>
         <source>Downloader</source>
-        <translation>Allalaadija</translation>
+        <translation>Trình tải về</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="24"/>
         <source>&amp;Basic </source>
-        <translation>Peamine </translation>
+        <translation>&amp;Cơ bản</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="34"/>
         <source>The directory to store the downloaded file.</source>
-        <translation>Kaust, kuhu allalaetud fail pannakse.</translation>
+        <translation>Thư mục lưu trữ các tập tin được tải về.</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="37"/>
         <source>Save &amp;Path:</source>
-        <translation>Salvestamise asukoht:</translation>
+        <translation>Lưu đ&amp;ường dẫn</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="50"/>
         <source>The file name of the log file.</source>
-        <translation>Logifaili nimi.</translation>
+        <translation>Tên của tập tin nhật ký hệ thống.</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="53"/>
         <source>The file name of the log file. log is written to stdout. If empty  specified, log is not written to file.</source>
-        <translation>Logifaili nimi. Logi kirjutab stdout. Kui lahter on tühi  , siis logi ei salvestata.</translation>
+        <translation>Tên của tập tin nhật ký hệ thống để ghi dữ liệu stdout. Nếu không được xác định thông số, nhật ký hệ thống sẽ không được ghi vào bất kỳ tập tin nào.</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="56"/>
         <source>&amp;Log File:</source>
-        <translation>&amp;Logifail:</translation>
+        <translation>Tậ&amp;p tin Nhật ký hệ thống:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="69"/>
         <source>Set maximum number of parallel downloads, Default: 5</source>
-        <translation>Määra maksimaalne üheaegsete allalaadimiste arv, vaikeväärtus on: 5</translation>
+        <translation>Số lượng tối đa các đối tượng được tải về cùng lúc, mặc định là: 5</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="72"/>
         <source>Set maximum number of parallel downloads for every static (HTTP/FTP) URL, Default: 5</source>
-        <translation>Määra maksimaalne üheaegsete allalaadimiste arv iga staatilise (HTTP/FTP) ühenduse kohta, vaikeväärtus on: 5</translation>
+        <translation>Thiết lập số lượng tối đa của các đối tượng được tải về cùng lúc đối với các liên kết tĩnh (HTTP/FTP), mặc định: 5</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="75"/>
         <source>&amp;Max Parallel Downloads:</source>
-        <translation>&amp;Maks. üheaegseid allalaadimisi:</translation>
+        <translation>Số lượng đố&amp;i tượng tối đa được tải về cùng lúc:</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="114"/>
         <source>Continue downloading a partially downloaded file</source>
-        <translation>Jätka osaliselt allalaetud faili allalaadimist</translation>
+        <translation>Tiếp tục tải tập tin đã được tải về</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="117"/>
         <source>Continue downloading a partially downloaded file. Use this option to resume a download started by a web browser or another program which downloads files sequentially from the beginning. Currently this option is only applicable to HTTP(S)/FTP downloads.</source>
-        <translation>Jätka osaliselt allalaetud faili allalaadimist. Kasuta seda valikut, et jätkata veebilehitseja või mõne muu programmi poolt käivitatud allalaadimist. Momendil käib see valik ainult HTTP(S)/FTP allalaadimiste kohta.</translation>
+        <translation>Tiếp tục tải về tập tin đã được tải trước đó. Sử dụng tùy chọn này để kích hoạt việc tải trở lại được thực thi bởi một trình duyệt web hoặc một chương trình khác vốn tải về các đối tượng theo tuần tự. Hiện tại tùy chọn này chỉ được chấp nhận với các lượt tải từ HTTP(S)/FTP.</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.ui" line="120"/>
         <source>&amp;Resume Downloads</source>
-        <translation>Jätka allalaadimisi</translation>
+        <translation>Tả&amp;i trở lại</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.cpp" line="30"/>
         <source>Select a directory to save downloaded files</source>
-        <translation>Vali kaust, kuhu allalaetud failid salvestada</translation>
+        <translation>Chọn thư mục chứa các tập tin được tải về</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefdownloaderswidget.cpp" line="33"/>
         <source>Select a file to write log file into it</source>
-        <translation>Vali fail, millesse logitud andmed kirjutada</translation>
+        <translation>Chọn một tập tin để ghi dữ liệu nhật ký hệ thống</translation>
     </message>
 </context>
 <context>
@@ -459,17 +472,17 @@ Kui sinu andmebaasi pole veel seadistatud, siis kasuta (pärast õige parooli si
     <message>
         <location filename="../ui/prefwidget/prefinterfacewidget.ui" line="14"/>
         <source>Interface</source>
-        <translation type="unfinished"/>
+        <translation>Giao diện</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefinterfacewidget.ui" line="29"/>
         <source>&amp;Interface</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Giao diện</translation>
     </message>
     <message>
         <location filename="../ui/prefwidget/prefinterfacewidget.ui" line="37"/>
         <source>L&amp;anguage:</source>
-        <translation type="unfinished"/>
+        <translation>N&amp;gôn ngữ:</translation>
     </message>
 </context>
 <context>
@@ -505,12 +518,12 @@ To submit a bug report. click on the button below. This will open a web browser 
     <message>
         <location filename="../ui/dialog/reportbugdialog.ui" line="54"/>
         <source>Okay, Let&apos;s Submit And Contribute</source>
-        <translation>OK, anna oma panus ja saada</translation>
+        <translation>Đồng ý, hãy đệ trình báo cáo</translation>
     </message>
     <message>
         <location filename="../ui/dialog/reportbugdialog.ui" line="66"/>
         <source>&amp;Close</source>
-        <translation>Sule</translation>
+        <translation>&amp;Đóng lại</translation>
     </message>
 </context>
 <context>
@@ -518,37 +531,37 @@ To submit a bug report. click on the button below. This will open a web browser 
     <message>
         <location filename="../download/status.cpp" line="37"/>
         <source>Sec</source>
-        <translation>Sek</translation>
+        <translation>Giây</translation>
     </message>
     <message>
         <location filename="../download/status.cpp" line="40"/>
         <source>Min</source>
-        <translation>Min</translation>
+        <translation>Phút</translation>
     </message>
     <message>
         <location filename="../download/status.cpp" line="56"/>
         <source>bytes/sec</source>
-        <translation>baiti/sek</translation>
+        <translation>byte/giây</translation>
     </message>
     <message>
         <location filename="../download/status.cpp" line="59"/>
         <source>KB/sec</source>
-        <translation>KM/sek</translation>
+        <translation>KB/giây</translation>
     </message>
     <message>
         <location filename="../download/status.cpp" line="62"/>
         <source>MB/sec</source>
-        <translation>MB/sek</translation>
+        <translation>MB/giây</translation>
     </message>
     <message>
         <location filename="../download/status.cpp" line="72"/>
         <source>New Download</source>
-        <translation>Uus allalaadimine</translation>
+        <translation>Tải đối tượng mới</translation>
     </message>
     <message>
         <location filename="../download/status.cpp" line="75"/>
         <source>Resume Download</source>
-        <translation>Jätka allalaadimisi</translation>
+        <translation>Tải lại</translation>
     </message>
 </context>
 <context>
@@ -561,7 +574,7 @@ To submit a bug report. click on the button below. This will open a web browser 
     <message>
         <location filename="../ui/dialog/urldialog.ui" line="38"/>
         <source>Urls &lt;span style=&quot; vertical-align:sub;&quot;&gt;(seperate in each line)&lt;/span&gt;</source>
-        <translation>URL-id &lt;span style=&quot; vertical-align:sub;&quot;&gt;(igaüks eraldi reale)&lt;/span&gt;</translation>
+        <translation>Các đường dẫn &lt;span style=&quot; vertical-align:sub;&quot;&gt;(Các biệt với nhau bởi dòng)&lt;/span&gt;</translation>
     </message>
 </context>
 <context>
@@ -569,12 +582,12 @@ To submit a bug report. click on the button below. This will open a web browser 
     <message>
         <location filename="../core/validators/urlvalidator.cpp" line="48"/>
         <source>Invalid Url</source>
-        <translation type="unfinished"/>
+        <translation>Đường dẫn không hợp lệ</translation>
     </message>
     <message>
         <location filename="../core/validators/urlvalidator.cpp" line="54"/>
         <source>%1 is not a valid Url.</source>
-        <translation type="unfinished"/>
+        <translation>%1 không phải là đường dẫn hợp lệ.</translation>
     </message>
 </context>
 <context>
@@ -582,22 +595,22 @@ To submit a bug report. click on the button below. This will open a web browser 
     <message>
         <location filename="../util/yomessage.cpp" line="25"/>
         <source>yoDownet : Database error</source>
-        <translation>yoDownet : Andmebaasi viga</translation>
+        <translation>yoDownet : Lỗi cơ sở dữ liệu</translation>
     </message>
     <message>
         <location filename="../util/yomessage.cpp" line="26"/>
         <source>Whoops, we have little error from database on &lt;b&gt;%1&lt;/b&gt;.&lt;br /&gt;See the details below:&lt;br /&gt;%2</source>
-        <translation>Ups, väike viga andmebaasis &lt;b&gt;%1&lt;/b&gt;.&lt;br /&gt;Vaata lisainfot altpoolt:&lt;br /&gt;%2</translation>
+        <translation>Úi chà chà, đã xảy ra lỗi trong cơ sở dữ liệu tại &lt;b&gt;%1&lt;/b&gt;.&lt;br /&gt;Xem thông tin chi tiết bên dưới:&lt;br /&gt;%2</translation>
     </message>
     <message>
         <location filename="../util/yomessage.cpp" line="33"/>
         <source>yoDownet : Watch out</source>
-        <translation>yoDownet : Vaata ette</translation>
+        <translation>yoDownet : Cẩn thận</translation>
     </message>
     <message>
         <location filename="../util/yomessage.cpp" line="38"/>
         <source>yoDownet : Just for information sake ;)</source>
-        <translation>yoDownet : lihtsalt infoks ;)</translation>
+        <translation>yoDownet : Chỉ có một chút ít thông tin thôi đóa mòa ;)</translation>
     </message>
     <message>
         <location filename="../util/yomessage.cpp" line="45"/>

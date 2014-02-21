@@ -192,8 +192,10 @@ void MainWindow::on_reportBugAction_triggered()
 
 void MainWindow::on_aboutyoDownetAction_triggered()
 {
-   AboutDialog about(this);
-   about.exec();
+    _logger->info("About yoDownet action triggered");
+
+    AboutDialog about(this);
+    about.exec();
 }
 
 void MainWindow::initUrlsTable()

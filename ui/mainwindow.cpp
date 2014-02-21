@@ -159,6 +159,8 @@ void MainWindow::on_removeAction_triggered()
     }
 
     for (int i = 0; i < uuids.size(); ++i) {
+        _logger->info(QString("Removing [%1]").arg(uuids[i]));
+
         downloader->removeDownload(QUuid(uuids[i]));
     }
 }

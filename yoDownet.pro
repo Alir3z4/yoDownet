@@ -70,7 +70,6 @@ SOURCES += main.cpp\
     download/download.cpp \
     download/status.cpp \
     download/downloadtablemodel.cpp \
-    download/downloadstore.cpp \
     download/downloadholder.cpp \
     core/logme.cpp
 
@@ -95,7 +94,6 @@ HEADERS  += ui/mainwindow.h \
     download/download.h \
     download/status.h \
     download/downloadtablemodel.h \
-    download/downloadstore.h \
     download/downloadholder.h \
     core/logme.h \
     download/downloadconstants.h

@@ -22,9 +22,8 @@
 #include "download/downloadconstants.h"
 
 DownloadTableModel::DownloadTableModel(QObject *parent) :
-    QAbstractTableModel(parent), _downloadStore(new DownloadStore(parent))
+    QAbstractTableModel(parent)
 {
-    _downloadStore->setDownloadModel(this);
 }
 
 int DownloadTableModel::rowCount(const QModelIndex &parent) const

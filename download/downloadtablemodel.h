@@ -23,7 +23,6 @@
 
 #include <QtCore/QAbstractTableModel>
 #include "download/downloadholder.h"
-#include "download/downloadstore.h"
 
 class DownloadStore;
 

@@ -24,7 +24,7 @@
      </property>
      <property name="text">
       <string>&lt;b&gt;Submit Bug Report&lt;/b&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
-To submit a bug report. click on the button below. This will open a web browser windows on &lt;a href=&quot;https://sourceforge.net/p/yodownet/tickets/&quot;&gt;ticket system&lt;/a&gt; where you will find a form to fill in.&lt;br /&gt;But for submit a bug you need to register on &lt;a href=&quot;https://sourceforge.net&quot;&gt;Sourceforge&lt;/a&gt; where yoDownet hosted.
+To submit a bug report. click on the button below. This will open a web browser windows on &lt;a href=&quot;https://github.com/Alir3z4/yoDownet/issues&quot;&gt;ticket system&lt;/a&gt; where you will find a form to fill in.&lt;br /&gt;But for submit a bug you need to register on &lt;a href=&quot;https://github.com/Alir3z4/yoDownet&quot;&gt;Github&lt;/a&gt; where yoDownet hosted.
 </string>
      </property>
      <property name="textFormat">

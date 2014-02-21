@@ -37,5 +37,5 @@ ReportBugDialog::~ReportBugDialog()
 
 void ReportBugDialog::on_submitButton_clicked()
 {
-    QDesktopServices::openUrl(QUrl("https://sourceforge.net/p/yodownet/tickets/new/"));
+    QDesktopServices::openUrl(QUrl("https://github.com/Alir3z4/yoDownet/issues"));
 }

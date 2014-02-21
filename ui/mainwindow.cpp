@@ -167,7 +167,13 @@ void MainWindow::on_removeAction_triggered()
 
 void MainWindow::on_removeFromListAction_triggered()
 {
+    _logger->info("Remove from list action triggered");
+
     QModelIndexList indexes = ui->urlView->selectionModel()->selectedRows();
+
+    if (indexes.isEmpty()) {
+        _logger->info("No selected index found, remove from list action aborted");
+    }
 
     foreach (QModelIndex idx, indexes) {
         model->removeRow(idx.row());

@@ -1,7 +1,7 @@
 /****************************************************************************************
 ** main.cpp is part of yoDownet
 **
-** Copyright 2011, 2012, 2013 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2011, 2012, 2013, 2014 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
     a.setApplicationName(QObject::tr("yoDownet"));
-    a.setApplicationVersion("2012.05.11");
+    a.setApplicationVersion("2014.02.21");
     a.setOrganizationName("Alir3z4");
     a.setOrganizationDomain("yodownet.sourceforge.net");
     a.setApplicationDisplayName(a.applicationName());

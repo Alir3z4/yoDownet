@@ -23,10 +23,12 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>snload</string>
+   <string>Add URLs</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="add"/>
+   <iconset theme="add">
+    <normaloff/>
+   </iconset>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
@@ -35,7 +37,7 @@
    <item row="0" column="0">
     <widget class="QLabel" name="urlsLabel">
      <property name="text">
-      <string>Urls &lt;span style=&quot; vertical-align:sub;&quot;&gt;(seperate in each line)&lt;/span&gt;</string>
+      <string>URLs &lt;span style=&quot; vertical-align:sub;&quot;&gt;(seperate in each line)&lt;/span&gt;</string>
      </property>
     </widget>
    </item>

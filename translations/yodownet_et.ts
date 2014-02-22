@@ -4,9 +4,13 @@
 <context>
     <name>AboutDialog</name>
     <message>
-        <location filename="../ui/dialog/aboutdialog.ui" line="14"/>
         <source>yoDownet : About</source>
-        <translation>yoDownet: Rakendusest</translation>
+        <translation type="vanished">yoDownet: Rakendusest</translation>
+    </message>
+    <message>
+        <location filename="../ui/dialog/aboutdialog.ui" line="14"/>
+        <source>About</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../ui/dialog/aboutdialog.ui" line="72"/>
@@ -564,14 +568,18 @@ To submit a bug report. click on the button below. This will open a web browser 
 <context>
     <name>UrlDialog</name>
     <message>
+        <source>Urls &lt;span style=&quot; vertical-align:sub;&quot;&gt;(seperate in each line)&lt;/span&gt;</source>
+        <translation type="vanished">URL-id &lt;span style=&quot; vertical-align:sub;&quot;&gt;(igaüks eraldi reale)&lt;/span&gt;</translation>
+    </message>
+    <message>
         <location filename="../ui/dialog/urldialog.ui" line="26"/>
-        <source>snload</source>
+        <source>Add URLs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/dialog/urldialog.ui" line="38"/>
-        <source>Urls &lt;span style=&quot; vertical-align:sub;&quot;&gt;(seperate in each line)&lt;/span&gt;</source>
-        <translation>URL-id &lt;span style=&quot; vertical-align:sub;&quot;&gt;(igaüks eraldi reale)&lt;/span&gt;</translation>
+        <location filename="../ui/dialog/urldialog.ui" line="40"/>
+        <source>URLs &lt;span style=&quot; vertical-align:sub;&quot;&gt;(seperate in each line)&lt;/span&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>yoDownet : About</string>
+   <string>About</string>
   </property>
   <layout class="QGridLayout" name="AboutDialogGridLayout">
    <item row="0" column="0" colspan="2">

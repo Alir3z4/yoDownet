@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
     logger.info("yoDownet Started");
 
     QIcon appIcon;
-    appIcon.addFile(QStringLiteral(":/icons/images/yoDownet_64.svg"), QSize(), QIcon::Normal, QIcon::Off);
+    appIcon.addFile(QString(":/icons/images/yoDownet_64.svg"), QSize(), QIcon::Normal, QIcon::Off);
     a.setWindowIcon(appIcon);
 
     QSettings settings;

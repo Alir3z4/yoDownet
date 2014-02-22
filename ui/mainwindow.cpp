@@ -293,7 +293,7 @@ void MainWindow::onDownloadDoesNotExistToRemove(const QUuid &uuid)
 #endif
             QString savePath = ui->urlView->model()->index(row, DownloadConstants::Attributes::SavePath).data().toString();
             QString fileName = ui->urlView->model()->index(row, DownloadConstants::Attributes::FileName).data().toString();
-            QString filePath = QString("%1%2%3").arg(savePath, QDir::toNativeSeparators("/"), fileName);
+            QString filePath = QString("%1%2").arg(savePath, fileName);
 
             QFile file(filePath);
             if (!file.remove()) {

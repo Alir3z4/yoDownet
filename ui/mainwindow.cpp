@@ -251,9 +251,11 @@ void MainWindow::onDownloadRemoved(const QString &fileName)
 
     QAbstractItemModel *removeModel = ui->urlView->model();
 
-    for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
-        if (removeModel->data(removeModel->index(i, DownloadConstants::Attributes::FileName)).toString() == fileName) {
-            if (model->removeRow(i)) {
+    for (int row = 0; row < ui->urlView->model()->rowCount(); ++row) {
+        QString itemSavePath = removeModel->index(row, DownloadConstants::Attributes::SavePath).data().toString();
+        QString itemFileName = removeModel->index(row, DownloadConstants::Attributes::FileName).data().toString();
+        QString itemFilePath = QString("%1%2").arg(itemSavePath, itemFileName);
+
         if (itemFilePath == fileName) {
             _logger->info(QString("Found [%1] in URLs table").arg(fileName));
             if (removeModel->removeRow(row)) {

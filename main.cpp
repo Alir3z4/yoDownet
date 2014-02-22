@@ -23,7 +23,12 @@
 TEST_MAIN
 #else
 
+#if QT_MAJOR_VERSION > 4
 #include <QtWidgets/QApplication>
+#else
+#include <QApplication>
+#endif
+
 #include <QtCore/QSettings>
 #include <QtCore/QTranslator>
 #include <QtGui/QIcon>
@@ -39,7 +44,12 @@ int main(int argc, char *argv[])
     a.setApplicationVersion("2014.02.21");
     a.setOrganizationName("Alir3z4");
     a.setOrganizationDomain("yodownet.sourceforge.net");
+
+#if QT_MAJOR_VERSION > 4
     a.setApplicationDisplayName(a.applicationName());
+#else
+    a.setApplicationName(a.applicationName());
+#endif
 
     LogMe logger;
     logger.setClassName("Main");

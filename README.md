@@ -23,6 +23,10 @@ yoDownet has been translated into below languages:
 
 ![yoDownet translation status on transifex](https://www.transifex.com/projects/p/yodownet/resource/ts/chart/image_png "yoDownet translation status on transifex")
 
+We're handling translations via transifex which rocks **<3**
+
+[transifex.com/projects/p/yodownet](https://www.transifex.com/projects/p/yodownet/)
+
 
 ### License
 yoDownet is released under GPLv3. Free and OpenSource ;)

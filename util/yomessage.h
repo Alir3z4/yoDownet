@@ -21,7 +21,13 @@
 #ifndef YOMESSAGE_H
 #define YOMESSAGE_H
 
+#if QT_MAJOR_VERSION > 4
 #include <QtWidgets/QMessageBox>
+#else
+#include <QtGui/QMessageBox>
+#endif
+
+
 class QString;
 
 class yoMessage : public QMessageBox

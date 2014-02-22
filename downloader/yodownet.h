@@ -52,7 +52,7 @@ signals:
     void downloadDoesNotExistToRemove(const QUuid &uuid);
 
 public slots:
-    void addDownload(const QString &url);
+    void addDownload(const QString &url, const QUuid &uuid=QUuid(), const QString &fileName=QString());
     void pauseDownload(const QUuid &uuid);
     void removeDownload(const QUuid &uuid);
 

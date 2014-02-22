@@ -28,11 +28,11 @@ yoDownet::yoDownet(QObject *parent) :
     connect(this, SIGNAL(fileReadyToRemove(QFile*)), this, SLOT(removeFile(QFile*)));
 }
 
-void yoDownet::addDownload(const QString &url)
+void yoDownet::addDownload(const QString &url, const QUuid &uuid, const QString &fileName)
 {
     Download *newDownload = new Download(this);
 
-    if (newDownload->newDownload(QUrl(url))) {
+    if (newDownload->newDownload(QUrl(url), uuid, fileName)) {
         this->startRequest(newDownload);
     }
 }
@@ -175,8 +175,9 @@ void yoDownet::httpFinished(QObject *currentReply)
                           download->urlRedirectedTo().toString())
                       );
         download->setUrl(download->urlRedirectedTo());
+        QString fileName = download->name();
         this->removeFile(download->file());
-        this->addDownload(download->url().toString());
+        this->addDownload(download->url().toString(), download->uuid(), fileName);
     } else {
         /*
          * We weren't redirected anymore

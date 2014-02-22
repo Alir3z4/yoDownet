@@ -60,6 +60,9 @@ public:
     void setCreated(const QDateTime &created);
     QDateTime created() const;
 
+    QUrl urlRedirectedTo() const;
+    void setUrlRedirectedTo(const QUrl &urlRedirectedTo);
+
 private:
     QFile *_file;
     QUrl _url;
@@ -68,6 +71,8 @@ private:
     QUuid _uuid;
     Status *_status;
     QDateTime _created;
+
+    QUrl _urlRedirectedTo;
 
     LogMe *_logger;
 

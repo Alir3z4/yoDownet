@@ -247,11 +247,21 @@ void MainWindow::submitUrlViewChanges()
 
 void MainWindow::onDownloadRemoved(const QString &fileName)
 {
+    _logger->info(QString("Removing [%1] from URLs table").arg(fileName));
+
     QAbstractItemModel *removeModel = ui->urlView->model();
 
-    for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
-        if (removeModel->data(removeModel->index(i, DownloadConstants::Attributes::FileName)).toString() == fileName) {
-            if (model->removeRow(i)) {
+    for (int row = 0; row < ui->urlView->model()->rowCount(); ++row) {
+        // TODO: Make a utility function to make it more clean
+        QString itemSavePath = removeModel->index(row, DownloadConstants::Attributes::SavePath).data().toString();
+        QString itemFileName = removeModel->index(row, DownloadConstants::Attributes::FileName).data().toString();
+        QString itemFilePath = QString("%1%2").arg(itemSavePath, itemFileName);
+
+        if (itemFilePath == fileName) {
+            _logger->info(QString("Found [%1] in URLs table").arg(fileName));
+            if (removeModel->removeRow(row)) {
+                _logger->info(QString("Removed [%1] from URLs table").arg(fileName));
+
                 submitUrlViewChanges();
                 _message->addMessage(
                             tr("Download removed"),
@@ -284,7 +294,8 @@ void MainWindow::onDownloadDoesNotExistToRemove(const QUuid &uuid)
 #endif
             QString savePath = ui->urlView->model()->index(row, DownloadConstants::Attributes::SavePath).data().toString();
             QString fileName = ui->urlView->model()->index(row, DownloadConstants::Attributes::FileName).data().toString();
-            QString filePath = QString("%1%2%3").arg(savePath, QDir::toNativeSeparators("/"), fileName);
+            // TODO: Make a utility function to make it more clean
+            QString filePath = QString("%1%2").arg(savePath, fileName);
 
             QFile file(filePath);
             if (!file.remove()) {

@@ -74,6 +74,8 @@ private:
     QHash<QUrl, Status*> *_statusHash;
 
     LogMe *_logger;
+
+    QUrl redirectUrl(const QUrl &possibleRedirectUrl, const QUrl &oldRedirectUrl) const;
 };
 
 #endif // YODOWNET_H

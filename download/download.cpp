@@ -158,3 +158,13 @@ QDateTime Download::created() const
 {
     return _created;
 }
+QUrl Download::urlRedirectedTo() const
+{
+    return _urlRedirectedTo;
+}
+
+void Download::setUrlRedirectedTo(const QUrl &urlRedirectedTo)
+{
+    _urlRedirectedTo = urlRedirectedTo;
+}
+

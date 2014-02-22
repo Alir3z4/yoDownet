@@ -141,7 +141,8 @@ OTHER_FILES += \
     LicenseTemplate \
     installers/archlinux/PKGBUILD \
     resource/images/yoDownet_64.svg \
-    doc/ChangeLog
+    doc/ChangeLog \
+    README.md
 
 RESOURCES += \
     resource/icons.qrc

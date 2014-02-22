@@ -1,4 +1,4 @@
-0000-00-00 Alireza Savand <alireza.savand@gmail.com>
+2014-02-22-1 Alireza Savand <alireza.savand@gmail.com>
     * Fix #47: File naming on redirect downloads.
     * Set default download arguments on downloader engine.
     * Resuming downloads by their UUID, URL, fileName attributes to prevent file name clash.

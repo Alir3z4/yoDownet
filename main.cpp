@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
     a.setApplicationName(QObject::tr("yoDownet"));
-    a.setApplicationVersion("2014.02.22");
+    a.setApplicationVersion("2014.02.22.1");
     a.setOrganizationName("Alir3z4");
     a.setOrganizationDomain("yodownet.sourceforge.net");
 
@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
 
     LogMe logger;
     logger.setClassName("Main");
+    logger.info("Rock'nRolla!");
     logger.info("yoDownet Started");
 
     QIcon appIcon;

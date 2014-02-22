@@ -4,7 +4,18 @@
 #
 #-------------------------------------------------
 
-QT += core gui widgets network
+QT += core network
+
+
+message(Compiling against Qt version: $$QT_MAJOR_VERSION)
+
+greaterThan(QT_MAJOR_VERSION, 4) {
+    message(Adding widgets module)
+    QT += widgets
+}
+
+
+DEFINES +=QT_MAJOR_VERSION=$$QT_MAJOR_VERSION
 
 TARGET = yoDownet
 TEMPLATE = app

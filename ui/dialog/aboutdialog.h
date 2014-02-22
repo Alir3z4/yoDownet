@@ -21,7 +21,11 @@
 #ifndef ABOUTDIALOG_H
 #define ABOUTDIALOG_H
 
+#if QT_MAJOR_VERSION > 4
 #include <QtWidgets/QDialog>
+#else
+#include <QtGui/QDialog>
+#endif
 
 namespace Ui {
 class AboutDialog;

@@ -1,7 +1,7 @@
 /****************************************************************************************
 ** yomessage.h is part of yoDownet
 **
-** Copyright 2011, 2012 Alireza Savand <alireza.savand@gmail.com>
+** Copyright 2011, 2012, 2013, 2014 Alireza Savand <alireza.savand@gmail.com>
 **
 ** yoDownet is free software; you can redistribute it and/or modify
 ** it under the terms of the GNU General Public License as published by
@@ -21,7 +21,13 @@
 #ifndef YOMESSAGE_H
 #define YOMESSAGE_H
 
+#if QT_MAJOR_VERSION > 4
 #include <QtWidgets/QMessageBox>
+#else
+#include <QtGui/QMessageBox>
+#endif
+
+
 class QString;
 
 class yoMessage : public QMessageBox

@@ -604,29 +604,16 @@ To submit a bug report. click on the button below. This will open a web browser 
 <context>
     <name>yoMessage</name>
     <message>
-        <location filename="../util/yomessage.cpp" line="25"/>
         <source>yoDownet : Database error</source>
-        <translation>yoDownet : Veri tabanı hatası</translation>
+        <translation type="vanished">yoDownet : Veri tabanı hatası</translation>
     </message>
     <message>
-        <location filename="../util/yomessage.cpp" line="26"/>
-        <source>Whoops, we have little error from database on &lt;b&gt;%1&lt;/b&gt;.&lt;br /&gt;See the details below:&lt;br /&gt;%2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/yomessage.cpp" line="33"/>
         <source>yoDownet : Watch out</source>
-        <translation>yoDownet : Dikkat et</translation>
+        <translation type="vanished">yoDownet : Dikkat et</translation>
     </message>
     <message>
-        <location filename="../util/yomessage.cpp" line="38"/>
-        <source>yoDownet : Just for information sake ;)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/yomessage.cpp" line="45"/>
         <source>yoDownet : %1</source>
-        <translation>yoDownet : %1</translation>
+        <translation type="vanished">yoDownet : %1</translation>
     </message>
 </context>
 </TS>

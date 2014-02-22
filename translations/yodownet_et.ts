@@ -590,29 +590,24 @@ To submit a bug report. click on the button below. This will open a web browser 
 <context>
     <name>yoMessage</name>
     <message>
-        <location filename="../util/yomessage.cpp" line="25"/>
         <source>yoDownet : Database error</source>
-        <translation>yoDownet : Andmebaasi viga</translation>
+        <translation type="vanished">yoDownet : Andmebaasi viga</translation>
     </message>
     <message>
-        <location filename="../util/yomessage.cpp" line="26"/>
         <source>Whoops, we have little error from database on &lt;b&gt;%1&lt;/b&gt;.&lt;br /&gt;See the details below:&lt;br /&gt;%2</source>
-        <translation>Ups, väike viga andmebaasis &lt;b&gt;%1&lt;/b&gt;.&lt;br /&gt;Vaata lisainfot altpoolt:&lt;br /&gt;%2</translation>
+        <translation type="vanished">Ups, väike viga andmebaasis &lt;b&gt;%1&lt;/b&gt;.&lt;br /&gt;Vaata lisainfot altpoolt:&lt;br /&gt;%2</translation>
     </message>
     <message>
-        <location filename="../util/yomessage.cpp" line="33"/>
         <source>yoDownet : Watch out</source>
-        <translation>yoDownet : Vaata ette</translation>
+        <translation type="vanished">yoDownet : Vaata ette</translation>
     </message>
     <message>
-        <location filename="../util/yomessage.cpp" line="38"/>
         <source>yoDownet : Just for information sake ;)</source>
-        <translation>yoDownet : lihtsalt infoks ;)</translation>
+        <translation type="vanished">yoDownet : lihtsalt infoks ;)</translation>
     </message>
     <message>
-        <location filename="../util/yomessage.cpp" line="45"/>
         <source>yoDownet : %1</source>
-        <translation>yoDownet : %1</translation>
+        <translation type="vanished">yoDownet : %1</translation>
     </message>
 </context>
 </TS>

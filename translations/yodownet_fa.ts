@@ -595,29 +595,20 @@ To submit a bug report. click on the button below. This will open a web browser 
 <context>
     <name>yoMessage</name>
     <message>
-        <location filename="../util/yomessage.cpp" line="25"/>
         <source>yoDownet : Database error</source>
-        <translation>یودانت : خطای پایگاه داده</translation>
+        <translation type="vanished">یودانت : خطای پایگاه داده</translation>
     </message>
     <message>
-        <location filename="../util/yomessage.cpp" line="26"/>
-        <source>Whoops, we have little error from database on &lt;b&gt;%1&lt;/b&gt;.&lt;br /&gt;See the details below:&lt;br /&gt;%2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../util/yomessage.cpp" line="33"/>
         <source>yoDownet : Watch out</source>
-        <translation>یودانت - مواظب باش</translation>
+        <translation type="vanished">یودانت - مواظب باش</translation>
     </message>
     <message>
-        <location filename="../util/yomessage.cpp" line="38"/>
         <source>yoDownet : Just for information sake ;)</source>
-        <translation>یودانت - فقط برای اطلاع ;)</translation>
+        <translation type="vanished">یودانت - فقط برای اطلاع ;)</translation>
     </message>
     <message>
-        <location filename="../util/yomessage.cpp" line="45"/>
         <source>yoDownet : %1</source>
-        <translation>یودانت : %1</translation>
+        <translation type="vanished">یودانت : %1</translation>
     </message>
 </context>
 </TS>

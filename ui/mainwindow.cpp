@@ -252,6 +252,7 @@ void MainWindow::onDownloadRemoved(const QString &fileName)
     QAbstractItemModel *removeModel = ui->urlView->model();
 
     for (int row = 0; row < ui->urlView->model()->rowCount(); ++row) {
+        // TODO: Make a utility function to make it more clean
         QString itemSavePath = removeModel->index(row, DownloadConstants::Attributes::SavePath).data().toString();
         QString itemFileName = removeModel->index(row, DownloadConstants::Attributes::FileName).data().toString();
         QString itemFilePath = QString("%1%2").arg(itemSavePath, itemFileName);
@@ -293,6 +294,7 @@ void MainWindow::onDownloadDoesNotExistToRemove(const QUuid &uuid)
 #endif
             QString savePath = ui->urlView->model()->index(row, DownloadConstants::Attributes::SavePath).data().toString();
             QString fileName = ui->urlView->model()->index(row, DownloadConstants::Attributes::FileName).data().toString();
+            // TODO: Make a utility function to make it more clean
             QString filePath = QString("%1%2").arg(savePath, fileName);
 
             QFile file(filePath);

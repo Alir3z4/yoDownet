@@ -186,3 +186,19 @@ void yoDownet::removeFile(QFile *file)
     file = 0;
     emit downloadRemoved(fileName);
 }
+
+QUrl yoDownet::redirectUrl(const QUrl &possibleRedirectUrl, const QUrl &oldRedirectUrl) const
+{
+    QUrl redirectUrl;
+    /*
+     * Check if the URL is empty and
+     * that we aren't being fooled into infinite redirect loop.
+     * We could also keep track of how many redirects we have been to
+     * and set a limit to it, but we'll leave that for now.
+     */
+    if (!possibleRedirectUrl.isEmpty() && possibleRedirectUrl != oldRedirectUrl) {
+        redirectUrl = possibleRedirectUrl;
+    }
+
+    return redirectUrl;
+}

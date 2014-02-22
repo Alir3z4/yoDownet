@@ -118,6 +118,7 @@ void MainWindow::on_pauseAction_triggered()
     _logger->info("Pause action triggered");
 
     QStringList urls = this->currentColumns(DownloadConstants::Attributes::Uuid);
+
     if(urls.isEmpty()) {
         _logger->info("URL list is empty, pause action aborted");
 
@@ -134,16 +135,22 @@ void MainWindow::on_resumeAction_triggered()
 {
     _logger->info("Resume action triggered");
 
-    QStringList urls = this->currentColumns();
+    QModelIndexList indexList = ui->urlView->selectionModel()->selectedRows();
 
-    if (urls.isEmpty()) {
-        _logger->info("URL list is empty, resume action aborted");
+    if (indexList.isEmpty()) {
+        _logger->info("Index list is empty, resume action aborted");
 
         return;
     }
 
-    for (int i = 0; i < urls.size(); ++i) {
-        downloader->addDownload(urls[i]);
+    foreach (QModelIndex idx, indexList) {
+        QUuid uuid = QUuid(ui->urlView->model()->data(ui->urlView->model()->index(idx.row(), DownloadConstants::Attributes::Uuid)).toByteArray());
+        QString url = ui->urlView->model()->data(ui->urlView->model()->index(idx.row(), DownloadConstants::Attributes::URL)).toString();
+        QString fileName = ui->urlView->model()->data(ui->urlView->model()->index(idx.row(), DownloadConstants::Attributes::FileName)).toString();
+
+        _logger->info(QString("Resuming download, UUID: [%1], URL: [%2], FileName: [%3]").arg(uuid.toString(), url, fileName));
+
+        downloader->addDownload(url, uuid, fileName);
     }
 }
 

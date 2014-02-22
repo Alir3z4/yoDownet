@@ -66,7 +66,7 @@ bool Download::newDownload(const QUrl &url, const QUuid &uuid)
     }
 
     if (!isOpened) {
-        _logger->error("Couldn't open file for '%1', adding new download aborted");
+        _logger->error(QString("Couldn't open file for '%1', adding new download aborted").arg(fileNewName));
         delete _file;
         _file = 0;
         return false;

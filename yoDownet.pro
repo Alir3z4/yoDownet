@@ -123,7 +123,6 @@ contains(CONFIG, testlib){
 FORMS    += ui/mainwindow.ui \
     ui/dialog/preferencesdialog.ui \
     ui/prefwidget/prefdownloaderswidget.ui \
-    ui/prefwidget/prefdatabasewidget.ui \
     ui/widget/filebrowz.ui \
     ui/dialog/urldialog.ui \
     ui/dialog/aboutdialog.ui \

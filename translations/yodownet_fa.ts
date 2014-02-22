@@ -63,87 +63,87 @@ http://sourceforge.net/projects/yodownet/
 <context>
     <name>DownloadTableModel</name>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="113"/>
+        <location filename="../download/downloadtablemodel.cpp" line="112"/>
         <source>Uuid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="116"/>
+        <location filename="../download/downloadtablemodel.cpp" line="115"/>
         <source>URL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="119"/>
+        <location filename="../download/downloadtablemodel.cpp" line="118"/>
         <source>Save Path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="122"/>
+        <location filename="../download/downloadtablemodel.cpp" line="121"/>
         <source>File Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="125"/>
+        <location filename="../download/downloadtablemodel.cpp" line="124"/>
         <source>Status</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="128"/>
+        <location filename="../download/downloadtablemodel.cpp" line="127"/>
         <source>Progress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="131"/>
+        <location filename="../download/downloadtablemodel.cpp" line="130"/>
         <source>Remaining Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="134"/>
+        <location filename="../download/downloadtablemodel.cpp" line="133"/>
         <source>Speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="137"/>
+        <location filename="../download/downloadtablemodel.cpp" line="136"/>
         <source>Added</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="140"/>
+        <location filename="../download/downloadtablemodel.cpp" line="139"/>
         <source>Downloaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="258"/>
+        <location filename="../download/downloadtablemodel.cpp" line="257"/>
         <source>Idle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="261"/>
+        <location filename="../download/downloadtablemodel.cpp" line="260"/>
         <source>Starting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="264"/>
+        <location filename="../download/downloadtablemodel.cpp" line="263"/>
         <source>Downloading</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="267"/>
+        <location filename="../download/downloadtablemodel.cpp" line="266"/>
         <source>Finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="270"/>
+        <location filename="../download/downloadtablemodel.cpp" line="269"/>
         <source>Failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="273"/>
+        <location filename="../download/downloadtablemodel.cpp" line="272"/>
         <source>Paused</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../download/downloadtablemodel.cpp" line="277"/>
+        <location filename="../download/downloadtablemodel.cpp" line="276"/>
         <source>Unknown Status</source>
         <translation type="unfinished"></translation>
     </message>
@@ -308,32 +308,32 @@ http://sourceforge.net/projects/yodownet/
         <translation>&amp;قطع کردن</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.cpp" line="235"/>
+        <location filename="../ui/mainwindow.cpp" line="242"/>
         <source>New Download</source>
         <translation>دانلود جدید</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.cpp" line="236"/>
+        <location filename="../ui/mainwindow.cpp" line="243"/>
         <source>%1 has been successfully added ;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.cpp" line="257"/>
+        <location filename="../ui/mainwindow.cpp" line="274"/>
         <source>Download removed</source>
         <translation>دانلود حذف شد</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.cpp" line="258"/>
+        <location filename="../ui/mainwindow.cpp" line="275"/>
         <source>%1 has been successfully removed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.cpp" line="271"/>
+        <location filename="../ui/mainwindow.cpp" line="288"/>
         <source>Resume Download</source>
         <translation>ادامه دانلود</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.cpp" line="272"/>
+        <location filename="../ui/mainwindow.cpp" line="289"/>
         <source>Resuming %1</source>
         <translation>از سرگیریِ %1</translation>
     </message>
@@ -341,65 +341,53 @@ http://sourceforge.net/projects/yodownet/
 <context>
     <name>PrefDataBaseWidget</name>
     <message>
-        <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="17"/>
         <source>Database</source>
-        <translation>پایگاه داده</translation>
+        <translation type="vanished">پایگاه داده</translation>
     </message>
     <message>
-        <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="28"/>
         <source>Use &amp;external DataBase (recomended)</source>
-        <translation>استفاده از &amp; یک دیتابیس خارجی(توصیه می‌شود)</translation>
+        <translation type="vanished">استفاده از &amp; یک دیتابیس خارجی(توصیه می‌شود)</translation>
     </message>
     <message>
-        <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="38"/>
         <source>Connection Settings</source>
-        <translation>تنظیمات اتصال</translation>
+        <translation type="vanished">تنظیمات اتصال</translation>
     </message>
     <message>
-        <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="54"/>
         <source>&amp;Username:</source>
-        <translation>&amp;نام کاربری</translation>
+        <translation type="vanished">&amp;نام کاربری</translation>
     </message>
     <message>
-        <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="64"/>
         <source>&amp;Server:</source>
-        <translation>&amp;سرور</translation>
+        <translation type="vanished">&amp;سرور</translation>
     </message>
     <message>
-        <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="74"/>
         <source>&amp;Password:</source>
-        <translation>&amp;کلمه عبور</translation>
+        <translation type="vanished">&amp;کلمه عبور</translation>
     </message>
     <message>
-        <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="84"/>
         <source>root</source>
-        <translation>ریشه</translation>
+        <translation type="vanished">ریشه</translation>
     </message>
     <message>
-        <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="91"/>
         <source>localhost</source>
-        <translation>میزبان محلی</translation>
+        <translation type="vanished">میزبان محلی</translation>
     </message>
     <message>
-        <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="108"/>
         <source>&amp;DataBase:</source>
-        <translation>&amp;پایگاه داده</translation>
+        <translation type="vanished">&amp;پایگاه داده</translation>
     </message>
     <message>
-        <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="118"/>
         <source>Po&amp;rt:</source>
-        <translation>&amp;درگاه</translation>
+        <translation type="vanished">&amp;درگاه</translation>
     </message>
     <message>
-        <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="128"/>
         <source>yodownet</source>
-        <translation>یوداونت</translation>
+        <translation type="vanished">یوداونت</translation>
     </message>
     <message>
-        <location filename="../ui/prefwidget/prefdatabasewidget.ui" line="156"/>
         <source>yoDownet expects the above database and user account to already exist This user also requires full access to the database. You MUST restart yoDownet after changing these settings
 If your database is not already set up you can use the following SQL commands (after replacing the password with the correct one):</source>
-        <translation>یوداونت پیش‌بینی می‌کنه که پایگاه داده بالا و حساب کاربری قبلا ساخته شده است. این کاربر همچنین به دسترسی کامل به پایگاه داده نیاز دارد. شما بایستی بعد از تغییر این تنظیمات یوداونت را شروع مجدد کنید.
+        <translation type="vanished">یوداونت پیش‌بینی می‌کنه که پایگاه داده بالا و حساب کاربری قبلا ساخته شده است. این کاربر همچنین به دسترسی کامل به پایگاه داده نیاز دارد. شما بایستی بعد از تغییر این تنظیمات یوداونت را شروع مجدد کنید.
 اگر پایگاه داده شما هنوز تنظیم نشده شما می‌توانید از فرمان‌های اسکیول که در ادامه می‌آید استفاده کنید (بعد از جایگزینی کلمه عبور با کلمه عبور صحیح)</translation>
     </message>
 </context>
@@ -510,7 +498,7 @@ If your database is not already set up you can use the following SQL commands (a
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../main.cpp" line="38"/>
+        <location filename="../main.cpp" line="43"/>
         <source>yoDownet</source>
         <translation type="unfinished"></translation>
     </message>

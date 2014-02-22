@@ -22,7 +22,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#if QT_MAJOR_VERSION > 4
 #include <QtWidgets/QTableWidgetItem>
+#else
+#include <QtGui/QTableWidgetItem>
+#endif
 #include <QCloseEvent>
 #include "core/logme.h"
 #include "download/downloadtablemodel.h"

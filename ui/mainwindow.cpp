@@ -214,7 +214,7 @@ void MainWindow::updateUrlsTable(const Download *download)
 
     for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
         if (updateModel->data(updateModel->index(i, DownloadConstants::Attributes::URL)).toString() == download->url().toString()) {
-            updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::Uuid), download->uuid());
+            updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::Uuid), QVariant(download->uuid()));
             updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::FileName), download->name());
             updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::SavePath), download->path());
             updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::Status), download->status()->downloadStatus());
@@ -277,7 +277,11 @@ void MainWindow::onDownloadDoesNotExistToRemove(const QUuid &uuid)
 {
     for (int row = 0; row < ui->urlView->model()->rowCount(); ++row) {
         QModelIndex index = ui->urlView->model()->index(row, DownloadConstants::Attributes::Uuid);
+#if QT_MAJOR_VERSION > 4
         if (index.data().toUuid() == uuid) {
+#else
+        if (QVariant(index.data()) == QVariant(uuid)) {
+#endif
             QString savePath = ui->urlView->model()->index(row, DownloadConstants::Attributes::SavePath).data().toString();
             QString fileName = ui->urlView->model()->index(row, DownloadConstants::Attributes::FileName).data().toString();
             QString filePath = QString("%1%2%3").arg(savePath, QDir::toNativeSeparators("/"), fileName);
@@ -288,9 +292,6 @@ void MainWindow::onDownloadDoesNotExistToRemove(const QUuid &uuid)
                 return;
             }
             emit this->downloadRemoved(fileName);
-        }
-
-        if (ui->urlView->model()->data(ui->urlView->model()->index(row, DownloadConstants::Attributes::Uuid)).toUuid() == uuid) {
         }
     }
 }

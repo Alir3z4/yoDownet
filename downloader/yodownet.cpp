@@ -157,14 +157,41 @@ void yoDownet::httpReadyRead(QObject *currentReply)
 void yoDownet::httpFinished(QObject *currentReply)
 {
     QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->find(qobject_cast<QNetworkReply*>(currentReply));
-    Status *status = _statusHash->find(i.key()->url()).value();
+    Download *download = i.value();
+    QNetworkReply *reply = i.key();
+    Status *status = _statusHash->find(reply->url()).value();
 
-    _logger->info(QString("HTTP request has finished for '%1'").arg(i.value()->url().toString()));
+    _logger->info(QString("HTTP request has finished for '%1'").arg(download->url().toString()));
 
-    i.value()->file()->flush();
-    i.value()->file()->close();
-    i.value()->setFile(0);
-    i.key()->deleteLater();
+
+    QVariant possibleRedirectUrl = reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
+
+    // We'll deduct if the redirection is valid in the redirectUrl function
+    download->setUrlRedirectedTo(possibleRedirectUrl.toUrl());
+
+    if (!download->urlRedirectedTo().isEmpty()) {
+        _logger->info(QString("[%1] redirected to %2").arg(
+                          download->uuid().toString(),
+                          download->urlRedirectedTo().toString())
+                      );
+        download->setUrl(download->urlRedirectedTo());
+        this->removeFile(download->file());
+        this->addDownload(download->url().toString());
+    } else {
+        /*
+         * We weren't redirected anymore
+         * so we arrived to the final destination...
+         */
+        download->urlRedirectedTo().clear();
+
+    }
+
+
+    download->file()->flush();
+    download->file()->close();
+    download->setFile(0);
+
+    reply->deleteLater();
 
     if(status->downloadStatus() != Status::Paused) {
         _logger->info("HTTP request has finished, I'm done with downloading.");
@@ -172,15 +199,18 @@ void yoDownet::httpFinished(QObject *currentReply)
     }
 
     // Oh let's emit this mother fucker!
-    emit downloadUpdated(i.value());
+    emit downloadUpdated(download);
 
-    _downloadHash->remove(i.key());
+    _downloadHash->remove(reply);
 }
 
 void yoDownet::removeFile(QFile *file)
 {
+    _logger->info(QString("Removing file: [%1]").arg(file->fileName()));
+
     const QString fileName = file->fileName();
     if(!file->remove()) {
+        _logger->error(QString("Couldn't remove [%1]. Error: %2").arg(file->fileName(), file->errorString()));
         return;
     }
     file = 0;

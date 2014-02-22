@@ -28,28 +28,33 @@ Download::Download(QObject *parent) :
 }
 
 
-bool Download::newDownload(const QUrl &url, const QUuid &uuid)
+bool Download::newDownload(const QUrl &url, const QUuid &uuid, const QString &fileName)
 {
+    _logger->debug(fileName);
     _logger->info(QString("Initializing new download: %1").arg(url.toString()));
 
     setUuid(uuid);
     setUrl(url);
 
-    QFileInfo fileInfo(url.path());
-    QString fileName = fileInfo.fileName();
-    if(fileName.isEmpty()) {
-        _logger->info("Download file name is empty, setting default name");
-        fileName = "yodownet";
+    QString fileNewName = fileName;
+
+    if (fileNewName.isEmpty() || fileNewName.isNull()) {
+        _logger->info("fileName is not provided, getting file name from URL");
+        QFileInfo fileInfo(url.path());
+        fileNewName = fileInfo.fileName();
     }
 
     QString savePath = Paths::saveDir();
-    QString fileWithPath = QString(savePath).append(fileName);
+    QString fileWithPath = QString(savePath).append(fileNewName);
+
+    _logger->info(QString("FileName: [%1]| FileWithPath: [%2]").arg(fileNewName, fileWithPath));
+
 
     _file = new QFile(this);
 
     this->setFile(new QFile(fileWithPath));
     _status = new Status(this);
-    this->setName(fileName);
+    this->setName(fileNewName);
     this->setPath(savePath);
 
     bool isOpened;
@@ -66,7 +71,7 @@ bool Download::newDownload(const QUrl &url, const QUuid &uuid)
     }
 
     if (!isOpened) {
-        _logger->error("Couldn't open file for '%1', adding new download aborted");
+        _logger->error(QString("Couldn't open file for '%1', adding new download aborted").arg(fileNewName));
         delete _file;
         _file = 0;
         return false;

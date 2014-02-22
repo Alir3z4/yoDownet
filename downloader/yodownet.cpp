@@ -33,7 +33,7 @@ void yoDownet::addDownload(const QString &url)
     Download *newDownload = new Download(this);
 
     if (newDownload->newDownload(QUrl(url))) {
-        startRequest(newDownload);
+        this->startRequest(newDownload);
     }
 }
 

@@ -1,4 +1,4 @@
-0000-00-00 Alireza Savand <alireza.savand@gmail.com>
+2014-02-22 Alireza Savand <alireza.savand@gmail.com>
     * Feature #43: Qt4 backward compatibility.
     * Fix #39: Handle HTTP redirect.
     * Feature #36: Add a simple README file.

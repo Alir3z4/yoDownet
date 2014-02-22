@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
     a.setApplicationName(QObject::tr("yoDownet"));
-    a.setApplicationVersion("2014.02.21");
+    a.setApplicationVersion("2014.02.22");
     a.setOrganizationName("Alir3z4");
     a.setOrganizationDomain("yodownet.sourceforge.net");
 

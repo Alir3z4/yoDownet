@@ -1,5 +1,6 @@
 0000-00-00 Alireza Savand <alireza.savand@gmail.com>
     * Feature #43: Qt4 backward compatibility.
+    * Fix #39: Handle HTTP redirect.
 
 2014-02-21 Alireza Savand <alireza.savand@gmail.com>
     * Fixed sqlscript.path to installed in correct path.

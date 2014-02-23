@@ -144,7 +144,7 @@ void MainWindow::on_resumeAction_triggered()
     }
 
     foreach (QModelIndex idx, indexList) {
-        QUuid uuid = QUuid(ui->urlView->model()->data(ui->urlView->model()->index(idx.row(), DownloadConstants::Attributes::Uuid)).toByteArray());
+        QUuid uuid = QUuid(ui->urlView->model()->data(ui->urlView->model()->index(idx.row(), DownloadConstants::Attributes::Uuid)).toString());
         QString url = ui->urlView->model()->data(ui->urlView->model()->index(idx.row(), DownloadConstants::Attributes::URL)).toString();
         QString fileName = ui->urlView->model()->data(ui->urlView->model()->index(idx.row(), DownloadConstants::Attributes::FileName)).toString();
 

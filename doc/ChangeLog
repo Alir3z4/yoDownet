@@ -3,6 +3,7 @@
     * Feature #50: Remove PrefDataBaseWidget.
     * Feature #51: Add new logo designed by Amir!!!.
     * Update readme with pkgs, build sections.
+    * Fix #52: QUuid initialization error.
 
 
 2014-02-22-1 Alireza Savand <alireza.savand@gmail.com>

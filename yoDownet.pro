@@ -131,7 +131,8 @@ TRANSLATIONS += translations/yodownet_en.ts \
     translations/yodownet_et.ts \
     translations/yodownet_fa.ts \
     translations/yodownet_tr.ts \
-    translations/yodownet_vi.ts
+    translations/yodownet_vi.ts \
+    translations/yodownet_nl.ts
 
 OTHER_FILES += \
     doc/COPYING \

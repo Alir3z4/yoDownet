@@ -140,7 +140,7 @@ QMap<QString, QString> Languages::translations()
 //    m["nd"] = tr("Ndebele");
 //    m["ne"] = tr("Nepali");
 //    m["ng"] = tr("Ndonga");
-//    m["nl"] = tr("Dutch");
+    m["nl"] = tr("Dutch");
 //    m["nn"] = tr("Norwegian");
 //    m["no"] = tr("Norwegian");
 //    m["nr"] = tr("Ndebele");

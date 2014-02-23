@@ -178,6 +178,11 @@ http://sourceforge.net/projects/yodownet/
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../util/languages.cpp" line="143"/>
+        <source>Dutch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../util/languages.cpp" line="192"/>
         <source>Turkish</source>
         <translation type="unfinished"></translation>

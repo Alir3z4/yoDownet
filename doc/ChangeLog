@@ -4,6 +4,8 @@
     * Feature #51: Add new logo designed by Amir!!!.
     * Update readme with pkgs, build sections.
     * Fix #52: QUuid initialization error.
+    * Fix removing URL from mainwindow by UUID lookup.
+    * Add Dutch translation.
 
 
 2014-02-22-1 Alireza Savand <alireza.savand@gmail.com>

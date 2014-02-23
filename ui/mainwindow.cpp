@@ -220,8 +220,8 @@ void MainWindow::updateUrlsTable(const Download *download)
     QAbstractItemModel *updateModel = ui->urlView->model();
 
     for (int i = 0; i < ui->urlView->model()->rowCount(); ++i) {
-        if (updateModel->data(updateModel->index(i, DownloadConstants::Attributes::URL)).toString() == download->url().toString()) {
-            updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::Uuid), QVariant(download->uuid()));
+        if (QUuid(updateModel->data(updateModel->index(i, DownloadConstants::Attributes::Uuid)).toString()) == download->uuid()) {
+            updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::URL), QVariant(download->url()));
             updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::FileName), download->name());
             updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::SavePath), download->path());
             updateModel->setData(updateModel->index(i, DownloadConstants::Attributes::Status), download->status()->downloadStatus());
@@ -236,7 +236,7 @@ void MainWindow::updateUrlsTable(const Download *download)
     if (!urlExist) {
         ui->urlView->model()->insertRow(ui->urlView->model()->rowCount());
         int row = ui->urlView->model()->rowCount()-1;
-        ui->urlView->model()->setData(ui->urlView->model()->index(row, DownloadConstants::Attributes::URL), download->url());
+        ui->urlView->model()->setData(ui->urlView->model()->index(row, DownloadConstants::Attributes::Uuid), download->uuid().toString());
 
         _message->addMessage(
                     tr("New Download"),

@@ -18,6 +18,7 @@ yoDownet has been translated into below languages:
 * Persian
 * Turkish
 * Vietnamese
+* Dutch
 
 #### Translations status
 

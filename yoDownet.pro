@@ -137,7 +137,7 @@ OTHER_FILES += \
     doc/COPYING \
     LicenseTemplate \
     installers/archlinux/PKGBUILD \
-    resource/images/yoDownet_64.svg \
+    resource/images/yoDownet_64.png \
     doc/ChangeLog \
     README.md
 

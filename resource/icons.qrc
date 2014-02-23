@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/icons">
-        <file>images/yoDownet_64.svg</file>
+        <file>images/yoDownet_64.png</file>
     </qresource>
 </RCC>

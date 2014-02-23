@@ -2,7 +2,7 @@
 [Desktop Entry]
 Categories=Qt;Internet;Download;Network;
 Comment=yoDownet, The Previous Generation Graphical Download Manager, Implemented on Qt
-Icon=yoDownet_64.svg
+Icon=yoDownet_64.png
 Exec=yoDownet
 Name=yoDownet
 Type=Application

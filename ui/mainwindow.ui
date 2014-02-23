@@ -72,7 +72,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="fileMenu">
@@ -222,7 +222,7 @@
   <action name="aboutyoDownetAction">
    <property name="icon">
     <iconset resource="../resource/icons.qrc">
-     <normaloff>:/icons/images/yoDownet_64.svg</normaloff>:/icons/images/yoDownet_64.svg</iconset>
+     <normaloff>:/icons/images/yoDownet_64.png</normaloff>:/icons/images/yoDownet_64.png</iconset>
    </property>
    <property name="text">
     <string>About yo&amp;Downet</string>

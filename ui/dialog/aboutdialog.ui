@@ -58,7 +58,7 @@
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="../../resource/icons.qrc">:/icons/images/yoDownet_64.svg</pixmap>
+          <pixmap resource="../../resource/icons.qrc">:/icons/images/yoDownet_64.png</pixmap>
          </property>
          <property name="wordWrap">
           <bool>false</bool>

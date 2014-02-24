@@ -26,7 +26,7 @@ yoDownet has been translated into below languages:
 
 We're handling translations via transifex which rocks **<3**
 
-[transifex.com/projects/p/yodownet](https://www.transifex.com/projects/p/yodownet/)
+[transifex.com/projects/p/yodownet][Transifex]
 
 
 ### Gnu/Linux installer packages
@@ -96,6 +96,17 @@ $ qmake "CONFIG += qtestlib console"
 yoDownet is released under GPLv3. Free and OpenSource ;)
 
 
+### Resuorces
+* [SourceForge homepage][SourceForgeHomePage]
+* [Blog][Blog]
+* [Github repo][GithubRepo]
+* [Issue tracker][IssueTracker]
+* [Documentation][wiki]
+* [Translations][Transifex]
+* [Mailing list][MailMan]
+* [Source code archive][SourceArchive]
+
+
 
 [Qt]: http://qt-project.org/
 [qmake]: http://en.wikipedia.org/wiki/Qmake
@@ -108,3 +119,11 @@ yoDownet is released under GPLv3. Free and OpenSource ;)
 [frugalwarLinuxi686]: http://frugalware.org/packages/152626
 [frugalwarLinuxX86_64]: http://frugalware.org/packages/152625
 [yoDownetHaikuwarePkg]: http://haikuware.com/directory/view-details/internet-network/utilities/yodownet-download-manager
+[SourceForgeHomePage]: http://sf.net/p/yodownet/
+[Blog]: https://sourceforge.net/p/yodownet/blog/
+[GithubRepo]: https://github.com/Alir3z4/yoDownet
+[IssueTracker]: https://github.com/Alir3z4/yoDownet/issues
+[wiki]: https://github.com/Alir3z4/yoDownet/wiki
+[Transifex]: https://www.transifex.com/projects/p/yodownet/
+[MailMan]: https://sourceforge.net/p/yodownet/mailman/
+[SourceArchive]: https://sourceforge.net/projects/yodownet/files/sources/

@@ -1,3 +1,6 @@
+0000-00-00 Alireza Savand <alireza.savand@gmail.com>
+   * Add OS2 package to README.
+
 2014-03-09 Alireza Savand <alireza.savand@gmail.com>
     * Fix #56: Crash when downloading from bitbucket.
     * Add Czech translation.

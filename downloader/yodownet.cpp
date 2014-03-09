@@ -86,8 +86,10 @@ void yoDownet::removeDownload(const QUuid &uuid)
 void yoDownet::replyMetaDataChanged(QObject *currentReply)
 {
     QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->find(qobject_cast<QNetworkReply*>(currentReply));
-    Status *status = _statusHash->find(i.key()->url()).value();
-    status->setBytesTotal(i.key()->header(QNetworkRequest::ContentLengthHeader).toULongLong());
+    QNetworkReply *reply = i.key();
+    Status *status = _statusHash->find(reply->url()).value();
+
+    status->setBytesTotal(reply->header(QNetworkRequest::ContentLengthHeader).toULongLong());
 }
 
 void yoDownet::startRequest(Download *newDownload)

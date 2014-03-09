@@ -45,6 +45,8 @@ Here you can get a list of packages available for specific Linux distro.
 #### Haikuware
 * [yoDownet][yoDownetHaikuwarePkg]: [_Giovanni Mugnai (Giova84)_](http://haikuware.com/giova84/)
 
+#### OS2
+* ftp://ftp.netlabs.org/pub/qtapps/yoDownet-2014.03.9-os2.7z: _Elbert Pol_
 
 
 ### Build

@@ -50,7 +50,7 @@ QMap<QString, QString> Languages::translations()
 //    m["ce"] = tr("Chechen");
 //    m["co"] = tr("Corsican");
 //    m["cr"] = tr("Cree");
-//    m["cs"] = tr("Czech");
+    m["cs"] = tr("Czech");
 //    m["cu"] = tr("Church");
 //    m["cv"] = tr("Chuvash");
 //    m["cy"] = tr("Welsh");

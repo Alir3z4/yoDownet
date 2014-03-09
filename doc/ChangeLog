@@ -1,6 +1,7 @@
 0000-00-00 Alireza Savand <alireza.savand@gmail.com>
     * Fix #56: Crash when downloading from bitbucket
     * Little code cleanupinto!
+    * Add Czech translation.
 
 2014-02-23 Alireza Savand <alireza.savand@gmail.com>
     * Feature #49: Remove yoMessage class.

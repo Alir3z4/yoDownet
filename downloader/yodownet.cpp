@@ -86,8 +86,10 @@ void yoDownet::removeDownload(const QUuid &uuid)
 void yoDownet::replyMetaDataChanged(QObject *currentReply)
 {
     QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->find(qobject_cast<QNetworkReply*>(currentReply));
-    Status *status = _statusHash->find(i.key()->url()).value();
-    status->setBytesTotal(i.key()->header(QNetworkRequest::ContentLengthHeader).toULongLong());
+    QNetworkReply *reply = i.key();
+    Status *status = _statusHash->find(reply->url()).value();
+
+    status->setBytesTotal(reply->header(QNetworkRequest::ContentLengthHeader).toULongLong());
 }
 
 void yoDownet::startRequest(Download *newDownload)
@@ -142,15 +144,16 @@ void yoDownet::startRequest(Download *newDownload)
 void yoDownet::httpReadyRead(QObject *currentReply)
 {
     QHash<QNetworkReply*, Download*>::iterator i = _downloadHash->find(qobject_cast<QNetworkReply*>(currentReply));
-    if (i.value()->file()) {
-        Status *status = _statusHash->find(i.key()->url()).value();
-        if (i.value()->file()->size() == status->bytesTotal()) {
-            i.key()->close();
-        } else if (i.value()->file()->size() < status->bytesTotal()) {
-            i.value()->file()->write(i.key()->readAll());
-            status->setDownloadStatus(Status::Downloading);
-            emit downloadUpdated(i.value());
-        }
+    QNetworkReply *reply = i.key();
+    Download *download = i.value();
+
+    if (download->file()) {
+        Status *status = download->status();
+        download->file()->write(reply->readAll());
+        status->setDownloadStatus(Status::Downloading);
+
+        emit downloadUpdated(download);
+
     }
 }
 

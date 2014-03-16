@@ -34,8 +34,8 @@ We're handling translations via transifex which rocks **<3**
 Here you can get a list of packages available for specific Linux distro.
 
 #### Arch Linux
-* [yodownet][ArchlinuxAUR] _AUR pkg_ - __[Alir3z4][Alir3z4Account]__
-* [yodownet-git][ArchlinuxAURgit] _AUR git pkg_ - __[Alir3z4][Alir3z4Account]__
+* [yodownet][ArchlinuxAUR] _AUR pkg_ - __[Alireza Savand][Alir3z4Account]__
+* [yodownet-git][ArchlinuxAURgit] _AUR git pkg_ - __[Alireza Savand][Alir3z4Account]__
 
 
 #### Frugalware
@@ -47,6 +47,9 @@ Here you can get a list of packages available for specific Linux distro.
 
 #### OS2
 * ftp://ftp.netlabs.org/pub/qtapps/yoDownet-2014.03.9-os2.7z: _Elbert Pol_
+
+#### Debain/Ubuntu
+* [yoDownet Launchpad PPA][yoDownetLaunchpadPPA]: __[Alireza Savand][Alir3z4Account]__
 
 
 ### Build
@@ -122,6 +125,7 @@ yoDownet is released under GPLv3. Free and OpenSource ;)
 [frugalwarLinuxi686]: http://frugalware.org/packages/152626
 [frugalwarLinuxX86_64]: http://frugalware.org/packages/152625
 [yoDownetHaikuwarePkg]: http://haikuware.com/directory/view-details/internet-network/utilities/yodownet-download-manager
+[yoDownetLaunchpadPPA]: https://launchpad.net/~alir3z4/+archive/yodownet
 [SourceForgeHomePage]: http://sf.net/p/yodownet/
 [Blog]: https://sourceforge.net/p/yodownet/blog/
 [GithubRepo]: https://github.com/Alir3z4/yoDownet

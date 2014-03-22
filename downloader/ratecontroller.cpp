@@ -49,3 +49,8 @@ int RateController::downloadLimit() const
 {
     return downLimit;
 }
+
+void RateController::setUploadLimit(int bytesPerSecond)
+{
+    upLimit = bytesPerSecond;
+}

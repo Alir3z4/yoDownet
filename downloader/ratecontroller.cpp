@@ -44,3 +44,8 @@ int RateController::uploadLimit() const
 {
     return upLimit;
 }
+
+int RateController::downloadLimit() const
+{
+    return downLimit;
+}

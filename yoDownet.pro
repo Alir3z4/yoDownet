@@ -81,7 +81,8 @@ SOURCES += main.cpp\
     download/status.cpp \
     download/downloadtablemodel.cpp \
     download/downloadholder.cpp \
-    core/logme.cpp
+    core/logme.cpp \
+    downloader/ratecontrollertcpsocket.cpp
 
 HEADERS  += ui/mainwindow.h \
     ui/dialog/preferencesdialog.h \
@@ -105,7 +106,8 @@ HEADERS  += ui/mainwindow.h \
     download/downloadtablemodel.h \
     download/downloadholder.h \
     core/logme.h \
-    download/downloadconstants.h
+    download/downloadconstants.h \
+    downloader/ratecontrollertcpsocket.h
 
 contains(CONFIG, testlib){
     DEFINES += TESTING

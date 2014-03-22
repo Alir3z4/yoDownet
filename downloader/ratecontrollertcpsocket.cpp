@@ -44,4 +44,20 @@ qint64 RateControllerTcpSocket::writeToNetwork(qint64 maxLen)
 
     return bytesWritten;
 }
+
+qint64 RateControllerTcpSocket::readFromNetwork(qint64 maxLen)
+{
+    int oldSize = incoming.size();
+    incoming.resize(incoming.size() + maxLen);
+    qint64 bytesRead = QTcpSocket::readData(
+                incoming.data() + oldSize, maxLen
+    );
+    incoming.resize(bytesRead <= 0 ? oldSize : oldSize + bytesRead);
+
+    if (bytesRead > 0) {
+        emit readyRead();
+    }
+
+    return bytesRead;
+}
 }

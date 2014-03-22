@@ -82,6 +82,7 @@ SOURCES += main.cpp\
     download/downloadtablemodel.cpp \
     download/downloadholder.cpp \
     core/logme.cpp \
+    downloader/ratecontroller.cpp \
     downloader/ratecontrollertcpsocket.cpp
 
 HEADERS  += ui/mainwindow.h \
@@ -107,6 +108,7 @@ HEADERS  += ui/mainwindow.h \
     download/downloadholder.h \
     core/logme.h \
     download/downloadconstants.h \
+    downloader/ratecontroller.h \
     downloader/ratecontrollertcpsocket.h
 
 contains(CONFIG, testlib){

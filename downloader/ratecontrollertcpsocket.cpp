@@ -85,6 +85,11 @@ qint64 RateControllerTcpSocket::bytesAvailable() const
     return incoming.size();
 }
 
+qint64 RateControllerTcpSocket::networkBytesAvailable() const
+{
+    return QTcpSocket::bytesAvailable();
+}
+
 qint64 RateControllerTcpSocket::readData(char *data, qint64 maxlen)
 {
     int bytesRead = qMin<int>(maxlen, incoming.size());

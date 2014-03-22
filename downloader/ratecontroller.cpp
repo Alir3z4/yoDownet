@@ -63,3 +63,14 @@ void RateController::setDownloadLimit(int bytesPerSecond)
         socket->setReadBufferSize(downLimit * 2);
     }
 }
+
+void RateController::scheduleTransfer()
+{
+    if (transferScheduled) {
+        return;
+    }
+
+    transferScheduled = true;
+
+    QTimer::singleShot(50, this, SLOT(transfer()));
+}

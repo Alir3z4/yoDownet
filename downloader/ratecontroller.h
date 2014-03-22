@@ -39,6 +39,10 @@ public:
     int downloadLimit() const;
     void setUploadLimit(int bytesPerSecond);
     void setDownloadLimit(int bytesPerSecond);
+
+
+public slots:
+    void scheduleTransfer();
 };
 
 #endif // RATECONTROLLER_H

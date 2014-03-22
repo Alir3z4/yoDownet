@@ -23,6 +23,9 @@
 RateControllerTcpSocket::RateControllerTcpSocket(QObject *parent) :
     QTcpSocket(parent)
 {
+    connect(this, SIGNAL(readyRead()), this, SIGNAL(readyToTransfer()));
+    connect(this, SIGNAL(connected()), this, SIGNAL(readyToTransfer()));
+}
 
 bool RateControllerTcpSocket::canReadLine() const
 {

@@ -28,4 +28,20 @@ bool RateControllerTcpSocket::canReadLine() const
 {
     return incoming.contains('\n');
 }
+
+qint64 RateControllerTcpSocket::writeToNetwork(qint64 maxLen)
+{
+    qint64 bytesWritten = QTcpSocket::writeData(
+                outgoing.data(),
+                qMin(maxLen, qint64(outgoing.size()))
+    );
+
+    if (bytesWritten <= 0) {
+        return bytesWritten;
+    }
+
+    outgoing.remove(0, bytesWritten);
+
+    return bytesWritten;
+}
 }

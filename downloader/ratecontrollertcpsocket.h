@@ -30,6 +30,8 @@ public:
     explicit RateControllerTcpSocket(QObject *parent = 0);
 
     bool canReadLine() const;
+
+    qint64 writeToNetwork(qint64 maxLen);
 private:
     QByteArray outgoing;
     QByteArray incoming;

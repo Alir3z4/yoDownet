@@ -81,4 +81,22 @@ qint64 RateControllerTcpSocket::bytesAvailable() const
 
     return incoming.size();
 }
+
+qint64 RateControllerTcpSocket::readData(char *data, qint64 maxlen)
+{
+    int bytesRead = qMin<int>(maxlen, incoming.size());
+    memcpy(data, incoming.constData(), bytesRead);
+    incoming.remove(0, bytesRead);
+
+    if (state() != ConnectedState) {
+        QByteArray buffer;
+        buffer.resize(QTcpSocket::bytesAvailable());
+
+        QTcpSocket::readData(buffer.data(), buffer.size());
+
+        incoming += buffer;
+    }
+
+    return qint64(bytesRead);
+}
 }

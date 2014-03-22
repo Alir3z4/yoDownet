@@ -40,6 +40,9 @@ public:
 
 signals:
     void readyToTransfer();
+
+protected:
+    qint64 readData(char *data, qint64 maxlen);
 private:
     QByteArray outgoing;
     QByteArray incoming;

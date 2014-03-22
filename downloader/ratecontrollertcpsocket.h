@@ -43,6 +43,7 @@ signals:
 
 protected:
     qint64 readData(char *data, qint64 maxlen);
+    qint64 readLineData(char *data, qint64 maxlen);
 private:
     QByteArray outgoing;
     QByteArray incoming;

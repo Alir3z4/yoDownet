@@ -99,4 +99,9 @@ qint64 RateControllerTcpSocket::readData(char *data, qint64 maxlen)
 
     return qint64(bytesRead);
 }
+
+qint64 RateControllerTcpSocket::readLineData(char *data, qint64 maxlen)
+{
+    return QIODevice::readLineData(data, maxlen);
+}
 }

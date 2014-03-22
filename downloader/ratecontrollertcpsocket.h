@@ -30,6 +30,9 @@ public:
     explicit RateControllerTcpSocket(QObject *parent = 0);
 
     bool canReadLine() const;
+private:
+    QByteArray outgoing;
+    QByteArray incoming;
 };
 
 #endif // RATECONTROLLERTCPSOCKET_H

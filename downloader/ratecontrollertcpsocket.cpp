@@ -23,4 +23,9 @@
 RateControllerTcpSocket::RateControllerTcpSocket(QObject *parent) :
     QTcpSocket(parent)
 {
+
+bool RateControllerTcpSocket::canReadLine() const
+{
+    return incoming.contains('\n');
+}
 }

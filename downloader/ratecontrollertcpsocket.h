@@ -29,6 +29,7 @@ class RateControllerTcpSocket : public QTcpSocket
 public:
     explicit RateControllerTcpSocket(QObject *parent = 0);
 
+    bool canReadLine() const;
 };
 
 #endif // RATECONTROLLERTCPSOCKET_H

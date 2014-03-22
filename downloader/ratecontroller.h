@@ -42,6 +42,7 @@ public:
 
 
 public slots:
+    void transfer();
     void scheduleTransfer();
 
 

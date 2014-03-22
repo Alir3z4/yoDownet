@@ -38,6 +38,7 @@ public:
     int uploadLimit() const;
     int downloadLimit() const;
     void setUploadLimit(int bytesPerSecond);
+    void setDownloadLimit(int bytesPerSecond);
 };
 
 #endif // RATECONTROLLER_H

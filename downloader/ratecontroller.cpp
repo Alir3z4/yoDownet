@@ -54,3 +54,12 @@ void RateController::setUploadLimit(int bytesPerSecond)
 {
     upLimit = bytesPerSecond;
 }
+
+void RateController::setDownloadLimit(int bytesPerSecond)
+{
+    downLimit = bytesPerSecond;
+
+    foreach (RateControllerTcpSocket *socket, sockets) {
+        socket->setReadBufferSize(downLimit * 2);
+    }
+}

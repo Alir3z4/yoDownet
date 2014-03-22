@@ -104,4 +104,14 @@ qint64 RateControllerTcpSocket::readLineData(char *data, qint64 maxlen)
 {
     return QIODevice::readLineData(data, maxlen);
 }
+
+qint64 RateControllerTcpSocket::writeData(const char *data, qint64 len)
+{
+    int oldSize = outgoing.size();
+    outgoing.reserve(oldSize + len);
+    memcpy(outgoing.data() + oldSize, data, len);
+
+    emit readyToTransfer();
+
+    return len;
 }

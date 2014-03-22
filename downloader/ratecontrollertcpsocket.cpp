@@ -67,4 +67,18 @@ bool RateControllerTcpSocket::canTransferMore() const
             || !outgoing.isEmpty()
             || QTcpSocket::bytesAvailable() > 0 ;
 }
+
+qint64 RateControllerTcpSocket::bytesAvailable() const
+{
+    if (state() != ConnectedState) {
+        QByteArray buffer;
+        buffer.resize(QTcpSocket::bytesAvailable());
+
+        RateControllerTcpSocket *that = const_cast<RateControllerTcpSocket *>(this);
+        that->QTcpSocket::readData(buffer.data(), buffer.size());
+        that->incoming += buffer;
+    }
+
+    return incoming.size();
+}
 }

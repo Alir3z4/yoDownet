@@ -35,6 +35,7 @@ public:
     qint64 readFromNetwork(qint64 maxLen);
 
     bool canTransferMore() const;
+    qint64 bytesAvailable() const;
 private:
     QByteArray outgoing;
     QByteArray incoming;

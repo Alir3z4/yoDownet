@@ -43,6 +43,15 @@ public:
 
 public slots:
     void scheduleTransfer();
+
+
+private:
+    QTime stopWatch;
+    QSet<RateControllerTcpSocket *> sockets;
+    int upLimit;
+    int downLimit;
+    bool transferScheduled;
+
 };
 
 #endif // RATECONTROLLER_H

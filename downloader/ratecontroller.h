@@ -32,6 +32,7 @@ public:
     explicit RateController(QObject *parent = 0)
         : QObject(parent), transferScheduled(false) {}
 
+    void addSocket(RateControllerTcpSocket *socket);
 };
 
 #endif // RATECONTROLLER_H

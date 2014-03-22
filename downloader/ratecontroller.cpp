@@ -19,3 +19,15 @@
 ****************************************************************************************/
 
 #include "ratecontroller.h"
+#include <QtCore/QTimer>
+
+
+void RateController::addSocket(RateControllerTcpSocket *socket)
+{
+    connect(socket, SIGNAL(readyToTransfer()), this, SLOT(transfer()));
+
+    socket->setReadBufferSize(downLimit * 2);
+    sockets.insert(socket);
+
+    scheduleTransfer();
+}

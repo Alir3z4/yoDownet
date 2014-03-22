@@ -36,6 +36,7 @@ public:
 
     bool canTransferMore() const;
     qint64 bytesAvailable() const;
+    qint64 networkBytesAvailable() const;
 private:
     QByteArray outgoing;
     QByteArray incoming;

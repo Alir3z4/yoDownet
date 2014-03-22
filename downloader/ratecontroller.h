@@ -34,6 +34,8 @@ public:
 
     void addSocket(RateControllerTcpSocket *socket);
     void removeSocket(RateControllerTcpSocket *socket);
+
+    int uploadLimit() const;
 };
 
 #endif // RATECONTROLLER_H

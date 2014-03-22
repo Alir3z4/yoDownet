@@ -39,3 +39,8 @@ void RateController::removeSocket(RateControllerTcpSocket *socket)
     socket->setReadBufferSize(0);
     sockets.remove(socket);
 }
+
+int RateController::uploadLimit() const
+{
+    return upLimit;
+}

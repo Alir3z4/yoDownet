@@ -60,4 +60,11 @@ qint64 RateControllerTcpSocket::readFromNetwork(qint64 maxLen)
 
     return bytesRead;
 }
+
+bool RateControllerTcpSocket::canTransferMore() const
+{
+    return !incoming.isEmpty()
+            || !outgoing.isEmpty()
+            || QTcpSocket::bytesAvailable() > 0 ;
+}
 }

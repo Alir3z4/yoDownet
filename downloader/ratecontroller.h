@@ -33,6 +33,7 @@ public:
         : QObject(parent), transferScheduled(false) {}
 
     void addSocket(RateControllerTcpSocket *socket);
+    void removeSocket(RateControllerTcpSocket *socket);
 };
 
 #endif // RATECONTROLLER_H

@@ -31,3 +31,11 @@ void RateController::addSocket(RateControllerTcpSocket *socket)
 
     scheduleTransfer();
 }
+
+void RateController::removeSocket(RateControllerTcpSocket *socket)
+{
+    disconnect(socket, SIGNAL(readyToTransfer()), this, SLOT(transfer()));
+
+    socket->setReadBufferSize(0);
+    sockets.remove(socket);
+}
